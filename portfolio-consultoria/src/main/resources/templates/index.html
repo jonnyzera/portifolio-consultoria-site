@@ -126,7 +126,7 @@
       .navbar-nav .nav-link {
         transition: color 0.3s ease, box-shadow 0.3s ease; /* Transição para o box-shadow */
         padding: 8px 12px; /* Aumenta o padding para o círculo */
-        border-radius: 50px; /* Borda arredondada para o halo */
+        border-radius: 50px; /* Borda arredendada para o halo */
       }
 
       .navbar-nav .nav-link:hover,
@@ -181,6 +181,46 @@
           display: none;
         }
       }
+
+      /* NOVO: Estilo para o Botão Flutuante do WhatsApp */
+      #whatsapp-button {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        z-index: 1000;
+        background-color: #25d366; /* Verde WhatsApp */
+        color: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem; /* Tamanho do ícone */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        text-decoration: none;
+      }
+
+      #whatsapp-button:hover {
+        background-color: #128c7e; /* Verde mais escuro no hover */
+        transform: scale(1.1);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+      }
+
+      /* NOVO: Estilo de tag dev, baseado no seu CSS */
+      .badge-dev-style {
+        display: inline-flex;
+        align-items: center;
+        border-radius: 0.25rem; /* de border-radius: .25rem; */
+        background-color: #000; /* de background-color: rgb(0 0 0...); */
+        color: #c4c4cc; /* de color: rgb(196 196 204...); */
+        padding: 0.25rem 0.5rem; /* de padding: .5rem; (ajustado para ficar sutil) */
+        font-size: 0.8em;
+        font-weight: 600;
+        font-family: "Inter", sans-serif; /* Usando a fonte Inter que já estava no projeto */
+        vertical-align: baseline; /* Alinha melhor com o texto ao redor */
+      }
     </style>
   </head>
   <body data-bs-theme="light">
@@ -230,27 +270,22 @@
     <main>
       <section id="hero" class="hero-section py-5 text-center bg-light">
         <div class="container py-5">
-          <img
-            th:src="@{/img/profile.jpg}"
-            class="rounded-circle mb-4 shadow-lg border border-5 border-primary"
-            alt="Seu Perfil"
-            style="width: 180px; height: 180px"
-          />
-
           <h1 class="display-4 fw-bolder text-dark mb-3">
             TRANSFORME SUA IDEIA NO PRÓXIMO NÍVEL DE ESCALABILIDADE.
           </h1>
           <p class="lead text-secondary fw-semibold">
-            Consultoria Full-Cycle: Crie Soluções Robustas e Garanta Lucro
-            Através da Otimização Digital.
+            Crie Soluções Robustas e Garanta Lucro Através da Otimização
+            Digital.
           </p>
           <!-- NOVO: Localização de Guarulhos/SP com ícone de mapa -->
+          <br />
           <p class="text-muted fw-bold">
             <i
               class="fas fa-map-marker-alt me-2"
               style="color: var(--primary-color)"
             ></i>
-            Base Operacional: Guarulhos/SP (Atendimento 100% Remoto)
+            Base Operacional: Guarulhos/SP (Atendimento
+            <span class="badge-dev-style">100% Remoto</span>)
           </p>
           <!-- FIM NOVO -->
 
@@ -277,7 +312,8 @@
               </div>
             </div>
             <p class="small text-muted mt-2">
-              Clique em **Habilidades** e veja como te levarei a 100%.
+              Clique em <strong> Habilidades </strong> e veja como te levarei a
+              100%.
             </p>
           </div>
 
@@ -285,6 +321,34 @@
             >Ver Meu Histórico de Conquistas
             <i class="fas fa-arrow-down ms-2"></i
           ></a>
+
+          <!-- INÍCIO DA NOVA SEÇÃO MOTIVACIONAL -->
+          <div class="container pt-5">
+            <div
+              class="row justify-content-center align-items-center g-4 text-center text-md-start"
+            >
+              <div class="col-auto">
+                <img
+                  th:src="@{/img/profile.jpg}"
+                  class="rounded-circle shadow-sm"
+                  alt="Seu Perfil"
+                  style="
+                    width: 80px;
+                    height: 80px;
+                    border: 3px solid var(--primary-color);
+                  "
+                />
+              </div>
+              <div class="col-md-6">
+                <p class="h6 fw-semibold text-secondary fst-italic">
+                  "A jornada para a maestria digital começa com o primeiro
+                  'build'.
+                  <span class="text-dark">Vamos construir o seu?</span>"
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- FIM DA NOVA SEÇÃO MOTIVACIONAL -->
         </div>
       </section>
 
@@ -339,9 +403,8 @@
                           Backend Core (Java/Spring)
                         </h5>
                         <p class="card-text small text-muted">
-                          Desenvolvimento de **Microserviços** e APIs REST de
-                          alta performance, com **Clean Code** e arquitetura
-                          robusta.
+                          Desenvolvimento de Microserviços e APIs REST de alta
+                          performance, com Clean Code e arquitetura robusta.
                         </p>
                         <div class="progress mt-3" style="height: 15px">
                           <div
@@ -352,7 +415,7 @@
                           </div>
                         </div>
                         <span class="badge bg-success mt-2"
-                          ><i class="fas fa-medal"></i> **MASTER LEVEL**</span
+                          ><i class="fas fa-medal"></i> MASTER LEVEL</span
                         >
                       </div>
                     </div>
@@ -367,9 +430,9 @@
                           UX/UI & Design System
                         </h5>
                         <p class="card-text small text-muted">
-                          Transformação de wireframes (**Figma**) em interfaces
+                          Transformação de wireframes (Figma) em interfaces
                           responsivas (Mobile First) e acessíveis, com foco em
-                          conversão e **Design System**.
+                          conversão e Design System.
                         </p>
                         <div class="progress mt-3" style="height: 15px">
                           <div
@@ -381,7 +444,7 @@
                           </div>
                         </div>
                         <span class="badge bg-success mt-2"
-                          ><i class="fas fa-medal"></i> **EXPERT**</span
+                          ><i class="fas fa-medal"></i> EXPERT</span
                         >
                       </div>
                     </div>
@@ -403,8 +466,8 @@
                           Estratégia Full-Cycle & Growth
                         </h5>
                         <p class="card-text small text-muted">
-                          Estratégias de Go-to-Market, **SEO Técnico**, e funil
-                          de vendas (A/B testing, Marketing Digital, Gestão de
+                          Estratégias de Go-to-Market, SEO Técnico, e funil de
+                          vendas (A/B testing, Marketing Digital, Gestão de
                           Tráfego).
                         </p>
                         <div class="progress mt-3" style="height: 15px">
@@ -417,8 +480,7 @@
                           </div>
                         </div>
                         <span class="badge bg-warning text-dark mt-2"
-                          ><i class="fas fa-star"></i> **LVL 4/5 -
-                          AVANÇADO**</span
+                          ><i class="fas fa-star"></i> LVL 4/5 - AVANÇADO</span
                         >
                       </div>
                     </div>
@@ -433,9 +495,9 @@
                           Metodologias Ágeis (Scrum/Kanban)
                         </h5>
                         <p class="card-text small text-muted">
-                          **Gestão completa de projetos**, desde a ideação
-                          (**MVP**) até o deployment contínuo (CI/CD) e
-                          otimização de fluxo de trabalho.
+                          Gestão completa de projetos, desde a ideação (MVP) até
+                          o deployment contínuo (CI/CD) e otimização de fluxo de
+                          trabalho.
                         </p>
                         <div class="progress mt-3" style="height: 15px">
                           <div
@@ -455,8 +517,7 @@
                             background-color: var(--primary-color);
                             color: white;
                           "
-                          ><i class="fas fa-star-half-alt"></i>
-                          **MASTERING**</span
+                          ><i class="fas fa-star-half-alt"></i> MASTERING</span
                         >
                       </div>
                     </div>
@@ -498,8 +559,8 @@
                           </div>
                         </div>
                         <span class="badge bg-ai mt-2"
-                          ><i class="fas fa-robot"></i> **LVL 3/5 -
-                          ESPECIALISTA**</span
+                          ><i class="fas fa-robot"></i> LVL 3/5 -
+                          ESPECIALISTA</span
                         >
                       </div>
                     </div>
@@ -725,7 +786,7 @@
             <h2 class="text-center mb-2 fw-bolder">Desbloqueie Sua Missão</h2>
             <p class="text-center text-muted mb-4">
               Inicie sua jornada de escalabilidade. Clique abaixo para enviar
-              uma mensagem pré-pronta e **descrever o seu desafio imediato**!
+              uma mensagem pré-pronta e descrever o seu desafio imediato!
             </p>
 
             <a
@@ -748,7 +809,7 @@
     <footer class="bg-dark text-white py-4">
       <div class="container text-center">
         <p class="mb-1 fw-semibold">
-          &copy; 2024 Sua Consultoria Dev. Todos os direitos reservados.
+          &copy; 2025 Sua Consultoria Dev. Todos os direitos reservados.
         </p>
         <p class="small text-muted">
           <i class="fas fa-map-marker-alt me-1"></i> Guarulhos/SP | Desenvolvido
@@ -764,6 +825,17 @@
         </div>
       </div>
     </footer>
+
+    <!-- NOVO: Botão Flutuante do WhatsApp -->
+    <a
+      id="whatsapp-button"
+      href="https://w.app/aqo1zw"
+      target="_blank"
+      aria-label="Fale conosco no WhatsApp"
+      title="Fale conosco no WhatsApp"
+    >
+      <i class="fab fa-whatsapp"></i>
+    </a>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
