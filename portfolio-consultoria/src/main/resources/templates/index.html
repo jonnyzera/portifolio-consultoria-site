@@ -21,14 +21,16 @@
     />
 
     <style>
-      /* Paleta de Cores e Variáveis */
+      /* Paleta de Cores e Variáveis - Ajustada para um look mais Tech/Vibrante */
       :root {
-        --primary-color: #4a90e2; /* Azul Elétrico (Inovação, Tech) */
+        --primary-color: #007bff; /* Azul vibrante (mais tech/claro, tipo Rocketseat) */
         --secondary-color: #3c4858; /* Cinza Escuro (Base, Profissional) */
-        --accent-color: #50e3c2; /* Verde Neon (Sucesso, Conquista - Duolingo/Rocketseat) */
-        --warning-color: #f8e71c; /* Amarelo de Destaque (CTA) */
+        --accent-color: #50e3c2; /* Verde Neon (Sucesso, Conquista) */
+        --warning-color: #ffc107; /* Amarelo (CTA) */
         --bg-light: #f8f9fa; /* Fundo leve */
-        --text-dark: #2c3e50; /* Texto principal */
+        --text-dark: #212529; /* Texto principal */
+        --ai-color: #ff9900; /* Laranja/Âmbar para IA */
+        --primary-color-rgb: 0, 123, 255; /* RGB de #007bff */
       }
 
       /* Aplicações de Cor */
@@ -52,6 +54,35 @@
         color: var(--text-dark) !important;
         font-weight: 800;
       }
+      .badge.bg-ai {
+        background-color: var(--ai-color) !important;
+        color: white !important;
+        font-weight: 800;
+      }
+      /* NOVO: Estilo para o botão WhatsApp */
+      .btn-whatsapp {
+        background-color: #25d366; /* Verde WhatsApp */
+        border-color: #25d366;
+        color: white;
+        font-weight: 800;
+        transition: all 0.2s ease-out;
+      }
+      .btn-whatsapp:hover {
+        background-color: #128c7e;
+        border-color: #128c7e;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 0.5rem 1rem rgba(37, 211, 102, 0.4) !important;
+      }
+      /* NOVO: Estilo para a caixa de Contato Gamificada */
+      .contact-card {
+        background-color: var(--bg-light);
+        border: 2px solid var(--accent-color); /* Borda de destaque */
+        border-radius: 1rem;
+        padding: 2rem;
+        box-shadow: 0 0 15px rgba(80, 227, 194, 0.3); /* Sombra suave da cor accent */
+        text-align: center;
+      }
 
       /* Tipografia */
       body {
@@ -68,13 +99,54 @@
         font-weight: 800;
       }
 
-      /* Microinterações (Efeito de Elevação) */
+      /* Microinterações (Efeito de Elevação) - Mais sutil */
       .skill-card:hover,
       .project-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.2) !important;
-        transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-          box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transform: translateY(-4px); /* Menos deslocamento */
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important; /* Sombra mais leve */
+        transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+      }
+
+      /* --- HOVER NAVBAR E CTA --- */
+
+      /* Efeito Hover no Brand (Logo) - JÁ EXISTENTE */
+      .navbar-brand {
+        padding: 8px 12px;
+        border-radius: 50px; /* Base circular */
+        transition: box-shadow 0.3s ease-out, transform 0.1s ease-out;
+      }
+
+      .navbar-brand:hover {
+        /* box-shadow suave, imitando um halo ou círculo */
+        box-shadow: 0 0 0 8px rgba(var(--primary-color-rgb), 0.1);
+        transform: scale(1.02); /* Leve crescimento para feedback */
+      }
+
+      /* Efeito Hover nos Links de Navegação (NOVO) */
+      .navbar-nav .nav-link {
+        transition: color 0.3s ease, box-shadow 0.3s ease; /* Transição para o box-shadow */
+        padding: 8px 12px; /* Aumenta o padding para o círculo */
+        border-radius: 50px; /* Borda arredondada para o halo */
+      }
+
+      .navbar-nav .nav-link:hover,
+      .navbar-nav .nav-link:focus {
+        color: var(--primary-color) !important;
+        /* Efeito de halo circular suave */
+        box-shadow: 0 0 0 4px rgba(var(--primary-color-rgb), 0.1);
+        background-color: rgba(
+          var(--primary-color-rgb),
+          0.05
+        ); /* Fundo leve para o halo */
+      }
+
+      /* Efeito Hover no Botão CTA (Amarelo) */
+      .btn-warning:hover {
+        background-color: #e0b407 !important; /* Amarelo um pouco mais escuro */
+        border-color: #e0b407 !important;
+        transform: translateY(-1px); /* Leve levantamento */
+        box-shadow: 0 0.3rem 0.6rem rgba(0, 0, 0, 0.1) !important;
+        transition: all 0.2s ease-out;
       }
 
       /* Estilo da Barra de Progresso (Gamificação) */
@@ -87,14 +159,40 @@
         border-radius: 15px;
         font-weight: 600;
       }
+
+      /* Estilo customizado para os controles do carrossel na seção skills */
+      #skillsCarousel .carousel-control-prev-icon,
+      #skillsCarousel .carousel-control-next-icon {
+        background-color: var(--primary-color); /* Fundo azul para o ícone */
+        border-radius: 50%;
+        padding: 1.5rem;
+        height: 3rem;
+        width: 3rem;
+        transition: opacity 0.15s ease;
+      }
+      #skillsCarousel .carousel-control-prev,
+      #skillsCarousel .carousel-control-next {
+        opacity: 0.8;
+        width: 10%;
+      }
+      @media (max-width: 767.98px) {
+        #skillsCarousel .carousel-control-prev,
+        #skillsCarousel .carousel-control-next {
+          display: none;
+        }
+      }
     </style>
   </head>
   <body data-bs-theme="light">
+    <!-- NAVBAR REVISADA PARA O VISUAL ROCKETSEAT/CLEAN -->
     <nav class="navbar navbar-expand-lg fixed-top bg-white shadow-sm">
       <div class="container">
+        <!-- Brand/Logo -->
         <a class="navbar-brand text-primary fw-bold" href="#hero"
           ><i class="fas fa-terminal"></i> Tech | Consultoria</a
         >
+
+        <!-- Botão Toggle para Mobile -->
         <button
           class="navbar-toggler"
           type="button"
@@ -106,8 +204,11 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
+
+        <!-- Conteúdo do Menu (Links e CTA) -->
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <!-- ms-auto empurra os links para a direita -->
             <li class="nav-item">
               <a class="nav-link fw-bold" href="#skills">Habilidades</a>
             </li>
@@ -118,9 +219,10 @@
               <a class="nav-link fw-bold" href="#consulting">Roadmap</a>
             </li>
           </ul>
-          <a href="#contact" class="btn btn-warning ms-3 fw-bold shadow"
-            >Contrate Agora!</a
-          >
+          <!-- Botão CTA alinhado à direita -->
+          <a href="#contact" class="btn btn-warning ms-lg-3 fw-bold shadow">
+            Contrate Agora!
+          </a>
         </div>
       </div>
     </nav>
@@ -136,12 +238,21 @@
           />
 
           <h1 class="display-4 fw-bolder text-dark mb-3">
-            Venda o Ecossistema. Não Apenas o Código.
+            TRANSFORME SUA IDEIA NO PRÓXIMO NÍVEL DE ESCALABILIDADE.
           </h1>
           <p class="lead text-secondary fw-semibold">
-            Consultor Full-Cycle | Spring Boot 3, Arquitetura de Microserviços e
-            Estratégias de Marketing Digital.
+            Consultoria Full-Cycle: Crie Soluções Robustas e Garanta Lucro
+            Através da Otimização Digital.
           </p>
+          <!-- NOVO: Localização de Guarulhos/SP com ícone de mapa -->
+          <p class="text-muted fw-bold">
+            <i
+              class="fas fa-map-marker-alt me-2"
+              style="color: var(--primary-color)"
+            ></i>
+            Base Operacional: Guarulhos/SP (Atendimento 100% Remoto)
+          </p>
+          <!-- FIM NOVO -->
 
           <div
             class="card p-4 mx-auto mt-4 shadow-lg border-0"
@@ -177,86 +288,277 @@
         </div>
       </section>
 
+      <!-- SEÇÃO DE HABILIDADES AGORA EM CARROSSEL COM 3 SLIDES E IA -->
       <section id="skills" class="skills-section py-5 bg-white">
         <div class="container">
           <h2 class="text-center mb-5 text-dark">
             Habilidades e Níveis Desbloqueados
           </h2>
 
-          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-            <div class="col">
-              <div class="card h-100 p-3 shadow-sm skill-card border-0">
-                <div class="card-body">
-                  <i class="fab fa-java fa-3x text-danger mb-3"></i>
-                  <h5 class="card-title fw-bold">Spring Boot & Java 17+</h5>
-                  <p class="card-text small text-muted">
-                    Desenvolvimento de APIs REST e Microserviços com foco em
-                    performance e clean code.
-                  </p>
-                  <div class="progress mt-3" style="height: 15px">
-                    <div
-                      class="progress-bar bg-success w-100"
-                      role="progressbar"
-                    >
-                      100%
+          <div
+            id="skillsCarousel"
+            class="carousel slide"
+            data-bs-ride="carousel"
+          >
+            <!-- Indicadores (Pontos de navegação) -->
+            <div class="carousel-indicators">
+              <button
+                type="button"
+                data-bs-target="#skillsCarousel"
+                data-bs-slide-to="0"
+                class="active"
+                aria-current="true"
+                aria-label="Slide 1"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#skillsCarousel"
+                data-bs-slide-to="1"
+                aria-label="Slide 2"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#skillsCarousel"
+                data-bs-slide-to="2"
+                aria-label="Slide 3"
+              ></button>
+            </div>
+
+            <div class="carousel-inner pb-5">
+              <!-- Slide 1: A BASE DO PRODUTO (Backend Core e UX/UI) -->
+              <div class="carousel-item active">
+                <div
+                  class="row row-cols-1 row-cols-md-2 g-4 justify-content-center"
+                >
+                  <!-- Backend Core -->
+                  <div class="col">
+                    <div class="card h-100 p-3 shadow-sm skill-card border-0">
+                      <div class="card-body">
+                        <i class="fab fa-java fa-3x text-danger mb-3"></i>
+                        <h5 class="card-title fw-bold">
+                          Backend Core (Java/Spring)
+                        </h5>
+                        <p class="card-text small text-muted">
+                          Desenvolvimento de **Microserviços** e APIs REST de
+                          alta performance, com **Clean Code** e arquitetura
+                          robusta.
+                        </p>
+                        <div class="progress mt-3" style="height: 15px">
+                          <div
+                            class="progress-bar bg-success w-100"
+                            role="progressbar"
+                          >
+                            100%
+                          </div>
+                        </div>
+                        <span class="badge bg-success mt-2"
+                          ><i class="fas fa-medal"></i> **MASTER LEVEL**</span
+                        >
+                      </div>
                     </div>
                   </div>
-                  <span class="badge bg-success mt-2"
-                    ><i class="fas fa-medal"></i> **MASTER LEVEL**</span
-                  >
+
+                  <!-- UX/UI & Design System -->
+                  <div class="col">
+                    <div class="card h-100 p-3 shadow-sm skill-card border-0">
+                      <div class="card-body">
+                        <i class="fab fa-figma fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title fw-bold">
+                          UX/UI & Design System
+                        </h5>
+                        <p class="card-text small text-muted">
+                          Transformação de wireframes (**Figma**) em interfaces
+                          responsivas (Mobile First) e acessíveis, com foco em
+                          conversão e **Design System**.
+                        </p>
+                        <div class="progress mt-3" style="height: 15px">
+                          <div
+                            class="progress-bar bg-success"
+                            role="progressbar"
+                            style="width: 90%"
+                          >
+                            90%
+                          </div>
+                        </div>
+                        <span class="badge bg-success mt-2"
+                          ><i class="fas fa-medal"></i> **EXPERT**</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 2: A GESTÃO E O MERCADO (Estratégia e Gestão Ágil) -->
+              <div class="carousel-item">
+                <div
+                  class="row row-cols-1 row-cols-md-2 g-4 justify-content-center"
+                >
+                  <!-- Estratégia Full-Cycle & Growth -->
+                  <div class="col">
+                    <div class="card h-100 p-3 shadow-sm skill-card border-0">
+                      <div class="card-body">
+                        <i class="fas fa-chart-line fa-3x text-info mb-3"></i>
+                        <h5 class="card-title fw-bold">
+                          Estratégia Full-Cycle & Growth
+                        </h5>
+                        <p class="card-text small text-muted">
+                          Estratégias de Go-to-Market, **SEO Técnico**, e funil
+                          de vendas (A/B testing, Marketing Digital, Gestão de
+                          Tráfego).
+                        </p>
+                        <div class="progress mt-3" style="height: 15px">
+                          <div
+                            class="progress-bar bg-warning"
+                            role="progressbar"
+                            style="width: 85%"
+                          >
+                            85%
+                          </div>
+                        </div>
+                        <span class="badge bg-warning text-dark mt-2"
+                          ><i class="fas fa-star"></i> **LVL 4/5 -
+                          AVANÇADO**</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Metodologias Ágeis (Scrum/Kanban) -->
+                  <div class="col">
+                    <div class="card h-100 p-3 shadow-sm skill-card border-0">
+                      <div class="card-body">
+                        <i class="fas fa-sitemap fa-3x text-secondary mb-3"></i>
+                        <h5 class="card-title fw-bold">
+                          Metodologias Ágeis (Scrum/Kanban)
+                        </h5>
+                        <p class="card-text small text-muted">
+                          **Gestão completa de projetos**, desde a ideação
+                          (**MVP**) até o deployment contínuo (CI/CD) e
+                          otimização de fluxo de trabalho.
+                        </p>
+                        <div class="progress mt-3" style="height: 15px">
+                          <div
+                            class="progress-bar"
+                            role="progressbar"
+                            style="
+                              width: 95%;
+                              background-color: var(--primary-color) !important;
+                            "
+                          >
+                            95%
+                          </div>
+                        </div>
+                        <span
+                          class="badge mt-2"
+                          style="
+                            background-color: var(--primary-color);
+                            color: white;
+                          "
+                          ><i class="fas fa-star-half-alt"></i>
+                          **MASTERING**</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 3: O FUTURO E OTIMIZAÇÃO (Automação de IA) -->
+              <div class="carousel-item">
+                <div
+                  class="row row-cols-1 row-cols-md-2 g-4 justify-content-center"
+                >
+                  <!-- Automação de IA e ML (NOVO) -->
+                  <div class="col">
+                    <div class="card h-100 p-3 shadow-sm skill-card border-0">
+                      <div class="card-body">
+                        <i
+                          class="fas fa-brain fa-3x mb-3"
+                          style="color: var(--ai-color)"
+                        ></i>
+                        <h5 class="card-title fw-bold">
+                          Automação Inteligente (IA/ML)
+                        </h5>
+                        <p class="card-text small text-muted">
+                          Implementação de modelos de Machine Learning para
+                          otimização de processos, análise preditiva e automação
+                          de decisões (Gemini/Deep Learning).
+                        </p>
+                        <div class="progress mt-3" style="height: 15px">
+                          <div
+                            class="progress-bar"
+                            role="progressbar"
+                            style="
+                              width: 70%;
+                              background-color: var(--ai-color) !important;
+                            "
+                          >
+                            70%
+                          </div>
+                        </div>
+                        <span class="badge bg-ai mt-2"
+                          ><i class="fas fa-robot"></i> **LVL 3/5 -
+                          ESPECIALISTA**</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Espaço vazio (para manter o layout) -->
+                  <div class="col d-none d-md-block">
+                    <div
+                      class="card h-100 p-3 shadow-sm border-0"
+                      style="
+                        background-color: var(--bg-light);
+                        border-style: dashed;
+                        border-width: 2px;
+                        border-color: #dee2e6;
+                      "
+                    >
+                      <div
+                        class="card-body text-center d-flex flex-column justify-content-center align-items-center"
+                      >
+                        <i class="fas fa-plus-circle fa-3x mb-3 text-muted"></i>
+                        <h5 class="card-title fw-bold text-muted">
+                          PRÓXIMA HABILIDADE
+                        </h5>
+                        <p class="card-text small text-muted">
+                          Sua consultoria está em constante evolução. Qual será
+                          o próximo nível a ser desbloqueado?
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div class="col">
-              <div class="card h-100 p-3 shadow-sm skill-card border-0">
-                <div class="card-body">
-                  <i class="fas fa-chart-line fa-3x text-info mb-3"></i>
-                  <h5 class="card-title fw-bold">Estratégia e Marketing</h5>
-                  <p class="card-text small text-muted">
-                    Experiência em SEO técnico, Gestão de Tráfego e CRM (para um
-                    produto vendável).
-                  </p>
-                  <div class="progress mt-3" style="height: 15px">
-                    <div
-                      class="progress-bar bg-warning"
-                      role="progressbar"
-                      style="width: 75%"
-                    >
-                      75%
-                    </div>
-                  </div>
-                  <span class="badge bg-warning text-dark mt-2"
-                    ><i class="fas fa-star"></i> **LVL 4/5 - AVANÇADO**</span
-                  >
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card h-100 p-3 shadow-sm skill-card border-0">
-                <div class="card-body">
-                  <i class="fab fa-bootstrap fa-3x text-primary mb-3"></i>
-                  <h5 class="card-title fw-bold">UX/UI e Responsividade</h5>
-                  <p class="card-text small text-muted">
-                    Criação de interfaces responsivas, acessíveis e com foco na
-                    experiência de conversão (Bootstrap 5).
-                  </p>
-                  <div class="progress mt-3" style="height: 15px">
-                    <div
-                      class="progress-bar bg-success"
-                      role="progressbar"
-                      style="width: 90%"
-                    >
-                      90%
-                    </div>
-                  </div>
-                  <span class="badge bg-success mt-2"
-                    ><i class="fas fa-medal"></i> **EXPERT**</span
-                  >
-                </div>
-              </div>
-            </div>
+            <!-- Controles (Setas) -->
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#skillsCarousel"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Anterior</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#skillsCarousel"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Próximo</span>
+            </button>
           </div>
         </div>
       </section>
@@ -412,46 +714,33 @@
       </section>
 
       <section id="contact" class="contact-section py-5 bg-white">
-        <div class="container" style="max-width: 700px">
-          <h2 class="text-center mb-4 fw-bolder">Vamos Colaborar?</h2>
-          <p class="text-center text-muted mb-5">
-            Descreva sua "Missão" e receba uma resposta estratégica em até 24h.
-          </p>
+        <div class="container" style="max-width: 500px">
+          <!-- NOVO CARD GAMIFICADO PARA CONTATO -->
+          <div class="contact-card mx-auto shadow-lg">
+            <i
+              class="fas fa-trophy fa-3x mb-3"
+              style="color: var(--accent-color)"
+            ></i>
 
-          <form action="#" method="post">
-            <div class="mb-3">
-              <label for="nome" class="form-label fw-bold">Seu Nome</label>
-              <input type="text" class="form-control p-2" id="nome" required />
-            </div>
-            <div class="mb-3">
-              <label for="email" class="form-label fw-bold"
-                >Seu Melhor E-mail</label
-              >
-              <input
-                type="email"
-                class="form-control p-2"
-                id="email"
-                required
-              />
-            </div>
-            <div class="mb-3">
-              <label for="mensagem" class="form-label fw-bold"
-                >O que você precisa que eu construa?</label
-              >
-              <textarea
-                class="form-control p-2"
-                id="mensagem"
-                rows="5"
-                required
-              ></textarea>
-            </div>
-            <button
-              type="submit"
-              class="btn btn-primary btn-lg w-100 fw-bold shadow"
+            <h2 class="text-center mb-2 fw-bolder">Desbloqueie Sua Missão</h2>
+            <p class="text-center text-muted mb-4">
+              Inicie sua jornada de escalabilidade. Clique abaixo para enviar
+              uma mensagem pré-pronta e **descrever o seu desafio imediato**!
+            </p>
+
+            <a
+              href="https://w.app/aqo1zw"
+              target="_blank"
+              class="btn btn-whatsapp btn-lg w-100 fw-bold shadow"
             >
-              <i class="fas fa-paper-plane me-2"></i> Enviar Missão
-            </button>
-          </form>
+              <i class="fab fa-whatsapp me-2"></i> Iniciar Missão de Diagnóstico
+            </a>
+
+            <p class="text-center small text-muted mt-3">
+              Resposta imediata para darmos o primeiro passo na sua estratégia.
+            </p>
+          </div>
+          <!-- FIM NOVO CARD -->
         </div>
       </section>
     </main>
@@ -461,7 +750,10 @@
         <p class="mb-1 fw-semibold">
           &copy; 2024 Sua Consultoria Dev. Todos os direitos reservados.
         </p>
-        <p class="small text-muted">Desenvolvido com Spring Boot e Java 17.</p>
+        <p class="small text-muted">
+          <i class="fas fa-map-marker-alt me-1"></i> Guarulhos/SP | Desenvolvido
+          com Spring Boot e Java 17.
+        </p>
         <div class="mt-3">
           <a href="#" class="text-white mx-2"
             ><i class="fab fa-linkedin fa-lg"></i
