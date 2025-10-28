@@ -213,8 +213,8 @@
       }
 
       /* Carrossel */
-      #skillsCarousel .carousel-control-prev-icon,
-      #skillsCarousel .carousel-control-next-icon {
+      #skillsCarouselDesktop .carousel-control-prev-icon, /* MUDADO */
+      #skillsCarouselDesktop .carousel-control-next-icon { /* MUDADO */
         background-color: var(--primary-color);
         border-radius: 50%;
         /* Ícones menores para caberem embaixo */
@@ -223,8 +223,8 @@
         width: 2.5rem;
         transition: opacity 0.15s ease;
       }
-      #skillsCarousel .carousel-control-prev,
-      #skillsCarousel .carousel-control-next {
+      #skillsCarouselDesktop .carousel-control-prev, /* MUDADO */
+      #skillsCarouselDesktop .carousel-control-next { /* MUDADO */
         /* Movidos para baixo, fora do conteúdo */
         top: auto;
         bottom: 0.5rem; /* Posicionados na base */
@@ -234,14 +234,14 @@
       }
 
       /* NOVAS REGRAS PARA AGRUPAR NO CENTRO */
-      #skillsCarousel .carousel-control-prev {
+      #skillsCarouselDesktop .carousel-control-prev { /* MUDADO */
         left: 50%;
         transform: translateX(
           -120%
         ); /* Puxa para a esquerda do centro + espaço */
         /* Remove o 'left: 0' padrão do bootstrap */
       }
-      #skillsCarousel .carousel-control-next {
+      #skillsCarouselDesktop .carousel-control-next { /* MUDADO */
         right: 50%;
         transform: translateX(
           120%
@@ -249,18 +249,59 @@
         /* Remove o 'right: 0' padrão do bootstrap */
       }
 
-      @media (max-width: 767.98px) {
-        #skillsCarousel .carousel-control-prev,
-        #skillsCarousel .carousel-control-next {
-          display: none;
-        }
-      }
-      #skillsCarousel .carousel-indicators button {
+      /* Regra @media (max-width: 767.98px) removida pois o carrossel desktop já é d-none em mobile */
+
+      #skillsCarouselDesktop .carousel-indicators button, /* MUDADO */
+      #skillsCarouselMobile .carousel-indicators button { /* ADICIONADO */
         background-color: var(--primary-color); /* Bolinhas roxas */
       }
-      /* NOVO: Move os indicadores (pontos) para cima para dar espaço às setas */
-      #skillsCarousel .carousel-indicators {
+      /* NOVO: Move os indicadores (pontos) para cima para dar espaço às setas (SÓ DESKTOP) */
+      #skillsCarouselDesktop .carousel-indicators { /* MUDADO */
         bottom: 3rem; /* Sobe os pontos */
+      }
+
+      /* NOVO: Posição dos indicadores no Mobile (mais baixo) */
+      #skillsCarouselMobile .carousel-indicators {
+        bottom: -1.5rem; /* Posição ajustada (bem mais baixo) */
+        /* MUDADO: Alinhado à direita */
+        right: 0.5rem;
+        left: auto;
+        width: auto;
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      /* NOVO: Estilos para os controles (setas) do carrossel mobile */
+      #skillsCarouselMobile .carousel-control-prev,
+      #skillsCarouselMobile .carousel-control-next {
+        top: auto; /* Remove centralização vertical */
+        bottom: -1.5rem; /* Alinha com os indicadores roxos */
+        transform: translateY(0); /* Reseta o transform vertical */
+        width: 2.5rem; /* Largura do botão */
+        height: 2.5rem; /* Altura do botão */
+        background-color: rgba(
+          var(--primary-color-rgb),
+          0.3
+        ); /* Fundo roxo semi-transparente */
+        border-radius: 50%;
+        opacity: 0.7; /* Um pouco transparente */
+        position: absolute; /* Garantir que é absolute */
+        z-index: 2; /* Mesmo z-index dos indicadores */
+      }
+      #skillsCarouselMobile .carousel-control-prev {
+        left: 0.5rem; /* MUDADO: Canto esquerdo */
+        right: auto; /* Garante que 'right' não interfira */
+        transform: none; /* MUDADO */
+      }
+      #skillsCarouselMobile .carousel-control-next {
+        left: 3.5rem; /* MUDADO: Ao lado do 'prev' (0.5rem + 2.5rem + 0.5rem) */
+        right: auto; /* MUDADO */
+        transform: none; /* MUDADO */
+      }
+      #skillsCarouselMobile .carousel-control-prev-icon,
+      #skillsCarouselMobile .carousel-control-next-icon {
+        width: 1.2rem; /* Ícone menor */
+        height: 1.2rem; /* Ícone menor */
       }
 
       /* NOVO: Estilo para o Duckzinho flutuante */
@@ -516,12 +557,16 @@
             Habilidades e Níveis Desbloqueados
           </h2>
 
-          <div id="skillsCarousel" class="carousel slide">
+          <!-- CARROSSEL DESKTOP (d-none d-md-block) -->
+          <div
+            id="skillsCarouselDesktop"
+            class="carousel slide d-none d-md-block"
+          >
             <!-- Indicadores (Pontos de navegação) -->
             <div class="carousel-indicators">
               <button
                 type="button"
-                data-bs-target="#skillsCarousel"
+                data-bs-target="#skillsCarouselDesktop"
                 data-bs-slide-to="0"
                 class="active"
                 aria-current="true"
@@ -529,13 +574,13 @@
               ></button>
               <button
                 type="button"
-                data-bs-target="#skillsCarousel"
+                data-bs-target="#skillsCarouselDesktop"
                 data-bs-slide-to="1"
                 aria-label="Slide 2"
               ></button>
               <button
                 type="button"
-                data-bs-target="#skillsCarousel"
+                data-bs-target="#skillsCarouselDesktop"
                 data-bs-slide-to="2"
                 aria-label="Slide 3"
               ></button>
@@ -752,7 +797,7 @@
             <button
               class="carousel-control-prev"
               type="button"
-              data-bs-target="#skillsCarousel"
+              data-bs-target="#skillsCarouselDesktop"
               data-bs-slide="prev"
             >
               <span
@@ -764,7 +809,278 @@
             <button
               class="carousel-control-next"
               type="button"
-              data-bs-target="#skillsCarousel"
+              data-bs-target="#skillsCarouselDesktop"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Próximo</span>
+            </button>
+          </div>
+
+          <!-- CARROSSEL MOBILE (d-block d-md-none) -->
+          <div
+            id="skillsCarouselMobile"
+            class="carousel slide d-block d-md-none"
+            data-bs-ride="carousel"
+          >
+            <!-- Indicadores (Pontos de navegação) -->
+            <div class="carousel-indicators">
+              <button
+                type="button"
+                data-bs-target="#skillsCarouselMobile"
+                data-bs-slide-to="0"
+                class="active"
+                aria-current="true"
+                aria-label="Slide 1"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#skillsCarouselMobile"
+                data-bs-slide-to="1"
+                aria-label="Slide 2"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#skillsCarouselMobile"
+                data-bs-slide-to="2"
+                aria-label="Slide 3"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#skillsCarouselMobile"
+                data-bs-slide-to="3"
+                aria-label="Slide 4"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#skillsCarouselMobile"
+                data-bs-slide-to="4"
+                aria-label="Slide 5"
+              ></button>
+            </div>
+
+            <div class="carousel-inner" style="padding-bottom: 3rem">
+              <!-- Padding menor para mobile -->
+
+              <!-- Slide 1: Metodologias Ágeis -->
+              <div class="carousel-item active">
+                <div class="row row-cols-1 g-4 justify-content-center">
+                  <div class="col">
+                    <div class="card h-100 p-3 shadow-sm skill-card border-0">
+                      <div class="card-body">
+                        <!-- Wrapper Flex -->
+                        <div class="d-flex align-items-center mb-3">
+                          <i
+                            class="fas fa-sitemap fa-3x text-secondary me-3"
+                          ></i>
+                          <h5 class="card-title fw-bold mb-0">
+                            Metodologias Ágeis (Scrum/Kanban)
+                          </h5>
+                        </div>
+                        <p class="card-text small text-muted">
+                          Gestão completa de projetos, desde a ideação (MVP) até
+                          o deployment contínuo (CI/CD) e otimização de fluxo de
+                          trabalho.
+                        </p>
+                        <div class="progress mt-3" style="height: 15px">
+                          <div
+                            class="progress-bar"
+                            role="progressbar"
+                            style="
+                              width: 95%;
+                              background-color: var(--primary-color) !important;
+                            "
+                          >
+                            95%
+                          </div>
+                        </div>
+                        <span
+                          class="badge mt-2"
+                          style="
+                            background-color: var(--primary-color);
+                            color: white;
+                          "
+                          ><i class="fas fa-star-half-alt"></i> MASTERING</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 2: UX/UI & Design System -->
+              <div class="carousel-item">
+                <div class="row row-cols-1 g-4 justify-content-center">
+                  <div class="col">
+                    <div class="card h-100 p-3 shadow-sm skill-card border-0">
+                      <div class="card-body">
+                        <!-- Wrapper Flex -->
+                        <div class="d-flex align-items-center mb-3">
+                          <i class="fab fa-figma fa-3x text-primary me-3"></i>
+                          <h5 class="card-title fw-bold mb-0">
+                            UX/UI & Design System
+                          </h5>
+                        </div>
+                        <p class="card-text small text-muted">
+                          Transformação de wireframes (Figma) em interfaces
+                          responsivas (Mobile First) e acessíveis, com foco em
+                          conversão e Design System.
+                        </p>
+                        <div class="progress mt-3" style="height: 15px">
+                          <div
+                            class="progress-bar bg-success"
+                            role="progressbar"
+                            style="width: 90%"
+                          >
+                            90%
+                          </div>
+                        </div>
+                        <span class="badge bg-success mt-2"
+                          ><i class="fas fa-medal"></i> EXPERT</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 3: Backend Core -->
+              <div class="carousel-item">
+                <div class="row row-cols-1 g-4 justify-content-center">
+                  <div class="col">
+                    <div class="card h-100 p-3 shadow-sm skill-card border-0">
+                      <div class="card-body">
+                        <!-- Wrapper Flex -->
+                        <div class="d-flex align-items-center mb-3">
+                          <i class="fab fa-java fa-3x text-danger me-3"></i>
+                          <h5 class="card-title fw-bold mb-0">
+                            Backend Core (Java/Spring)
+                          </h5>
+                        </div>
+                        <p class="card-text small text-muted">
+                          Desenvolvimento de Microserviços e APIs REST de alta
+                          performance, com Clean Code e arquitetura robusta.
+                        </p>
+                        <div class="progress mt-3" style="height: 15px">
+                          <div
+                            class="progress-bar bg-success w-100"
+                            role="progressbar"
+                          >
+                            100%
+                          </div>
+                        </div>
+                        <span class="badge bg-success mt-2"
+                          ><i class="fas fa-medal"></i> MASTER LEVEL</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 4: Automação de IA e ML -->
+              <div class="carousel-item">
+                <div class="row row-cols-1 g-4 justify-content-center">
+                  <div class="col">
+                    <div class="card h-100 p-3 shadow-sm skill-card border-0">
+                      <div class="card-body">
+                        <!-- Wrapper Flex -->
+                        <div class="d-flex align-items-center mb-3">
+                          <i
+                            class="fas fa-brain fa-3x me-3"
+                            style="color: var(--ai-color)"
+                          ></i>
+                          <h5 class="card-title fw-bold mb-0">
+                            Automação Inteligente (IA/ML)
+                          </h5>
+                        </div>
+                        <p class="card-text small text-muted">
+                          Implementação de modelos de Machine Learning para
+                          otimização de processos, análise preditiva e automação
+                          de decisões (Gemini/Deep Learning).
+                        </p>
+                        <div class="progress mt-3" style="height: 15px">
+                          <div
+                            class="progress-bar"
+                            role="progressbar"
+                            style="
+                              width: 70%;
+                              background-color: var(--ai-color) !important;
+                            "
+                          >
+                            70%
+                          </div>
+                        </div>
+                        <span class="badge bg-ai mt-2"
+                          ><i class="fas fa-robot"></i> LVL 3/5 -
+                          ESPECIALISTA</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 5: Estratégia Full-Cycle & Growth -->
+              <div class="carousel-item">
+                <div class="row row-cols-1 g-4 justify-content-center">
+                  <div class="col">
+                    <div class="card h-100 p-3 shadow-sm skill-card border-0">
+                      <div class="card-body">
+                        <!-- Wrapper Flex -->
+                        <div class="d-flex align-items-center mb-3">
+                          <i
+                            class="fas fa-chart-line fa-3x text-info me-3"
+                          ></i>
+                          <h5 class="card-title fw-bold mb-0">
+                            Estratégia Full-Cycle & Growth
+                          </h5>
+                        </div>
+                        <p class="card-text small text-muted">
+                          Estratégias de Go-to-Market, SEO Técnico, e funil de
+                          vendas (A/B testing, Marketing Digital, Gestão de
+                          Tráfego).
+                        </p>
+                        <div class="progress mt-3" style="height: 15px">
+                          <div
+                            class="progress-bar bg-warning"
+                            role="progressbar"
+                            style="width: 85%"
+                          >
+                            85%
+                          </div>
+                        </div>
+                        <span class="badge bg-warning text-dark mt-2"
+                          ><i class="fas fa-star"></i> LVL 4/5 - AVANÇADO</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Controles (Setas) - Não são necessários no mobile -->
+
+            <!-- NOVO: Controles (Setas) para Mobile -->
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#skillsCarouselMobile"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Anterior</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#skillsCarouselMobile"
               data-bs-slide="next"
             >
               <span
@@ -908,7 +1224,7 @@
               <p class="small text-muted">
                 Implementação limpa e segura (Spring Security, JPA) com testes
                 automatizados.
-              </p>
+              </para>
             </div>
 
             <div class="col-md-4 mb-4">
@@ -1010,51 +1326,93 @@
     <!-- NOVO SCRIPT: Habilita "arrastar" com mouse no carrossel de habilidades -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        const skillsCarouselElement =
-          document.getElementById("skillsCarousel");
-        if (skillsCarouselElement) {
+        // Função para inicializar o carrossel com drag
+        function initDragCarousel(carouselId, intervalValue) {
+          const carouselElement = document.getElementById(carouselId);
+          if (!carouselElement) return;
+
           // Inicializa o carrossel do Bootstrap sem auto-play
-          const skillsCarousel = new bootstrap.Carousel(skillsCarouselElement, {
-            interval: false, // Desativa o intervalo automático
+          const carouselInstance = new bootstrap.Carousel(carouselElement, {
+            interval: intervalValue, // MODIFICADO
             wrap: true, // Permite voltar do último para o primeiro
-            ride: false,
+            ride: intervalValue ? "carousel" : false, // MODIFICADO
           });
 
           let isDown = false;
           let startX;
           const threshold = 50; // Mínimo de pixels para arrastar e trocar o slide
 
-          skillsCarouselElement.addEventListener("mousedown", (e) => {
+          carouselElement.addEventListener("mousedown", (e) => {
             isDown = true;
             startX = e.pageX;
-            skillsCarouselElement.style.cursor = "grabbing"; // Muda o cursor
+            carouselElement.style.cursor = "grabbing"; // Muda o cursor
           });
 
-          skillsCarouselElement.addEventListener("mouseup", (e) => {
+          carouselElement.addEventListener("mouseup", (e) => {
             if (!isDown) return;
             isDown = false;
-            skillsCarouselElement.style.cursor = "grab"; // Restaura o cursor
+            carouselElement.style.cursor = "grab"; // Restaura o cursor
             const endX = e.pageX;
             const walk = endX - startX;
 
             if (walk < -threshold) {
               // Arrastou para a esquerda
-              skillsCarousel.next();
+              carouselInstance.next();
             } else if (walk > threshold) {
               // Arrastou para a direita
-              skillsCarousel.prev();
+              carouselInstance.prev();
             }
           });
 
-          skillsCarouselElement.addEventListener("mouseleave", () => {
+          carouselElement.addEventListener("mouseleave", () => {
             isDown = false;
-            skillsCarouselElement.style.cursor = "grab"; // Restaura o cursor
+            carouselElement.style.cursor = "grab"; // Restaura o cursor
           });
 
+          // Adiciona suporte a toque (touch) para mobile
+          carouselElement.addEventListener(
+            "touchstart",
+            (e) => {
+              isDown = true;
+              startX = e.touches[0].pageX;
+            },
+            { passive: true }
+          ); // Adiciona passive: true para melhor performance de scroll
+
+          carouselElement.addEventListener("touchend", (e) => {
+            if (!isDown) return;
+            isDown = false;
+            const endX = e.changedTouches[0].pageX;
+            const walk = endX - startX;
+
+            if (walk < -threshold) {
+              carouselInstance.next();
+            } else if (walk > threshold) {
+              carouselInstance.prev();
+            }
+          });
+
+          carouselElement.addEventListener(
+            "touchmove",
+            (e) => {
+              if (!isDown) return;
+              // Prevenir o scroll da página enquanto arrasta o carrossel pode ser útil,
+              // mas vamos deixar passivo por enquanto para evitar problemas de performance.
+            },
+            { passive: true }
+          );
+
           // Define o cursor inicial
-          skillsCarouselElement.style.cursor = "grab";
+          carouselElement.style.cursor = "grab";
         }
+
+        // Inicializa ambos os carrosséis
+        initDragCarousel("skillsCarouselDesktop", false); // Desktop: sem auto-play
+        initDragCarousel("skillsCarouselMobile", 6000); // Mobile: 6 segundos de auto-play
       });
     </script>
   </body>
 </html>
+
+
+
