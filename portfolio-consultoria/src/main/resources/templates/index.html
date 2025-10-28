@@ -21,16 +21,29 @@
     />
 
     <style>
-      /* Paleta de Cores e Variáveis - Ajustada para um look mais Tech/Vibrante */
+      /* Paleta de Cores e Variáveis - TEMA ROCKETSEAT (DARK) */
       :root {
-        --primary-color: #007bff; /* Azul vibrante (mais tech/claro, tipo Rocketseat) */
-        --secondary-color: #3c4858; /* Cinza Escuro (Base, Profissional) */
-        --accent-color: #50e3c2; /* Verde Neon (Sucesso, Conquista) */
-        --warning-color: #ffc107; /* Amarelo (CTA) */
-        --bg-light: #f8f9fa; /* Fundo leve */
-        --text-dark: #212529; /* Texto principal */
-        --ai-color: #ff9900; /* Laranja/Âmbar para IA */
-        --primary-color-rgb: 0, 123, 255; /* RGB de #007bff */
+        --primary-color: #8257e5; /* Roxo Rocketseat */
+        --secondary-color: #a8a8b3; /* Cinza claro para texto */
+        --accent-color: #04d361; /* Verde Rocketseat */
+        --warning-color: #ffc107; /* Amarelo (Mantido para alguns alertas se necessário) */
+        --bg-dark-main: #121214; /* Preto/Roxo escuro de fundo */
+        --bg-dark-card: #202024; /* Cinza escuro para cards */
+        --bg-dark-header: rgba(
+          32,
+          32,
+          38,
+          0.9
+        ); /* Fundo do header com transparência */
+        --text-light: #e1e1e6; /* Texto principal claro */
+        --text-dark: #121214; /* Oposto (para botões claros) */
+        --border-color: #323238; /* Cor da borda */
+        --primary-color-rgb: 130, 87, 229;
+        --ai-color: #ff9900; /* Laranja/Âmbar para IA (Mantido) */
+
+        /* Mapeando cores antigas para novas (para componentes existentes) */
+        --bg-light: transparent; /* Fundos claros agora são transparentes */
+        --text-dark-original: #212529; /* Salva o text-dark original */
       }
 
       /* Aplicações de Cor */
@@ -44,14 +57,27 @@
         background-color: var(--primary-color);
         border-color: var(--primary-color);
       }
-      .btn-warning {
-        background-color: var(--warning-color) !important;
-        border-color: var(--warning-color) !important;
-        color: var(--text-dark) !important;
+      /* O botão de warning agora é o ACCENT (Verde) */
+      .btn-accent {
+        background-color: var(--accent-color) !important;
+        border-color: var(--accent-color) !important;
+        color: var(
+          --text-dark-original
+        ) !important; /* Texto escuro no botão verde */
+        font-weight: 800;
+        transition: all 0.2s ease-out;
       }
+      .btn-accent:hover {
+        background-color: #03a84c !important; /* Verde mais escuro */
+        border-color: #03a84c !important;
+        color: var(--text-dark-original) !important;
+        transform: translateY(-1px);
+        box-shadow: 0 0.3rem 0.6rem rgba(0, 0, 0, 0.2) !important;
+      }
+
       .badge.bg-success {
         background-color: var(--accent-color) !important;
-        color: var(--text-dark) !important;
+        color: var(--text-dark-original) !important;
         font-weight: 800;
       }
       .badge.bg-ai {
@@ -59,9 +85,8 @@
         color: white !important;
         font-weight: 800;
       }
-      /* NOVO: Estilo para o botão WhatsApp */
       .btn-whatsapp {
-        background-color: #25d366; /* Verde WhatsApp */
+        background-color: #25d366;
         border-color: #25d366;
         color: white;
         font-weight: 800;
@@ -74,21 +99,26 @@
         transform: translateY(-2px);
         box-shadow: 0 0.5rem 1rem rgba(37, 211, 102, 0.4) !important;
       }
-      /* NOVO: Estilo para a caixa de Contato Gamificada */
       .contact-card {
-        background-color: var(--bg-light);
-        border: 2px solid var(--accent-color); /* Borda de destaque */
+        background-color: var(--bg-dark-card); /* Fundo escuro */
+        border: 2px solid var(--accent-color);
         border-radius: 1rem;
         padding: 2rem;
-        box-shadow: 0 0 15px rgba(80, 227, 194, 0.3); /* Sombra suave da cor accent */
+        box-shadow: 0 0 15px rgba(4, 211, 97, 0.3); /* Sombra verde */
         text-align: center;
       }
 
-      /* Tipografia */
+      /* Tipografia e Fundo */
       body {
         font-family: "Inter", sans-serif;
-        color: var(--text-dark);
+        color: var(--text-light); /* Texto padrão é claro */
         padding-top: 56px;
+        background-color: var(--bg-dark-main); /* Fallback de cor */
+        background-image: url("https://www.rocketseat.com.br/_next/static/media/background-min.b2ed4ea4.png");
+        background-size: cover;
+        background-position: center top; /* Começa do topo */
+        background-repeat: no-repeat;
+        background-attachment: fixed; /* Fica fixo no scroll */
       }
       h1,
       h2,
@@ -97,98 +127,176 @@
       h5,
       h6 {
         font-weight: 800;
+        color: var(
+          --text-light
+        ); /* Garante que todos os headers sejam claros */
       }
 
-      /* Microinterações (Efeito de Elevação) - Mais sutil */
-      .skill-card:hover,
-      .project-card:hover {
-        transform: translateY(-4px); /* Menos deslocamento */
-        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important; /* Sombra mais leve */
-        transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+      /* Navbar */
+      .navbar.fixed-top {
+        background-color: var(
+          --bg-dark-header
+        ); /* Fundo escuro semi-transparente */
+        backdrop-filter: blur(10px); /* Efeito de vidro */
+        border-bottom: 1px solid var(--border-color);
       }
-
-      /* --- HOVER NAVBAR E CTA --- */
-
-      /* Efeito Hover no Brand (Logo) - JÁ EXISTENTE */
       .navbar-brand {
         padding: 8px 12px;
-        border-radius: 50px; /* Base circular */
+        border-radius: 50px;
         transition: box-shadow 0.3s ease-out, transform 0.1s ease-out;
+        color: var(--primary-color) !important; /* Cor roxa no brand */
       }
-
       .navbar-brand:hover {
-        /* box-shadow suave, imitando um halo ou círculo */
         box-shadow: 0 0 0 8px rgba(var(--primary-color-rgb), 0.1);
-        transform: scale(1.02); /* Leve crescimento para feedback */
+        transform: scale(1.02);
       }
-
-      /* Efeito Hover nos Links de Navegação (NOVO) */
       .navbar-nav .nav-link {
-        transition: color 0.3s ease, box-shadow 0.3s ease; /* Transição para o box-shadow */
-        padding: 8px 12px; /* Aumenta o padding para o círculo */
-        border-radius: 50px; /* Borda arredendada para o halo */
+        transition: color 0.3s ease, box-shadow 0.3s ease;
+        padding: 8px 12px;
+        border-radius: 50px;
+        color: var(--text-light) !important; /* Texto claro nos links */
       }
-
       .navbar-nav .nav-link:hover,
       .navbar-nav .nav-link:focus {
         color: var(--primary-color) !important;
-        /* Efeito de halo circular suave */
         box-shadow: 0 0 0 4px rgba(var(--primary-color-rgb), 0.1);
-        background-color: rgba(
-          var(--primary-color-rgb),
-          0.05
-        ); /* Fundo leve para o halo */
+        background-color: rgba(var(--primary-color-rgb), 0.1);
+      }
+      /* Icone do Menu Mobile (Toggler) */
+      .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(225, 225, 230, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+      }
+      .navbar-toggler {
+        border-color: var(--border-color);
       }
 
-      /* Efeito Hover no Botão CTA (Amarelo) */
-      .btn-warning:hover {
-        background-color: #e0b407 !important; /* Amarelo um pouco mais escuro */
-        border-color: #e0b407 !important;
-        transform: translateY(-1px); /* Leve levantamento */
-        box-shadow: 0 0.3rem 0.6rem rgba(0, 0, 0, 0.1) !important;
-        transition: all 0.2s ease-out;
+      /* Cards */
+      .card {
+        background-color: var(--bg-dark-card);
+        border: 1px solid var(--border-color);
+        color: var(--text-light);
+      }
+      .card p,
+      .card .text-muted {
+        color: var(--secondary-color) !important;
+      }
+      .skill-card:hover,
+      .project-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3) !important; /* Sombra mais escura */
+        transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+        border-color: var(--primary-color); /* Borda roxa no hover */
       }
 
-      /* Estilo da Barra de Progresso (Gamificação) */
+      /* Seções */
+      #skills,
+      #projects,
+      #contact {
+        /* Fundo escuro levemente transparente para destacar os cards */
+        background-color: rgba(18, 18, 20, 0.8);
+        backdrop-filter: blur(5px);
+        margin-top: -1px;
+      }
+      #consulting {
+        background-color: var(--bg-dark-main) !important;
+      }
+
+      /* Barra de Progresso */
       .progress {
         height: 30px;
         border-radius: 15px;
-        background-color: #e9ecef;
+        background-color: var(--border-color); /* Fundo da barra escuro */
       }
       .progress-bar {
         border-radius: 15px;
         font-weight: 600;
       }
 
-      /* Estilo customizado para os controles do carrossel na seção skills */
+      /* Carrossel */
       #skillsCarousel .carousel-control-prev-icon,
       #skillsCarousel .carousel-control-next-icon {
-        background-color: var(--primary-color); /* Fundo azul para o ícone */
+        background-color: var(--primary-color);
         border-radius: 50%;
-        padding: 1.5rem;
-        height: 3rem;
-        width: 3rem;
+        /* Ícones menores para caberem embaixo */
+        padding: 0.5rem;
+        height: 2.5rem;
+        width: 2.5rem;
         transition: opacity 0.15s ease;
       }
       #skillsCarousel .carousel-control-prev,
       #skillsCarousel .carousel-control-next {
-        opacity: 0.8;
-        width: 10%;
+        /* Movidos para baixo, fora do conteúdo */
+        top: auto;
+        bottom: 0.5rem; /* Posicionados na base */
+        height: 3rem; /* Altura da área de clique */
+        opacity: 0.9; /* Um pouco mais visível */
+        width: auto; /* Tamanho automático baseado no ícone */
       }
+
+      /* NOVAS REGRAS PARA AGRUPAR NO CENTRO */
+      #skillsCarousel .carousel-control-prev {
+        left: 50%;
+        transform: translateX(
+          -120%
+        ); /* Puxa para a esquerda do centro + espaço */
+        /* Remove o 'left: 0' padrão do bootstrap */
+      }
+      #skillsCarousel .carousel-control-next {
+        right: 50%;
+        transform: translateX(
+          120%
+        ); /* Puxa para a direita do centro + espaço */
+        /* Remove o 'right: 0' padrão do bootstrap */
+      }
+
       @media (max-width: 767.98px) {
         #skillsCarousel .carousel-control-prev,
         #skillsCarousel .carousel-control-next {
           display: none;
         }
       }
+      #skillsCarousel .carousel-indicators button {
+        background-color: var(--primary-color); /* Bolinhas roxas */
+      }
+      /* NOVO: Move os indicadores (pontos) para cima para dar espaço às setas */
+      #skillsCarousel .carousel-indicators {
+        bottom: 3rem; /* Sobe os pontos */
+      }
 
-      /* NOVO: Estilo para o Botão Flutuante do WhatsApp */
+      /* NOVO: Estilo para o Duckzinho flutuante */
+      #duck-button {
+        position: fixed;
+        bottom: 25px;
+        left: 25px; /* Lado oposto do WhatsApp */
+        z-index: 1000;
+        width: 60px; /* Tamanho similar ao do WhatsApp */
+        height: 60px;
+        transition: all 0.3s ease;
+        /* Adicionando um leve drop shadow para destacar */
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+        cursor: pointer;
+      }
+      #duck-button img {
+        width: 100%;
+        height: 100%;
+      }
+      #duck-button:hover {
+        transform: scale(1.1) rotate(-10deg); /* Animação divertida */
+      }
+      /* Esconder em telas pequenas para não poluir */
+      @media (max-width: 767.98px) {
+        #duck-button {
+          display: none;
+        }
+      }
+
+      /* Botão Flutuante */
       #whatsapp-button {
         position: fixed;
         bottom: 25px;
         right: 25px;
         z-index: 1000;
-        background-color: #25d366; /* Verde WhatsApp */
+        background-color: #25d366;
         color: white;
         width: 60px;
         height: 60px;
@@ -196,39 +304,84 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 2rem; /* Tamanho do ícone */
+        font-size: 2rem;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         transition: all 0.3s ease;
         text-decoration: none;
       }
-
       #whatsapp-button:hover {
-        background-color: #128c7e; /* Verde mais escuro no hover */
+        background-color: #128c7e;
         transform: scale(1.1);
         box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
       }
 
-      /* NOVO: Estilo de tag dev, baseado no seu CSS */
+      /* Tag Dev */
       .badge-dev-style {
         display: inline-flex;
         align-items: center;
-        border-radius: 0.25rem; /* de border-radius: .25rem; */
-        background-color: #000; /* de background-color: rgb(0 0 0...); */
-        color: #c4c4cc; /* de color: rgb(196 196 204...); */
-        padding: 0.25rem 0.5rem; /* de padding: .5rem; (ajustado para ficar sutil) */
+        border-radius: 0.25rem;
+        background-color: var(--border-color); /* Fundo cinza escuro */
+        color: var(--accent-color); /* Texto verde */
+        padding: 0.25rem 0.5rem;
         font-size: 0.8em;
         font-weight: 600;
-        font-family: "Inter", sans-serif; /* Usando a fonte Inter que já estava no projeto */
-        vertical-align: baseline; /* Alinha melhor com o texto ao redor */
+        font-family: "Inter", sans-serif;
+        vertical-align: baseline;
+      }
+
+      /* Footer */
+      footer.bg-dark {
+        background-color: var(--bg-dark-main) !important;
+        border-top: 1px solid var(--border-color);
+      }
+
+      /* NOVO: Estilo de tag gradiente (do usuário) */
+      .gradient-tag {
+        display: inline-flex;
+        align-items: center;
+        background-color: #000;
+        padding: 0.5rem 1rem; /* p-2 lg:px-4 */
+        border-radius: 0.25rem; /* rounded */
+        max-height: 2.25rem; /* lg:h-9 */
+        width: fit-content;
+        border: 1px solid var(--border-color); /* Borda sutil para destacar */
+      }
+      .gradient-tag span {
+        font-family: monospace; /* font-mono */
+        font-weight: 500; /* font-medium */
+        font-size: 0.875rem; /* lg:text-sm */
+        white-space: nowrap;
+        /* Gradiente ajustado para as cores claras do tema */
+        background: linear-gradient(
+          to right,
+          var(--text-light),
+          rgba(225, 225, 230, 0.4)
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      /* NOVO: Classe utilitária para texto com gradiente */
+      .text-gradient-custom {
+        /* Gradiente ajustado para as cores claras do tema */
+        background: linear-gradient(
+          to right,
+          var(--text-light),
+          rgba(225, 225, 230, 0.4)
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
       }
     </style>
   </head>
-  <body data-bs-theme="light">
-    <!-- NAVBAR REVISADA PARA O VISUAL ROCKETSEAT/CLEAN -->
-    <nav class="navbar navbar-expand-lg fixed-top bg-white shadow-sm">
+  <body data-bs-theme="dark">
+    <!-- NAVBAR ATUALIZADA -->
+    <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
       <div class="container">
         <!-- Brand/Logo -->
-        <a class="navbar-brand text-primary fw-bold" href="#hero"
+        <a class="navbar-brand fw-bold" href="#hero"
           ><i class="fas fa-terminal"></i> Tech | Consultoria</a
         >
 
@@ -248,7 +401,6 @@
         <!-- Conteúdo do Menu (Links e CTA) -->
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <!-- ms-auto empurra os links para a direita -->
             <li class="nav-item">
               <a class="nav-link fw-bold" href="#skills">Habilidades</a>
             </li>
@@ -259,8 +411,8 @@
               <a class="nav-link fw-bold" href="#consulting">Roadmap</a>
             </li>
           </ul>
-          <!-- Botão CTA alinhado à direita -->
-          <a href="#contact" class="btn btn-warning ms-lg-3 fw-bold shadow">
+          <!-- Botão CTA ATUALIZADO (btn-accent) -->
+          <a href="#contact" class="btn btn-accent ms-lg-3 fw-bold shadow">
             Contrate Agora!
           </a>
         </div>
@@ -268,16 +420,24 @@
     </nav>
 
     <main>
-      <section id="hero" class="hero-section py-5 text-center bg-light">
+      <!-- SEÇÃO HERO (sem bg-light, texto claro) -->
+      <section id="hero" class="hero-section py-5 text-center">
         <div class="container py-5">
-          <h1 class="display-4 fw-bolder text-dark mb-3">
+          <!-- NOVO ELEMENTO INSERIDO -->
+          <div class="d-flex justify-content-center mb-3">
+            <div class="gradient-tag">
+              <span>Também é para quem_</span>
+            </div>
+          </div>
+          <!-- FIM DO NOVO ELEMENTO -->
+
+          <h1 class="display-4 fw-bolder text-light mb-3">
             TRANSFORME SUA IDEIA NO PRÓXIMO NÍVEL DE ESCALABILIDADE.
           </h1>
-          <p class="lead text-secondary fw-semibold">
+          <p class="lead fw-semibold text-gradient-custom">
             Crie Soluções Robustas e Garanta Lucro Através da Otimização
             Digital.
           </p>
-          <!-- NOVO: Localização de Guarulhos/SP com ícone de mapa -->
           <br />
           <p class="text-muted fw-bold">
             <i
@@ -287,7 +447,6 @@
             Base Operacional: Guarulhos/SP (Atendimento
             <span class="badge-dev-style">100% Remoto</span>)
           </p>
-          <!-- FIM NOVO -->
 
           <div
             class="card p-4 mx-auto mt-4 shadow-lg border-0"
@@ -317,21 +476,20 @@
             </p>
           </div>
 
-          <a href="#projects" class="btn btn-lg btn-outline-dark mt-5 fw-bold"
+          <a href="#projects" class="btn btn-lg btn-outline-light mt-5 fw-bold"
             >Ver Meu Histórico de Conquistas
             <i class="fas fa-arrow-down ms-2"></i
           ></a>
 
-          <!-- INÍCIO DA NOVA SEÇÃO MOTIVACIONAL -->
           <div class="container pt-5">
             <div
               class="row justify-content-center align-items-center g-4 text-center text-md-start"
             >
               <div class="col-auto">
                 <img
-                  th:src="@{/img/profile.jpg}"
+                  th:src="@{/img/img_joao_bone_comfundo.jpg}"
                   class="rounded-circle shadow-sm"
-                  alt="Seu Perfil"
+                  alt="Minha foto de fundo"
                   style="
                     width: 80px;
                     height: 80px;
@@ -343,27 +501,22 @@
                 <p class="h6 fw-semibold text-secondary fst-italic">
                   "A jornada para a maestria digital começa com o primeiro
                   'build'.
-                  <span class="text-dark">Vamos construir o seu?</span>"
+                  <span class="text-light">Vamos construir o seu?</span>"
                 </p>
               </div>
             </div>
           </div>
-          <!-- FIM DA NOVA SEÇÃO MOTIVACIONAL -->
         </div>
       </section>
 
-      <!-- SEÇÃO DE HABILIDADES AGORA EM CARROSSEL COM 3 SLIDES E IA -->
-      <section id="skills" class="skills-section py-5 bg-white">
+      <!-- SEÇÃO SKILLS (sem bg-white, fundo escuro) -->
+      <section id="skills" class="skills-section py-5">
         <div class="container">
-          <h2 class="text-center mb-5 text-dark">
+          <h2 class="text-center mb-5 text-light">
             Habilidades e Níveis Desbloqueados
           </h2>
 
-          <div
-            id="skillsCarousel"
-            class="carousel slide"
-            data-bs-ride="carousel"
-          >
+          <div id="skillsCarousel" class="carousel slide">
             <!-- Indicadores (Pontos de navegação) -->
             <div class="carousel-indicators">
               <button
@@ -388,104 +541,12 @@
               ></button>
             </div>
 
-            <div class="carousel-inner pb-5">
-              <!-- Slide 1: A BASE DO PRODUTO (Backend Core e UX/UI) -->
+            <div class="carousel-inner" style="padding-bottom: 6rem">
+              <!-- Slide 1: A BASE (Fundação e Planejamento) -->
               <div class="carousel-item active">
                 <div
                   class="row row-cols-1 row-cols-md-2 g-4 justify-content-center"
                 >
-                  <!-- Backend Core -->
-                  <div class="col">
-                    <div class="card h-100 p-3 shadow-sm skill-card border-0">
-                      <div class="card-body">
-                        <i class="fab fa-java fa-3x text-danger mb-3"></i>
-                        <h5 class="card-title fw-bold">
-                          Backend Core (Java/Spring)
-                        </h5>
-                        <p class="card-text small text-muted">
-                          Desenvolvimento de Microserviços e APIs REST de alta
-                          performance, com Clean Code e arquitetura robusta.
-                        </p>
-                        <div class="progress mt-3" style="height: 15px">
-                          <div
-                            class="progress-bar bg-success w-100"
-                            role="progressbar"
-                          >
-                            100%
-                          </div>
-                        </div>
-                        <span class="badge bg-success mt-2"
-                          ><i class="fas fa-medal"></i> MASTER LEVEL</span
-                        >
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- UX/UI & Design System -->
-                  <div class="col">
-                    <div class="card h-100 p-3 shadow-sm skill-card border-0">
-                      <div class="card-body">
-                        <i class="fab fa-figma fa-3x text-primary mb-3"></i>
-                        <h5 class="card-title fw-bold">
-                          UX/UI & Design System
-                        </h5>
-                        <p class="card-text small text-muted">
-                          Transformação de wireframes (Figma) em interfaces
-                          responsivas (Mobile First) e acessíveis, com foco em
-                          conversão e Design System.
-                        </p>
-                        <div class="progress mt-3" style="height: 15px">
-                          <div
-                            class="progress-bar bg-success"
-                            role="progressbar"
-                            style="width: 90%"
-                          >
-                            90%
-                          </div>
-                        </div>
-                        <span class="badge bg-success mt-2"
-                          ><i class="fas fa-medal"></i> EXPERT</span
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Slide 2: A GESTÃO E O MERCADO (Estratégia e Gestão Ágil) -->
-              <div class="carousel-item">
-                <div
-                  class="row row-cols-1 row-cols-md-2 g-4 justify-content-center"
-                >
-                  <!-- Estratégia Full-Cycle & Growth -->
-                  <div class="col">
-                    <div class="card h-100 p-3 shadow-sm skill-card border-0">
-                      <div class="card-body">
-                        <i class="fas fa-chart-line fa-3x text-info mb-3"></i>
-                        <h5 class="card-title fw-bold">
-                          Estratégia Full-Cycle & Growth
-                        </h5>
-                        <p class="card-text small text-muted">
-                          Estratégias de Go-to-Market, SEO Técnico, e funil de
-                          vendas (A/B testing, Marketing Digital, Gestão de
-                          Tráfego).
-                        </p>
-                        <div class="progress mt-3" style="height: 15px">
-                          <div
-                            class="progress-bar bg-warning"
-                            role="progressbar"
-                            style="width: 85%"
-                          >
-                            85%
-                          </div>
-                        </div>
-                        <span class="badge bg-warning text-dark mt-2"
-                          ><i class="fas fa-star"></i> LVL 4/5 - AVANÇADO</span
-                        >
-                      </div>
-                    </div>
-                  </div>
-
                   <!-- Metodologias Ágeis (Scrum/Kanban) -->
                   <div class="col">
                     <div class="card h-100 p-3 shadow-sm skill-card border-0">
@@ -522,14 +583,70 @@
                       </div>
                     </div>
                   </div>
+
+                  <!-- UX/UI & Design System -->
+                  <div class="col">
+                    <div class="card h-100 p-3 shadow-sm skill-card border-0">
+                      <div class="card-body">
+                        <i class="fab fa-figma fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title fw-bold">
+                          UX/UI & Design System
+                        </h5>
+                        <p class="card-text small text-muted">
+                          Transformação de wireframes (Figma) em interfaces
+                          responsivas (Mobile First) e acessíveis, com foco em
+                          conversão e Design System.
+                        </p>
+                        <div class="progress mt-3" style="height: 15px">
+                          <div
+                            class="progress-bar bg-success"
+                            role="progressbar"
+                            style="width: 90%"
+                          >
+                            90%
+                          </div>
+                        </div>
+                        <span class="badge bg-success mt-2"
+                          ><i class="fas fa-medal"></i> EXPERT</span
+                        >
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <!-- Slide 3: O FUTURO E OTIMIZAÇÃO (Automação de IA) -->
+              <!-- Slide 2: A CONSTRUÇÃO (Core e Otimização) -->
               <div class="carousel-item">
                 <div
                   class="row row-cols-1 row-cols-md-2 g-4 justify-content-center"
                 >
+                  <!-- Backend Core -->
+                  <div class="col">
+                    <div class="card h-100 p-3 shadow-sm skill-card border-0">
+                      <div class="card-body">
+                        <i class="fab fa-java fa-3x text-danger mb-3"></i>
+                        <h5 class="card-title fw-bold">
+                          Backend Core (Java/Spring)
+                        </h5>
+                        <p class="card-text small text-muted">
+                          Desenvolvimento de Microserviços e APIs REST de alta
+                          performance, com Clean Code e arquitetura robusta.
+                        </p>
+                        <div class="progress mt-3" style="height: 15px">
+                          <div
+                            class="progress-bar bg-success w-100"
+                            role="progressbar"
+                          >
+                            100%
+                          </div>
+                        </div>
+                        <span class="badge bg-success mt-2"
+                          ><i class="fas fa-medal"></i> MASTER LEVEL</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+
                   <!-- Automação de IA e ML (NOVO) -->
                   <div class="col">
                     <div class="card h-100 p-3 shadow-sm skill-card border-0">
@@ -565,16 +682,52 @@
                       </div>
                     </div>
                   </div>
+                </div>
+              </div>
 
-                  <!-- Espaço vazio (para manter o layout) -->
+              <!-- Slide 3: O MERCADO (Lançamento e Crescimento) -->
+              <div class="carousel-item">
+                <div
+                  class="row row-cols-1 row-cols-md-2 g-4 justify-content-center"
+                >
+                  <!-- Estratégia Full-Cycle & Growth -->
+                  <div class="col">
+                    <div class="card h-100 p-3 shadow-sm skill-card border-0">
+                      <div class="card-body">
+                        <i class="fas fa-chart-line fa-3x text-info mb-3"></i>
+                        <h5 class="card-title fw-bold">
+                          Estratégia Full-Cycle & Growth
+                        </h5>
+                        <p class="card-text small text-muted">
+                          Estratégias de Go-to-Market, SEO Técnico, e funil de
+                          vendas (A/B testing, Marketing Digital, Gestão de
+                          Tráfego).
+                        </p>
+                        <div class="progress mt-3" style="height: 15px">
+                          <div
+                            class="progress-bar bg-warning"
+                            role="progressbar"
+                            style="width: 85%"
+                          >
+                            85%
+                          </div>
+                        </div>
+                        <span class="badge bg-warning text-dark mt-2"
+                          ><i class="fas fa-star"></i> LVL 4/5 - AVANÇADO</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Espaço vazio -->
                   <div class="col d-none d-md-block">
                     <div
                       class="card h-100 p-3 shadow-sm border-0"
                       style="
-                        background-color: var(--bg-light);
+                        background-color: transparent;
                         border-style: dashed;
                         border-width: 2px;
-                        border-color: #dee2e6;
+                        border-color: var(--border-color);
                       "
                     >
                       <div
@@ -624,9 +777,10 @@
         </div>
       </section>
 
-      <section id="projects" class="projects-section py-5 bg-light">
+      <!-- SEÇÃO PROJETOS (sem bg-light) -->
+      <section id="projects" class="projects-section py-5">
         <div class="container">
-          <h2 class="text-center mb-5 text-dark">
+          <h2 class="text-center mb-5 text-light">
             Conquistas Recentes: Desafios Vencidos
           </h2>
 
@@ -721,12 +875,13 @@
         </div>
       </section>
 
+      <!-- SEÇÃO CONSULTORIA (bg-dark já ok, cores atualizadas) -->
       <section
         id="consulting"
         class="consulting-section py-5 bg-dark text-white text-center"
       >
         <div class="container py-5">
-          <h2 class="mb-5 fw-bolder" style="color: var(--warning-color)">
+          <h2 class="mb-5 fw-bolder" style="color: var(--primary-color)">
             Roadmap do Cliente: Da Ideia ao Lucro
           </h2>
           <div class="row justify-content-center">
@@ -768,15 +923,16 @@
               </p>
             </div>
           </div>
-          <a href="#contact" class="btn btn-lg btn-warning mt-4 fw-bold shadow"
+          <a href="#contact" class="btn btn-lg btn-accent mt-4 fw-bold shadow"
             >Vamos Desbloquear Seu Potencial!</a
           >
         </div>
       </section>
 
-      <section id="contact" class="contact-section py-5 bg-white">
+      <!-- SEÇÃO CONTATO (sem bg-white) -->
+      <section id="contact" class="contact-section py-5">
         <div class="container" style="max-width: 500px">
-          <!-- NOVO CARD GAMIFICADO PARA CONTATO -->
+          <!-- Card de contato já está com estilo dark -->
           <div class="contact-card mx-auto shadow-lg">
             <i
               class="fas fa-trophy fa-3x mb-3"
@@ -801,11 +957,11 @@
               Resposta imediata para darmos o primeiro passo na sua estratégia.
             </p>
           </div>
-          <!-- FIM NOVO CARD -->
         </div>
       </section>
     </main>
 
+    <!-- FOOTER (bg-dark já ok) -->
     <footer class="bg-dark text-white py-4">
       <div class="container text-center">
         <p class="mb-1 fw-semibold">
@@ -826,7 +982,16 @@
       </div>
     </footer>
 
-    <!-- NOVO: Botão Flutuante do WhatsApp -->
+    <!-- NOVO: Duckzinho flutuante -->
+    <a id="duck-button" href="#" onclick="return false;" title="Duckzinho!">
+      <img
+        src="https://interago.com.br/App/Sites/347/mc/Desenhos/duckzinho.svg"
+        alt="Duckzinho fofo"
+        onerror="this.style.display='none'"
+      />
+    </a>
+
+    <!-- Botão Flutuante do WhatsApp -->
     <a
       id="whatsapp-button"
       href="https://w.app/aqo1zw"
@@ -841,5 +1006,55 @@
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       crossorigin="anonymous"
     ></script>
+
+    <!-- NOVO SCRIPT: Habilita "arrastar" com mouse no carrossel de habilidades -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const skillsCarouselElement =
+          document.getElementById("skillsCarousel");
+        if (skillsCarouselElement) {
+          // Inicializa o carrossel do Bootstrap sem auto-play
+          const skillsCarousel = new bootstrap.Carousel(skillsCarouselElement, {
+            interval: false, // Desativa o intervalo automático
+            wrap: true, // Permite voltar do último para o primeiro
+            ride: false,
+          });
+
+          let isDown = false;
+          let startX;
+          const threshold = 50; // Mínimo de pixels para arrastar e trocar o slide
+
+          skillsCarouselElement.addEventListener("mousedown", (e) => {
+            isDown = true;
+            startX = e.pageX;
+            skillsCarouselElement.style.cursor = "grabbing"; // Muda o cursor
+          });
+
+          skillsCarouselElement.addEventListener("mouseup", (e) => {
+            if (!isDown) return;
+            isDown = false;
+            skillsCarouselElement.style.cursor = "grab"; // Restaura o cursor
+            const endX = e.pageX;
+            const walk = endX - startX;
+
+            if (walk < -threshold) {
+              // Arrastou para a esquerda
+              skillsCarousel.next();
+            } else if (walk > threshold) {
+              // Arrastou para a direita
+              skillsCarousel.prev();
+            }
+          });
+
+          skillsCarouselElement.addEventListener("mouseleave", () => {
+            isDown = false;
+            skillsCarouselElement.style.cursor = "grab"; // Restaura o cursor
+          });
+
+          // Define o cursor inicial
+          skillsCarouselElement.style.cursor = "grab";
+        }
+      });
+    </script>
   </body>
 </html>
