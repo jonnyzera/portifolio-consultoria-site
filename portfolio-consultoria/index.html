@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Seu Portfólio de Consultoria | Master-Dev</title>
+    <!-- O Título agora reflete a nova marca Kodeo -->
+    <title>Kodeo Consultoria | Do Protótipo à Escala</title>
 
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -15,6 +16,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
 
+    <!-- Fontes (Mantidas do seu layout original) -->
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
@@ -46,16 +48,17 @@
         --ai-color: #ff9900; /* Laranja/Âmbar para IA (Mantido) */
 
         /* CORES NOVAS INSPIRADAS NO GRADIENTE DE BORDA */
-        --gray-600: #4b5563; 
+        --gray-600: #4b5563;
         --gray-600-30: rgba(75, 85, 99, 0.3);
         /* Cor de fundo do bloco de métrica (um cinza mais escuro que o card) */
-        --bg-metric: #1a1a1e; 
+        --bg-metric: #1a1a1e;
 
         /* Mapeando cores antigas para novas (para componentes existentes) */
         --bg-light: transparent; /* Fundos claros agora são transparentes */
         --text-dark-original: #212529; /* Salva o text-dark original */
       }
 
+      /* ... (Estilos de .bg-primary, .btn-accent, .text-ai, etc. mantidos) ... */
       /* Aplicações de Cor */
       .bg-primary {
         background-color: var(--primary-color) !important;
@@ -71,9 +74,7 @@
       .btn-accent {
         background-color: var(--accent-color) !important;
         border-color: var(--accent-color) !important;
-        color: var(
-          --text-dark-original
-        ) !important; /* Texto escuro no botão verde */
+        color: var(--text-dark-original) !important; /* Texto escuro no botão verde */
         font-weight: 800;
         transition: all 0.2s ease-out;
       }
@@ -150,17 +151,14 @@
       h5,
       h6 {
         font-weight: 800;
-        color: var(
-          --text-light
-        ); /* Garante que todos os headers sejam claros */
+        color: var(--text-light); /* Garante que todos os headers sejam claros */
       }
-      /* NOVO: Ajuste de altura e padding para a seção HERO no mobile para mostrar mais o fundo */
+      /* ... (Estilo .hero-section mantido) ... */
       .hero-section {
         min-height: 80vh; /* Aumenta a altura mínima da seção principal */
         display: flex; /* Garante que o conteúdo fique centralizado verticalmente */
         align-items: center;
       }
-      /* FIM NOVO */
 
       /* Navbar */
       .navbar.fixed-top {
@@ -170,30 +168,57 @@
         backdrop-filter: blur(10px); /* Efeito de vidro */
         border-bottom: 1px solid var(--border-color);
       }
+
+      /* ========================================
+        MUDANÇA: NAVBAR-BRAND ATUALIZADO (KODEO)
+        ========================================
+      */
       .navbar-brand {
         padding: 8px 12px;
         border-radius: 50px;
         transition: box-shadow 0.3s ease-out, transform 0.1s ease-out;
-        /* CORREÇÃO APLICADA: Força a cor principal do texto e ícone para ser CLARA */
-        color: var(--text-light) !important; 
+        color: var(--text-light) !important;
+
+        /* Alinhamento do novo logo */
+        display: flex;
+        align-items: center;
+        gap: 0.5rem; /* Espaço entre o ícone e o nome */
+        font-family: "Roboto Mono", monospace; /* Fonte Tech */
+        font-weight: 700;
+        
+        /* AJUSTE: Garante que o container da marca tenha altura mínima no mobile */
+        min-height: 40px;
       }
+
       .navbar-brand:hover {
         box-shadow: 0 0 0 8px rgba(var(--primary-color-rgb), 0.1);
         transform: scale(1.02);
-        /* Mantém o ícone/texto na cor clara ao passar o mouse */
         color: var(--text-light) !important;
       }
-      /* NOVO: Garante que o ícone interno também seja da cor primária, para dar um toque de cor */
-      .navbar-brand i {
-        color: var(--primary-color);
-        margin-right: 0.25rem;
+
+      /* O ÍCONE SVG NO HEADER (PEQUENO) */
+      .logo-svg-header {
+        width: 28px; /* Tamanho ideal para o header */
+        height: 28px;
+        /* Rotação mantida para dinamismo */
+        transform: rotate(-15deg);
       }
-      
+
+      .logo-svg-header .face {
+        stroke: var(--bg-dark-header); /* Linha de separação escura */
+        stroke-width: 4; /* Mais grosso para ser visível pequeno */
+      }
+      /* ========================================
+         FIM DA MUDANÇA
+         ========================================
+      */
+
       .navbar-nav .nav-link {
         transition: color 0.3s ease, box-shadow 0.3s ease;
         padding: 8px 12px;
         border-radius: 50px;
         color: var(--text-light) !important; /* Texto claro nos links */
+        font-weight: 700; /* AJUSTE: Deixa os links consistentes com o logo */
       }
       .navbar-nav .nav-link:hover,
       .navbar-nav .nav-link:focus {
@@ -214,7 +239,7 @@
         background-color: var(--bg-dark-card);
         color: var(--text-light);
         /* Removendo a borda sólida e dependendo do .border-gradient-custom */
-        border: none; 
+        border: none;
       }
       .card p,
       .card .text-muted {
@@ -226,26 +251,22 @@
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3) !important; /* Sombra mais escura */
         transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
         /* Removendo a borda roxa no hover, usando a customizada */
-        border-color: transparent; 
+        border-color: transparent;
       }
 
       /* NOVO: Classe para Borda Gradiente (Simula o efeito do Tailwind/Rocketseat) */
       .border-gradient-custom {
-          /* Configura o background para ser um gradiente de borda */
-          border: 1px solid transparent; 
-          border-radius: 10px; /* Arredondamento do card */
-          /* Gradiente da borda (de cima para baixo) */
-          background-image: linear-gradient(
-            var(--bg-dark-card), 
+        /* Configura o background para ser um gradiente de borda */
+        border: 1px solid transparent;
+        border-radius: 10px; /* Arredondamento do card */
+        /* Gradiente da borda (de cima para baixo) */
+        background-image: linear-gradient(
+            var(--bg-dark-card),
             var(--bg-dark-card)
-          ), 
-          linear-gradient(
-            to bottom, 
-            var(--gray-600), 
-            var(--gray-600-30)
-          );
-          background-origin: border-box;
-          background-clip: padding-box, border-box;
+          ),
+          linear-gradient(to bottom, var(--gray-600), var(--gray-600-30));
+        background-origin: border-box;
+        background-clip: padding-box, border-box;
       }
       /* FIM NOVO */
 
@@ -270,60 +291,60 @@
       /* Ajuste para mobile (o default acima é o desktop/maior) */
       @media (max-width: 767.98px) {
         .specialist-img-container {
-            width: 45px; /* AUMENTADO PARA MOBILE */
-            height: 45px; /* AUMENTADO PARA MOBILE */
+          width: 45px; /* AUMENTADO PARA MOBILE */
+          height: 45px; /* AUMENTADO PARA MOBILE */
         }
       }
       /* FIM NOVO */
 
       /* NOVO: Estilo para o Bloco de Métrica (Metrics Block) */
       .metric-card-wrapper {
-          padding: 1.5rem;
-          border-radius: 0.625rem; 
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          gap: 1.5rem;
-          /* Simula o fundo hover */
-          background-color: var(--bg-dark-card); 
-          transition: background-color 0.3s ease;
+        padding: 1.5rem;
+        border-radius: 0.625rem;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        /* Simula o fundo hover */
+        background-color: var(--bg-dark-card);
+        transition: background-color 0.3s ease;
       }
       .metric-card-wrapper:hover {
-          background-color: var(--bg-metric); /* Um cinza mais escuro no hover */
+        background-color: var(--bg-metric); /* Um cinza mais escuro no hover */
       }
       .metric-icon-container {
-          width: 2.5rem;
-          height: 2.5rem;
-          padding: 0.5rem;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: 0.25rem;
-          /* Gradiente de fundo sutil para o ícone */
-          background: linear-gradient(
-            to bottom, 
-            rgba(var(--primary-color-rgb), 0.2), 
-            rgba(var(--primary-color-rgb), 0.05)
-          );
+        width: 2.5rem;
+        height: 2.5rem;
+        padding: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0.25rem;
+        /* Gradiente de fundo sutil para o ícone */
+        background: linear-gradient(
+          to bottom,
+          rgba(var(--primary-color-rgb), 0.2),
+          rgba(var(--primary-color-rgb), 0.05)
+        );
       }
       .metric-title {
-          font-size: 2.25rem; /* 3xl */
-          font-weight: 500;
-          color: var(--text-light);
+        font-size: 2.25rem; /* 3xl */
+        font-weight: 500;
+        color: var(--text-light);
       }
       .metric-description {
-          max-width: 272px;
-          font-size: 1rem;
-          color: var(--secondary-color); /* Cinza claro */
+        max-width: 272px;
+        font-size: 1rem;
+        color: var(--secondary-color); /* Cinza claro */
       }
       /* FIM NOVO */
-
 
       /* Seções */
       #skills,
       #projects,
       #contact,
-      #metrics { /* ADICIONADO METRICS */
+      #metrics {
+        /* ADICIONADO METRICS */
         /* Fundo escuro levemente transparente para destacar os cards */
         background-color: rgba(18, 18, 20, 0.8);
         backdrop-filter: blur(5px);
@@ -333,6 +354,7 @@
         background-color: var(--bg-dark-main) !important;
       }
 
+      /* ... (Estilos de .progress, .progress-bar, Carrossel, etc. mantidos) ... */
       /* Barra de Progresso */
       .progress {
         height: 30px;
@@ -343,7 +365,7 @@
         border-radius: 15px;
         font-weight: 600;
         /* NOVO: Ajuste para o texto não ficar grudado no canto */
-        padding-left: 10px; 
+        padding-left: 10px;
       }
       /* NOVO: Ajuste do tamanho da fonte da barra no mobile */
       @media (max-width: 767.98px) {
@@ -355,7 +377,8 @@
 
       /* Carrossel */
       #skillsCarouselDesktop .carousel-control-prev-icon, /* MUDADO */
-      #skillsCarouselDesktop .carousel-control-next-icon { /* MUDADO */
+      #skillsCarouselDesktop .carousel-control-next-icon {
+        /* MUDADO */
         background-color: var(--primary-color);
         border-radius: 50%;
         /* Ícones menores para caberem embaixo */
@@ -365,7 +388,8 @@
         transition: opacity 0.15s ease;
       }
       #skillsCarouselDesktop .carousel-control-prev, /* MUDADO */
-      #skillsCarouselDesktop .carousel-control-next { /* MUDADO */
+      #skillsCarouselDesktop .carousel-control-next {
+        /* MUDADO */
         /* Movidos para baixo, fora do conteúdo */
         top: auto;
         bottom: 0.5rem; /* Posicionados na base */
@@ -375,14 +399,16 @@
       }
 
       /* NOVAS REGRAS PARA AGRUPAR NO CENTRO */
-      #skillsCarouselDesktop .carousel-control-prev { /* MUDADO */
+      #skillsCarouselDesktop .carousel-control-prev {
+        /* MUDADO */
         left: 50%;
         transform: translateX(
           -120%
         ); /* Puxa para a esquerda do centro + espaço */
         /* Remove o 'left: 0' padrão do bootstrap */
       }
-      #skillsCarouselDesktop .carousel-control-next { /* MUDADO */
+      #skillsCarouselDesktop .carousel-control-next {
+        /* MUDADO */
         right: 50%;
         transform: translateX(
           120%
@@ -393,11 +419,13 @@
       /* Regra @media (max-width: 767.98px) removida pois o carrossel desktop já é d-none em mobile */
 
       #skillsCarouselDesktop .carousel-indicators button, /* MUDADO */
-      #skillsCarouselMobile .carousel-indicators button { /* ADICIONADO */
+      #skillsCarouselMobile .carousel-indicators button {
+        /* ADICIONADO */
         background-color: var(--primary-color); /* Bolinhas roxas */
       }
       /* NOVO: Move os indicadores (pontos) para cima para dar espaço às setas (SÓ DESKTOP) */
-      #skillsCarouselDesktop .carousel-indicators { /* MUDADO */
+      #skillsCarouselDesktop .carousel-indicators {
+        /* MUDADO */
         bottom: 3rem; /* Sobe os pontos */
       }
 
@@ -445,7 +473,7 @@
         height: 1.2rem; /* Ícone menor */
       }
 
-      /* NOVO: Estilo para o Duckzinho flutuante */
+      /* ... (Estilos de #duck-button, #whatsapp-button, .font-tech-display, .badge-dev-style, footer, .gradient-tag mantidos) ... */
       #duck-button {
         position: fixed;
         bottom: 25px;
@@ -524,12 +552,46 @@
         border-top: 1px solid var(--border-color);
       }
 
+      /* NOVO: Estilos do Logo no Footer */
+      .footer-logo-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem; /* 12px */
+      }
+      .logo-svg-footer {
+        width: 32px; /* Tamanho do footer */
+        height: 32px;
+        transform: rotate(-15deg); /* Mantém a rotação */
+      }
+      .logo-svg-footer .face {
+        stroke: var(--bg-dark-main); /* Fundo do footer */
+        stroke-width: 4;
+      }
+      .footer-brand-name {
+        font-family: "Roboto Mono", monospace;
+        font-weight: 700;
+        font-size: 1.5rem; /* 24px */
+        color: var(--text-light);
+        margin: 0; /* Reseta margem */
+      }
+      .footer-slogan {
+        font-family: "Inter", sans-serif;
+        color: var(--secondary-color);
+        font-size: 0.875rem; /* 14px */
+        font-weight: 400;
+        margin: 0;
+        margin-top: 0.5rem; /* Espaço entre nome e slogan */
+        letter-spacing: 0.5px;
+      }
+      /* FIM DOS NOVOS ESTILOS */
+
       /* CORREÇÃO: Estilo de tag gradiente */
       .gradient-tag {
         display: inline-flex;
         align-items: center;
         /* VOLTA AO FUNDO PRETO SÓLIDO */
-        background-color: #000; 
+        background-color: #000;
         padding: 0.5rem 1rem; /* p-2 lg:px-4 */
         border-radius: 0.25rem; /* rounded */
         max-height: 2.25rem; /* lg:h-9 */
@@ -554,7 +616,7 @@
       /* CORREÇÃO MOBILE: Garante que o texto seja legível (cor clara) no fundo preto da tag */
       @media (max-width: 767.98px) {
         .gradient-tag span {
-          color: var(--text-light) !important; 
+          color: var(--text-light) !important;
           -webkit-background-clip: unset;
           background-clip: unset;
           background: none;
@@ -576,11 +638,48 @@
     </style>
   </head>
   <body data-bs-theme="dark">
+    <!-- 
+      HEADER KODEO
+      Esta é a implementação do seu novo logo no header do seu portfólio.
+    -->
     <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
       <div class="container">
-        <a class="navbar-brand fw-bold" href="#hero"
-          ><i class="fas fa-terminal"></i> Tech | Consultoria</a
-        >
+        <!-- SEU NOVO NAVBAR-BRAND (KODEO) -->
+        <a class="navbar-brand" href="#hero">
+          <!-- Ícone Kodeo (Prisma) -->
+          <svg
+            class="logo-svg-header"
+            viewBox="0 0 100 100"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle cx="50" cy="50" r="3" fill="#E1E1E6" />
+            <path
+              class="face"
+              d="M 50 50 L 15 30 L 15 70 Z"
+              fill="var(--primary-color)"
+            />
+            <path
+              class="face"
+              d="M 50 50 L 15 70 L 85 70 Z"
+              fill="var(--accent-color)"
+            />
+            <path
+              class="face"
+              d="M 50 50 L 85 70 L 85 30 Z"
+              fill="var(--ai-color)"
+            />
+            <path
+              class="face"
+              d="M 50 50 L 85 30 L 15 30 Z"
+              fill="var(--primary-color)"
+            />
+          </svg>
+
+          <!-- NOME KODEO -->
+          <!-- d-none d-md-inline: Esconde o nome no mobile, mostra no desktop -->
+          <span class="d-none d-md-inline"> KODEO </span>
+        </a>
+        <!-- FIM DO NOVO NAVBAR-BRAND -->
 
         <button
           class="navbar-toggler"
@@ -612,13 +711,15 @@
         </div>
       </div>
     </nav>
+    <!-- FIM DO HEADER -->
 
     <main>
       <section id="hero" class="hero-section py-5 text-center">
         <div class="container py-5">
           <div class="d-flex justify-content-center mb-3">
             <div class="gradient-tag">
-              <span>Onde ideias viram produtos_</span>
+              <!-- ATUALIZADO PARA O NOVO NOME -->
+              <span>Kodeo: Onde ideias viram produtos_</span>
             </div>
           </div>
           <h1 class="display-4 fw-bolder text-light mb-3 text-gradient-custom">
@@ -692,8 +793,11 @@
               </div>
               <div class="col-md-6">
                 <p class="h6 fw-semibold text-secondary fst-italic">
-                  "Você tem a ideia, eu garanto o lucro. 
-                  <span class="text-light">Transformo sua visão em um produto digital que vende de verdade.</span>"
+                  "Você tem a ideia, eu garanto o lucro.
+                  <span class="text-light"
+                    >Transformo sua visão em um produto digital que vende de
+                    verdade.</span
+                  >"
                 </p>
               </div>
             </div>
@@ -740,16 +844,20 @@
                   class="row row-cols-1 row-cols-md-2 g-4 justify-content-center"
                 >
                   <div class="col">
-                    <div class="card h-100 p-3 shadow-sm skill-card border-0 border-gradient-custom position-relative">
+                    <div
+                      class="card h-100 p-3 shadow-sm skill-card border-0 border-gradient-custom position-relative"
+                    >
                       <div class="specialist-img-container">
                         <!-- Imagem do Especialista em Metodologias Ágeis -->
-                        <img 
-                          src="./img/img_joao_bone_comfundo.jpg" 
-                          alt="Foto do Especialista em Scrum/Kanban" 
+                        <img
+                          src="./img/img_joao_bone_comfundo.jpg"
+                          alt="Foto do Especialista em Scrum/Kanban"
                         />
                       </div>
                       <div class="card-body">
-                        <i class="fas fa-sitemap fa-3x text-secondary mb-3"></i>
+                        <i
+                          class="fas fa-sitemap fa-3x text-secondary mb-3"
+                        ></i>
                         <h5 class="card-title fw-bold">
                           Metodologias Ágeis (Scrum/Kanban)
                         </h5>
@@ -783,7 +891,9 @@
                   </div>
 
                   <div class="col">
-                    <div class="card h-100 p-3 shadow-sm skill-card border-0 border-gradient-custom position-relative">
+                    <div
+                      class="card h-100 p-3 shadow-sm skill-card border-0 border-gradient-custom position-relative"
+                    >
                       <div class="card-body">
                         <i class="fab fa-figma fa-3x text-primary mb-3"></i>
                         <h5 class="card-title fw-bold">
@@ -817,12 +927,14 @@
                   class="row row-cols-1 row-cols-md-2 g-4 justify-content-center"
                 >
                   <div class="col">
-                    <div class="card h-100 p-3 shadow-sm skill-card border-0 border-gradient-custom position-relative">
+                    <div
+                      class="card h-100 p-3 shadow-sm skill-card border-0 border-gradient-custom position-relative"
+                    >
                       <div class="specialist-img-container">
                         <!-- Imagem do Especialista em Java/Backend -->
-                        <img 
-                          src="./img/img_joao_bone_comfundo.jpg" 
-                          alt="Foto do Especialista em Java" 
+                        <img
+                          src="./img/img_joao_bone_comfundo.jpg"
+                          alt="Foto do Especialista em Java"
                         />
                       </div>
                       <div class="card-body">
@@ -850,12 +962,14 @@
                   </div>
 
                   <div class="col">
-                    <div class="card h-100 p-3 shadow-sm skill-card border-0 border-gradient-custom position-relative">
+                    <div
+                      class="card h-100 p-3 shadow-sm skill-card border-0 border-gradient-custom position-relative"
+                    >
                       <div class="specialist-img-container">
                         <!-- Imagem do Especialista em IA/ML -->
-                        <img 
-                          src="./img/img_joao_bone_comfundo.jpg" 
-                          alt="Foto do Especialista em IA" 
+                        <img
+                          src="./img/img_joao_bone_comfundo.jpg"
+                          alt="Foto do Especialista em IA"
                         />
                       </div>
                       <div class="card-body">
@@ -898,7 +1012,9 @@
                   class="row row-cols-1 row-cols-md-2 g-4 justify-content-center"
                 >
                   <div class="col">
-                    <div class="card h-100 p-3 shadow-sm skill-card border-0 border-gradient-custom position-relative">
+                    <div
+                      class="card h-100 p-3 shadow-sm skill-card border-0 border-gradient-custom position-relative"
+                    >
                       <div class="card-body">
                         <i class="fas fa-chart-line fa-3x text-info mb-3"></i>
                         <h5 class="card-title fw-bold">
@@ -1023,12 +1139,14 @@
               <div class="carousel-item active">
                 <div class="row row-cols-1 g-4 justify-content-center">
                   <div class="col">
-                    <div class="card h-100 p-3 shadow-sm skill-card border-0 border-gradient-custom position-relative">
+                    <div
+                      class="card h-100 p-3 shadow-sm skill-card border-0 border-gradient-custom position-relative"
+                    >
                       <div class="specialist-img-container">
                         <!-- Imagem do Especialista em Metodologias Ágeis -->
-                        <img 
-                          src="./img/img_joao_bone_comfundo.jpg" 
-                          alt="Foto do Especialista em Scrum/Kanban" 
+                        <img
+                          src="./img/img_joao_bone_comfundo.jpg"
+                          alt="Foto do Especialista em Scrum/Kanban"
                         />
                       </div>
                       <div class="card-body">
@@ -1074,7 +1192,9 @@
               <div class="carousel-item">
                 <div class="row row-cols-1 g-4 justify-content-center">
                   <div class="col">
-                    <div class="card h-100 p-3 shadow-sm skill-card border-0 border-gradient-custom position-relative">
+                    <div
+                      class="card h-100 p-3 shadow-sm skill-card border-0 border-gradient-custom position-relative"
+                    >
                       <div class="card-body">
                         <div class="d-flex align-items-center mb-3">
                           <i class="fab fa-figma fa-3x text-primary me-3"></i>
@@ -1108,12 +1228,14 @@
               <div class="carousel-item">
                 <div class="row row-cols-1 g-4 justify-content-center">
                   <div class="col">
-                    <div class="card h-100 p-3 shadow-sm skill-card border-0 border-gradient-custom position-relative">
+                    <div
+                      class="card h-100 p-3 shadow-sm skill-card border-0 border-gradient-custom position-relative"
+                    >
                       <div class="specialist-img-container">
                         <!-- Imagem do Especialista em Java/Backend -->
-                        <img 
-                          src="./img/img_joao_bone_comfundo.jpg" 
-                          alt="Foto do Especialista em Java" 
+                        <img
+                          src="./img/img_joao_bone_comfundo.jpg"
+                          alt="Foto do Especialista em Java"
                         />
                       </div>
                       <div class="card-body">
@@ -1147,12 +1269,14 @@
               <div class="carousel-item">
                 <div class="row row-cols-1 g-4 justify-content-center">
                   <div class="col">
-                    <div class="card h-100 p-3 shadow-sm skill-card border-0 border-gradient-custom position-relative">
+                    <div
+                      class="card h-100 p-3 shadow-sm skill-card border-0 border-gradient-custom position-relative"
+                    >
                       <div class="specialist-img-container">
                         <!-- Imagem do Especialista em IA/ML -->
-                        <img 
-                          src="./img/img_joao_bone_comfundo.jpg" 
-                          alt="Foto do Especialista em IA" 
+                        <img
+                          src="./img/img_joao_bone_comfundo.jpg"
+                          alt="Foto do Especialista em IA"
                         />
                       </div>
                       <div class="card-body">
@@ -1195,7 +1319,9 @@
               <div class="carousel-item">
                 <div class="row row-cols-1 g-4 justify-content-center">
                   <div class="col">
-                    <div class="card h-100 p-3 shadow-sm skill-card border-0 border-gradient-custom position-relative">
+                    <div
+                      class="card h-100 p-3 shadow-sm skill-card border-0 border-gradient-custom position-relative"
+                    >
                       <div class="card-body">
                         <div class="d-flex align-items-center mb-3">
                           <i
@@ -1264,7 +1390,9 @@
 
           <div class="row g-4 justify-content-center">
             <div class="col-md-6 col-lg-4">
-              <div class="card h-100 shadow project-card border-0 border-gradient-custom">
+              <div
+                class="card h-100 shadow project-card border-0 border-gradient-custom"
+              >
                 <img
                   src="img/project-app.png"
                   class="card-img-top"
@@ -1293,11 +1421,12 @@
                   </p>
 
                   <div class="mt-3">
+                    <!-- ATUALIZADO: Botão para Acessar -->
                     <a
-                      href="#"
+                      href="https://github.com/jonnyzera/saas-mentor-aplicacao-fe.git"
                       target="_blank"
                       class="btn btn-sm btn-outline-secondary me-2 fw-bold"
-                      ><i class="fab fa-github"></i> Ver Código</a
+                      ><i class="fab fa-github me-2"></i>Acessar</a
                     >
                     <span class="badge bg-success float-end mt-2"
                       >MISSÃO CUMPRIDA</span
@@ -1308,7 +1437,9 @@
             </div>
 
             <div class="col-md-6 col-lg-4">
-              <div class="card h-100 shadow project-card border-0 border-gradient-custom">
+              <div
+                class="card h-100 shadow project-card border-0 border-gradient-custom"
+              >
                 <img
                   src="img/project-lms.png"
                   class="card-img-top"
@@ -1337,11 +1468,12 @@
                   </p>
 
                   <div class="mt-3">
+                    <!-- ATUALIZADO: Botão para Acessar -->
                     <a
                       href="https://github.com/jonnyzera/saas-mentor-aplicacao-fe.git"
                       target="_blank"
                       class="btn btn-sm btn-outline-secondary me-2 fw-bold"
-                      ><i class="fab fa-github"></i> Ver Código</a
+                      ><i class="fab fa-github me-2"></i>Acessar</a
                     >
                     <span class="badge bg-success float-end mt-2"
                       >MISSÃO CUMPRIDA</span
@@ -1353,7 +1485,7 @@
           </div>
         </div>
       </section>
-      
+
       <!-- NOVA SEÇÃO: MÉTRICAS E RESULTADOS (NO ESTILO SOLICITADO) -->
       <section id="metrics" class="projects-section py-5">
         <div class="container">
@@ -1362,14 +1494,15 @@
           </h2>
 
           <div class="row g-4 justify-content-center">
-            
             <div class="col-md-6 col-lg-4">
               <div class="metric-card-wrapper shadow">
                 <div class="metric-icon-container">
                   <i class="fas fa-tachometer-alt fa-lg text-primary"></i>
                 </div>
                 <h3 class="metric-title">+40%</h3>
-                <p class="metric-description">Aumento de performance e velocidade em sistemas otimizados.</p>
+                <p class="metric-description">
+                  Aumento de performance e velocidade em sistemas otimizados.
+                </p>
               </div>
             </div>
 
@@ -1379,20 +1512,24 @@
                   <i class="fas fa-cubes fa-lg text-primary"></i>
                 </div>
                 <h3 class="metric-title">10+</h3>
-                <p class="metric-description">Projetos de alta complexidade entregues e prontos para o mercado.</p>
+                <p class="metric-description">
+                  Projetos de alta complexidade entregues e prontos para o
+                  mercado.
+                </p>
               </div>
             </div>
-            
+
             <div class="col-md-6 col-lg-4">
               <div class="metric-card-wrapper shadow">
                 <div class="metric-icon-container">
                   <i class="fas fa-money-bill-wave fa-lg text-primary"></i>
                 </div>
                 <h3 class="metric-title">98%</h3>
-                <p class="metric-description">Taxa de satisfação do cliente com foco em geração de lucro.</p>
+                <p class="metric-description">
+                  Taxa de satisfação do cliente com foco em geração de lucro.
+                </p>
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -1414,7 +1551,8 @@
               ></i>
               <h5 class="fw-bold text-white">1. FASE I: DIAGNÓSTICO (O Mapa)</h5>
               <p class="small text-muted">
-                Alinhamos sua ideia ao mercado, definindo a rota e a tecnologia ideais para construir sua solução.
+                Alinhamos sua ideia ao mercado, definindo a rota e a tecnologia
+                ideais para construir sua solução.
               </p>
             </div>
 
@@ -1427,8 +1565,9 @@
                 2. FASE II: DESENVOLVIMENTO (A Construção)
               </h5>
               <p class="small text-muted">
-                Construção ágil e segura do seu produto. Entregas rápidas e testadas para garantir alta performance.
-              </para>
+                Construção ágil e segura do seu produto. Entregas rápidas e
+                testadas para garantir alta performance.
+              </p>
             </div>
 
             <div class="col-md-4 mb-4">
@@ -1436,9 +1575,12 @@
                 class="fas fa-rocket fa-3x mb-3"
                 style="color: var(--accent-color)"
               ></i>
-              <h5 class="fw-bold text-white">3. FASE III: EXPANSÃO (O Lançamento)</h5>
+              <h5 class="fw-bold text-white">
+                3. FASE III: EXPANSÃO (O Lançamento)
+              </h5>
               <p class="small text-muted">
-                Estratégia completa de lançamento e crescimento, garantindo que seu produto gere vendas escaláveis.
+                Estratégia completa de lançamento e crescimento, garantindo que
+                seu produto gere vendas escaláveis.
               </p>
             </div>
           </div>
@@ -1480,8 +1622,48 @@
 
     <footer class="bg-dark text-white py-4">
       <div class="container text-center">
+        <!-- NOVO: Bloco do Logo no Footer -->
+        <div class="mb-4">
+          <!-- Wrapper para o bloco todo -->
+          <div class="footer-logo-container">
+            <!-- Ícone Kodeo (Prisma) -->
+            <svg
+              class="logo-svg-footer"
+              viewBox="0 0 100 100"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="50" cy="50" r="3" fill="#E1E1E6" />
+              <path
+                class="face"
+                d="M 50 50 L 15 30 L 15 70 Z"
+                fill="var(--primary-color)"
+              />
+              <path
+                class="face"
+                d="M 50 50 L 15 70 L 85 70 Z"
+                fill="var(--accent-color)"
+              />
+              <path
+                class="face"
+                d="M 50 50 L 85 70 L 85 30 Z"
+                fill="var(--ai-color)"
+              />
+              <path
+                class="face"
+                d="M 50 50 L 85 30 L 15 30 Z"
+                fill="var(--primary-color)"
+              />
+            </svg>
+            <h4 class="footer-brand-name">KODEO</h4>
+          </div>
+          <!-- Mini Frase (Slogan) -->
+          <p class="footer-slogan">O Ponto de Origem da Sua Escala.</p>
+        </div>
+        <!-- FIM DO NOVO BLOCO -->
+
         <p class="mb-1 fw-semibold">
-          &copy; 2025 Sua Consultoria Dev. Todos os direitos reservados.
+          <!-- ATUALIZADO PARA O NOVO NOME -->
+          &copy; 2025 Kodeo Consultoria. Todos os direitos reservados.
         </p>
         <p class="small text-muted">
           <i class="fas fa-map-marker-alt me-1"></i> Guarulhos/SP | Desenvolvido

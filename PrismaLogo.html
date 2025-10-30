@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ícone Kodeo (O Prisma)</title>
+    <style>
+        /* Cores do seu tema */
+        :root {
+            --primary-color: #8257e5; /* Roxo */
+            --accent-color: #04d361; /* Verde */
+            --ai-color: #ff9900; /* Laranja IA */
+            
+            /* Tons mais escuros para sombreamento */
+            --primary-darker: #5F3AAB;
+            --accent-darker: #03A84C;
+        }
+        
+        body {
+            background-color: #121214; /* Fundo do seu portfólio (Dark) */
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh; /* Centraliza verticalmente na tela */
+        }
+
+        .icon-container {
+            width: 150px; /* Tamanho grande para visualização */
+            height: 150px;
+            padding: 20px;
+            background-color: #202024; /* Fundo do card/área de destaque */
+            border-radius: 1rem;
+            box-shadow: 0 0 40px rgba(130, 87, 229, 0.4); 
+        }
+
+        .logo-svg {
+            width: 100%;
+            height: 100%;
+            /* Uma leve rotação para dar dinamismo 3D */
+            transform: rotate(-15deg) scale(1.1); 
+        }
+        
+        .logo-svg .face {
+            stroke: #121214; /* Linha de separação escura */
+            stroke-width: 2;
+            transition: all 0.2s ease-in-out;
+        }
+
+        /* Efeito de hover para destacar as facetas */
+        .logo-svg:hover .face-structure {
+            fill: var(--primary-darker);
+            transform: scale(0.98);
+        }
+        .logo-svg:hover .face-quality {
+            fill: var(--accent-darker);
+            transform: scale(1.02);
+        }
+        .logo-svg:hover .face-ia {
+            fill: var(--ai-color);
+            transform: scale(1.02);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="icon-container">
+        <!-- 
+            SVG: O Prisma Kodeo
+            Um hexágono (símbolo de estrutura/robustez) 
+            dividido em 3 facetas (Estrutura, Qualidade, IA).
+        -->
+        <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            
+            <!-- Ponto central de conexão -->
+            <circle cx="50" cy="50" r="3" fill="#E1E1E6" />
+            
+            <!-- Face 1: Estrutura (Roxo) -->
+            <path 
+                class="face face-structure"
+                d="M 50 50 L 15 30 L 15 70 Z" 
+                fill="var(--primary-color)" 
+            />
+            
+            <!-- Face 2: Qualidade/Performance (Verde) -->
+            <path 
+                class="face face-quality"
+                d="M 50 50 L 15 70 L 85 70 Z" 
+                fill="var(--accent-color)" 
+            />
+            
+            <!-- Face 3: Inovação/IA (Laranja) -->
+            <path 
+                class="face face-ia"
+                d="M 50 50 L 85 70 L 85 30 Z" 
+                fill="var(--ai-color)" 
+            />
+
+            <!-- Conexão superior (Roxo) -->
+             <path 
+                class="face face-structure"
+                d="M 50 50 L 85 30 L 15 30 Z" 
+                fill="var(--primary-color)" 
+            />
+            
+        </svg>
+    </div>
+
+</body>
+</html>
+
