@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,7 +19,6 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
     />
-    <!-- NOVO: Fonte monoespaçada para UI/Tech -->
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500;700&display=swap"
@@ -443,15 +442,12 @@
     </style>
   </head>
   <body data-bs-theme="dark">
-    <!-- NAVBAR ATUALIZADA -->
     <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
       <div class="container">
-        <!-- Brand/Logo -->
         <a class="navbar-brand fw-bold" href="#hero"
           ><i class="fas fa-terminal"></i> Tech | Consultoria</a
         >
 
-        <!-- Botão Toggle para Mobile -->
         <button
           class="navbar-toggler"
           type="button"
@@ -464,7 +460,6 @@
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- Conteúdo do Menu (Links e CTA) -->
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item mx-lg-2">
@@ -477,7 +472,6 @@
               <a class="nav-link fw-bold" href="#consulting">Roadmap</a>
             </li>
           </ul>
-          <!-- Botão CTA ATUALIZADO (btn-accent) -->
           <a href="#contact" class="btn btn-accent ms-lg-3 fw-bold shadow">
             Contrate Agora!
           </a>
@@ -486,17 +480,13 @@
     </nav>
 
     <main>
-      <!-- SEÇÃO HERO (sem bg-light, texto claro) -->
       <section id="hero" class="hero-section py-5 text-center">
         <div class="container py-5">
-          <!-- NOVO ELEMENTO INSERIDO -->
           <div class="d-flex justify-content-center mb-3">
             <div class="gradient-tag">
               <span>Onde ideias viram produtos_</span>
             </div>
           </div>
-          <!-- FIM DO NOVO ELEMENTO -->
-
           <h1 class="display-4 fw-bolder text-light mb-3 text-gradient-custom">
             TRANSFORME SUA IDEIA NO PRÓXIMO NÍVEL DE ESCALABILIDADE.
           </h1>
@@ -557,7 +547,7 @@
             >
               <div class="col-auto">
                 <img
-                  th:src="@{/img/img_joao_bone_comfundo.jpg}"
+                  src="/portfolio-consultoria/src/main/resources/static/img/patinho_IA.jpg"
                   class="rounded-circle shadow-sm"
                   alt="Minha foto de fundo"
                   style="
@@ -579,19 +569,16 @@
         </div>
       </section>
 
-      <!-- SEÇÃO SKILLS (sem bg-white, fundo escuro) -->
       <section id="skills" class="skills-section py-5">
         <div class="container">
           <h2 class="text-center mb-5 text-light">
             Habilidades e Níveis Desbloqueados
           </h2>
 
-          <!-- CARROSSEL DESKTOP (d-none d-md-block) -->
           <div
             id="skillsCarouselDesktop"
             class="carousel slide d-none d-md-block"
           >
-            <!-- Indicadores (Pontos de navegação) -->
             <div class="carousel-indicators">
               <button
                 type="button"
@@ -616,12 +603,10 @@
             </div>
 
             <div class="carousel-inner" style="padding-bottom: 6rem">
-              <!-- Slide 1: A BASE (Fundação e Planejamento) -->
               <div class="carousel-item active">
                 <div
                   class="row row-cols-1 row-cols-md-2 g-4 justify-content-center"
                 >
-                  <!-- Metodologias Ágeis (Scrum/Kanban) -->
                   <div class="col">
                     <div class="card h-100 p-3 shadow-sm skill-card border-0">
                       <div class="card-body">
@@ -658,7 +643,6 @@
                     </div>
                   </div>
 
-                  <!-- UX/UI & Design System -->
                   <div class="col">
                     <div class="card h-100 p-3 shadow-sm skill-card border-0">
                       <div class="card-body">
@@ -689,12 +673,10 @@
                 </div>
               </div>
 
-              <!-- Slide 2: A CONSTRUÇÃO (Core e Otimização) -->
               <div class="carousel-item">
                 <div
                   class="row row-cols-1 row-cols-md-2 g-4 justify-content-center"
                 >
-                  <!-- Backend Core -->
                   <div class="col">
                     <div class="card h-100 p-3 shadow-sm skill-card border-0">
                       <div class="card-body">
@@ -721,7 +703,6 @@
                     </div>
                   </div>
 
-                  <!-- Automação de IA e ML (NOVO) -->
                   <div class="col">
                     <div class="card h-100 p-3 shadow-sm skill-card border-0">
                       <div class="card-body">
@@ -759,12 +740,10 @@
                 </div>
               </div>
 
-              <!-- Slide 3: O MERCADO (Lançamento e Crescimento) -->
               <div class="carousel-item">
                 <div
                   class="row row-cols-1 row-cols-md-2 g-4 justify-content-center"
                 >
-                  <!-- Estratégia Full-Cycle & Growth -->
                   <div class="col">
                     <div class="card h-100 p-3 shadow-sm skill-card border-0">
                       <div class="card-body">
@@ -793,7 +772,6 @@
                     </div>
                   </div>
 
-                  <!-- Espaço vazio -->
                   <div class="col d-none d-md-block">
                     <div
                       class="card h-100 p-3 shadow-sm border-0"
@@ -822,7 +800,6 @@
               </div>
             </div>
 
-            <!-- Controles (Setas) -->
             <button
               class="carousel-control-prev"
               type="button"
@@ -849,13 +826,11 @@
             </button>
           </div>
 
-          <!-- CARROSSEL MOBILE (d-block d-md-none) -->
           <div
             id="skillsCarouselMobile"
             class="carousel slide d-block d-md-none"
             data-bs-ride="carousel"
           >
-            <!-- Indicadores (Pontos de navegação) -->
             <div class="carousel-indicators">
               <button
                 type="button"
@@ -892,15 +867,11 @@
             </div>
 
             <div class="carousel-inner" style="padding-bottom: 3rem">
-              <!-- Padding menor para mobile -->
-
-              <!-- Slide 1: Metodologias Ágeis -->
               <div class="carousel-item active">
                 <div class="row row-cols-1 g-4 justify-content-center">
                   <div class="col">
                     <div class="card h-100 p-3 shadow-sm skill-card border-0">
                       <div class="card-body">
-                        <!-- Wrapper Flex -->
                         <div class="d-flex align-items-center mb-3">
                           <i
                             class="fas fa-sitemap fa-3x text-secondary me-3"
@@ -940,13 +911,11 @@
                 </div>
               </div>
 
-              <!-- Slide 2: UX/UI & Design System -->
               <div class="carousel-item">
                 <div class="row row-cols-1 g-4 justify-content-center">
                   <div class="col">
                     <div class="card h-100 p-3 shadow-sm skill-card border-0">
                       <div class="card-body">
-                        <!-- Wrapper Flex -->
                         <div class="d-flex align-items-center mb-3">
                           <i class="fab fa-figma fa-3x text-primary me-3"></i>
                           <h5 class="card-title fw-bold mb-0">
@@ -976,13 +945,11 @@
                 </div>
               </div>
 
-              <!-- Slide 3: Backend Core -->
               <div class="carousel-item">
                 <div class="row row-cols-1 g-4 justify-content-center">
                   <div class="col">
                     <div class="card h-100 p-3 shadow-sm skill-card border-0">
                       <div class="card-body">
-                        <!-- Wrapper Flex -->
                         <div class="d-flex align-items-center mb-3">
                           <i class="fab fa-java fa-3x text-danger me-3"></i>
                           <h5 class="card-title fw-bold mb-0">
@@ -1010,13 +977,11 @@
                 </div>
               </div>
 
-              <!-- Slide 4: Automação de IA e ML -->
               <div class="carousel-item">
                 <div class="row row-cols-1 g-4 justify-content-center">
                   <div class="col">
                     <div class="card h-100 p-3 shadow-sm skill-card border-0">
                       <div class="card-body">
-                        <!-- Wrapper Flex -->
                         <div class="d-flex align-items-center mb-3">
                           <i
                             class="fas fa-brain fa-3x me-3"
@@ -1053,13 +1018,11 @@
                 </div>
               </div>
 
-              <!-- Slide 5: Estratégia Full-Cycle & Growth -->
               <div class="carousel-item">
                 <div class="row row-cols-1 g-4 justify-content-center">
                   <div class="col">
                     <div class="card h-100 p-3 shadow-sm skill-card border-0">
                       <div class="card-body">
-                        <!-- Wrapper Flex -->
                         <div class="d-flex align-items-center mb-3">
                           <i
                             class="fas fa-chart-line fa-3x text-info me-3"
@@ -1091,9 +1054,6 @@
                 </div>
               </div>
             </div>
-            <!-- Controles (Setas) - Não são necessários no mobile -->
-
-            <!-- NOVO: Controles (Setas) para Mobile -->
             <button
               class="carousel-control-prev"
               type="button"
@@ -1122,7 +1082,6 @@
         </div>
       </section>
 
-      <!-- SEÇÃO PROJETOS (sem bg-light) -->
       <section id="projects" class="projects-section py-5">
         <div class="container">
           <h2 class="text-center mb-5 text-light">
@@ -1133,7 +1092,7 @@
             <div class="col-md-6 col-lg-4">
               <div class="card h-100 shadow project-card border-0">
                 <img
-                  th:src="@{/img/project-app.png}"
+                  src="img/project-app.png"
                   class="card-img-top"
                   alt="App de E-commerce"
                 />
@@ -1177,7 +1136,7 @@
             <div class="col-md-6 col-lg-4">
               <div class="card h-100 shadow project-card border-0">
                 <img
-                  th:src="@{/img/project-lms.png}"
+                  src="img/project-lms.png"
                   class="card-img-top"
                   alt="Plataforma SaaS de Mentoria"
                 />
@@ -1221,7 +1180,6 @@
         </div>
       </section>
 
-      <!-- SEÇÃO CONSULTORIA (bg-dark já ok, cores atualizadas) -->
       <section
         id="consulting"
         class="consulting-section py-5 bg-dark text-white text-center"
@@ -1275,10 +1233,8 @@
         </div>
       </section>
 
-      <!-- SEÇÃO CONTATO (sem bg-white) -->
       <section id="contact" class="contact-section py-5">
         <div class="container" style="max-width: 500px">
-          <!-- Card de contato já está com estilo dark -->
           <div class="contact-card mx-auto shadow-lg">
             <i
               class="fas fa-trophy fa-3x mb-3"
@@ -1307,7 +1263,6 @@
       </section>
     </main>
 
-    <!-- FOOTER (bg-dark já ok) -->
     <footer class="bg-dark text-white py-4">
       <div class="container text-center">
         <p class="mb-1 fw-semibold">
@@ -1328,7 +1283,6 @@
       </div>
     </footer>
 
-    <!-- NOVO: Duckzinho flutuante -->
     <a id="duck-button" href="#" onclick="return false;" title="Duckzinho!">
       <img
         src="https://interago.com.br/App/Sites/347/mc/Desenhos/duckzinho.svg"
@@ -1337,7 +1291,6 @@
       />
     </a>
 
-    <!-- Botão Flutuante do WhatsApp -->
     <a
       id="whatsapp-button"
       href="https://w.app/aqo1zw"
@@ -1353,7 +1306,6 @@
       crossorigin="anonymous"
     ></script>
 
-    <!-- NOVO SCRIPT: Habilita "arrastar" com mouse no carrossel de habilidades -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         // Função para inicializar o carrossel com drag
@@ -1443,5 +1395,3 @@
     </script>
   </body>
 </html>
-
-
