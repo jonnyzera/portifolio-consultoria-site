@@ -372,6 +372,13 @@
         .progress-bar span {
           font-size: 0.8rem;
         }
+        /* NOVO: Garante que o texto dentro da barra no mobile não quebre e seja visível */
+        .progress-bar.mobile-text-nowrap {
+          overflow: visible; /* Permite o conteúdo transbordar */
+        }
+        .progress-bar.mobile-text-nowrap span {
+          white-space: nowrap; /* Impede que o texto quebre a linha */
+        }
       }
       /* FIM NOVO */
 
@@ -754,13 +761,14 @@
               aria-valuemax="100"
             >
               <div
-                class="progress-bar progress-bar-striped progress-bar-animated"
+                class="progress-bar progress-bar-striped progress-bar-animated mobile-text-nowrap"
                 style="
                   width: 45%;
                   background-color: var(--primary-color);
                   /* Removido gradiente e cor de texto */
                 "
               >
+                <!-- Texto completo para Desktop -->
                 <span class="fw-bold">45% DO SEU PROTÓTIPO PRONTO</span>
               </div>
             </div>
@@ -1791,4 +1799,5 @@
     </script>
   </body>
 </html>
+
 
