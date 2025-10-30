@@ -45,6 +45,12 @@
         --primary-color-rgb: 130, 87, 229;
         --ai-color: #ff9900; /* Laranja/Âmbar para IA (Mantido) */
 
+        /* CORES NOVAS INSPIRADAS NO GRADIENTE DE BORDA */
+        --gray-600: #4b5563; 
+        --gray-600-30: rgba(75, 85, 99, 0.3);
+        /* Cor de fundo do bloco de métrica (um cinza mais escuro que o card) */
+        --bg-metric: #1a1a1e; 
+
         /* Mapeando cores antigas para novas (para componentes existentes) */
         --bg-light: transparent; /* Fundos claros agora são transparentes */
         --text-dark-original: #212529; /* Salva o text-dark original */
@@ -148,6 +154,13 @@
           --text-light
         ); /* Garante que todos os headers sejam claros */
       }
+      /* NOVO: Ajuste de altura e padding para a seção HERO no mobile para mostrar mais o fundo */
+      .hero-section {
+        min-height: 80vh; /* Aumenta a altura mínima da seção principal */
+        display: flex; /* Garante que o conteúdo fique centralizado verticalmente */
+        align-items: center;
+      }
+      /* FIM NOVO */
 
       /* Navbar */
       .navbar.fixed-top {
@@ -161,12 +174,21 @@
         padding: 8px 12px;
         border-radius: 50px;
         transition: box-shadow 0.3s ease-out, transform 0.1s ease-out;
-        color: var(--primary-color) !important; /* Cor roxa no brand */
+        /* CORREÇÃO APLICADA: Força a cor principal do texto e ícone para ser CLARA */
+        color: var(--text-light) !important; 
       }
       .navbar-brand:hover {
         box-shadow: 0 0 0 8px rgba(var(--primary-color-rgb), 0.1);
         transform: scale(1.02);
+        /* Mantém o ícone/texto na cor clara ao passar o mouse */
+        color: var(--text-light) !important;
       }
+      /* NOVO: Garante que o ícone interno também seja da cor primária, para dar um toque de cor */
+      .navbar-brand i {
+        color: var(--primary-color);
+        margin-right: 0.25rem;
+      }
+      
       .navbar-nav .nav-link {
         transition: color 0.3s ease, box-shadow 0.3s ease;
         padding: 8px 12px;
@@ -190,8 +212,9 @@
       /* Cards */
       .card {
         background-color: var(--bg-dark-card);
-        border: 1px solid var(--border-color);
         color: var(--text-light);
+        /* Removendo a borda sólida e dependendo do .border-gradient-custom */
+        border: none; 
       }
       .card p,
       .card .text-muted {
@@ -202,13 +225,105 @@
         transform: translateY(-4px);
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3) !important; /* Sombra mais escura */
         transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-        border-color: var(--primary-color); /* Borda roxa no hover */
+        /* Removendo a borda roxa no hover, usando a customizada */
+        border-color: transparent; 
       }
+
+      /* NOVO: Classe para Borda Gradiente (Simula o efeito do Tailwind/Rocketseat) */
+      .border-gradient-custom {
+          /* Configura o background para ser um gradiente de borda */
+          border: 1px solid transparent; 
+          border-radius: 10px; /* Arredondamento do card */
+          /* Gradiente da borda (de cima para baixo) */
+          background-image: linear-gradient(
+            var(--bg-dark-card), 
+            var(--bg-dark-card)
+          ), 
+          linear-gradient(
+            to bottom, 
+            var(--gray-600), 
+            var(--gray-600-30)
+          );
+          background-origin: border-box;
+          background-clip: padding-box, border-box;
+      }
+      /* FIM NOVO */
+
+      /* NOVO: Estilo para a imagem de especialista no card */
+      .specialist-img-container {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 60px; /* AUMENTADO PARA DESKTOP */
+        height: 60px; /* AUMENTADO PARA DESKTOP */
+        border-radius: 50%;
+        overflow: hidden;
+        border: 2px solid var(--primary-color);
+        box-shadow: 0 0 5px rgba(var(--primary-color-rgb), 0.5);
+        z-index: 10;
+      }
+      .specialist-img-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      /* Ajuste para mobile (o default acima é o desktop/maior) */
+      @media (max-width: 767.98px) {
+        .specialist-img-container {
+            width: 45px; /* AUMENTADO PARA MOBILE */
+            height: 45px; /* AUMENTADO PARA MOBILE */
+        }
+      }
+      /* FIM NOVO */
+
+      /* NOVO: Estilo para o Bloco de Métrica (Metrics Block) */
+      .metric-card-wrapper {
+          padding: 1.5rem;
+          border-radius: 0.625rem; 
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 1.5rem;
+          /* Simula o fundo hover */
+          background-color: var(--bg-dark-card); 
+          transition: background-color 0.3s ease;
+      }
+      .metric-card-wrapper:hover {
+          background-color: var(--bg-metric); /* Um cinza mais escuro no hover */
+      }
+      .metric-icon-container {
+          width: 2.5rem;
+          height: 2.5rem;
+          padding: 0.5rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 0.25rem;
+          /* Gradiente de fundo sutil para o ícone */
+          background: linear-gradient(
+            to bottom, 
+            rgba(var(--primary-color-rgb), 0.2), 
+            rgba(var(--primary-color-rgb), 0.05)
+          );
+      }
+      .metric-title {
+          font-size: 2.25rem; /* 3xl */
+          font-weight: 500;
+          color: var(--text-light);
+      }
+      .metric-description {
+          max-width: 272px;
+          font-size: 1rem;
+          color: var(--secondary-color); /* Cinza claro */
+      }
+      /* FIM NOVO */
+
 
       /* Seções */
       #skills,
       #projects,
-      #contact {
+      #contact,
+      #metrics { /* ADICIONADO METRICS */
         /* Fundo escuro levemente transparente para destacar os cards */
         background-color: rgba(18, 18, 20, 0.8);
         backdrop-filter: blur(5px);
@@ -227,7 +342,16 @@
       .progress-bar {
         border-radius: 15px;
         font-weight: 600;
+        /* NOVO: Ajuste para o texto não ficar grudado no canto */
+        padding-left: 10px; 
       }
+      /* NOVO: Ajuste do tamanho da fonte da barra no mobile */
+      @media (max-width: 767.98px) {
+        .progress-bar span {
+          font-size: 0.8rem;
+        }
+      }
+      /* FIM NOVO */
 
       /* Carrossel */
       #skillsCarouselDesktop .carousel-control-prev-icon, /* MUDADO */
@@ -400,11 +524,12 @@
         border-top: 1px solid var(--border-color);
       }
 
-      /* NOVO: Estilo de tag gradiente (do usuário) */
+      /* CORREÇÃO: Estilo de tag gradiente */
       .gradient-tag {
         display: inline-flex;
         align-items: center;
-        background-color: #000;
+        /* VOLTA AO FUNDO PRETO SÓLIDO */
+        background-color: #000; 
         padding: 0.5rem 1rem; /* p-2 lg:px-4 */
         border-radius: 0.25rem; /* rounded */
         max-height: 2.25rem; /* lg:h-9 */
@@ -416,7 +541,7 @@
         font-weight: 500; /* font-medium */
         font-size: 0.875rem; /* lg:text-sm */
         white-space: nowrap;
-        /* Gradiente ajustado para as cores claras do tema */
+        /* MANTÉM O GRADIENTE PARA DEKSTOP, MAS FORÇA A COR BRANCA NO MOBILE */
         background: linear-gradient(
           to right,
           var(--text-light),
@@ -425,6 +550,15 @@
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
+      }
+      /* CORREÇÃO MOBILE: Garante que o texto seja legível (cor clara) no fundo preto da tag */
+      @media (max-width: 767.98px) {
+        .gradient-tag span {
+          color: var(--text-light) !important; 
+          -webkit-background-clip: unset;
+          background-clip: unset;
+          background: none;
+        }
       }
 
       /* NOVO: Classe utilitária para texto com gradiente */
@@ -488,11 +622,10 @@
             </div>
           </div>
           <h1 class="display-4 fw-bolder text-light mb-3 text-gradient-custom">
-            TRANSFORME SUA IDEIA NO PRÓXIMO NÍVEL DE ESCALABILIDADE.
+            TRANSFORME SUA IDEIA EM ESCALABILIDADE MÁXIMA.
           </h1>
           <p class="lead fw-semibold text-secondary">
-            Crie Soluções Robustas e Garanta Lucro Através da Otimização
-            Digital.
+            Crie Soluções Robustas e Otimizadas para Lucro.
           </p>
           <br />
           <p class="text-muted fw-bold">
@@ -500,8 +633,8 @@
               class="fas fa-map-marker-alt me-2"
               style="color: var(--primary-color)"
             ></i>
-            Base Operacional: Guarulhos/SP (Atendimento
-            <span class="badge-dev-style">100% Remoto</span>)
+            Base: Guarulhos/SP (Atendimento
+            <span class="badge-dev-style">Remoto</span>)
           </p>
 
           <div
@@ -527,7 +660,7 @@
                   /* Removido gradiente e cor de texto */
                 "
               >
-                <span class="fw-bold">45% IMPLEMENTAÇÃO DA BASE</span>
+                <span class="fw-bold">45% DO SEU PROTÓTIPO PRONTO</span>
               </div>
             </div>
             <p class="small text-primary mt-2 font-tech-display">
@@ -559,9 +692,8 @@
               </div>
               <div class="col-md-6">
                 <p class="h6 fw-semibold text-secondary fst-italic">
-                  "A jornada para a maestria digital começa com o primeiro
-                  'build'.
-                  <span class="text-light">Vamos construir o seu?</span>"
+                  "Você tem a ideia, eu garanto o lucro. 
+                  <span class="text-light">Transformo sua visão em um produto digital que vende de verdade.</span>"
                 </p>
               </div>
             </div>
@@ -608,7 +740,14 @@
                   class="row row-cols-1 row-cols-md-2 g-4 justify-content-center"
                 >
                   <div class="col">
-                    <div class="card h-100 p-3 shadow-sm skill-card border-0">
+                    <div class="card h-100 p-3 shadow-sm skill-card border-0 border-gradient-custom position-relative">
+                      <div class="specialist-img-container">
+                        <!-- Imagem do Especialista em Metodologias Ágeis -->
+                        <img 
+                          src="./img/img_joao_bone_comfundo.jpg" 
+                          alt="Foto do Especialista em Scrum/Kanban" 
+                        />
+                      </div>
                       <div class="card-body">
                         <i class="fas fa-sitemap fa-3x text-secondary mb-3"></i>
                         <h5 class="card-title fw-bold">
@@ -644,11 +783,11 @@
                   </div>
 
                   <div class="col">
-                    <div class="card h-100 p-3 shadow-sm skill-card border-0">
+                    <div class="card h-100 p-3 shadow-sm skill-card border-0 border-gradient-custom position-relative">
                       <div class="card-body">
                         <i class="fab fa-figma fa-3x text-primary mb-3"></i>
                         <h5 class="card-title fw-bold">
-                          UX/UI & Design System
+                          Design que Vende (Foco em Conversão)
                         </h5>
                         <p class="card-text small text-muted">
                           Transformação de wireframes (Figma) em interfaces
@@ -678,11 +817,18 @@
                   class="row row-cols-1 row-cols-md-2 g-4 justify-content-center"
                 >
                   <div class="col">
-                    <div class="card h-100 p-3 shadow-sm skill-card border-0">
+                    <div class="card h-100 p-3 shadow-sm skill-card border-0 border-gradient-custom position-relative">
+                      <div class="specialist-img-container">
+                        <!-- Imagem do Especialista em Java/Backend -->
+                        <img 
+                          src="./img/img_joao_bone_comfundo.jpg" 
+                          alt="Foto do Especialista em Java" 
+                        />
+                      </div>
                       <div class="card-body">
                         <i class="fab fa-java fa-3x text-danger mb-3"></i>
                         <h5 class="card-title fw-bold">
-                          Backend Core (Java/Spring)
+                          Desenvolvimento de Software (Java/Spring)
                         </h5>
                         <p class="card-text small text-muted">
                           Desenvolvimento de Microserviços e APIs REST de alta
@@ -704,7 +850,14 @@
                   </div>
 
                   <div class="col">
-                    <div class="card h-100 p-3 shadow-sm skill-card border-0">
+                    <div class="card h-100 p-3 shadow-sm skill-card border-0 border-gradient-custom position-relative">
+                      <div class="specialist-img-container">
+                        <!-- Imagem do Especialista em IA/ML -->
+                        <img 
+                          src="./img/img_joao_bone_comfundo.jpg" 
+                          alt="Foto do Especialista em IA" 
+                        />
+                      </div>
                       <div class="card-body">
                         <i
                           class="fas fa-brain fa-3x mb-3"
@@ -745,7 +898,7 @@
                   class="row row-cols-1 row-cols-md-2 g-4 justify-content-center"
                 >
                   <div class="col">
-                    <div class="card h-100 p-3 shadow-sm skill-card border-0">
+                    <div class="card h-100 p-3 shadow-sm skill-card border-0 border-gradient-custom position-relative">
                       <div class="card-body">
                         <i class="fas fa-chart-line fa-3x text-info mb-3"></i>
                         <h5 class="card-title fw-bold">
@@ -753,7 +906,7 @@
                         </h5>
                         <p class="card-text small text-muted">
                           Estratégias de Go-to-Market, SEO Técnico, e funil de
-                          vendas (A/B testing, Marketing Digital, Gestão de
+                          ventas (A/B testing, Marketing Digital, Gestão de
                           Tráfego).
                         </p>
                         <div class="progress mt-3" style="height: 15px">
@@ -870,7 +1023,14 @@
               <div class="carousel-item active">
                 <div class="row row-cols-1 g-4 justify-content-center">
                   <div class="col">
-                    <div class="card h-100 p-3 shadow-sm skill-card border-0">
+                    <div class="card h-100 p-3 shadow-sm skill-card border-0 border-gradient-custom position-relative">
+                      <div class="specialist-img-container">
+                        <!-- Imagem do Especialista em Metodologias Ágeis -->
+                        <img 
+                          src="./img/img_joao_bone_comfundo.jpg" 
+                          alt="Foto do Especialista em Scrum/Kanban" 
+                        />
+                      </div>
                       <div class="card-body">
                         <div class="d-flex align-items-center mb-3">
                           <i
@@ -914,7 +1074,7 @@
               <div class="carousel-item">
                 <div class="row row-cols-1 g-4 justify-content-center">
                   <div class="col">
-                    <div class="card h-100 p-3 shadow-sm skill-card border-0">
+                    <div class="card h-100 p-3 shadow-sm skill-card border-0 border-gradient-custom position-relative">
                       <div class="card-body">
                         <div class="d-flex align-items-center mb-3">
                           <i class="fab fa-figma fa-3x text-primary me-3"></i>
@@ -948,12 +1108,19 @@
               <div class="carousel-item">
                 <div class="row row-cols-1 g-4 justify-content-center">
                   <div class="col">
-                    <div class="card h-100 p-3 shadow-sm skill-card border-0">
+                    <div class="card h-100 p-3 shadow-sm skill-card border-0 border-gradient-custom position-relative">
+                      <div class="specialist-img-container">
+                        <!-- Imagem do Especialista em Java/Backend -->
+                        <img 
+                          src="./img/img_joao_bone_comfundo.jpg" 
+                          alt="Foto do Especialista em Java" 
+                        />
+                      </div>
                       <div class="card-body">
                         <div class="d-flex align-items-center mb-3">
                           <i class="fab fa-java fa-3x text-danger me-3"></i>
                           <h5 class="card-title fw-bold mb-0">
-                            Backend Core (Java/Spring)
+                            Desenvolvimento de Software (Java/Spring)
                           </h5>
                         </div>
                         <p class="card-text small text-muted">
@@ -980,7 +1147,14 @@
               <div class="carousel-item">
                 <div class="row row-cols-1 g-4 justify-content-center">
                   <div class="col">
-                    <div class="card h-100 p-3 shadow-sm skill-card border-0">
+                    <div class="card h-100 p-3 shadow-sm skill-card border-0 border-gradient-custom position-relative">
+                      <div class="specialist-img-container">
+                        <!-- Imagem do Especialista em IA/ML -->
+                        <img 
+                          src="./img/img_joao_bone_comfundo.jpg" 
+                          alt="Foto do Especialista em IA" 
+                        />
+                      </div>
                       <div class="card-body">
                         <div class="d-flex align-items-center mb-3">
                           <i
@@ -1021,7 +1195,7 @@
               <div class="carousel-item">
                 <div class="row row-cols-1 g-4 justify-content-center">
                   <div class="col">
-                    <div class="card h-100 p-3 shadow-sm skill-card border-0">
+                    <div class="card h-100 p-3 shadow-sm skill-card border-0 border-gradient-custom position-relative">
                       <div class="card-body">
                         <div class="d-flex align-items-center mb-3">
                           <i
@@ -1033,7 +1207,7 @@
                         </div>
                         <p class="card-text small text-muted">
                           Estratégias de Go-to-Market, SEO Técnico, e funil de
-                          vendas (A/B testing, Marketing Digital, Gestão de
+                          ventas (A/B testing, Marketing Digital, Gestão de
                           Tráfego).
                         </p>
                         <div class="progress mt-3" style="height: 15px">
@@ -1090,7 +1264,7 @@
 
           <div class="row g-4 justify-content-center">
             <div class="col-md-6 col-lg-4">
-              <div class="card h-100 shadow project-card border-0">
+              <div class="card h-100 shadow project-card border-0 border-gradient-custom">
                 <img
                   src="img/project-app.png"
                   class="card-img-top"
@@ -1134,7 +1308,7 @@
             </div>
 
             <div class="col-md-6 col-lg-4">
-              <div class="card h-100 shadow project-card border-0">
+              <div class="card h-100 shadow project-card border-0 border-gradient-custom">
                 <img
                   src="img/project-lms.png"
                   class="card-img-top"
@@ -1179,6 +1353,50 @@
           </div>
         </div>
       </section>
+      
+      <!-- NOVA SEÇÃO: MÉTRICAS E RESULTADOS (NO ESTILO SOLICITADO) -->
+      <section id="metrics" class="projects-section py-5">
+        <div class="container">
+          <h2 class="text-center mb-5 text-light">
+            Métricas de Impacto e Resultados Entregues
+          </h2>
+
+          <div class="row g-4 justify-content-center">
+            
+            <div class="col-md-6 col-lg-4">
+              <div class="metric-card-wrapper shadow">
+                <div class="metric-icon-container">
+                  <i class="fas fa-tachometer-alt fa-lg text-primary"></i>
+                </div>
+                <h3 class="metric-title">+40%</h3>
+                <p class="metric-description">Aumento de performance e velocidade em sistemas otimizados.</p>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+              <div class="metric-card-wrapper shadow">
+                <div class="metric-icon-container">
+                  <i class="fas fa-cubes fa-lg text-primary"></i>
+                </div>
+                <h3 class="metric-title">10+</h3>
+                <p class="metric-description">Projetos de alta complexidade entregues e prontos para o mercado.</p>
+              </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+              <div class="metric-card-wrapper shadow">
+                <div class="metric-icon-container">
+                  <i class="fas fa-money-bill-wave fa-lg text-primary"></i>
+                </div>
+                <h3 class="metric-title">98%</h3>
+                <p class="metric-description">Taxa de satisfação do cliente com foco em geração de lucro.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+      <!-- FIM DA NOVA SEÇÃO -->
 
       <section
         id="consulting"
@@ -1186,7 +1404,7 @@
       >
         <div class="container py-5">
           <h2 class="mb-5 fw-bolder" style="color: var(--primary-color)">
-            Roadmap do Cliente: Da Ideia ao Lucro
+            O Seu Jogo Vencedor: Do Protótipo ao Mercado
           </h2>
           <div class="row justify-content-center">
             <div class="col-md-4 mb-4">
@@ -1194,10 +1412,9 @@
                 class="fas fa-search fa-3x mb-3"
                 style="color: var(--accent-color)"
               ></i>
-              <h5 class="fw-bold text-white">1. Diagnóstico e Arquitetura</h5>
+              <h5 class="fw-bold text-white">1. FASE I: DIAGNÓSTICO (O Mapa)</h5>
               <p class="small text-muted">
-                Definição da stack (Java/Spring Boot) e infraestrutura para
-                escalabilidade.
+                Alinhamos sua ideia ao mercado, definindo a rota e a tecnologia ideais para construir sua solução.
               </p>
             </div>
 
@@ -1207,11 +1424,10 @@
                 style="color: var(--accent-color)"
               ></i>
               <h5 class="fw-bold text-white">
-                2. Desenvolvimento Ágil e Testes
+                2. FASE II: DESENVOLVIMENTO (A Construção)
               </h5>
               <p class="small text-muted">
-                Implementação limpa e segura (Spring Security, JPA) com testes
-                automatizados.
+                Construção ágil e segura do seu produto. Entregas rápidas e testadas para garantir alta performance.
               </para>
             </div>
 
@@ -1220,15 +1436,14 @@
                 class="fas fa-rocket fa-3x mb-3"
                 style="color: var(--accent-color)"
               ></i>
-              <h5 class="fw-bold text-white">3. Go-to-Market & Otimização</h5>
+              <h5 class="fw-bold text-white">3. FASE III: EXPANSÃO (O Lançamento)</h5>
               <p class="small text-muted">
-                Estratégias de marketing integradas para garantir a tração e o
-                crescimento do tráfego.
+                Estratégia completa de lançamento e crescimento, garantindo que seu produto gere vendas escaláveis.
               </p>
             </div>
           </div>
           <a href="#contact" class="btn btn-lg btn-accent mt-4 fw-bold shadow"
-            >Vamos Desbloquear Seu Potencial!</a
+            >Iniciar Missão: Próximo Nível</a
           >
         </div>
       </section>
