@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ícone Kodeo Isolado</title>
+    <style>
+        /* Cores do seu tema */
+        :root {
+            --primary-color: #8257e5; /* Roxo */
+            --accent-color: #04d361; /* Verde */
+            --ai-color: #ff9900; /* Laranja IA */
+        }
+        
+        body {
+            background-color: #121214; /* Fundo do seu portfólio (Dark) */
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh; /* Centraliza verticalmente na tela */
+        }
+
+        .icon-container {
+            width: 150px; /* Tamanho grande para visualização */
+            height: 150px;
+            padding: 20px;
+            background-color: #202024; /* Fundo do card/área de destaque */
+            border-radius: 1rem;
+            box-shadow: 0 0 30px rgba(130, 87, 229, 0.3);
+        }
+
+        /* Garantindo que o SVG seja responsivo dentro do container */
+        .logo-svg {
+            width: 100%;
+            height: 100%;
+        }
+        
+        /* Corrigindo o bug no SVG onde o stroke-linejoin não estava declarado */
+        .logo-svg path, .logo-svg circle {
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="icon-container">
+        <!-- SVG: Símbolo "K" Loop de Origem (Redimensionado para destaque) -->
+        <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none">
+            <!-- Camada Base: Roxo (Solidez/Arquitetura) -->
+            <path 
+                d="M 30 20 L 70 20 C 80 20, 80 30, 80 40 L 80 70 C 80 80, 70 80, 60 80 L 30 80 L 70 40 L 30 40"
+                stroke="var(--primary-color)" 
+                stroke-width="8" 
+                fill="none" 
+            />
+            <!-- Traço de Destaque: Verde (Qualidade/Performance) -->
+            <path 
+                d="M 30 40 L 50 60 L 70 40" 
+                stroke="var(--accent-color)" 
+                stroke-width="8" 
+                fill="none"
+            />
+            <!-- Detalhe da Ponta: Laranja IA (Inovação/Ponto Focal) -->
+            <circle cx="30" cy="80" r="4" fill="var(--ai-color)" />
+        </svg>
+    </div>
+
+</body>
+</html>
