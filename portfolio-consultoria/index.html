@@ -3,18 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- O Título agora reflete a nova marca Kodeo -->
-    <title>Kodeo Consultoria | Do Protótipo à Escala</title>
+    <title>Kodeo Consultoria | Fábrica de Software e Growth em Guarulhos e São Paulo (SP)</title>
 
-    <!-- NOVO: FAVICON (ÍCONE DA ABA) - Usando o SVG do Prisma Encoded como Data URI -->
-    <!-- Este SVG exibe o seu prisma no ícone da aba. -->
+    <meta name="description" content="Fábrica de Software e Consultoria em Growth focada em desenvolvimento Java/Spring e Microserviços. Atendemos empresas de Guarulhos e toda São Paulo (SP), garantindo escalabilidade e lucro." />
+    <meta name="keywords" content="Fábrica de Software Guarulhos, Consultoria TI São Paulo, Desenvolvimento Java SP, Outsourcing Software, Microserviços, Growth Hacking" />
+
+    <meta property="og:title" content="Kodeo Consultoria | Fábrica de Software e Growth em Guarulhos e São Paulo (SP)" />
+    <meta property="og:description" content="Fábrica de Software e Consultoria em Growth focada em desenvolvimento Java/Spring e Microserviços. Atendemos empresas de Guarulhos e toda São Paulo (SP), garantindo escalabilidade e lucro." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.kodeo.site" /> <meta property="og:image" content="https://www.kodeo.site/img/patinho_IA.jpg" /> 
     <link 
       rel="icon" 
       href="data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 50 50 L 15 30 L 15 70 Z' fill='%238257e5' /%3E%3Cpath d='M 50 50 L 15 70 L 85 70 Z' fill='%2304d361' /%3E%3Cpath d='M 50 50 L 85 70 L 85 30 Z' fill='%23ff9900' /%3E%3Cpath d='M 50 50 L 85 30 L 15 30 Z' fill='%238257e5' /%3E%3C/svg%3E" 
       type="image/svg+xml"
     >
-    <!-- FIM DO NOVO FAVICON -->
-
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -25,7 +27,6 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
 
-    <!-- Fontes (Mantidas do seu layout original) -->
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
@@ -36,7 +37,7 @@
     />
 
     <style>
-      /* Paleta de Cores e Variáveis - TEMA ROCKETSEAT (DARK) */
+      /* ... (Todo o seu CSS está aqui, não foi modificado) ... */
       :root {
         --primary-color: #8257e5; /* Roxo Rocketseat */
         --secondary-color: #a8a8b3; /* Cinza claro para texto */
@@ -55,19 +56,12 @@
         --border-color: #323238; /* Cor da borda */
         --primary-color-rgb: 130, 87, 229;
         --ai-color: #ff9900; /* Laranja/Âmbar para IA (Mantido) */
-
-        /* CORES NOVAS INSPIRADAS NO GRADIENTE DE BORDA */
         --gray-600: #4b5563;
         --gray-600-30: rgba(75, 85, 99, 0.3);
-        /* Cor de fundo do bloco de métrica (um cinza mais escuro que o card) */
         --bg-metric: #1a1a1e;
-
-        /* Mapeando cores antigas para novas (para componentes existentes) */
         --bg-light: transparent; /* Fundos claros agora são transparentes */
         --text-dark-original: #212529; /* Salva o text-dark original */
       }
-
-      /* Aplicações de Cor */
       .bg-primary {
         background-color: var(--primary-color) !important;
       }
@@ -78,7 +72,6 @@
         background-color: var(--primary-color);
         border-color: var(--primary-color);
       }
-      /* O botão de warning agora é o ACCENT (Verde) */
       .btn-accent {
         background-color: var(--accent-color) !important;
         border-color: var(--accent-color) !important;
@@ -93,16 +86,12 @@
         transform: translateY(-1px);
         box-shadow: 0 0.3rem 0.6rem rgba(0, 0, 0, 0.2) !important;
       }
-      /* NOVO: Classe de texto para a cor de destaque (accent) */
       .text-accent {
         color: var(--accent-color) !important;
       }
-
-      /* NOVO: Classe de texto para a cor de IA (Laranja/Âmbar) */
       .text-ai {
         color: var(--ai-color) !important;
       }
-
       .badge.bg-success {
         background-color: var(--accent-color) !important;
         color: var(--text-dark-original) !important;
@@ -135,8 +124,6 @@
         box-shadow: 0 0 15px rgba(4, 211, 97, 0.3); /* Sombra verde */
         text-align: center;
       }
-
-      /* Tipografia e Fundo */
       body {
         font-family: "Inter", sans-serif;
         color: var(--text-light); /* Texto padrão é claro */
@@ -161,14 +148,11 @@
         font-weight: 800;
         color: var(--text-light); /* Garante que todos os headers sejam claros */
       }
-      /* ... (Estilo .hero-section mantido) ... */
       .hero-section {
         min-height: 80vh; /* Aumenta a altura mínima da seção principal */
         display: flex; /* Garante que o conteúdo fique centralizado verticalmente */
         align-items: center;
       }
-
-      /* Navbar */
       .navbar.fixed-top {
         background-color: var(
           --bg-dark-header
@@ -176,51 +160,32 @@
         backdrop-filter: blur(10px); /* Efeito de vidro */
         border-bottom: 1px solid var(--border-color);
       }
-
-      /* ========================================
-        MUDANÇA: NAVBAR-BRAND ATUALIZADO (KODEO)
-        ========================================
-      */
       .navbar-brand {
         padding: 8px 12px;
         border-radius: 50px;
         transition: box-shadow 0.3s ease-out, transform 0.1s ease-out;
         color: var(--text-light) !important;
-
-        /* Alinhamento do novo logo */
         display: flex;
         align-items: center;
         gap: 0.5rem; /* Espaço entre o ícone e o nome */
         font-family: "Roboto Mono", monospace; /* Fonte Tech */
         font-weight: 700;
-        
-        /* AJUSTE: Garante que o container da marca tenha altura mínima no mobile */
         min-height: 40px;
       }
-
       .navbar-brand:hover {
         box-shadow: 0 0 0 8px rgba(var(--primary-color-rgb), 0.1);
         transform: scale(1.02);
         color: var(--text-light) !important;
       }
-
-      /* O ÍCONE SVG NO HEADER (PEQUENO) */
       .logo-svg-header {
         width: 28px; /* Tamanho ideal para o header */
         height: 28px;
-        /* Rotação mantida para dinamismo */
         transform: rotate(-15deg);
       }
-
       .logo-svg-header .face {
         stroke: var(--bg-dark-header); /* Linha de separação escura */
         stroke-width: 4; /* Mais grosso para ser visível pequeno */
       }
-      /* ========================================
-         FIM DA MUDANÇA
-         ========================================
-      */
-
       .navbar-nav .nav-link {
         transition: color 0.3s ease, box-shadow 0.3s ease;
         padding: 8px 12px;
@@ -234,19 +199,15 @@
         box-shadow: 0 0 0 4px rgba(var(--primary-color-rgb), 0.1);
         background-color: rgba(var(--primary-color-rgb), 0.1);
       }
-      /* Icone do Menu Mobile (Toggler) */
       .navbar-toggler-icon {
         background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(225, 225, 230, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
       }
       .navbar-toggler {
         border-color: var(--border-color);
       }
-
-      /* Cards */
       .card {
         background-color: var(--bg-dark-card);
         color: var(--text-light);
-        /* Removendo a borda sólida e dependendo do .border-gradient-custom */
         border: none;
       }
       .card p,
@@ -258,16 +219,11 @@
         transform: translateY(-4px);
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3) !important; /* Sombra mais escura */
         transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-        /* Removendo a borda roxa no hover, usando a customizada */
         border-color: transparent;
       }
-
-      /* NOVO: Classe para Borda Gradiente (Simula o efeito do Tailwind/Rocketseat) */
       .border-gradient-custom {
-        /* Configura o background para ser um gradiente de borda */
         border: 1px solid transparent;
         border-radius: 10px; /* Arredondamento do card */
-        /* Gradiente da borda (de cima para baixo) */
         background-image: linear-gradient(
             var(--bg-dark-card),
             var(--bg-dark-card)
@@ -276,9 +232,6 @@
         background-origin: border-box;
         background-clip: padding-box, border-box;
       }
-      /* FIM NOVO */
-
-      /* NOVO: Estilo para a imagem de especialista no card */
       .specialist-img-container {
         position: absolute;
         top: 10px;
@@ -296,16 +249,12 @@
         height: 100%;
         object-fit: cover;
       }
-      /* Ajuste para mobile (o default acima é o desktop/maior) */
       @media (max-width: 767.98px) {
         .specialist-img-container {
           width: 45px; /* AUMENTADO PARA MOBILE */
           height: 45px; /* AUMENTADO PARA MOBILE */
         }
       }
-      /* FIM NOVO */
-
-      /* NOVO: Estilo para o Bloco de Métrica (Metrics Block) */
       .metric-card-wrapper {
         padding: 1.5rem;
         border-radius: 0.625rem;
@@ -313,7 +262,6 @@
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
-        /* Simula o fundo hover */
         background-color: var(--bg-dark-card);
         transition: background-color 0.3s ease;
       }
@@ -328,7 +276,6 @@
         align-items: center;
         justify-content: center;
         border-radius: 0.25rem;
-        /* Gradiente de fundo sutil para o ícone */
         background: linear-gradient(
           to bottom,
           rgba(var(--primary-color-rgb), 0.2),
@@ -345,15 +292,10 @@
         font-size: 1rem;
         color: var(--secondary-color); /* Cinza claro */
       }
-      /* FIM NOVO */
-
-      /* Seções */
       #skills,
       #projects,
       #contact,
       #metrics {
-        /* ADICIONADO METRICS */
-        /* Fundo escuro levemente transparente para destacar os cards */
         background-color: rgba(18, 18, 20, 0.8);
         backdrop-filter: blur(5px);
         margin-top: -1px;
@@ -361,9 +303,6 @@
       #consulting {
         background-color: var(--bg-dark-main) !important;
       }
-
-      /* ... (Estilos de .progress, .progress-bar, Carrossel, etc. mantidos) ... */
-      /* Barra de Progresso */
       .progress {
         height: 30px;
         border-radius: 15px;
@@ -372,15 +311,12 @@
       .progress-bar {
         border-radius: 15px;
         font-weight: 600;
-        /* NOVO: Ajuste para o texto não ficar grudado no canto */
         padding-left: 10px;
       }
-      /* NOVO: Ajuste do tamanho da fonte da barra no mobile */
       @media (max-width: 767.98px) {
         .progress-bar span {
           font-size: 0.8rem;
         }
-        /* NOVO: Garante que o texto dentro da barra no mobile não quebre e seja visível */
         .progress-bar.mobile-text-nowrap {
           overflow: visible; /* Permite o conteúdo transbordar */
         }
@@ -388,74 +324,50 @@
           white-space: nowrap; /* Impede que o texto quebre a linha */
         }
       }
-      /* FIM NOVO */
-
-      /* Carrossel */
-      #skillsCarouselDesktop .carousel-control-prev-icon, /* MUDADO */
+      #skillsCarouselDesktop .carousel-control-prev-icon,
       #skillsCarouselDesktop .carousel-control-next-icon {
-        /* MUDADO */
         background-color: var(--primary-color);
         border-radius: 50%;
-        /* Ícones menores para caberem embaixo */
         padding: 0.5rem;
         height: 2.5rem;
         width: 2.5rem;
         transition: opacity 0.15s ease;
       }
-      #skillsCarouselDesktop .carousel-control-prev, /* MUDADO */
+      #skillsCarouselDesktop .carousel-control-prev,
       #skillsCarouselDesktop .carousel-control-next {
-        /* MUDADO */
-        /* Movidos para baixo, fora do conteúdo */
         top: auto;
         bottom: 0.5rem; /* Posicionados na base */
         height: 3rem; /* Altura da área de clique */
         opacity: 0.9; /* Um pouco mais visível */
         width: auto; /* Tamanho automático baseado no ícone */
       }
-
-      /* NOVAS REGRAS PARA AGRUPAR NO CENTRO */
       #skillsCarouselDesktop .carousel-control-prev {
-        /* MUDADO */
         left: 50%;
         transform: translateX(
           -120%
         ); /* Puxa para a esquerda do centro + espaço */
-        /* Remove o 'left: 0' padrão do bootstrap */
       }
       #skillsCarouselDesktop .carousel-control-next {
-        /* MUDADO */
         right: 50%;
         transform: translateX(
           120%
         ); /* Puxa para a direita do centro + espaço */
-        /* Remove o 'right: 0' padrão do bootstrap */
       }
-
-      /* Regra @media (max-width: 767.98px) removida pois o carrossel desktop já é d-none em mobile */
-
-      #skillsCarouselDesktop .carousel-indicators button, /* MUDADO */
+      #skillsCarouselDesktop .carousel-indicators button,
       #skillsCarouselMobile .carousel-indicators button {
-        /* ADICIONADO */
         background-color: var(--primary-color); /* Bolinhas roxas */
       }
-      /* NOVO: Move os indicadores (pontos) para cima para dar espaço às setas (SÓ DESKTOP) */
       #skillsCarouselDesktop .carousel-indicators {
-        /* MUDADO */
         bottom: 3rem; /* Sobe os pontos */
       }
-
-      /* NOVO: Posição dos indicadores no Mobile (mais baixo) */
       #skillsCarouselMobile .carousel-indicators {
         bottom: -1.5rem; /* Posição ajustada (bem mais baixo) */
-        /* MUDADO: Alinhado à direita */
         right: 0.5rem;
         left: auto;
         width: auto;
         margin-left: 0;
         margin-right: 0;
       }
-
-      /* NOVO: Estilos para os controles (setas) do carrossel mobile */
       #skillsCarouselMobile .carousel-control-prev,
       #skillsCarouselMobile .carousel-control-next {
         top: auto; /* Remove centralização vertical */
@@ -487,8 +399,6 @@
         width: 1.2rem; /* Ícone menor */
         height: 1.2rem; /* Ícone menor */
       }
-
-      /* ... (Estilos de #duck-button, #whatsapp-button, .font-tech-display, .badge-dev-style, footer, .gradient-tag mantidos) ... */
       #duck-button {
         position: fixed;
         bottom: 25px;
@@ -497,7 +407,6 @@
         width: 60px; /* Tamanho similar ao do WhatsApp */
         height: 60px;
         transition: all 0.3s ease;
-        /* Adicionando um leve drop shadow para destacar */
         filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
         cursor: pointer;
       }
@@ -508,14 +417,11 @@
       #duck-button:hover {
         transform: scale(1.1) rotate(-10deg); /* Animação divertida */
       }
-      /* Esconder em telas pequenas para não poluir */
       @media (max-width: 767.98px) {
         #duck-button {
           display: none;
         }
       }
-
-      /* Botão Flutuante */
       #whatsapp-button {
         position: fixed;
         bottom: 25px;
@@ -539,15 +445,11 @@
         transform: scale(1.1);
         box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
       }
-
-      /* NOVO: Classe para fonte de destaque (tech) */
       .font-tech-display {
         font-family: "Roboto Mono", monospace;
         font-weight: 700; /* Deixar em negrito */
         letter-spacing: -0.5px; /* Ligeiro ajuste */
       }
-
-      /* Tag Dev */
       .badge-dev-style {
         display: inline-flex;
         align-items: center;
@@ -560,14 +462,10 @@
         font-family: "Inter", sans-serif;
         vertical-align: baseline;
       }
-
-      /* Footer */
       footer.bg-dark {
         background-color: var(--bg-dark-main) !important;
         border-top: 1px solid var(--border-color);
       }
-
-      /* NOVO: Estilos do Logo no Footer */
       .footer-logo-container {
         display: flex;
         align-items: center;
@@ -599,13 +497,9 @@
         margin-top: 0.5rem; /* Espaço entre nome e slogan */
         letter-spacing: 0.5px;
       }
-      /* FIM DOS NOVOS ESTILOS */
-
-      /* CORREÇÃO: Estilo de tag gradiente */
       .gradient-tag {
         display: inline-flex;
         align-items: center;
-        /* VOLTA AO FUNDO PRETO SÓLIDO */
         background-color: #000;
         padding: 0.5rem 1rem; /* p-2 lg:px-4 */
         border-radius: 0.25rem; /* rounded */
@@ -618,7 +512,6 @@
         font-weight: 500; /* font-medium */
         font-size: 0.875rem; /* lg:text-sm */
         white-space: nowrap;
-        /* MANTÉM O GRADIENTE PARA DEKSTOP, MAS FORÇA A COR BRANCA NO MOBILE */
         background: linear-gradient(
           to right,
           var(--text-light),
@@ -628,7 +521,6 @@
         background-clip: text;
         color: transparent;
       }
-      /* CORREÇÃO MOBILE: Garante que o texto seja legível (cor clara) no fundo preto da tag */
       @media (max-width: 767.98px) {
         .gradient-tag span {
           color: var(--text-light) !important;
@@ -637,10 +529,7 @@
           background: none;
         }
       }
-
-      /* NOVO: Classe utilitária para texto com gradiente */
       .text-gradient-custom {
-        /* Gradiente ajustado para as cores claras do tema */
         background: linear-gradient(
           to right,
           var(--text-light),
@@ -651,21 +540,51 @@
         color: transparent;
       }
     </style>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Kodeo Consultoria - Fábrica de Software e Growth",
+      "url": "https://www.kodeo.site",
+      "image": "https://www.kodeo.site/img/patinho_IA.jpg",
+      "priceRange": "Sob Consulta",
+      "areaServed": [
+        { "@type": "City", "name": "Guarulhos" },
+        { "@type": "State", "name": "São Paulo" }
+      ],
+      "serviceType": ["Desenvolvimento de Software", "Outsourcing", "Consultoria em TI", "Growth Hacking"],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Av. Bartolomeu de Carlos", 
+        "addressLocality": "Guarulhos",
+        "addressRegion": "SP",
+        "postalCode": "07097-420", 
+        "addressCountry": "BR"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+55-11-98096-0531",
+        "contactType": "Vendas e Consultoria",
+        "areaServed": ["BR"]
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/kodeo-consultoria-tech/about/?viewAsMember=true",
+        "https://github.com/jonnyzera"
+      ]
+    }
+    </script>
   </head>
   <body data-bs-theme="dark">
-    <!-- 
-      HEADER KODEO
-      Esta é a implementação do seu novo logo no header do seu portfólio.
-    -->
     <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
       <div class="container">
-        <!-- SEU NOVO NAVBAR-BRAND (KODEO) -->
-        <a class="navbar-brand" href="#hero">
-          <!-- Ícone Kodeo (Prisma) -->
+        <a class="navbar-brand" href="#hero" aria-label="Kodeo Consultoria - Página Inicial">
           <svg
             class="logo-svg-header"
             viewBox="0 0 100 100"
             xmlns="http://www.w3.org/2000/svg"
+            role="img"
+            aria-label="Logo Prisma de Consultoria"
           >
             <circle cx="50" cy="50" r="3" fill="#E1E1E6" />
             <path
@@ -690,12 +609,8 @@
             />
           </svg>
 
-          <!-- NOME KODEO -->
-          <!-- d-none d-md-inline: Esconde o nome no mobile, mostra no desktop -->
           <span class="d-none d-md-inline"> KODEO </span>
         </a>
-        <!-- FIM DO NOVO NAVBAR-BRAND -->
-
         <button
           class="navbar-toggler"
           type="button"
@@ -726,14 +641,11 @@
         </div>
       </div>
     </nav>
-    <!-- FIM DO HEADER -->
-
     <main>
       <section id="hero" class="hero-section py-5 text-center">
         <div class="container py-5">
           <div class="d-flex justify-content-center mb-3">
             <div class="gradient-tag">
-              <!-- ATUALIZADO PARA O NOVO NOME -->
               <span>Kodeo: Onde ideias viram produtos_</span>
             </div>
           </div>
@@ -776,7 +688,6 @@
                   /* Removido gradiente e cor de texto */
                 "
               >
-                <!-- Texto completo para Desktop -->
                 <span class="fw-bold">45% DO SEU PROTÓTIPO PRONTO</span>
               </div>
             </div>
@@ -799,7 +710,7 @@
                 <img
                   src="./img/patinho_IA.jpg"
                   class="rounded-circle shadow-sm"
-                  alt="Minha foto de fundo"
+                  alt="Especialista em TI e Consultoria de Software com Patinho Rubber Duck Debugging"
                   style="
                     width: 80px;
                     height: 80px;
@@ -864,7 +775,6 @@
                       class="card h-100 p-3 shadow-sm skill-card border-0 border-gradient-custom position-relative"
                     >
                       <div class="specialist-img-container">
-                        <!-- Imagem do Especialista em Metodologias Ágeis -->
                         <img
                           src="./img/img_joao_bone_comfundo.jpg"
                           alt="Foto do Especialista em Scrum/Kanban"
@@ -947,7 +857,6 @@
                       class="card h-100 p-3 shadow-sm skill-card border-0 border-gradient-custom position-relative"
                     >
                       <div class="specialist-img-container">
-                        <!-- Imagem do Especialista em Java/Backend -->
                         <img
                           src="./img/img_joao_bone_comfundo.jpg"
                           alt="Foto do Especialista em Java"
@@ -981,7 +890,6 @@
                     <div
                       class="card h-100 p-3 shadow-sm skill-card border-0 border-gradient-custom position-relative"
                     >
-                      <!-- FOTO REMOVIDA DAQUI -->
                       <div class="card-body">
                         <i
                           class="fas fa-brain fa-3x mb-3"
@@ -1153,7 +1061,6 @@
                       class="card h-100 p-3 shadow-sm skill-card border-0 border-gradient-custom position-relative"
                     >
                       <div class="specialist-img-container">
-                        <!-- Imagem do Especialista em Metodologias Ágeis -->
                         <img
                           src="./img/img_joao_bone_comfundo.jpg"
                           alt="Foto do Especialista em Scrum/Kanban"
@@ -1242,7 +1149,6 @@
                       class="card h-100 p-3 shadow-sm skill-card border-0 border-gradient-custom position-relative"
                     >
                       <div class="specialist-img-container">
-                        <!-- Imagem do Especialista em Java/Backend -->
                         <img
                           src="./img/img_joao_bone_comfundo.jpg"
                           alt="Foto do Especialista em Java"
@@ -1282,7 +1188,6 @@
                     <div
                       class="card h-100 p-3 shadow-sm skill-card border-0 border-gradient-custom position-relative"
                     >
-                      <!-- FOTO REMOVIDA DAQUI -->
                       <div class="card-body">
                         <div class="d-flex align-items-center mb-3">
                           <i
@@ -1393,16 +1298,14 @@
           </h2>
 
           <div class="row g-4 justify-content-center">
-            <!-- Projeto 1: E-commerce Escalável -->
             <div class="col-md-6 col-lg-4">
               <div
                 class="card h-100 shadow project-card border-0 border-gradient-custom"
               >
-                <!-- Imagem do projeto E-commerce -->
                 <img
                   src="./img/commerce.jpg"
                   class="card-img-top"
-                  alt=""
+                  alt="Screenshot do projeto de E-commerce escalável."
                 />
                 <div class="card-body">
                   <h5 class="card-title fw-bold">
@@ -1427,10 +1330,10 @@
                   </p>
 
                   <div class="mt-3">
-                    <!-- Link para o projeto -->
                     <a
                       href="https://brilhoshop3.catalog.yampi.io/"
                       target="_blank"
+                      rel="noopener noreferrer"
                       class="btn btn-sm btn-outline-secondary me-2 fw-bold"
                       ><i class="fas fa-rocket me-2"></i>Acessar</a
                     >
@@ -1442,16 +1345,14 @@
               </div>
             </div>
 
-            <!-- Projeto 2: Plataforma SaaS de Mentoria -->
             <div class="col-md-6 col-lg-4">
               <div
                 class="card h-100 shadow project-card border-0 border-gradient-custom"
               >
-                <!-- Imagem do projeto Plataforma SaaS de Mentoria -->
                 <img
                   src="./img/mentor.jpg"
                   class="card-img-top"
-                  alt=""
+                  alt="Plataforma SaaS de Mentoria com planos de assinatura."
                 />
                 <div class="card-body">
                   <h5 class="card-title fw-bold">
@@ -1476,10 +1377,10 @@
                   </p>
 
                   <div class="mt-3">
-                    <!-- Link para o projeto -->
                     <a
                      href="#" 
                       target="_blank"
+                      rel="noopener noreferrer"
                       class="btn btn-sm btn-outline-secondary me-2 fw-bold"
                       ><i class="fas fa-rocket me-2"></i>Acessar</a
                     >
@@ -1491,16 +1392,14 @@
               </div>
             </div>
             
-            <!-- NOVO PROJETO: Sistema de Biblioteca (Biblioteca-springboot-thymleaf-postgsql) -->
             <div class="col-md-6 col-lg-4">
               <div
                 class="card h-100 shadow project-card border-0 border-gradient-custom"
               >
-                <!-- Imagem do projeto Biblioteca (Placeholder) -->
                 <img
                   src="./img/biblioteca.png"
                   class="card-img-top"
-                  alt="Sistema de Gestão de Bibliotecas em Spring Boot"
+                  alt="Sistema de Gestão de Bibliotecas em Spring Boot."
                 />
                 <div class="card-body">
                   <h5 class="card-title fw-bold">
@@ -1525,10 +1424,10 @@
                   </p>
 
                   <div class="mt-3">
-                    <!-- Link para o projeto no Render -->
                     <a
                       href="https://biblioteca-springboot-thymleaf-postgsql.onrender.com"
                       target="_blank"
+                      rel="noopener noreferrer"
                       class="btn btn-sm btn-outline-secondary me-2 fw-bold"
                       ><i class="fas fa-rocket me-2"></i>Acessar</a
                     >
@@ -1539,12 +1438,10 @@
                 </div>
               </div>
             </div>
-            <!-- FIM DO NOVO PROJETO -->
-          </div>
+            </div>
         </div>
       </section>
 
-      <!-- NOVA SEÇÃO: MÉTRICAS E RESULTADOS (NO ESTILO SOLICITADO) -->
       <section id="metrics" class="projects-section py-5">
         <div class="container">
           <h2 class="text-center mb-5 text-light">
@@ -1591,8 +1488,6 @@
           </div>
         </div>
       </section>
-      <!-- FIM DA NOVA SEÇÃO -->
-
       <section
         id="consulting"
         class="consulting-section py-5 bg-dark text-white text-center"
@@ -1665,6 +1560,7 @@
             <a
               href="https://api.whatsapp.com/send?phone=5511980960531&text=Ol%C3%A1,+tudo+bem?+Voc%C3%AA+chegou+%C3%A0+Kodeo+Consultoria.+Para+agilizar+seu+atendimento,+me+diga+brevemente+o+que+voc%C3%AA+precisa."
               target="_blank"
+              rel="noopener noreferrer"
               class="btn btn-whatsapp btn-lg w-100 fw-bold shadow"
             >
               <i class="fab fa-whatsapp me-2"></i> Iniciar Missão de Diagnóstico
@@ -1680,15 +1576,14 @@
 
     <footer class="bg-dark text-white py-4">
       <div class="container text-center">
-        <!-- NOVO: Bloco do Logo no Footer -->
         <div class="mb-4">
-          <!-- Wrapper para o bloco todo -->
           <div class="footer-logo-container">
-            <!-- Ícone Kodeo (Prisma) -->
             <svg
               class="logo-svg-footer"
               viewBox="0 0 100 100"
               xmlns="http://www.w3.org/2000/svg"
+              role="img"
+              aria-label="Logo Kodeo"
             >
               <circle cx="50" cy="50" r="3" fill="#E1E1E6" />
               <path
@@ -1714,23 +1609,21 @@
             </svg>
             <h4 class="footer-brand-name">KODEO</h4>
           </div>
-          <!-- Mini Frase (Slogan) -->
           <p class="footer-slogan">O Ponto de Origem da Sua Escala.</p>
         </div>
-        <!-- FIM DO NOVO BLOCO -->
-
         <p class="small text-muted">
           <i class="fas fa-map-marker-alt me-1"></i> Guarulhos/SP
         </p>
         <p class="mb-1 fw-semibold">
-          <!-- ATUALIZADO PARA O NOVO NOME -->
           &copy; 2025 Kodeo Consultoria. Todos os direitos reservados.
         </p>
         <div class="mt-3">
           <a href="https://www.linkedin.com/company/kodeo-consultoria-tech/about/?viewAsMember=true" class="text-white mx-2"
+            target="_blank" rel="noopener noreferrer"
             ><i class="fab fa-linkedin fa-lg"></i
           ></a>
           <a href="https://github.com/jonnyzera" class="text-white mx-2"
+            target="_blank" rel="noopener noreferrer"
             ><i class="fab fa-github fa-lg"></i
           ></a>
         </div>
@@ -1740,7 +1633,7 @@
     <a id="duck-button" href="#" onclick="return false;" title="Duckzinho!">
       <img
         src="https://interago.com.br/App/Sites/347/mc/Desenhos/duckzinho.svg"
-        alt=""
+        alt="Ícone do Patinho de Depuração (Rubber Duck Debugging)"
         onerror="this.style.display='none'"
       />
     </a>
@@ -1749,6 +1642,7 @@
       id="whatsapp-button"
       href="https://api.whatsapp.com/send?phone=5511980960531&text=Ol%C3%A1,+tudo+bem?+Voc%C3%AA+chegou+%C3%A0+Kodeo+Consultoria.+Para+agilizar+seu+atendimento,+me+diga+brevemente+o+que+voc%C3%AA+precisa."
       target="_blank"
+      rel="noopener noreferrer"
       aria-label="Fale conosco no WhatsApp"
       title="Fale conosco no WhatsApp"
     >
