@@ -1,0 +1,8 @@
+{
+    "rewrites": [
+        {
+            "source": "/construcao-sites",
+            "destination": "/construcao-sites/index.html"
+        }
+    ]
+}
