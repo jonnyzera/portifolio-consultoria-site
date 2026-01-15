@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-pt" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO AVANÇADO -->
+    <title>Área de Cliente | Kodeo Consultoria</title>
+    <meta name="description" content="Aceda à sua área restrita na Kodeo. Acompanhe os seus projetos de Software Factory, IA e Growth em tempo real." />
+    
+    <!-- Frameworks & Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 50 50 L 15 30 L 15 70 Z' fill='%238257e5' /%3E%3Cpath d='M 50 50 L 15 70 L 85 70 Z' fill='%2304d361' /%3E%3Cpath d='M 50 50 L 85 70 L 85 30 Z' fill='%23ff9900' /%3E%3Cpath d='M 50 50 L 85 30 L 15 30 Z' fill='%238257e5' /%3E%3C/svg%3E">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#09090b',
+                            card: '#18181b',
+                            primary: '#8257e5',
+                            accent: '#04d361',
+                            muted: '#a1a1aa'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .mesh-gradient {
+            background-color: #09090b;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(130, 87, 229, 0.12) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(4, 211, 97, 0.08) 0px, transparent 50%);
+        }
+
+        .glass-nav {
+            background: rgba(9, 9, 11, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .login-card {
+            background: rgba(24, 24, 27, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .input-style {
+            background: rgba(9, 9, 11, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .input-style:focus {
+            border-color: #8257e5;
+            box-shadow: 0 0 15px rgba(130, 87, 229, 0.2);
+            outline: none;
+        }
+
+        #mobile-menu {
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateX(100%);
+        }
+        #mobile-menu.open {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="mesh-gradient text-zinc-300 antialiased font-sans flex flex-col min-h-screen">
+
+    <!-- Header (Padronizado e Centralizado) -->
+    <header class="fixed top-0 w-full z-50 glass-nav transition-all duration-300">
+        <nav class="container mx-auto px-6 py-4 flex items-center justify-between relative">
+            <a href="index.html" class="flex items-center gap-2 group z-10">
+                <svg width="32" height="32" viewBox="0 0 100 100">
+                    <path d="M 50 50 L 15 30 L 15 70 Z" fill="#8257e5" />
+                    <path d="M 50 50 L 15 70 L 85 70 Z" fill="#04d361" />
+                    <path d="M 50 50 L 85 70 L 85 30 Z" fill="#ff9900" />
+                    <path d="M 50 50 L 85 30 L 15 30 Z" fill="#8257e5" />
+                </svg>
+                <span class="font-display text-xl font-extrabold tracking-tighter text-white uppercase">KODEO</span>
+            </a>
+
+            <!-- Menu Principal Centralizado -->
+            <div class="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-10 text-[16px] font-bold text-white/90">
+                <a href="index.html" class="hover:text-brand-primary transition-colors whitespace-nowrap">Home</a>
+                <div class="relative group">
+                    <button class="hover:text-brand-primary transition-colors flex items-center gap-1 uppercase tracking-tight whitespace-nowrap">
+                        Soluções <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                    </button>
+                    <div class="absolute top-full left-0 mt-3 w-56 bg-zinc-900 border border-zinc-800 rounded-2xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all shadow-2xl text-sm font-medium">
+                        <a href="software-factory.html" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Software Factory</a>
+                        <a href="agente.html" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Agentes de IA</a>
+                        <a href="growth.html" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Growth & Ads</a>
+                        <a href="negocios.html" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Pequenos Negócios</a>
+                    </div>
+                </div>
+                <a href="cases.html" class="hover:text-brand-primary transition-colors whitespace-nowrap">Cases</a>
+                <a href="metodologia.html" class="hover:text-brand-primary transition-colors whitespace-nowrap">Metodologia</a>
+            </div>
+
+            <div class="flex items-center gap-6 z-10">
+                <div class="hidden lg:flex items-center gap-8 text-[16px] font-bold">
+                    <a href="#" class="text-brand-primary font-bold whitespace-nowrap">Login</a>
+                    <a href="https://api.whatsapp.com/send?phone=5511980960531" class="bg-white text-black px-7 py-3 rounded-full hover:bg-brand-primary hover:text-white transition-all shadow-lg active:scale-95 whitespace-nowrap font-bold">
+                        Falar com Especialista
+                    </a>
+                </div>
+                <button id="menu-toggle" class="lg:hidden flex items-center justify-center w-10 h-10 rounded-full bg-zinc-800/50 border border-zinc-700 text-white"><i class="fa-solid fa-bars-staggered text-lg"></i></button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-brand-dark z-[60] flex flex-col p-10 lg:hidden text-readable">
+        <div class="flex justify-between items-center mb-16">
+            <span class="font-display text-2xl font-bold text-white uppercase tracking-tighter">KODEO</span>
+            <button id="menu-close" class="w-10 h-10 flex items-center justify-center rounded-full bg-zinc-800 text-white"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="flex flex-col gap-8 text-3xl font-bold font-display text-white text-center">
+            <a href="index.html" class="mobile-link">Home</a>
+            <a href="cases.html" class="mobile-link text-zinc-500">Cases</a>
+            <a href="software-factory.html" class="mobile-link text-zinc-500">Software Factory</a>
+            <a href="#" class="mobile-link text-brand-primary">Login</a>
+        </div>
+    </div>
+
+    <!-- Login Content -->
+    <main class="flex-grow flex items-center justify-center pt-24 pb-12 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <div class="flex flex-col lg:flex-row rounded-[3rem] overflow-hidden shadow-2xl border border-zinc-800 bg-brand-card/30">
+                
+                <!-- Coluna da Imagem (Visual Impact) -->
+                <div class="hidden lg:block lg:w-1/2 relative">
+                    <!-- Image of Tecnologia de Segurança e Cloud -->
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=2070" class="w-full h-full object-cover grayscale opacity-40" alt="Security Cloud Technology">
+                    <div class="absolute inset-0 bg-gradient-to-r from-brand-dark/80 to-transparent"></div>
+                    <div class="absolute bottom-16 left-16 right-16">
+                        <h2 class="text-4xl font-display font-extrabold text-white leading-tight uppercase mb-6">
+                            Acompanhe o seu <br> <span class="text-brand-primary">Crescimento</span> em tempo real.
+                        </h2>
+                        <div class="flex gap-4">
+                            <div class="w-10 h-1 rounded-full bg-brand-primary"></div>
+                            <div class="w-4 h-1 rounded-full bg-zinc-700"></div>
+                            <div class="w-4 h-1 rounded-full bg-zinc-700"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coluna do Formulário -->
+                <div class="w-full lg:w-1/2 p-10 md:p-20 flex flex-col justify-center relative">
+                    <div class="mb-12">
+                        <span class="text-brand-accent font-bold uppercase tracking-widest text-[10px] mb-2 block">Área Restrita</span>
+                        <h1 class="text-3xl md:text-4xl font-display font-bold text-white uppercase tracking-tighter">Bem-vindo de Volta.</h1>
+                        <p class="text-zinc-500 mt-2 font-light">Introduza as suas credenciais para aceder ao portal.</p>
+                    </div>
+
+                    <form action="#" class="space-y-6">
+                        <div>
+                            <label for="email" class="block text-xs font-bold uppercase tracking-widest text-zinc-400 mb-3 ml-1">E-mail Corporativo</label>
+                            <input type="email" id="email" class="input-style w-full px-6 py-4 rounded-2xl text-white font-medium" placeholder="exemplo@empresa.com" required>
+                        </div>
+
+                        <div>
+                            <label for="password" class="block text-xs font-bold uppercase tracking-widest text-zinc-400 mb-3 ml-1">Palavra-passe</label>
+                            <input type="password" id="password" class="input-style w-full px-6 py-4 rounded-2xl text-white font-medium" placeholder="••••••••" required>
+                            <div class="flex justify-end mt-3">
+                                <a href="#" class="text-xs text-brand-primary hover:text-white transition-colors font-bold uppercase tracking-wider">Esqueceu a senha?</a>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full bg-brand-primary text-white py-5 rounded-2xl font-bold text-lg hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-brand-primary/20 uppercase tracking-widest mt-4">
+                            Entrar no Portal
+                        </button>
+                    </form>
+
+                    <div class="mt-12 pt-8 border-t border-zinc-800 text-center text-sm">
+                        <p class="text-zinc-500 font-light">Ainda não é cliente Kodeo? <a href="https://api.whatsapp.com/send?phone=5511980960531" class="text-white font-bold hover:text-brand-accent transition-colors">Agendar Diagnóstico</a></p>
+                    </div>
+                    
+                    <!-- Decoração Mobile -->
+                    <div class="absolute top-4 right-4 opacity-5 pointer-events-none lg:hidden">
+                        <svg width="120" height="120" viewBox="0 0 100 100">
+                            <path d="M 50 50 L 15 30 L 15 70 Z" fill="white" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-20 bg-brand-dark border-t border-zinc-900 px-6">
+        <div class="container mx-auto text-center md:text-left text-readable">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center justify-center md:justify-start gap-3 mb-6">
+                        <svg width="28" height="28" viewBox="0 0 100 100">
+                            <path d="M 50 50 L 15 30 L 15 70 Z" fill="#8257e5" />
+                            <path d="M 50 50 L 15 70 L 85 70 Z" fill="#04d361" />
+                            <path d="M 50 50 L 85 70 L 85 30 Z" fill="#ff9900" />
+                            <path d="M 50 50 L 85 30 L 15 30 Z" fill="#8257e5" />
+                        </svg>
+                        <span class="font-display text-xl font-bold text-white tracking-tighter uppercase">KODEO</span>
+                    </div>
+                    <p class="text-zinc-500 text-sm max-w-xs mx-auto md:mx-0 leading-relaxed font-light italic">"Aceda aos seus KPIs e relatórios técnicos em um ambiente seguro de alta fidelidade."</p>
+                </div>
+                <div>
+                    <h6 class="text-white font-bold mb-8 text-sm uppercase tracking-widest">Navegação</h6>
+                    <ul class="text-zinc-500 text-sm space-y-4">
+                        <li><a href="index.html" class="hover:text-brand-primary transition-colors">Página Inicial</a></li>
+                        <li><a href="software-factory.html" class="hover:text-brand-primary transition-colors">Software Factory</a></li>
+                        <li><a href="growth.html" class="hover:text-brand-primary transition-colors">Growth & Ads</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h6 class="text-white font-bold mb-8 text-sm uppercase tracking-widest text-zinc-400">Social</h6>
+                    <div class="flex justify-center md:justify-start gap-5 text-white">
+                        <a href="https://linkedin.com/company/kodeo-consultoria-tech" target="_blank" class="w-10 h-10 rounded-full border border-zinc-800 flex items-center justify-center hover:border-brand-primary transition-all text-sm"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://github.com/jonnyzera" target="_blank" class="w-10 h-10 rounded-full border border-zinc-800 flex items-center justify-center hover:border-brand-primary transition-all text-sm"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase font-bold tracking-[0.2em] text-zinc-600">
+                <p>&copy; 2025 Kodeo Consultoria. Todos os direitos reservados.</p>
+                <div class="flex gap-10">
+                    <a href="#" class="hover:text-white transition-colors">Privacidade</a>
+                    <a href="#" class="hover:text-white transition-colors">Termos</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botões Flutuantes -->
+    <div class="fixed bottom-8 right-8 flex flex-col gap-4 z-[100]">
+        <button id="btn-top" class="w-11 h-11 bg-zinc-800 text-white rounded-full flex items-center justify-center shadow-2xl border border-zinc-700 hover:bg-zinc-700 transition-all" title="Voltar ao Topo">
+            <i class="fa-solid fa-arrow-up text-sm"></i>
+        </button>
+        <a href="https://api.whatsapp.com/send?phone=5511980960531" target="_blank" class="w-14 h-14 bg-[#25d366] text-white rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 active:scale-95 transition-all shadow-green-500/20">
+            <i class="fa-brands fa-whatsapp text-white"></i>
+        </a>
+    </div>
+
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const menuClose = document.getElementById('menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        const openMenu = () => { mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; };
+        const closeMenu = () => { mobileMenu.classList.remove('open'); document.body.style.overflow = ''; };
+
+        menuToggle?.addEventListener('click', openMenu);
+        menuClose?.addEventListener('click', closeMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+        const btnTop = document.getElementById('btn-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) btnTop.classList.add('show');
+            else btnTop.classList.remove('show');
+        });
+        btnTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    </script>
+</body>
+</html>

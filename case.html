@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-pt" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO AVANÇADO PARA CASES -->
+    <title>Cases de Sucesso | Kodeo Consultoria</title>
+    <meta name="description" content="Explore os projetos de alta performance entregues pela Kodeo. Resultados reais em Software Factory, IA e Growth Marketing para empresas de elite." />
+    
+    <!-- Frameworks & Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 50 50 L 15 30 L 15 70 Z' fill='%238257e5' /%3E%3Cpath d='M 50 50 L 15 70 L 85 70 Z' fill='%2304d361' /%3E%3Cpath d='M 50 50 L 85 70 L 85 30 Z' fill='%23ff9900' /%3E%3Cpath d='M 50 50 L 85 30 L 15 30 Z' fill='%238257e5' /%3E%3C/svg%3E">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#09090b',
+                            card: '#18181b',
+                            primary: '#8257e5',
+                            accent: '#04d361',
+                            muted: '#a1a1aa'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .mesh-gradient {
+            background-color: #09090b;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(130, 87, 229, 0.12) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(4, 211, 97, 0.08) 0px, transparent 50%);
+        }
+
+        .glass-nav {
+            background: rgba(9, 9, 11, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .case-card {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .case-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(130, 87, 229, 0.3);
+        }
+
+        .img-zoom {
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .case-card:hover .img-zoom {
+            transform: scale(1.05);
+        }
+
+        #btn-top {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(20px);
+        }
+        #btn-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        #mobile-menu {
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateX(100%);
+        }
+        #mobile-menu.open {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="mesh-gradient text-zinc-300 antialiased font-sans">
+
+    <!-- Header (Centralizado e Padronizado) -->
+    <header class="fixed top-0 w-full z-50 glass-nav transition-all duration-300">
+        <nav class="container mx-auto px-6 py-4 flex items-center justify-between relative">
+            <a href="index.html" class="flex items-center gap-2 group z-10">
+                <svg width="32" height="32" viewBox="0 0 100 100">
+                    <path d="M 50 50 L 15 30 L 15 70 Z" fill="#8257e5" />
+                    <path d="M 50 50 L 15 70 L 85 70 Z" fill="#04d361" />
+                    <path d="M 50 50 L 85 70 L 85 30 Z" fill="#ff9900" />
+                    <path d="M 50 50 L 85 30 L 15 30 Z" fill="#8257e5" />
+                </svg>
+                <span class="font-display text-xl font-extrabold tracking-tighter text-white uppercase">KODEO</span>
+            </a>
+
+            <!-- Menu Principal Centralizado -->
+            <div class="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-10 text-[16px] font-bold text-white/90">
+                <a href="index.html" class="hover:text-brand-primary transition-colors whitespace-nowrap">Home</a>
+                <div class="relative group">
+                    <button class="hover:text-brand-primary transition-colors flex items-center gap-1 uppercase tracking-tight whitespace-nowrap">
+                        Soluções <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                    </button>
+                    <div class="absolute top-full left-0 mt-3 w-56 bg-zinc-900 border border-zinc-800 rounded-2xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all shadow-2xl text-sm font-medium">
+                        <a href="software-factory.html" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Software Factory</a>
+                        <a href="agente.html" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Agentes de IA</a>
+                        <a href="growth.html" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Growth & Ads</a>
+                    </div>
+                </div>
+                <a href="#" class="text-brand-primary transition-colors whitespace-nowrap font-bold">Cases</a>
+                <a href="index.html#metodologia" class="hover:text-brand-primary transition-colors whitespace-nowrap">Metodologia</a>
+            </div>
+
+            <!-- Ações -->
+            <div class="flex items-center gap-6 z-10">
+                <div class="hidden lg:flex items-center gap-8 text-[16px] font-bold">
+                    <a href="#" class="hover:text-white transition-colors text-white/90 font-bold whitespace-nowrap">Login</a>
+                    <a href="https://api.whatsapp.com/send?phone=5511980960531" class="bg-white text-black px-7 py-3 rounded-full hover:bg-brand-primary hover:text-white transition-all shadow-lg active:scale-95 whitespace-nowrap font-bold">
+                        Falar com Especialista
+                    </a>
+                </div>
+                <button id="menu-toggle" class="lg:hidden flex items-center justify-center w-10 h-10 rounded-full bg-zinc-800/50 border border-zinc-700 text-white"><i class="fa-solid fa-bars-staggered text-lg"></i></button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-brand-dark z-[60] flex flex-col p-10 lg:hidden">
+        <div class="flex justify-between items-center mb-16">
+            <span class="font-display text-2xl font-bold text-white uppercase tracking-tighter">KODEO</span>
+            <button id="menu-close" class="w-10 h-10 flex items-center justify-center rounded-full bg-zinc-800 text-white"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="flex flex-col gap-8 text-3xl font-bold font-display text-white text-center">
+            <a href="index.html" class="mobile-link">Home</a>
+            <a href="#" class="mobile-link text-brand-primary font-bold">Cases</a>
+            <a href="software-factory.html" class="mobile-link text-zinc-500">Software Factory</a>
+            <a href="agente.html" class="mobile-link text-zinc-500">Agentes de IA</a>
+        </div>
+        <div class="mt-auto">
+            <a href="https://api.whatsapp.com/send?phone=5511980960531" class="block w-full bg-brand-primary text-white text-center py-5 rounded-2xl font-bold text-lg">Ver Portfólio Completo</a>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative pt-40 pb-20 md:pt-56 md:pb-32 px-6 overflow-hidden">
+            <div class="container mx-auto text-center">
+                <span class="inline-block bg-brand-primary/10 border border-brand-primary/20 text-brand-primary px-4 py-1.5 rounded-full text-xs font-bold mb-6 uppercase tracking-widest">Resultados Mensuráveis</span>
+                <h1 class="font-display text-4xl md:text-7xl text-white font-extrabold leading-tight tracking-tighter mb-8 uppercase">
+                    Soluções que já <br> <span class="text-brand-primary uppercase">Entregamos.</span>
+                </h1>
+                <p class="text-brand-muted text-lg md:text-xl leading-relaxed max-w-3xl mx-auto font-light text-readable">
+                    Explore projetos reais onde a tecnologia de elite da Kodeo transformou desafios complexos em faturamento e escalabilidade exponencial.
+                </p>
+            </div>
+        </section>
+
+        <!-- Grid de Cases -->
+        <section class="py-20 px-6">
+            <div class="container mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    
+                    <!-- Case 1: E-commerce Elite -->
+                    <div class="case-card bg-brand-card border border-zinc-800 rounded-[3rem] overflow-hidden group">
+                        <div class="h-80 overflow-hidden relative">
+                            <!-- Image of E-commerce em alta escala -->
+                            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=2070" class="w-full h-full object-cover img-zoom opacity-50 group-hover:opacity-80 transition-all" alt="E-commerce Performance">
+                            <div class="absolute top-6 left-6 bg-brand-primary px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest text-white shadow-xl">Software Factory</div>
+                        </div>
+                        <div class="p-10 md:p-14">
+                            <h3 class="text-3xl font-display font-bold text-white mb-6 uppercase tracking-tighter">Escalabilidade 100k+</h3>
+                            <p class="text-zinc-400 font-light leading-relaxed mb-10 text-lg">Otimização crítica de checkout e infraestrutura cloud para um gigante do e-commerce, reduzindo 40% da latência e suportando picos de 100 mil utilizadores simultâneos.</p>
+                            <div class="flex items-center justify-between pt-8 border-t border-zinc-800">
+                                <div class="flex gap-4">
+                                    <span class="text-brand-accent font-bold text-xl leading-none">+40% <span class="block text-[10px] text-zinc-500 uppercase mt-1">Velocidade</span></span>
+                                </div>
+                                <a href="#" class="text-white font-bold text-xs uppercase tracking-widest border-b border-brand-primary pb-1 hover:text-brand-primary transition-colors">Ver Detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Case 2: SaaS B2B Global -->
+                    <div class="case-card bg-brand-card border border-zinc-800 rounded-[3rem] overflow-hidden group">
+                        <div class="h-80 overflow-hidden relative">
+                            <!-- Image of Dashboard SaaS Profissional -->
+                            <img src="https://images.unsplash.com/photo-1551288049-bbbda536339a?auto=format&fit=crop&q=80&w=2070" class="w-full h-full object-cover img-zoom opacity-50 group-hover:opacity-80 transition-all" alt="SaaS Dashboard">
+                            <div class="absolute top-6 left-6 bg-brand-accent px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest text-zinc-950 shadow-xl">Data Intelligence</div>
+                        </div>
+                        <div class="p-10 md:p-14">
+                            <h3 class="text-3xl font-display font-bold text-white mb-6 uppercase tracking-tighter">Mentoria Global SaaS</h3>
+                            <p class="text-zinc-400 font-light leading-relaxed mb-10 text-lg">Desenvolvimento de plataforma completa B2B com gestão de pagamentos internacionais e inteligência de dados aplicada para análise comportamental de alunos.</p>
+                            <div class="flex items-center justify-between pt-8 border-t border-zinc-800">
+                                <div class="flex gap-4 text-readable">
+                                    <span class="text-brand-primary font-bold text-xl leading-none">Global <span class="block text-[10px] text-zinc-500 uppercase mt-1">Presença</span></span>
+                                </div>
+                                <a href="#" class="text-white font-bold text-xs uppercase tracking-widest border-b border-brand-accent pb-1 hover:text-brand-accent transition-colors">Ver Detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Case 3: Marketplace Dominance -->
+                    <div class="case-card bg-brand-card border border-zinc-800 rounded-[3rem] overflow-hidden group">
+                        <div class="h-80 overflow-hidden relative">
+                            <!-- Image of Marketplace Logistics Shopee Mercado Livre -->
+                            <img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaad5b?auto=format&fit=crop&q=80&w=2070" class="w-full h-full object-cover img-zoom opacity-50 group-hover:opacity-80 transition-all" alt="Marketplace Integration">
+                            <div class="absolute top-6 left-6 bg-orange-500 px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest text-white shadow-xl">Growth & Ads</div>
+                        </div>
+                        <div class="p-10 md:p-14 text-readable">
+                            <h3 class="text-3xl font-display font-bold text-white mb-6 uppercase tracking-tighter">Marketplace 360º</h3>
+                            <p class="text-zinc-400 font-light leading-relaxed mb-10 text-lg">Integração full-API de inventário entre site próprio, Shopee e Mercado Livre para uma rede de retalho, triplicando o faturamento digital em 6 meses.</p>
+                            <div class="flex items-center justify-between pt-8 border-t border-zinc-800">
+                                <div class="flex gap-4">
+                                    <span class="text-orange-500 font-bold text-xl leading-none">3X <span class="block text-[10px] text-zinc-500 uppercase mt-1">Faturamento</span></span>
+                                </div>
+                                <a href="#" class="text-white font-bold text-xs uppercase tracking-widest border-b border-orange-500 pb-1 hover:text-orange-500 transition-colors">Ver Detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Case 4: IA Autônoma para Vendas -->
+                    <div class="case-card bg-brand-card border border-zinc-800 rounded-[3rem] overflow-hidden group">
+                        <div class="h-80 overflow-hidden relative">
+                            <!-- Image of Inteligência Artificial Agent -->
+                            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=2070" class="w-full h-full object-cover img-zoom opacity-50 group-hover:opacity-80 transition-all" alt="IA Agent">
+                            <div class="absolute top-6 left-6 bg-yellow-500 px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest text-zinc-900 shadow-xl font-bold">Agentes de IA</div>
+                        </div>
+                        <div class="p-10 md:p-14">
+                            <h3 class="text-3xl font-display font-bold text-white mb-6 uppercase tracking-tighter">Atendimento 24/7 Autônomo</h3>
+                            <p class="text-zinc-400 font-light leading-relaxed mb-10 text-lg">Implementação de Agentes GPT-4 personalizados que gerem 85% do suporte inicial de uma imobiliária, qualificando leads de forma inteligente e humana.</p>
+                            <div class="flex items-center justify-between pt-8 border-t border-zinc-800 text-readable">
+                                <div class="flex gap-4">
+                                    <span class="text-yellow-500 font-bold text-xl leading-none">85% <span class="block text-[10px] text-zinc-500 uppercase mt-1">Automação</span></span>
+                                </div>
+                                <a href="#" class="text-white font-bold text-xs uppercase tracking-widest border-b border-yellow-500 pb-1 hover:text-yellow-500 transition-colors">Ver Detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final -->
+        <section class="py-32 px-6">
+            <div class="container mx-auto max-w-6xl text-center">
+                <div class="bg-gradient-to-br from-brand-primary to-indigo-950 rounded-[4rem] p-12 md:p-28 relative overflow-hidden border border-white/5 shadow-2xl">
+                    <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 50px 50px;"></div>
+                    <h2 class="text-4xl md:text-7xl font-display text-white font-extrabold leading-tight tracking-tighter uppercase">Quer ser o nosso <br> <span class="text-brand-accent italic font-light lowercase">próximo sucesso?</span></h2>
+                    <p class="text-white/70 text-lg md:text-2xl mb-14 max-w-2xl mx-auto font-light leading-relaxed text-readable">
+                        Não somos apenas uma consultoria, somos o parceiro estratégico que coloca a sua empresa no topo do mercado digital.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                        <a href="https://api.whatsapp.com/send?phone=5511980960531" target="_blank" class="bg-brand-accent text-zinc-950 px-12 py-5 rounded-full font-bold text-xl hover:scale-105 transition-all active:scale-95 uppercase tracking-widest shadow-2xl">
+                            <i class="fa-brands fa-whatsapp text-2xl mr-2"></i> Iniciar Meu Projeto
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-24 bg-brand-dark border-t border-zinc-900 px-6">
+        <div class="container mx-auto text-center md:text-left text-readable">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center justify-center md:justify-start gap-3 mb-8">
+                        <svg width="28" height="28" viewBox="0 0 100 100">
+                            <path d="M 50 50 L 15 30 L 15 70 Z" fill="#8257e5" />
+                            <path d="M 50 50 L 15 70 L 85 70 Z" fill="#04d361" />
+                            <path d="M 50 50 L 85 70 L 85 30 Z" fill="#ff9900" />
+                            <path d="M 50 50 L 85 30 L 15 30 Z" fill="#8257e5" />
+                        </svg>
+                        <span class="font-display text-xl font-bold text-white tracking-tighter uppercase">KODEO</span>
+                    </div>
+                    <p class="text-zinc-500 text-lg max-w-md leading-relaxed font-light mx-auto md:mx-0 italic">"Projetando o amanhã através de engenharia B2B de alta fidelidade e resultados que dominam o mercado."</p>
+                </div>
+                <div>
+                    <h6 class="text-white font-bold mb-8 text-xs uppercase tracking-widest">Navegação</h6>
+                    <ul class="text-zinc-500 text-sm space-y-4">
+                        <li><a href="index.html" class="hover:text-brand-primary transition-colors">Início</a></li>
+                        <li><a href="software-factory.html" class="hover:text-brand-primary transition-colors">Software Factory</a></li>
+                        <li><a href="agente.html" class="hover:text-brand-primary transition-colors text-white">Agentes de IA</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h6 class="text-white font-bold mb-8 text-xs uppercase tracking-widest text-zinc-400">Siga-nos</h6>
+                    <div class="flex justify-center md:justify-start gap-5 text-white">
+                        <a href="https://linkedin.com/company/kodeo-consultoria-tech" target="_blank" class="w-10 h-10 rounded-full border border-zinc-800 flex items-center justify-center hover:border-brand-primary transition-all text-sm"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://github.com/jonnyzera" target="_blank" class="w-10 h-10 rounded-full border border-zinc-800 flex items-center justify-center hover:border-brand-primary transition-all text-sm"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase font-bold tracking-[0.2em] text-zinc-600">
+                <p>&copy; 2025 Kodeo Consultoria. Todos os direitos reservados.</p>
+                <div class="flex gap-10">
+                    <a href="#" class="hover:text-white transition-colors">Privacidade</a>
+                    <a href="#" class="hover:text-white transition-colors">Termos</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botões Flutuantes -->
+    <div class="fixed bottom-8 right-8 flex flex-col gap-4 z-[100]">
+        <button id="btn-top" class="w-11 h-11 bg-zinc-800 text-white rounded-full flex items-center justify-center shadow-2xl border border-zinc-700 hover:bg-zinc-700 transition-all" title="Voltar ao Topo">
+            <i class="fa-solid fa-arrow-up text-sm"></i>
+        </button>
+        <a href="https://api.whatsapp.com/send?phone=5511980960531" target="_blank" class="w-14 h-14 bg-[#25d366] text-white rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 active:scale-95 transition-all shadow-green-500/20">
+            <i class="fa-brands fa-whatsapp text-white"></i>
+        </a>
+    </div>
+
+    <script>
+        const btnTop = document.getElementById('btn-top');
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) btnTop.classList.add('show');
+            else btnTop.classList.remove('show');
+
+            if (window.scrollY > 30) {
+                header.classList.add('py-2', 'bg-zinc-950/95');
+                header.classList.remove('py-4');
+            } else {
+                header.classList.add('py-4');
+                header.classList.remove('py-2', 'bg-zinc-950/95');
+            }
+        });
+
+        btnTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuClose = document.getElementById('menu-close');
+
+        menuToggle?.addEventListener('click', () => { mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; });
+        menuClose?.addEventListener('click', () => { mobileMenu.classList.remove('open'); document.body.style.overflow = ''; });
+    </script>
+</body>
+</html>
