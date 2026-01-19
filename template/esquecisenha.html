@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <!-- SEO AVANÇADO -->
-    <title>Área de Cliente | Kodeo Consultoria</title>
-    <meta name="description" content="Aceda à sua área restrita na Kodeo. Acompanhe os seus projetos de Software Factory, IA e Growth em tempo real." />
+    <!-- SEO & Meta Tags -->
+    <title>Recuperar Senha | Kodeo Consultoria</title>
+    <meta name="description" content="Recupere o acesso à sua área de cliente na Kodeo Consultoria. Segurança e tecnologia para o seu negócio." />
     <meta name="author" content="Kodeo Consultoria" />
     <meta name="robots" content="noindex, nofollow" />
 
@@ -58,12 +58,6 @@
             background: rgba(9, 9, 11, 0.85);
             backdrop-filter: blur(16px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .login-card {
-            background: rgba(24, 24, 27, 0.6);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .input-style {
@@ -121,7 +115,6 @@
             padding-left: 8px;
         }
 
-        /* Impede scroll horizontal */
         body, html {
             overflow-x: hidden;
             width: 100%;
@@ -133,19 +126,19 @@
 
     <!-- Header -->
     <header class="fixed top-0 w-full z-50 glass-nav transition-all duration-300">
-        <nav class="container mx-auto px-4 sm:px-6 py-4 flex items-center justify-between relative">
+        <nav class="container mx-auto px-4 sm:px-6 py-4 flex items-center justify-between relative text-readable">
             <!-- Logo -->
-            <a href="home.html" class="flex items-center gap-2 group z-10">
+            <a href="home.html" class="flex items-center gap-2 group z-10 text-white">
                 <svg width="32" height="32" viewBox="0 0 100 100" class="transition-transform group-hover:rotate-12">
                     <path d="M 50 50 L 15 30 L 15 70 Z" fill="#8257e5" />
                     <path d="M 50 50 L 15 70 L 85 70 Z" fill="#04d361" />
                     <path d="M 50 50 L 85 70 L 85 30 Z" fill="#ff9900" />
                     <path d="M 50 50 L 85 30 L 15 30 Z" fill="#8257e5" />
                 </svg>
-                <span class="font-display text-xl font-extrabold tracking-tighter text-white uppercase">KODEO</span>
+                <span class="font-display text-xl font-extrabold tracking-tighter uppercase text-white">KODEO</span>
             </a>
 
-            <!-- Menu Principal (Desktop) -->
+            <!-- Menu Desktop -->
             <div class="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-8 text-[16px] font-bold text-white/90">
                 <a href="home.html" class="hover:text-brand-primary transition-colors whitespace-nowrap text-white">Home</a>
                 <div class="relative group">
@@ -181,7 +174,7 @@
     <!-- Menu Mobile iFood Style -->
     <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] lg:hidden">
         <div id="mobile-menu-drawer" class="absolute right-0 top-0 h-full w-[85%] max-w-[360px] bg-brand-dark border-l border-zinc-800 p-6 flex flex-col shadow-2xl text-readable">
-            <div class="flex justify-between items-center mb-10 pt-2 text-readable">
+            <div class="flex justify-between items-center mb-10 pt-2">
                 <div class="flex items-center gap-3 text-left">
                     <div class="w-10 h-10 rounded-full bg-brand-primary/20 flex items-center justify-center border border-brand-primary/30">
                         <i class="fa-solid fa-user text-brand-primary text-sm"></i>
@@ -204,7 +197,7 @@
                 
                 <div class="py-4">
                     <p class="text-[11px] font-black text-zinc-600 uppercase tracking-[0.2em] mb-2 px-1">Soluções Corporativas</p>
-                    <a href="softwarefactory.html" class="mobile-link-item">
+                    <a href="softwarefactory.html" class="mobile-link-item text-readable">
                         <div class="w-8 flex justify-center text-zinc-400"><i class="fa-solid fa-layer-group"></i></div>
                         <span class="text-[16px] font-medium text-zinc-300">Software Factory</span>
                     </a>
@@ -216,13 +209,13 @@
                         <div class="w-8 flex justify-center text-zinc-400"><i class="fa-solid fa-bolt"></i></div>
                         <span class="text-[16px] font-medium text-zinc-300">Growth & Ads</span>
                     </a>
-                    <a href="pequenosnegocio.html" class="mobile-link-item border-none">
+                    <a href="pequenosnegocio.html" class="mobile-link-item border-none text-readable">
                         <div class="w-8 flex justify-center text-zinc-400"><i class="fa-solid fa-shop"></i></div>
                         <span class="text-[16px] font-medium text-zinc-300">Pequenos Negócios</span>
                     </a>
                 </div>
 
-                <div class="py-4 border-t border-zinc-800/50 mt-2 text-readable">
+                <div class="py-4 border-t border-zinc-800/50 mt-2">
                     <p class="text-[11px] font-black text-zinc-600 uppercase tracking-[0.2em] mb-2 px-1">Institucional</p>
                     <a href="case.html" class="mobile-link-item">
                         <div class="w-8 flex justify-center text-zinc-400"><i class="fa-solid fa-briefcase"></i></div>
@@ -232,7 +225,7 @@
                         <div class="w-8 flex justify-center text-zinc-400"><i class="fa-solid fa-diagram-project"></i></div>
                         <span class="text-[16px] font-medium text-zinc-300">Metodologia</span>
                     </a>
-                    <a href="login.html" class="mobile-link-item border-none">
+                    <a href="login.html" class="mobile-link-item border-none text-readable">
                         <div class="w-8 flex justify-center text-brand-primary"><i class="fa-solid fa-right-to-bracket"></i></div>
                         <span class="text-[16px] font-semibold text-white">Login</span>
                     </a>
@@ -248,62 +241,50 @@
         </div>
     </div>
 
-    <!-- Login Content (Agora totalmente responsivo) -->
+    <!-- Recuperar Senha Content -->
     <main class="flex-grow flex items-center justify-center pt-28 pb-12 px-4 sm:px-6">
         <div class="container mx-auto max-w-6xl">
-            <!-- Container Principal: Stacks on mobile, Side-by-side on desktop -->
             <div class="flex flex-col lg:flex-row rounded-[2rem] sm:rounded-[3rem] overflow-hidden shadow-2xl border border-zinc-800 bg-brand-card/30">
                 
-                <!-- Coluna da Imagem e Texto (Visível e responsiva em todos os tamanhos) -->
-                <div class="w-full lg:w-1/2 relative h-56 sm:h-72 lg:h-auto overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=2070" class="w-full h-full object-cover grayscale opacity-40" alt="Security Technology">
+                <!-- Coluna da Imagem (Banner Responsivo) -->
+                <div class="w-full lg:w-1/2 relative h-56 sm:h-72 lg:h-auto overflow-hidden text-readable">
+                    <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&q=80&w=2070" class="w-full h-full object-cover grayscale opacity-40" alt="Recuperação de Acesso">
                     
-                    <!-- Overlay de Gradiente -->
                     <div class="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-brand-dark/90 via-brand-dark/40 to-transparent"></div>
                     
-                    <!-- Conteúdo Textual do Banner -->
                     <div class="absolute bottom-6 left-6 right-6 sm:bottom-12 sm:left-12 sm:right-12 lg:bottom-16 lg:left-16 lg:right-16 text-left">
                         <h2 class="text-xl sm:text-3xl lg:text-4xl font-display font-extrabold text-white leading-tight uppercase mb-4 lg:mb-6 text-balance">
-                            Acompanhe o seu <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-accent">Crescimento</span> <br class="hidden lg:block"> em tempo real.
+                            Recupere o seu <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-warning">Acesso Seguro</span> <br class="hidden lg:block"> ao portal.
                         </h2>
-                        <!-- Indicadores de Step (Estético) -->
                         <div class="flex gap-2 sm:gap-4">
-                            <div class="w-8 sm:w-10 h-1 rounded-full bg-brand-primary"></div>
-                            <div class="w-3 sm:w-4 h-1 rounded-full bg-zinc-700"></div>
-                            <div class="w-3 sm:w-4 h-1 rounded-full bg-zinc-700"></div>
+                            <div class="w-4 h-1 rounded-full bg-zinc-700"></div>
+                            <div class="w-10 h-1 rounded-full bg-brand-primary"></div>
+                            <div class="w-4 h-1 rounded-full bg-zinc-700"></div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Coluna do Formulário de Login -->
+                <!-- Coluna do Formulário -->
                 <div class="w-full lg:w-1/2 p-8 sm:p-12 md:p-20 flex flex-col justify-center relative text-left">
-                    <div class="mb-8 sm:mb-12">
-                        <span class="text-brand-accent font-bold uppercase tracking-widest text-[10px] mb-2 block">Área Restrita</span>
-                        <h1 class="text-3xl sm:text-4xl font-display font-bold text-white uppercase tracking-tighter">Bem-vindo de Volta.</h1>
-                        <p class="text-zinc-500 mt-2 font-light text-sm sm:text-base">Introduza as suas credenciais para aceder ao portal do cliente.</p>
+                    <div class="mb-8 sm:mb-12 text-readable">
+                        <span class="text-brand-warning font-bold uppercase tracking-widest text-[10px] mb-2 block">Segurança de Dados</span>
+                        <h1 class="text-3xl sm:text-4xl font-display font-bold text-white uppercase tracking-tighter text-readable">Esqueceu a Senha?</h1>
+                        <p class="text-zinc-500 mt-2 font-light text-sm sm:text-base">Não se preocupe. Introduza o seu e-mail corporativo para receber as instruções de recuperação.</p>
                     </div>
 
                     <form action="#" class="space-y-6">
-                        <div>
-                            <label for="email" class="block text-xs font-bold uppercase tracking-widest text-zinc-400 mb-3 ml-1">E-mail Corporativo</label>
+                        <div class="text-readable">
+                            <label for="email" class="block text-xs font-bold uppercase tracking-widest text-zinc-400 mb-3 ml-1">E-mail Cadastrado</label>
                             <input type="email" id="email" class="input-style w-full px-6 py-4 rounded-2xl text-white font-medium text-sm sm:text-base" placeholder="exemplo@empresa.com" required>
                         </div>
 
-                        <div>
-                            <label for="password" class="block text-xs font-bold uppercase tracking-widest text-zinc-400 mb-3 ml-1">Senha de Acesso</label>
-                            <input type="password" id="password" class="input-style w-full px-6 py-4 rounded-2xl text-white font-medium text-sm sm:text-base" placeholder="••••••••" required>
-                            <div class="flex justify-end mt-3">
-                                <a href="#" class="text-xs text-brand-primary hover:text-white transition-colors font-bold uppercase tracking-wider">Esqueceu a senha?</a>
-                            </div>
-                        </div>
-
                         <button type="submit" class="w-full bg-brand-primary text-white py-4 sm:py-5 rounded-2xl font-bold text-base sm:text-lg hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-brand-primary/20 uppercase tracking-widest mt-4">
-                            Entrar no Portal
+                            Enviar Link de Redefinição
                         </button>
                     </form>
 
-                    <div class="mt-10 sm:mt-12 pt-8 border-t border-zinc-800 text-center text-sm">
-                        <p class="text-zinc-500 font-light">Ainda não é cliente Kodeo? <a href="https://api.whatsapp.com/send?phone=5511980960531" target="_blank" class="text-white font-bold hover:text-brand-accent transition-colors">Agendar Diagnóstico</a></p>
+                    <div class="mt-10 sm:mt-12 pt-8 border-t border-zinc-800 text-center text-sm text-readable">
+                        <p class="text-zinc-500 font-light">Lembrou sua senha? <a href="login.html" class="text-white font-bold hover:text-brand-primary transition-colors">Voltar para o Login</a></p>
                     </div>
                 </div>
             </div>
@@ -313,9 +294,9 @@
     <!-- Footer Reorganizado -->
     <footer class="py-20 bg-brand-dark border-t border-zinc-900 px-4 sm:px-6 mt-auto text-readable">
         <div class="container mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16 items-start text-left">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16 items-start text-left text-readable text-readable">
                 <!-- Coluna 1 -->
-                <div class="md:col-span-5">
+                <div class="md:col-span-5 text-readable">
                     <div class="flex items-center gap-2 mb-6 text-readable">
                         <svg width="28" height="28" viewBox="0 0 100 100">
                             <path d="M 50 50 L 15 30 L 15 70 Z" fill="#8257e5"></path>
@@ -325,48 +306,48 @@
                         </svg>
                         <span class="font-display text-xl font-bold text-white tracking-tighter uppercase">KODEO</span>
                     </div>
-                    <p class="text-zinc-500 text-sm max-w-sm leading-relaxed font-light italic">"Transformando tecnologia em faturamento real para empresas através de Software, Engenharia de Dados e Inteligência Artificial."</p>
+                    <p class="text-zinc-500 text-sm max-w-sm leading-relaxed font-light italic text-readable">"Transformando tecnologia em faturamento real para empresas através de Software, Engenharia de Dados e Inteligência Artificial."</p>
                 </div>
 
                 <!-- Coluna 2 -->
                 <div class="md:col-span-4 text-readable">
-                    <h6 class="text-white font-bold mb-6 text-xs uppercase tracking-widest border-b border-brand-primary/20 pb-2 inline-block">Soluções Corporativas</h6>
+                    <h6 class="text-white font-bold mb-6 text-xs uppercase tracking-widest border-b border-brand-primary/20 pb-2 inline-block text-readable">Soluções Corporativas</h6>
                     <ul class="text-zinc-500 text-sm space-y-4 font-bold text-readable">
-                        <li><a href="softwarefactory.html" class="hover:text-brand-primary transition-colors inline-flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[8px] opacity-50"></i> Software Factory</a></li>
-                        <li><a href="agente.html" class="hover:text-brand-primary transition-colors inline-flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[8px] opacity-50"></i> Agentes GPT-4</a></li>
-                        <li><a href="growth.html" class="hover:text-brand-primary transition-colors inline-flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[8px] opacity-50"></i> Growth & Ads</a></li>
-                        <li><a href="pequenosnegocio.html" class="hover:text-brand-primary transition-colors inline-flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[8px] opacity-50"></i> Pequenos Negócios</a></li>
+                        <li><a href="softwarefactory.html" class="hover:text-brand-primary transition-colors inline-flex items-center gap-2 text-readable"><i class="fa-solid fa-chevron-right text-[8px] opacity-50"></i> Software Factory</a></li>
+                        <li><a href="agente.html" class="hover:text-brand-primary transition-colors inline-flex items-center gap-2 text-readable"><i class="fa-solid fa-chevron-right text-[8px] opacity-50"></i> Agentes GPT-4</a></li>
+                        <li><a href="growth.html" class="hover:text-brand-primary transition-colors inline-flex items-center gap-2 text-readable"><i class="fa-solid fa-chevron-right text-[8px] opacity-50"></i> Growth & Ads</a></li>
+                        <li><a href="pequenosnegocio.html" class="hover:text-brand-primary transition-colors inline-flex items-center gap-2 text-readable"><i class="fa-solid fa-chevron-right text-[8px] opacity-50 text-readable"></i> Pequenos Negócios</a></li>
                     </ul>
                 </div>
 
                 <!-- Coluna 3 -->
                 <div class="md:col-span-3 text-readable">
-                    <h6 class="text-white font-bold mb-6 text-xs uppercase tracking-widest border-b border-zinc-700 pb-2 inline-block">Conectar</h6>
-                    <div class="flex gap-4 text-white mb-8">
-                        <a href="https://linkedin.com/company/kodeo-consultoria-tech" target="_blank" class="w-11 h-11 rounded-xl border border-zinc-800 flex items-center justify-center hover:border-brand-primary hover:bg-brand-primary/10 transition-all shadow-lg"><i class="fa-brands fa-linkedin-in text-sm"></i></a>
-                        <a href="https://github.com/jonnyzera" target="_blank" class="w-11 h-11 rounded-xl border border-zinc-800 flex items-center justify-center hover:border-brand-primary hover:bg-brand-primary/10 transition-all shadow-lg"><i class="fa-brands fa-github text-sm"></i></a>
+                    <h6 class="text-white font-bold mb-6 text-xs uppercase tracking-widest border-b border-zinc-700 pb-2 inline-block text-readable">Conectar</h6>
+                    <div class="flex gap-4 text-white mb-8 text-readable">
+                        <a href="https://linkedin.com/company/kodeo-consultoria-tech" target="_blank" class="w-11 h-11 rounded-xl border border-zinc-800 flex items-center justify-center hover:border-brand-primary hover:bg-brand-primary/10 transition-all shadow-lg text-readable"><i class="fa-brands fa-linkedin-in text-sm"></i></a>
+                        <a href="https://github.com/jonnyzera" target="_blank" class="w-11 h-11 rounded-xl border border-zinc-800 flex items-center justify-center hover:border-brand-primary hover:bg-brand-primary/10 transition-all shadow-lg text-readable"><i class="fa-brands fa-github text-sm"></i></a>
                     </div>
-                    <p class="text-[10px] text-zinc-600 font-black uppercase tracking-widest">Atendimento B2B</p>
-                    <p class="text-zinc-400 text-xs mt-1 font-medium">jonny.tecnologia@gmail.com</p>
+                    <p class="text-[10px] text-zinc-600 font-black uppercase tracking-widest text-readable">Atendimento B2B</p>
+                    <p class="text-zinc-400 text-xs mt-1 font-medium text-readable">jonny.tecnologia@gmail.com</p>
                 </div>
             </div>
 
             <div class="pt-8 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase font-bold tracking-[0.2em] text-zinc-600">
                 <p>© 2025 Kodeo Consultoria. Todos os direitos reservados.</p>
                 <div class="flex gap-6">
-                    <a href="#" class="hover:text-white transition-colors">Privacidade</a>
-                    <a href="#" class="hover:text-white transition-colors">Termos de Uso</a>
+                    <a href="#" class="hover:text-white transition-colors text-readable">Privacidade</a>
+                    <a href="#" class="hover:text-white transition-colors text-readable">Termos de Uso</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Flutuantes -->
+    <!-- Flutuantes (WhatsApp e Topo) -->
     <div id="floating-buttons-container" class="floating-controls fixed bottom-6 right-6 flex flex-col gap-3 z-[100]">
         <button id="btn-top" class="w-11 h-11 bg-zinc-800 text-white rounded-full flex items-center justify-center shadow-2xl border border-zinc-700 hover:bg-zinc-700 transition-all">
             <i class="fa-solid fa-arrow-up text-sm"></i>
         </button>
-        <a href="https://api.whatsapp.com/send?phone=5511980960531" target="_blank" class="w-14 h-14 bg-[#25d366] text-white rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 active:scale-95 transition-all shadow-green-500/20">
+        <a href="https://api.whatsapp.com/send?phone=5511980960531" target="_blank" class="w-14 h-14 bg-[#25d366] text-white rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 active:scale-95 transition-all shadow-green-500/20 text-readable">
             <i class="fa-brands fa-whatsapp text-white"></i>
         </a>
     </div>

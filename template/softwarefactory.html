@@ -7,14 +7,17 @@
     <!-- SEO & Meta Tags -->
     <title>Software Factory Sob Medida | Kodeo Consultoria</title>
     <meta name="description" content="Engenharia de software B2B de alta fidelidade. Construímos ativos digitais que sustentam operações complexas e escalam com o seu negócio." />
-    
+    <meta name="author" content="Kodeo Consultoria" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.kodeo.site/softwarefactory.html" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 50 50 L 15 30 L 15 70 Z' fill='%238257e5' /%3E%3Cpath d='M 50 50 L 15 70 L 85 70 Z' fill='%2304d361' /%3E%3Cpath d='M 50 50 L 85 70 L 85 30 Z' fill='%23ff9900' /%3E%3Cpath d='M 50 50 L 85 30 L 15 30 Z' fill='%238257e5' /%3E%3C/svg%3E">
+
     <!-- Frameworks & Fonts -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 50 50 L 15 30 L 15 70 Z' fill='%238257e5' /%3E%3Cpath d='M 50 50 L 15 70 L 85 70 Z' fill='%2304d361' /%3E%3Cpath d='M 50 50 L 85 70 L 85 30 Z' fill='%23ff9900' /%3E%3Cpath d='M 50 50 L 85 30 L 15 30 Z' fill='%238257e5' /%3E%3C/svg%3E">
 
     <script>
         tailwind.config = {
@@ -32,6 +35,15 @@
                     fontFamily: {
                         sans: ['Outfit', 'sans-serif'],
                         display: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    animation: {
+                        'infinite-scroll': 'infinite-scroll 25s linear infinite',
+                    },
+                    keyframes: {
+                        'infinite-scroll': {
+                            from: { transform: 'translateX(0)' },
+                            to: { transform: 'translateX(-50%)' },
+                        }
                     }
                 }
             }
@@ -39,6 +51,12 @@
     </script>
 
     <style>
+        /* Correção de compatibilidade para background-clip */
+        .bg-clip-text {
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+
         .mesh-gradient {
             background-color: #09090b;
             background-image: 
@@ -60,10 +78,6 @@
             box-shadow: 0 20px 40px -10px rgba(130, 87, 229, 0.2);
         }
 
-        .banner-overlay {
-            background: linear-gradient(to top, rgba(9,9,11,0.95) 0%, rgba(9,9,11,0.2) 50%, rgba(9,9,11,0.85) 100%);
-        }
-
         #btn-top {
             opacity: 0;
             visibility: hidden;
@@ -76,136 +90,232 @@
             transform: translateY(0);
         }
 
-        #mobile-menu {
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        /* Botões flutuantes: controle de visibilidade */
+        .floating-controls {
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+        }
+        .floating-controls.hide-important {
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none;
+            transform: scale(0.8);
+        }
+
+        /* Estilo Drawer Mobile (Estilo iFood) */
+        #mobile-menu-overlay {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        #mobile-menu-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #mobile-menu-drawer {
+            transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
             transform: translateX(100%);
         }
-        #mobile-menu.open {
+        #mobile-menu-drawer.open {
             transform: translateX(0);
+        }
+
+        .mobile-link-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 18px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.2s ease;
+        }
+        .mobile-link-item:active {
+            background: rgba(255, 255, 255, 0.05);
+            padding-left: 8px;
+        }
+
+        /* Impede scroll horizontal */
+        body, html {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
         }
     </style>
 </head>
-<body class="mesh-gradient text-zinc-300 antialiased font-sans">
+<body class="mesh-gradient text-zinc-300 antialiased font-sans flex flex-col min-h-screen">
 
     <!-- Header -->
     <header class="fixed top-0 w-full z-50 glass-nav transition-all duration-300">
-        <nav class="container mx-auto px-6 py-4 flex items-center justify-between relative">
-            <a href="home.html" class="flex items-center gap-2 group z-10">
-                <svg width="32" height="32" viewBox="0 0 100 100">
+        <nav class="container mx-auto px-4 sm:px-6 py-4 flex items-center justify-between relative text-readable text-readable text-readable text-readable text-readable text-readable text-readable text-readable text-readable text-readable text-readable text-readable text-readable">
+            <!-- Logo -->
+            <a href="home.html" class="flex items-center gap-2 group z-10 text-white">
+                <svg width="32" height="32" viewBox="0 0 100 100" class="transition-transform group-hover:rotate-12">
                     <path d="M 50 50 L 15 30 L 15 70 Z" fill="#8257e5" />
                     <path d="M 50 50 L 15 70 L 85 70 Z" fill="#04d361" />
                     <path d="M 50 50 L 85 70 L 85 30 Z" fill="#ff9900" />
                     <path d="M 50 50 L 85 30 L 15 30 Z" fill="#8257e5" />
                 </svg>
-                <span class="font-display text-xl font-extrabold tracking-tighter text-white">KODEO</span>
+                <span class="font-display text-xl font-extrabold tracking-tighter uppercase text-white">KODEO</span>
             </a>
 
-            <!-- Menu Principal -->
-            <div class="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-10 text-[16px] font-bold text-white/90">
-                <a href="home.html" class="hover:text-brand-primary transition-colors whitespace-nowrap">Home</a>
+            <!-- Menu Principal (Desktop) -->
+            <div class="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-8 text-[16px] font-bold text-white/90">
+                <a href="home.html" class="hover:text-brand-primary transition-colors whitespace-nowrap text-white">Home</a>
                 <div class="relative group">
-                    <!-- Texto ajustado para Soluções (sem uppercase forçado) -->
-                    <button class="text-brand-primary flex items-center gap-1 tracking-tight whitespace-nowrap">
+                    <button class="text-brand-primary transition-colors flex items-center gap-1 whitespace-nowrap font-bold">
                         Soluções <i class="fa-solid fa-chevron-down text-[10px]"></i>
                     </button>
-                    <div class="absolute top-full left-0 mt-3 w-56 bg-zinc-900 border border-zinc-800 rounded-2xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all shadow-2xl text-sm font-medium">
+                    <div class="absolute top-full left-0 mt-3 w-64 bg-zinc-900 border border-zinc-800 rounded-2xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all shadow-2xl text-sm font-medium">
                         <a href="softwarefactory.html" class="block px-4 py-2 bg-zinc-800 rounded-xl text-brand-primary font-bold">Software Factory</a>
                         <a href="agente.html" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Agentes de IA</a>
                         <a href="growth.html" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Growth & Ads</a>
-                        <a href="home.html#servicos" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Pequenos Negócios</a>
+                        <a href="pequenosnegocio.html" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Pequenos Negócios</a>
                     </div>
                 </div>
-                <a href="case.html" class="hover:text-brand-primary transition-colors whitespace-nowrap">Cases</a>
-                <a href="metodologia.html" class="hover:text-brand-primary transition-colors whitespace-nowrap">Metodologia</a>
+                <a href="case.html" class="hover:text-brand-primary transition-colors whitespace-nowrap text-white">Cases</a>
+                <a href="metodologia.html" class="hover:text-brand-primary transition-colors whitespace-nowrap text-white">Metodologia</a>
             </div>
 
-            <!-- Ações -->
-            <div class="flex items-center gap-6 z-10">
-                <div class="hidden lg:flex items-center gap-8 text-[16px] font-bold">
-                    <a href="login.html" class="hover:text-white transition-colors text-white/90">Login</a>
-                    <a href="https://api.whatsapp.com/send?phone=5511980960531" class="bg-white text-black px-7 py-3 rounded-full hover:bg-brand-primary hover:text-white transition-all shadow-lg active:scale-95">
+            <!-- Lado Direito -->
+            <div class="flex items-center gap-4 sm:gap-6 z-10 text-readable">
+                <div class="hidden lg:flex items-center gap-6">
+                    <a href="login.html" class="text-[16px] font-bold hover:text-white transition-colors text-white/90 whitespace-nowrap">Login</a>
+                    <a href="https://api.whatsapp.com/send?phone=5511980960531" class="bg-white text-black px-6 py-2.5 rounded-full hover:bg-brand-primary hover:text-white transition-all shadow-lg active:scale-95 text-[16px] font-bold whitespace-nowrap">
                         Falar com Especialista
                     </a>
                 </div>
-                <button id="menu-toggle" class="lg:hidden flex items-center justify-center w-10 h-10 rounded-full bg-zinc-800/50 border border-zinc-700 text-white"><i class="fa-solid fa-bars-staggered text-lg"></i></button>
+                <button id="menu-toggle" class="lg:hidden flex items-center justify-center w-11 h-11 rounded-xl bg-zinc-800/80 border border-zinc-700/50 text-white transition-all active:scale-90" aria-label="Menu">
+                    <i class="fa-solid fa-bars-staggered text-xl"></i>
+                </button>
             </div>
         </nav>
     </header>
 
-    <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="fixed inset-0 bg-brand-dark z-[60] flex flex-col p-10 lg:hidden">
-        <div class="flex justify-between items-center mb-16">
-            <span class="font-display text-2xl font-bold text-white uppercase tracking-tighter">KODEO</span>
-            <button id="menu-close" class="w-10 h-10 flex items-center justify-center rounded-full bg-zinc-800 text-white"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <div class="flex flex-col gap-8 text-3xl font-bold font-display text-white text-center">
-            <a href="home.html" class="mobile-link">Home</a>
-            <a href="softwarefactory.html" class="mobile-link text-brand-primary font-bold">Software Factory</a>
-            <a href="agente.html" class="mobile-link text-zinc-500">Agentes de IA</a>
-            <a href="case.html" class="mobile-link text-zinc-500">Cases</a>
-            <a href="metodologia.html" class="mobile-link text-zinc-500">Metodologia</a>
-        </div>
-        <div class="mt-auto">
-            <a href="https://api.whatsapp.com/send?phone=5511980960531" class="block w-full bg-brand-primary text-white text-center py-5 rounded-2xl font-bold text-lg">Iniciar Orçamento</a>
+    <!-- Menu Mobile iFood Style -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] lg:hidden">
+        <div id="mobile-menu-drawer" class="absolute right-0 top-0 h-full w-[85%] max-w-[360px] bg-brand-dark border-l border-zinc-800 p-6 flex flex-col shadow-2xl text-readable">
+            <div class="flex justify-between items-center mb-10 pt-2 text-readable">
+                <div class="flex items-center gap-3 text-left">
+                    <div class="w-10 h-10 rounded-full bg-brand-primary/20 flex items-center justify-center border border-brand-primary/30">
+                        <i class="fa-solid fa-user text-brand-primary text-sm"></i>
+                    </div>
+                    <div>
+                        <p class="text-[14px] font-bold text-white leading-none">Bem-vindo</p>
+                        <p class="text-[11px] text-zinc-500 font-medium uppercase tracking-wider mt-1">Menu Kodeo</p>
+                    </div>
+                </div>
+                <button id="menu-close" class="w-10 h-10 flex items-center justify-center rounded-full bg-zinc-800 text-white active:scale-90 transition-transform">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <div class="flex flex-col flex-grow overflow-y-auto pr-2 custom-scrollbar text-left text-readable">
+                <a href="home.html" class="mobile-link-item">
+                    <div class="w-8 flex justify-center text-zinc-400"><i class="fa-solid fa-house-chimney"></i></div>
+                    <span class="text-[17px] font-semibold text-white">Home</span>
+                </a>
+                
+                <div class="py-4 text-readable">
+                    <p class="text-[11px] font-black text-zinc-600 uppercase tracking-[0.2em] mb-2 px-1 text-readable text-readable">Soluções Corporativas</p>
+                    <a href="softwarefactory.html" class="mobile-link-item border-none text-readable text-readable">
+                        <div class="w-8 flex justify-center text-brand-primary"><i class="fa-solid fa-layer-group"></i></div>
+                        <span class="text-[17px] font-bold text-white">Software Factory</span>
+                    </a>
+                    <a href="agente.html" class="mobile-link-item">
+                        <div class="w-8 flex justify-center text-zinc-400"><i class="fa-solid fa-robot text-readable"></i></div>
+                        <span class="text-[16px] font-medium text-zinc-300">Agentes de IA</span>
+                    </a>
+                    <a href="growth.html" class="mobile-link-item">
+                        <div class="w-8 flex justify-center text-zinc-400"><i class="fa-solid fa-bolt text-readable"></i></div>
+                        <span class="text-[16px] font-medium text-zinc-300">Growth & Ads</span>
+                    </a>
+                    <a href="pequenosnegocio.html" class="mobile-link-item border-none text-readable text-readable">
+                        <div class="w-8 flex justify-center text-zinc-400"><i class="fa-solid fa-shop"></i></div>
+                        <span class="text-[16px] font-medium text-zinc-300">Pequenos Negócios</span>
+                    </a>
+                </div>
+
+                <div class="py-4 border-t border-zinc-800/50 mt-2 text-readable text-readable text-readable text-readable text-readable text-readable">
+                    <p class="text-[11px] font-black text-zinc-600 uppercase tracking-[0.2em] mb-2 px-1 text-readable text-readable">Institucional</p>
+                    <a href="case.html" class="mobile-link-item text-readable text-readable">
+                        <div class="w-8 flex justify-center text-zinc-400"><i class="fa-solid fa-briefcase"></i></div>
+                        <span class="text-[16px] font-medium text-zinc-300">Cases</span>
+                    </a>
+                    <a href="metodologia.html" class="mobile-link-item text-readable text-readable text-readable text-readable">
+                        <div class="w-8 flex justify-center text-zinc-400"><i class="fa-solid fa-diagram-project"></i></div>
+                        <span class="text-[16px] font-medium text-zinc-300">Metodologia</span>
+                    </a>
+                    <a href="login.html" class="mobile-link-item border-none text-readable text-readable text-readable text-readable text-readable">
+                        <div class="w-8 flex justify-center text-zinc-400"><i class="fa-solid fa-right-to-bracket text-readable text-readable"></i></div>
+                        <span class="text-[16px] font-medium text-zinc-300">Login</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="mt-auto pt-6 border-t border-zinc-800 text-readable text-readable">
+                <a href="https://api.whatsapp.com/send?phone=5511980960531" class="flex items-center justify-center gap-3 w-full bg-brand-primary text-white py-4 rounded-2xl font-bold text-[15px] shadow-lg shadow-brand-primary/20 active:scale-95 transition-all text-readable text-readable text-readable">
+                    <i class="fa-solid fa-headset"></i>
+                    Iniciar Orçamento
+                </a>
+            </div>
         </div>
     </div>
 
     <main>
         <!-- Hero Section -->
-        <section class="relative pt-40 pb-20 md:pt-56 md:pb-32 px-6 overflow-hidden">
-            <div class="container mx-auto">
-                <div class="grid lg:grid-cols-2 gap-16 items-center">
-                    <div>
-                        <span class="inline-block bg-brand-primary/10 border border-brand-primary/20 text-brand-primary px-4 py-1.5 rounded-full text-xs font-bold mb-6 uppercase tracking-widest">Engenharia B2B</span>
-                        <h1 class="font-display text-4xl md:text-7xl text-white font-extrabold leading-tight tracking-tighter mb-8 uppercase">
-                            Software Factory <br> <span class="text-brand-primary">Sob Medida.</span>
+        <section class="relative pt-32 pb-16 md:pt-56 md:pb-32 px-4 sm:px-6 overflow-hidden">
+            <div class="container mx-auto text-readable text-readable">
+                <div class="grid lg:grid-cols-2 gap-12 sm:gap-16 items-center text-readable">
+                    <div class="text-left text-readable text-readable">
+                        <span class="inline-block bg-brand-primary/10 border border-brand-primary/20 text-brand-primary px-4 py-1.5 rounded-full text-[10px] font-black mb-6 uppercase tracking-[0.3em] text-readable text-readable">Engenharia B2B</span>
+                        <h1 class="font-display text-3xl sm:text-5xl md:text-8xl text-white font-extrabold leading-tight tracking-tighter mb-6 uppercase text-balance">
+                            Software Factory <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-accent uppercase">Sob Medida.</span>
                         </h1>
-                        <p class="text-brand-muted text-lg md:text-xl leading-relaxed mb-10 font-light">
-                            Não entregamos apenas código. Construímos ativos digitais que sustentam operações complexas e escalam conforme o seu negócio cresce. Nossa especialidade é transformar requisitos de negócio em arquitetura de software de elite.
+                        <p class="text-brand-muted text-base sm:text-lg md:text-xl leading-relaxed mb-8 sm:mb-10 font-light text-readable text-readable">
+                            Não entregamos apenas código. Construímos ativos digitais que sustentam operações complexas e escalam conforme o seu negócio cresce. Nossa especialidade é transformar requisitos em arquitetura de elite.
                         </p>
-                        <div class="flex flex-wrap gap-4 items-center">
-                            <a href="#estrutura" class="bg-brand-primary text-white px-10 py-4 rounded-full font-bold hover:scale-105 transition-transform shadow-xl shadow-brand-primary/20">Conhecer Processo</a>
-                            <div class="flex items-center gap-3 px-6 py-4">
-                                <i class="fa-solid fa-shield-halved text-brand-accent text-2xl"></i>
-                                <span class="text-xs font-bold uppercase tracking-widest text-zinc-400">Segurança & Qualidade Garantida</span>
+                        <div class="flex flex-wrap gap-4 items-center text-readable text-readable">
+                            <a href="#estrutura" class="w-full sm:w-auto bg-brand-primary text-white px-8 py-4 rounded-full font-bold hover:scale-105 transition-transform shadow-xl shadow-brand-primary/20 text-center uppercase text-xs tracking-widest text-readable">Conhecer Processo</a>
+                            <div class="flex items-center gap-3 px-2 sm:px-6 py-2 text-readable text-readable">
+                                <i class="fa-solid fa-shield-halved text-brand-accent text-xl sm:text-2xl text-readable"></i>
+                                <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-400">Segurança & Qualidade Garantida</span>
                             </div>
                         </div>
                     </div>
                     <div class="relative group">
-                        <div class="absolute -inset-4 bg-brand-primary/20 blur-[100px] rounded-full"></div>
-                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=2070" alt="Software Engineering Team" class="relative rounded-[3rem] border border-zinc-800 shadow-2xl img-card grayscale hover:grayscale-0 transition-all duration-700 h-[550px] w-full object-cover">
+                        <div class="absolute -inset-6 sm:-inset-10 bg-brand-primary/20 blur-[80px] sm:blur-[120px] rounded-full"></div>
+                        <img src="./img/escritorio_kodeo_ruim.png" alt="Equipe" class="relative rounded-[2rem] sm:rounded-[3.5rem] border border-zinc-800 shadow-2xl img-card grayscale hover:grayscale-0 transition-all duration-700 h-[300px] sm:h-[550px] w-full object-cover">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Galeria de Tecnologia Full Stack -->
-        <section class="py-20 bg-zinc-950/40">
-            <div class="container mx-auto px-6 text-center">
-                <h3 class="text-2xl md:text-4xl font-display text-white font-bold mb-12 uppercase tracking-tighter">Frentes Tecnológicas</h3>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    <div class="group relative rounded-3xl overflow-hidden border border-zinc-800 img-card h-64">
-                        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=2070" class="w-full h-full object-cover opacity-40 group-hover:opacity-100 transition-opacity" alt="Desenvolvimento Java Backend">
+        <!-- Frentes Tecnológicas (Galeria Adaptada) -->
+        <section class="py-16 sm:py-20 bg-zinc-950/40 px-4 sm:px-6 text-readable">
+            <div class="container mx-auto text-center text-readable">
+                <h3 class="text-2xl sm:text-4xl font-display text-white font-bold mb-12 sm:mb-16 uppercase tracking-tighter text-readable">Frentes Tecnológicas</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-readable text-readable">
+                    <div class="group relative rounded-2xl sm:rounded-3xl overflow-hidden border border-zinc-800 img-card h-48 sm:h-64">
+                        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=2070" class="w-full h-full object-cover opacity-40 group-hover:opacity-100 transition-opacity" alt="Java">
                         <div class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-transparent transition-all">
-                            <span class="text-white font-bold uppercase text-xs tracking-widest">Back-end Java</span>
+                            <span class="text-white font-bold uppercase text-[10px] sm:text-xs tracking-widest text-readable">Back-end Java</span>
                         </div>
                     </div>
-                    <div class="group relative rounded-3xl overflow-hidden border border-zinc-800 img-card h-64 mt-8">
-                        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=2070" class="w-full h-full object-cover opacity-40 group-hover:opacity-100 transition-opacity" alt="Programação Python">
+                    <div class="group relative rounded-2xl sm:rounded-3xl overflow-hidden border border-zinc-800 img-card h-48 sm:h-64 mt-6 sm:mt-8">
+                        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=2070" class="w-full h-full object-cover opacity-40 group-hover:opacity-100 transition-opacity" alt="Python">
                         <div class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-transparent transition-all">
-                            <span class="text-white font-bold uppercase text-xs tracking-widest">IA & Python</span>
+                            <span class="text-white font-bold uppercase text-[10px] sm:text-xs tracking-widest text-readable">IA & Python</span>
                         </div>
                     </div>
-                    <div class="group relative rounded-3xl overflow-hidden border border-zinc-800 img-card h-64">
-                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=2072" class="w-full h-full object-cover opacity-40 group-hover:opacity-100 transition-opacity" alt="HTML CSS JavaScript Development">
+                    <div class="group relative rounded-2xl sm:rounded-3xl overflow-hidden border border-zinc-800 img-card h-48 sm:h-64">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=2072" class="w-full h-full object-cover opacity-40 group-hover:opacity-100 transition-opacity" alt="Front">
                         <div class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-transparent transition-all">
-                            <span class="text-white font-bold uppercase text-xs tracking-widest">Front-end Moderno</span>
+                            <span class="text-white font-bold uppercase text-[10px] sm:text-xs tracking-widest text-readable">Front-end Moderno</span>
                         </div>
                     </div>
-                    <div class="group relative rounded-3xl overflow-hidden border border-zinc-800 img-card h-64 mt-8">
-                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2072" class="w-full h-full object-cover opacity-40 group-hover:opacity-100 transition-opacity" alt="Cloud Infrastructure">
+                    <div class="group relative rounded-2xl sm:rounded-3xl overflow-hidden border border-zinc-800 img-card h-48 sm:h-64 mt-6 sm:mt-8">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2072" class="w-full h-full object-cover opacity-40 group-hover:opacity-100 transition-opacity" alt="Cloud">
                         <div class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-transparent transition-all">
-                            <span class="text-white font-bold uppercase text-xs tracking-widest">Arquitetura Cloud</span>
+                            <span class="text-white font-bold uppercase text-[10px] sm:text-xs tracking-widest text-readable">Arquitetura Cloud</span>
                         </div>
                     </div>
                 </div>
@@ -213,104 +323,138 @@
         </section>
 
         <!-- Nossa Estrutura -->
-        <section id="estrutura" class="py-32 px-6">
+        <section id="estrutura" class="py-20 sm:py-32 px-4 sm:px-6">
             <div class="container mx-auto">
-                <div class="text-center max-w-3xl mx-auto mb-24">
-                    <h2 class="text-brand-primary font-bold uppercase tracking-widest text-[11px] mb-4">Nossa Estrutura</h2>
-                    <h3 class="text-4xl md:text-6xl font-display text-white font-extrabold tracking-tighter uppercase leading-tight">Sistemas criados para <br> <span class="italic text-zinc-500 font-light">não falhar.</span></h3>
+                <div class="text-center max-w-3xl mx-auto mb-16 sm:mb-24 text-readable text-readable">
+                    <h2 class="text-brand-primary font-bold uppercase tracking-widest text-[10px] sm:text-[11px] mb-4 text-readable text-readable">Nossa Estrutura</h2>
+                    <h3 class="text-3xl sm:text-5xl md:text-6xl font-display text-white font-extrabold tracking-tighter uppercase leading-tight text-readable">Sistemas criados para <br> <span class="italic text-zinc-500 font-light text-readable">não falhar.</span></h3>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-20 items-center">
-                    <div class="space-y-12">
-                        <div class="group flex gap-8">
-                            <div class="w-16 h-16 shrink-0 bg-brand-primary/10 rounded-2xl flex items-center justify-center border border-brand-primary/20 group-hover:bg-brand-primary transition-colors">
-                                <i class="fa-solid fa-layer-group text-2xl text-brand-primary group-hover:text-white"></i>
+                <div class="grid lg:grid-cols-2 gap-12 sm:gap-20 items-center text-readable">
+                    <div class="space-y-8 sm:space-y-12 text-left text-readable text-readable text-readable">
+                        <div class="group flex gap-6 sm:gap-8">
+                            <div class="w-12 h-12 sm:w-16 sm:h-16 shrink-0 bg-brand-primary/10 rounded-2xl flex items-center justify-center border border-brand-primary/20 group-hover:bg-brand-primary transition-colors text-readable text-readable">
+                                <i class="fa-solid fa-layer-group text-xl sm:text-2xl text-brand-primary group-hover:text-white transition-colors"></i>
                             </div>
-                            <div>
-                                <h4 class="text-2xl font-bold text-white mb-4 font-display uppercase tracking-tight">Arquitetura de Microserviços</h4>
-                                <p class="text-zinc-400 font-light leading-relaxed">Desmembramos processos complexos em serviços independentes e leves, facilitando a manutenção e garantindo alta disponibilidade.</p>
-                            </div>
-                        </div>
-
-                        <div class="group flex gap-8">
-                            <div class="w-16 h-16 shrink-0 bg-brand-accent/10 rounded-2xl flex items-center justify-center border border-brand-accent/20 group-hover:bg-brand-accent transition-colors">
-                                <i class="fa-solid fa-cloud text-2xl text-brand-accent group-hover:text-white"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-2xl font-bold text-white mb-4 font-display uppercase tracking-tight">Cloud Native & DevSecOps</h4>
-                                <p class="text-zinc-400 font-light leading-relaxed">Pipelines de CI/CD automatizados com camadas rigorosas de segurança em cada linha de código.</p>
+                            <div class="text-readable">
+                                <h4 class="text-xl sm:text-2xl font-bold text-white mb-4 font-display uppercase tracking-tight text-readable text-readable">Arquitetura de Microserviços</h4>
+                                <p class="text-zinc-400 font-light leading-relaxed text-sm sm:text-base text-readable">Desmembramos processos complexos em serviços independentes e leves, garantindo alta disponibilidade e manutenção simplificada.</p>
                             </div>
                         </div>
 
-                        <div class="group flex gap-8">
-                            <div class="w-16 h-16 shrink-0 bg-orange-500/10 rounded-2xl flex items-center justify-center border border-orange-500/20 group-hover:bg-orange-500 transition-colors">
-                                <i class="fa-solid fa-rotate text-2xl text-orange-500 group-hover:text-white"></i>
+                        <div class="group flex gap-6 sm:gap-8 text-readable">
+                            <div class="w-12 h-12 sm:w-16 sm:h-16 shrink-0 bg-brand-accent/10 rounded-2xl flex items-center justify-center border border-brand-accent/20 group-hover:bg-brand-accent transition-colors text-readable">
+                                <i class="fa-solid fa-cloud text-xl sm:text-2xl text-brand-accent group-hover:text-white transition-colors"></i>
                             </div>
-                            <div>
-                                <h4 class="text-2xl font-bold text-white mb-4 font-display uppercase tracking-tight">Modernização Legada</h4>
-                                <p class="text-zinc-400 font-light leading-relaxed">Transformamos seus sistemas antigos em aplicações modernas sem interromper a operação atual.</p>
+                            <div class="text-readable">
+                                <h4 class="text-xl sm:text-2xl font-bold text-white mb-4 font-display uppercase tracking-tight text-readable text-readable">Cloud Native & DevSecOps</h4>
+                                <p class="text-zinc-400 font-light leading-relaxed text-sm sm:text-base text-readable">Pipelines de CI/CD automatizados com camadas rigorosas de segurança em cada etapa do desenvolvimento.</p>
                             </div>
                         </div>
                     </div>
-                    <!-- Imagem de Data Intelligence Atualizada -->
-                    <div class="relative group">
-                        <div class="absolute -inset-2 bg-gradient-to-tr from-brand-primary to-brand-accent rounded-[3rem] blur opacity-20 transition-opacity group-hover:opacity-40"></div>
-                        <img src="https://i.pinimg.com/736x/09/25/73/09257313adc27bb86de8d1c639be2f85.jpg" class="relative rounded-[3rem] border border-zinc-800 shadow-2xl h-[550px] w-full object-cover img-card" alt="Engenharia de Dados e Data Intelligence">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent rounded-[3rem]"></div>
-                        <div class="absolute bottom-8 left-8 right-8">
-                            <p class="text-brand-accent font-bold uppercase tracking-[0.3em] text-[10px] mb-2">Data Intelligence</p>
-                            <h5 class="text-2xl font-display font-bold text-white uppercase tracking-tighter">Engenharia de Dados & Performance</h5>
+                    
+                    <div class="relative group text-readable">
+                        <div class="absolute -inset-2 bg-gradient-to-tr from-brand-primary to-brand-accent rounded-[2rem] sm:rounded-[3rem] blur opacity-20 transition-opacity group-hover:opacity-40"></div>
+                        <img src="https://i.pinimg.com/736x/09/25/73/09257313adc27bb86de8d1c639be2f85.jpg" class="relative rounded-[2rem] sm:rounded-[3rem] border border-zinc-800 shadow-2xl h-[350px] sm:h-[550px] w-full object-cover img-card" alt="Data">
+                        <div class="absolute bottom-6 left-6 right-6 text-left">
+                            <p class="text-brand-accent font-bold uppercase tracking-[0.3em] text-[10px] mb-2 text-readable">Data Intelligence</p>
+                            <h5 class="text-xl sm:text-2xl font-display font-bold text-white uppercase tracking-tighter text-readable">Engenharia de Performance</h5>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- O Coração da nossa Engenharia -->
-        <section class="py-32 bg-zinc-950/40 px-6">
+        <!-- Coração da Engenharia com Carrossel de Tecnologias -->
+        <section class="py-20 sm:py-32 bg-zinc-950/40 px-4 sm:px-6">
             <div class="container mx-auto">
-                <div class="text-center mb-24">
-                    <h3 class="text-4xl md:text-6xl font-display text-white font-extrabold tracking-tighter uppercase leading-tight">O Coração da nossa <br> <span class="text-brand-primary">Engenharia</span></h3>
+                <div class="text-center mb-16 sm:mb-24 text-readable text-readable text-readable">
+                    <h3 class="text-3xl sm:text-5xl md:text-6xl font-display text-white font-extrabold tracking-tighter uppercase leading-tight text-readable text-readable">O Coração da nossa <br> <span class="text-brand-primary text-readable">Engenharia</span></h3>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="p-10 bg-brand-card border border-zinc-800 rounded-[2.5rem] img-card text-center">
-                        <div class="mb-6 flex justify-center"><i class="fa-brands fa-java text-5xl text-orange-600"></i></div>
-                        <h5 class="text-xl font-bold text-white uppercase mb-2">Java / Spring</h5>
-                        <p class="text-zinc-500 text-sm font-light leading-relaxed">Estabilidade corporativa e segurança de dados.</p>
+                <!-- Pilares Principais (Grid) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 text-readable mb-20 text-readable">
+                    <div class="p-8 sm:p-10 bg-brand-card border border-zinc-800 rounded-[2.5rem] img-card text-center group text-readable text-readable">
+                        <div class="mb-6 flex justify-center"><i class="fa-brands fa-java text-4xl sm:text-5xl text-orange-600"></i></div>
+                        <h5 class="text-lg sm:text-xl font-bold text-white uppercase mb-2">Java / Spring</h5>
+                        <p class="text-zinc-500 text-sm font-light leading-relaxed">Estabilidade corporativa e segurança de dados de missão crítica.</p>
                     </div>
 
-                    <div class="p-10 bg-brand-card border border-zinc-800 rounded-[2.5rem] img-card text-center">
-                        <div class="mb-6 flex justify-center"><i class="fa-solid fa-database text-5xl text-brand-accent"></i></div>
-                        <h5 class="text-xl font-bold text-white uppercase mb-2">PostgreSQL</h5>
-                        <p class="text-zinc-500 text-sm font-light leading-relaxed">Integridade e alta performance para grandes volumes.</p>
+                    <div class="p-8 sm:p-10 bg-brand-card border border-zinc-800 rounded-[2.5rem] img-card text-center group text-readable text-readable text-readable">
+                        <div class="mb-6 flex justify-center"><i class="fa-solid fa-database text-4xl sm:text-5xl text-brand-accent"></i></div>
+                        <h5 class="text-lg sm:text-xl font-bold text-white uppercase mb-2">PostgreSQL</h5>
+                        <p class="text-zinc-500 text-sm font-light leading-relaxed text-readable text-readable">Integridade e alta performance para grandes volumes transacionais.</p>
                     </div>
 
-                    <div class="p-10 bg-brand-card border border-zinc-800 rounded-[2.5rem] img-card text-center">
-                        <div class="mb-6 flex justify-center"><i class="fa-brands fa-docker text-5xl text-blue-500"></i></div>
-                        <h5 class="text-xl font-bold text-white uppercase mb-2">Docker / K8s</h5>
-                        <p class="text-zinc-500 text-sm font-light leading-relaxed">Escala conteinerizada para deploys instantâneos.</p>
+                    <div class="p-8 sm:p-10 bg-brand-card border border-zinc-800 rounded-[2.5rem] img-card text-center group text-readable text-readable text-readable">
+                        <div class="mb-6 flex justify-center"><i class="fa-brands fa-docker text-4xl sm:text-5xl text-blue-500"></i></div>
+                        <h5 class="text-lg sm:text-xl font-bold text-white uppercase mb-2">Docker / K8s</h5>
+                        <p class="text-zinc-500 text-sm font-light leading-relaxed text-readable">Escala conteinerizada para deploys instantâneos e resilientes.</p>
                     </div>
 
-                    <div class="p-10 bg-brand-card border border-zinc-800 rounded-[2.5rem] img-card text-center">
-                        <div class="mb-6 flex justify-center"><i class="fa-brands fa-aws text-5xl text-white"></i></div>
-                        <h5 class="text-xl font-bold text-white uppercase mb-2">Cloud Master</h5>
-                        <p class="text-zinc-500 text-sm font-light leading-relaxed">Infraestrutura em nuvem com alta disponibilidade.</p>
+                    <div class="p-8 sm:p-10 bg-brand-card border border-zinc-800 rounded-[2.5rem] img-card text-center group text-readable text-readable text-readable">
+                        <div class="mb-6 flex justify-center"><i class="fa-brands fa-aws text-4xl sm:text-5xl text-white"></i></div>
+                        <h5 class="text-lg sm:text-xl font-bold text-white uppercase mb-2 text-readable text-readable">Cloud Master</h5>
+                        <p class="text-zinc-500 text-sm font-light leading-relaxed text-readable text-readable">Infraestrutura global em nuvem com 99.9% de disponibilidade.</p>
+                    </div>
+                </div>
+
+                <!-- Carrossel de Tecnologias Expandido (Infinite Scroll) -->
+                <div class="w-full overflow-hidden relative py-10 border-t border-zinc-900">
+                    <div class="flex animate-infinite-scroll whitespace-nowrap gap-12 sm:gap-24 items-center text-zinc-500">
+                        <!-- Itens do Carrossel -->
+                        <div class="flex items-center gap-4 text-2xl font-black uppercase tracking-tighter font-display italic group hover:text-white transition-colors">
+                            <i class="fa-brands fa-python text-4xl"></i> Python
+                        </div>
+                        <div class="flex items-center gap-4 text-2xl font-black uppercase tracking-tighter font-display italic group hover:text-white transition-colors">
+                            <i class="fa-solid fa-bolt text-4xl text-brand-primary"></i> Vercel
+                        </div>
+                        <div class="flex items-center gap-4 text-2xl font-black uppercase tracking-tighter font-display italic group hover:text-white transition-colors">
+                            <i class="fa-solid fa-database text-4xl text-brand-accent"></i> Supabase
+                        </div>
+                        <div class="flex items-center gap-4 text-2xl font-black uppercase tracking-tighter font-display italic group hover:text-white transition-colors">
+                            <i class="fa-brands fa-js text-4xl text-yellow-500"></i> JavaScript
+                        </div>
+                        <div class="flex items-center gap-4 text-2xl font-black uppercase tracking-tighter font-display italic group hover:text-white transition-colors">
+                            <i class="fa-solid fa-code text-4xl text-blue-500"></i> TypeScript
+                        </div>
+                        <div class="flex items-center gap-4 text-2xl font-black uppercase tracking-tighter font-display italic group hover:text-white transition-colors">
+                            <i class="fa-brands fa-figma text-4xl text-pink-500"></i> Figma
+                        </div>
+                        <!-- Duplicação para loop infinito -->
+                        <div class="flex items-center gap-4 text-2xl font-black uppercase tracking-tighter font-display italic group hover:text-white transition-colors">
+                            <i class="fa-brands fa-python text-4xl"></i> Python
+                        </div>
+                        <div class="flex items-center gap-4 text-2xl font-black uppercase tracking-tighter font-display italic group hover:text-white transition-colors">
+                            <i class="fa-solid fa-bolt text-4xl text-brand-primary"></i> Vercel
+                        </div>
+                        <div class="flex items-center gap-4 text-2xl font-black uppercase tracking-tighter font-display italic group hover:text-white transition-colors">
+                            <i class="fa-solid fa-database text-4xl text-brand-accent"></i> Supabase
+                        </div>
+                        <div class="flex items-center gap-4 text-2xl font-black uppercase tracking-tighter font-display italic group hover:text-white transition-colors">
+                            <i class="fa-brands fa-js text-4xl text-yellow-500"></i> JavaScript
+                        </div>
+                        <div class="flex items-center gap-4 text-2xl font-black uppercase tracking-tighter font-display italic group hover:text-white transition-colors">
+                            <i class="fa-solid fa-code text-4xl text-blue-500"></i> TypeScript
+                        </div>
+                        <div class="flex items-center gap-4 text-2xl font-black uppercase tracking-tighter font-display italic group hover:text-white transition-colors">
+                            <i class="fa-brands fa-figma text-4xl text-pink-500"></i> Figma
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- CTA Final -->
-        <section class="py-32 px-6">
-            <div class="container mx-auto max-w-6xl">
-                <div class="bg-gradient-to-br from-indigo-900 to-brand-dark rounded-[4rem] p-12 md:p-28 text-center relative overflow-hidden border border-white/5 shadow-2xl">
+        <section class="py-20 sm:py-32 px-4 sm:px-6">
+            <div class="container mx-auto max-w-6xl text-center text-readable text-readable">
+                <div class="bg-gradient-to-br from-indigo-900 to-brand-dark rounded-[2.5rem] sm:rounded-[4rem] p-10 sm:p-28 relative overflow-hidden border border-white/5 shadow-2xl text-readable text-readable">
                     <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 50px 50px;"></div>
-                    <h2 class="text-4xl md:text-7xl font-display text-white mb-10 font-extrabold leading-tight tracking-tighter uppercase uppercase">Vamos digitalizar seu <br> <span class="text-brand-accent italic font-light lowercase">sucesso amanhã?</span></h2>
-                    <p class="text-white/70 text-lg md:text-2xl mb-14 max-w-xl mx-auto font-light leading-relaxed">Sua empresa merece um parceiro que entende de tecnologia e negócios.</p>
-                    <div class="flex flex-col sm:flex-row gap-6 justify-center">
-                        <a href="https://api.whatsapp.com/send?phone=5511980960531" target="_blank" class="bg-brand-accent text-zinc-950 px-12 py-5 rounded-full font-bold text-xl hover:shadow-[0_0_40px_-5px_rgba(4,211,97,0.5)] transition-all flex items-center justify-center gap-3 active:scale-95">
-                            <i class="fa-brands fa-whatsapp text-2xl text-zinc-950"></i> Iniciar Diagnóstico Grátis
+                    <h2 class="text-3xl sm:text-5xl md:text-7xl font-display text-white mb-10 font-extrabold leading-tight tracking-tighter uppercase text-balance text-readable text-readable text-readable">Vamos digitalizar seu <br> <span class="text-brand-accent italic font-light lowercase text-3xl sm:text-5xl text-readable text-readable">sucesso amanhã?</span></h2>
+                    <p class="text-white/70 text-base sm:text-lg md:text-2xl mb-12 max-w-xl mx-auto font-light leading-relaxed">Sua empresa merece um parceiro que entende de tecnologia e negócios.</p>
+                    <div class="flex flex-col sm:flex-row gap-6 justify-center text-readable text-readable">
+                        <a href="https://api.whatsapp.com/send?phone=5511980960531" target="_blank" class="bg-brand-accent text-zinc-950 px-8 sm:px-12 py-4 sm:py-5 rounded-full font-bold text-base sm:text-xl hover:shadow-[0_0_40px_-5px_rgba(4,211,97,0.5)] transition-all flex items-center justify-center gap-3 active:scale-95 text-readable text-readable">
+                            <i class="fa-brands fa-whatsapp text-xl sm:text-2xl text-zinc-950"></i> Iniciar Diagnóstico Grátis
                         </a>
                     </div>
                 </div>
@@ -318,71 +462,100 @@
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="py-24 bg-brand-dark border-t border-zinc-900 px-6">
-        <div class="container mx-auto text-center md:text-left">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
-                <div class="col-span-1 md:col-span-2">
-                    <div class="flex items-center justify-center md:justify-start gap-3 mb-8">
+    <!-- Footer Reorganizado -->
+    <footer class="py-20 bg-brand-dark border-t border-zinc-900 px-4 sm:px-6 mt-auto text-readable">
+        <div class="container mx-auto text-readable">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16 items-start text-left text-readable text-readable text-readable text-readable">
+                <!-- Coluna 1 -->
+                <div class="md:col-span-5 text-readable">
+                    <div class="flex items-center gap-2 mb-6 text-readable">
                         <svg width="28" height="28" viewBox="0 0 100 100">
-                            <path d="M 50 50 L 15 30 L 15 70 Z" fill="#8257e5" />
-                            <path d="M 50 50 L 15 70 L 85 70 Z" fill="#04d361" />
-                            <path d="M 50 50 L 85 70 L 85 30 Z" fill="#ff9900" />
-                            <path d="M 50 50 L 85 30 L 15 30 Z" fill="#8257e5" />
+                            <path d="M 50 50 L 15 30 L 15 70 Z" fill="#8257e5"></path>
+                            <path d="M 50 50 L 15 70 L 85 70 Z" fill="#04d361"></path>
+                            <path d="M 50 50 L 85 70 L 85 30 Z" fill="#ff9900"></path>
+                            <path d="M 50 50 L 85 30 L 15 30 Z" fill="#8257e5"></path>
                         </svg>
-                        <span class="font-display text-xl font-bold text-white tracking-tighter uppercase">KODEO</span>
+                        <span class="font-display text-xl font-bold text-white tracking-tighter uppercase text-readable">KODEO</span>
                     </div>
-                    <p class="text-zinc-500 text-lg max-w-md leading-relaxed font-light mx-auto md:mx-0 italic">"Consultoria tecnológica de elite baseada em Guarulhos/SP."</p>
+                    <p class="text-zinc-500 text-sm max-w-sm leading-relaxed font-light italic text-readable text-readable">"Transformando tecnologia em faturamento real para empresas através de Software, Engenharia de Dados e Inteligência Artificial."</p>
                 </div>
-                <div>
-                    <h6 class="text-white font-bold mb-8 text-sm uppercase tracking-widest">Menu de Apoio</h6>
-                    <ul class="text-zinc-500 text-sm space-y-4 font-bold">
-                        <li><a href="home.html" class="hover:text-brand-primary transition-colors">Início</a></li>
-                        <li><a href="case.html" class="hover:text-brand-primary transition-colors">Casos de Sucesso</a></li>
-                        <li><a href="metodologia.html" class="hover:text-brand-primary transition-colors">Metodologia</a></li>
+
+                <!-- Coluna 2 -->
+                <div class="md:col-span-4 text-readable text-readable text-readable">
+                    <h6 class="text-white font-bold mb-6 text-xs uppercase tracking-widest border-b border-brand-primary/20 pb-2 inline-block text-readable text-readable">Soluções Corporativas</h6>
+                    <ul class="text-zinc-500 text-sm space-y-4 font-bold text-readable text-readable text-readable">
+                        <li><a href="softwarefactory.html" class="hover:text-brand-primary transition-colors inline-flex items-center gap-2 text-readable text-readable text-readable text-readable text-readable"><i class="fa-solid fa-chevron-right text-[8px] opacity-50 text-readable text-readable text-readable text-readable text-readable"></i> Software Factory</a></li>
+                        <li><a href="agente.html" class="hover:text-brand-primary transition-colors inline-flex items-center gap-2 text-readable text-readable text-readable text-readable text-readable text-readable text-readable text-readable text-readable"><i class="fa-solid fa-chevron-right text-[8px] opacity-50 text-readable text-readable text-readable text-readable text-readable"></i> Agentes GPT-4</a></li>
+                        <li><a href="growth.html" class="hover:text-brand-primary transition-colors inline-flex items-center gap-2 text-readable text-readable text-readable text-readable text-readable text-readable text-readable text-readable text-readable text-readable"><i class="fa-solid fa-chevron-right text-[8px] opacity-50 text-readable text-readable text-readable text-readable text-readable"></i> Growth & Ads</a></li>
+                        <li><a href="pequenosnegocio.html" class="hover:text-brand-primary transition-colors inline-flex items-center gap-2 text-readable text-readable text-readable text-readable text-readable text-readable text-readable text-readable text-readable text-readable text-readable"><i class="fa-solid fa-chevron-right text-[8px] opacity-50 text-readable text-readable text-readable text-readable text-readable"></i> Pequenos Negócios</a></li>
                     </ul>
                 </div>
-                <div>
-                    <h6 class="text-white font-bold mb-8 text-sm uppercase tracking-widest text-zinc-400">Siga-nos</h6>
-                    <div class="flex justify-center md:justify-start gap-5 text-white">
-                        <a href="https://linkedin.com/company/kodeo-consultoria-tech" target="_blank" class="w-10 h-10 rounded-full border border-zinc-800 flex items-center justify-center hover:border-brand-primary transition-all"><i class="fa-brands fa-linkedin-in text-sm"></i></a>
-                        <a href="https://github.com/jonnyzera" target="_blank" class="w-10 h-10 rounded-full border border-zinc-800 flex items-center justify-center hover:border-brand-primary transition-all"><i class="fa-brands fa-github text-sm"></i></a>
+
+                <!-- Coluna 3 -->
+                <div class="md:col-span-3 text-readable text-readable text-readable">
+                    <h6 class="text-white font-bold mb-6 text-xs uppercase tracking-widest border-b border-zinc-700 pb-2 inline-block text-readable text-readable text-readable">Conectar</h6>
+                    <div class="flex gap-4 text-white mb-8 text-readable text-readable text-readable">
+                        <a href="https://linkedin.com/company/kodeo-consultoria-tech" target="_blank" class="w-11 h-11 rounded-xl border border-zinc-800 flex items-center justify-center hover:border-brand-primary hover:bg-brand-primary/10 transition-all shadow-lg text-readable text-readable text-readable text-readable text-readable text-readable"><i class="fa-brands fa-linkedin-in text-sm text-readable"></i></a>
+                        <a href="https://github.com/jonnyzera" target="_blank" class="w-11 h-11 rounded-xl border border-zinc-800 flex items-center justify-center hover:border-brand-primary hover:bg-brand-primary/10 transition-all shadow-lg text-readable text-readable text-readable text-readable text-readable text-readable text-readable"><i class="fa-brands fa-github text-sm text-readable text-readable"></i></a>
                     </div>
+                    <p class="text-[10px] text-zinc-600 font-black uppercase tracking-widest text-readable text-readable text-readable text-readable text-readable">Atendimento B2B</p>
+                    <p class="text-zinc-400 text-xs mt-1 font-medium text-readable text-readable text-readable text-readable text-readable">jonny.tecnologia@gmail.com</p>
                 </div>
             </div>
-            <div class="pt-10 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] uppercase font-bold tracking-[0.2em] text-zinc-600">
-                <p>&copy; 2025 Kodeo Consultoria. Todos os direitos reservados.</p>
-                <div class="flex gap-10">
-                    <a href="#" class="hover:text-white transition-colors">Privacidade</a>
-                    <a href="#" class="hover:text-white transition-colors">Termos</a>
+
+            <div class="pt-8 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase font-bold tracking-[0.2em] text-zinc-600 text-readable text-readable text-readable text-readable">
+                <p>© 2025 Kodeo Consultoria. Todos os direitos reservados.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-white transition-colors text-readable text-readable">Privacidade</a>
+                    <a href="#" class="hover:text-white transition-colors text-readable text-readable text-readable">Termos de Uso</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Flutuantes -->
-    <div class="fixed bottom-8 right-8 flex flex-col gap-4 z-[100]">
+    <!-- Flutuantes (WhatsApp e Topo) -->
+    <div id="floating-buttons-container" class="floating-controls fixed bottom-6 right-6 flex flex-col gap-3 z-[100]">
         <button id="btn-top" class="w-11 h-11 bg-zinc-800 text-white rounded-full flex items-center justify-center shadow-2xl border border-zinc-700 hover:bg-zinc-700 transition-all">
             <i class="fa-solid fa-arrow-up text-sm"></i>
         </button>
-        <a href="https://api.whatsapp.com/send?phone=5511980960531" target="_blank" class="w-14 h-14 bg-[#25d366] text-white rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 active:scale-95 transition-all shadow-green-500/20">
+        <a href="https://api.whatsapp.com/send?phone=5511980960531" target="_blank" class="w-14 h-14 bg-[#25d366] text-white rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 active:scale-95 transition-all shadow-green-500/20 text-readable text-readable">
             <i class="fa-brands fa-whatsapp text-white"></i>
         </a>
     </div>
 
     <script>
+        // Seletores principais
         const menuToggle = document.getElementById('menu-toggle');
         const menuClose = document.getElementById('menu-close');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
+        const mobileOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileDrawer = document.getElementById('mobile-menu-drawer');
+        const mobileLinks = document.querySelectorAll('.mobile-link-item');
+        const floatingContainer = document.getElementById('floating-buttons-container');
 
-        const openMenu = () => { mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; };
-        const closeMenu = () => { mobileMenu.classList.remove('open'); document.body.style.overflow = ''; };
+        // Lógica de abrir/fechar menu com ocultação do WhatsApp
+        const openMenu = () => { 
+            mobileOverlay.classList.add('open'); 
+            mobileDrawer.classList.add('open');
+            floatingContainer.classList.add('hide-important'); // Oculta botões flutuantes
+            document.body.style.overflow = 'hidden'; 
+        };
+        
+        const closeMenu = () => { 
+            mobileDrawer.classList.remove('open');
+            mobileOverlay.classList.remove('open'); 
+            floatingContainer.classList.remove('hide-important'); // Exibe botões flutuantes
+            document.body.style.overflow = ''; 
+        };
 
-        menuToggle.addEventListener('click', openMenu);
-        menuClose.addEventListener('click', closeMenu);
+        // Event Listeners
+        menuToggle?.addEventListener('click', openMenu);
+        menuClose?.addEventListener('click', closeMenu);
+        mobileOverlay?.addEventListener('click', (e) => { 
+            if (e.target === mobileOverlay) closeMenu(); 
+        });
         mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
 
+        // Scroll Behaviors para Header e Botão de Topo
         const btnTop = document.getElementById('btn-top');
         const header = document.querySelector('header');
 
@@ -390,7 +563,7 @@
             if (window.scrollY > 400) btnTop.classList.add('show');
             else btnTop.classList.remove('show');
 
-            if (window.scrollY > 30) {
+            if (window.scrollY > 20) {
                 header.classList.add('py-2', 'bg-zinc-950/95');
                 header.classList.remove('py-4');
             } else {

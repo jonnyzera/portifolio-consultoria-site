@@ -66,6 +66,12 @@
     </script>
 
     <style>
+        /* Correção de compatibilidade para background-clip */
+        .bg-clip-text {
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+
         .mesh-gradient {
             background-color: #09090b;
             background-image: 
@@ -101,12 +107,36 @@
             transform: translateY(0);
         }
 
-        #mobile-menu {
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        /* Estilo iFood para o Menu Mobile */
+        #mobile-menu-overlay {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        #mobile-menu-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #mobile-menu-drawer {
+            transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
             transform: translateX(100%);
         }
-        #mobile-menu.open {
+        #mobile-menu-drawer.open {
             transform: translateX(0);
+        }
+
+        .mobile-link-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 18px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.2s ease;
+        }
+        .mobile-link-item:active {
+            background: rgba(255, 255, 255, 0.05);
+            padding-left: 8px;
         }
 
         .banner-overlay {
@@ -116,7 +146,7 @@
 </head>
 <body class="mesh-gradient text-zinc-300 antialiased font-sans">
 
-    <!-- Header (Navegação Ajustada para os seus arquivos) -->
+    <!-- Header -->
     <header class="fixed top-0 w-full z-50 glass-nav transition-all duration-300">
         <nav class="container mx-auto px-6 py-4 flex items-center justify-between relative">
             <!-- Lado Esquerdo: Logo -->
@@ -130,26 +160,26 @@
                 <span class="font-display text-xl font-extrabold tracking-tighter text-white">KODEO</span>
             </a>
 
-            <!-- Centro: Menu Principal (Agrupado e Centralizado) -->
+            <!-- Centro: Menu Principal (Desktop) -->
             <div class="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-8 text-[16px] font-bold text-white/90">
                 <a href="home.html" class="hover:text-brand-primary transition-colors text-white whitespace-nowrap">Home</a>
                 <div class="relative group">
                     <button class="hover:text-brand-primary transition-colors flex items-center gap-1 whitespace-nowrap">
                         Soluções <i class="fa-solid fa-chevron-down text-[10px]"></i>
                     </button>
-                    <!-- Dropdown de Soluções corrigido -->
+                    <!-- Dropdown de Soluções -->
                     <div class="absolute top-full left-0 mt-3 w-64 bg-zinc-900 border border-zinc-800 rounded-2xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all shadow-2xl text-sm font-medium">
                         <a href="softwarefactory.html" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Software Factory</a>
                         <a href="agente.html" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Agentes de IA</a>
                         <a href="growth.html" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Growth & Ads</a>
-                        <a href="home.html#servicos" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Pequenos Negócios</a>
+                        <a href="pequenosnegocio.html" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Pequenos Negócios</a>
                     </div>
                 </div>
                 <a href="case.html" class="hover:text-brand-primary transition-colors whitespace-nowrap">Cases</a>
                 <a href="metodologia.html" class="hover:text-brand-primary transition-colors whitespace-nowrap">Metodologia</a>
             </div>
 
-            <!-- Lado Direito: Ações (Padronizado) -->
+            <!-- Lado Direito: Ações -->
             <div class="flex items-center gap-6 z-10">
                 <div class="hidden lg:flex items-center gap-6">
                     <a href="login.html" class="text-[16px] font-bold hover:text-white transition-colors text-white/90 whitespace-nowrap">Login</a>
@@ -158,30 +188,85 @@
                     </a>
                 </div>
                 
-                <!-- Botão Mobile -->
-                <button id="menu-toggle" class="lg:hidden flex items-center justify-center w-10 h-10 rounded-full bg-zinc-800/50 border border-zinc-700 text-white transition-all active:scale-90" aria-label="Menu">
-                    <i class="fa-solid fa-bars-staggered text-lg"></i>
+                <!-- Botão Mobile Ajustado -->
+                <button id="menu-toggle" class="lg:hidden flex items-center justify-center w-11 h-11 rounded-xl bg-zinc-800/80 border border-zinc-700/50 text-white transition-all active:scale-90" aria-label="Menu">
+                    <i class="fa-solid fa-bars-staggered text-xl"></i>
                 </button>
             </div>
         </nav>
     </header>
 
-    <!-- Mobile Menu Overlay corrigido -->
-    <div id="mobile-menu" class="fixed inset-0 bg-brand-dark z-[60] flex flex-col p-10 lg:hidden">
-        <div class="flex justify-between items-center mb-16">
-            <span class="font-display text-2xl font-bold text-white uppercase tracking-tighter">KODEO</span>
-            <button id="menu-close" class="w-10 h-10 flex items-center justify-center rounded-full bg-zinc-800 text-white" aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <div class="flex flex-col gap-8 text-3xl font-bold font-display text-white">
-            <a href="home.html" class="mobile-link">Home</a>
-            <a href="softwarefactory.html" class="mobile-link text-zinc-500">Software Factory</a>
-            <a href="agente.html" class="mobile-link text-zinc-500">Agentes de IA</a>
-            <a href="case.html" class="mobile-link text-zinc-500">Cases</a>
-            <a href="metodologia.html" class="mobile-link text-zinc-500">Metodologia</a>
-            <a href="login.html" class="mobile-link text-zinc-500">Login</a>
-        </div>
-        <div class="mt-auto">
-            <a href="https://api.whatsapp.com/send?phone=5511980960531" class="block w-full bg-brand-primary text-white text-center py-5 rounded-2xl font-bold text-lg">Falar com Especialista</a>
+    <!-- Menu Mobile Estilo iFood (Overlay + Drawer) -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] lg:hidden">
+        <div id="mobile-menu-drawer" class="absolute right-0 top-0 h-full w-[85%] max-w-[400px] bg-brand-dark border-l border-zinc-800 p-6 flex flex-col shadow-2xl">
+            
+            <!-- Topo do Menu Mobile -->
+            <div class="flex justify-between items-center mb-10 pt-2">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-brand-primary/20 flex items-center justify-center border border-brand-primary/30">
+                        <i class="fa-solid fa-user text-brand-primary text-sm"></i>
+                    </div>
+                    <div>
+                        <p class="text-[14px] font-bold text-white leading-none">Bem-vindo</p>
+                        <p class="text-[11px] text-zinc-500 font-medium uppercase tracking-wider mt-1">Menu Kodeo</p>
+                    </div>
+                </div>
+                <button id="menu-close" class="w-10 h-10 flex items-center justify-center rounded-full bg-zinc-800 text-white active:scale-90 transition-transform">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Lista de Links Estilo App -->
+            <div class="flex flex-col flex-grow overflow-y-auto pr-2 custom-scrollbar">
+                <a href="home.html" class="mobile-link-item">
+                    <div class="w-8 flex justify-center text-brand-primary"><i class="fa-solid fa-house-chimney"></i></div>
+                    <span class="text-[17px] font-semibold text-white">Home</span>
+                </a>
+                
+                <div class="py-4">
+                    <p class="text-[11px] font-black text-zinc-600 uppercase tracking-[0.2em] mb-2 px-1">Soluções Corporativas</p>
+                    <a href="softwarefactory.html" class="mobile-link-item">
+                        <div class="w-8 flex justify-center text-zinc-400"><i class="fa-solid fa-layer-group"></i></div>
+                        <span class="text-[16px] font-medium text-zinc-300">Software Factory</span>
+                    </a>
+                    <a href="agente.html" class="mobile-link-item">
+                        <div class="w-8 flex justify-center text-zinc-400"><i class="fa-solid fa-robot"></i></div>
+                        <span class="text-[16px] font-medium text-zinc-300">Agentes de IA</span>
+                    </a>
+                    <a href="growth.html" class="mobile-link-item">
+                        <div class="w-8 flex justify-center text-zinc-400"><i class="fa-solid fa-bolt"></i></div>
+                        <span class="text-[16px] font-medium text-zinc-300">Growth & Ads</span>
+                    </a>
+                    <a href="pequenosnegocio.html" class="mobile-link-item border-none">
+                        <div class="w-8 flex justify-center text-zinc-400"><i class="fa-solid fa-shop"></i></div>
+                        <span class="text-[16px] font-medium text-zinc-300">Pequenos Negócios</span>
+                    </a>
+                </div>
+
+                <div class="py-4 border-t border-zinc-800/50 mt-2">
+                    <p class="text-[11px] font-black text-zinc-600 uppercase tracking-[0.2em] mb-2 px-1">Institucional</p>
+                    <a href="case.html" class="mobile-link-item">
+                        <div class="w-8 flex justify-center text-zinc-400"><i class="fa-solid fa-briefcase"></i></div>
+                        <span class="text-[16px] font-medium text-zinc-300">Cases</span>
+                    </a>
+                    <a href="metodologia.html" class="mobile-link-item">
+                        <div class="w-8 flex justify-center text-zinc-400"><i class="fa-solid fa-diagram-project"></i></div>
+                        <span class="text-[16px] font-medium text-zinc-300">Metodologia</span>
+                    </a>
+                    <a href="login.html" class="mobile-link-item border-none">
+                        <div class="w-8 flex justify-center text-zinc-400"><i class="fa-solid fa-right-to-bracket"></i></div>
+                        <span class="text-[16px] font-medium text-zinc-300">Login</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Footer do Menu Mobile (CTA fixo no fim) -->
+            <div class="mt-auto pt-6 border-t border-zinc-800">
+                <a href="https://api.whatsapp.com/send?phone=5511980960531" class="flex items-center justify-center gap-3 w-full bg-brand-primary text-white py-4 rounded-2xl font-bold text-[15px] shadow-lg shadow-brand-primary/20 active:scale-95 transition-all">
+                    <i class="fa-solid fa-headset"></i>
+                    Falar com Especialista
+                </a>
+            </div>
         </div>
     </div>
 
@@ -194,7 +279,7 @@
                     Nova Era Digital
                 </div>
                 
-                <h1 class="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-white mb-6 leading-tight tracking-tight font-extrabold uppercase">
+                <h1 class="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-white mb-6 leading-tight tracking-tight font-extrabold uppercase text-balance">
                     Construímos o <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-accent">Futuro da sua Empresa</span>
                 </h1>
                 <p class="text-brand-muted text-sm md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed font-light px-4">
@@ -227,7 +312,7 @@
             </div>
         </section>
 
-        <!-- Trust Bar -->
+        <!-- Trust Bar (Ticker) -->
         <section class="py-12 border-y border-zinc-900 bg-zinc-950/40 overflow-hidden">
             <div class="container mx-auto px-6 relative">
                 <div class="flex animate-infinite-scroll gap-12 md:gap-24 items-center whitespace-nowrap text-zinc-700 hover:text-white transition-colors">
@@ -236,6 +321,8 @@
                     <span class="text-xl md:text-3xl font-black tracking-tighter font-display italic uppercase">Logtech</span>
                     <span class="text-xl md:text-3xl font-black tracking-tighter font-display italic uppercase">Healthtech</span>
                     <span class="text-xl md:text-3xl font-black tracking-tighter font-display italic uppercase">Industria 4.0</span>
+                    <span class="text-xl md:text-3xl font-black tracking-tighter font-display italic uppercase">Fintech</span>
+                    <span class="text-xl md:text-3xl font-black tracking-tighter font-display italic uppercase">Lawtech</span>
                 </div>
             </div>
         </section>
@@ -248,11 +335,10 @@
                         <h2 class="text-brand-primary font-bold uppercase tracking-widest text-[11px] mb-4">Especialidades</h2>
                         <h3 class="text-3xl md:text-5xl font-display text-white font-extrabold leading-tight tracking-tighter italic">Soluções que geram <span class="text-zinc-600">impacto direto</span> no seu caixa.</h3>
                     </div>
-                    <p class="text-brand-muted max-w-sm text-base font-light">Combinamos engenharia de ponta com visão estratégica para entregar produtos que dominam o mercado.</p>
+                    <p class="text-brand-muted max-w-sm text-base font-light">Combinamos engenharia de ponta with visão estratégica para entregar produtos que dominam o mercado.</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Cards -->
                     <a href="softwarefactory.html" class="service-card-hover bg-brand-card border border-zinc-800 p-10 rounded-[2.5rem] block">
                         <div class="w-12 h-12 bg-brand-primary/10 rounded-2xl flex items-center justify-center mb-8">
                             <i class="fa-solid fa-code text-xl text-brand-primary"></i>
@@ -298,7 +384,7 @@
             </div>
         </section>
 
-        <!-- Soluções Entregues (PROJETOS REAIS ATUALIZADOS) -->
+        <!-- Cases Reais -->
         <section id="cases" class="py-24 bg-zinc-950/40 px-6">
             <div class="container mx-auto">
                 <div class="text-center mb-16">
@@ -307,23 +393,21 @@
                 </div>
                 
                 <div class="grid lg:grid-cols-3 gap-8">
-                    <!-- Case 1: E-commerce -->
                     <div class="group relative bg-brand-card border border-zinc-800 rounded-[2.5rem] overflow-hidden flex flex-col shadow-xl">
                         <div class="h-56 overflow-hidden">
-                            <img src="img/ecommerce_1.webp" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" alt="E-commerce Digital" onerror="this.src='https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=2070'">
+                            <img src="./img/ecommerce_1.webp" alt="Brilho Shop">
                         </div>
                         <div class="p-8 flex flex-col flex-grow">
                             <span class="text-[9px] font-black text-brand-primary uppercase tracking-widest bg-brand-primary/10 px-3 py-1 rounded-full self-start">E-commerce Digital</span>
-                            <h5 class="text-xl font-bold text-white mt-6 mb-3 font-display uppercase tracking-tighter">Brilho Shop</h5>
+                            <h5 class="text-xl font-bold text-white mt-6 mb-3 font-display uppercase tracking-tighter">Gamer Nostalgia</h5>
                             <p class="text-zinc-500 font-light text-sm mb-8 flex-grow">Catálogo digital otimizado para conversão em massa e experiência fluida de checkout.</p>
                             <a href="https://brilhoshop3.catalog.yampi.io/" target="_blank" class="text-white text-xs font-bold border-b border-white/20 pb-1 hover:border-brand-primary transition-colors inline-flex items-center gap-2">Ver Projeto <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></a>
                         </div>
                     </div>
 
-                    <!-- Case 2: Metalurgica -->
                     <div class="group relative bg-brand-card border border-zinc-800 rounded-[2.5rem] overflow-hidden flex flex-col shadow-xl">
                         <div class="h-56 overflow-hidden">
-                            <img src="./img/jda_tela_Site_img.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" alt="JDA Usinagem" onerror="this.src='https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=2070'">
+                            <img src="./img/jda_tela_Site_img.png" alt="JDA Usinagem">
                         </div>
                         <div class="p-8 flex flex-col flex-grow">
                             <span class="text-[9px] font-black text-brand-accent uppercase tracking-widest bg-brand-accent/10 px-3 py-1 rounded-full self-start">Indústria & Metalurgia</span>
@@ -333,10 +417,9 @@
                         </div>
                     </div>
 
-                    <!-- Case 3: Agente IA -->
                     <div class="group relative bg-brand-card border border-zinc-800 rounded-[2.5rem] overflow-hidden flex flex-col shadow-xl">
                         <div class="h-56 overflow-hidden">
-                            <img src="./img/iFoodovers_img.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" alt="iFood Lovers" onerror="this.src='https://images.unsplash.com/photo-1675271591211-126ad94e495d?auto=format&fit=crop&q=80&w=2070'">
+                            <img src="./img/iFoodovers_img.jpg" alt="iFood Lovers">
                         </div>
                         <div class="p-8 flex flex-col flex-grow">
                             <span class="text-[9px] font-black text-orange-500 uppercase tracking-widest bg-orange-500/10 px-3 py-1 rounded-full self-start">Inteligência Artificial</span>
@@ -365,49 +448,59 @@
         </section>
     </main>
 
-    <!-- Footer -->
+    <!-- Footer Reorganizado -->
     <footer class="py-20 bg-brand-dark border-t border-zinc-900 px-6">
-        <div class="container mx-auto text-center md:text-left">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-                <div class="col-span-1 md:col-span-2">
-                    <div class="flex items-center justify-center md:justify-start gap-2 mb-6 text-readable">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16 items-start">
+                <!-- Coluna 1: Logo e Descrição (Fica mais a esquerda) -->
+                <div class="md:col-span-5 text-left">
+                    <div class="flex items-center gap-2 mb-6 text-readable">
                         <svg width="28" height="28" viewBox="0 0 100 100">
-                            <path d="M 50 50 L 15 30 L 15 70 Z" fill="#8257e5" />
-                            <path d="M 50 50 L 15 70 L 85 70 Z" fill="#04d361" />
-                            <path d="M 50 50 L 85 70 L 85 30 Z" fill="#ff9900" />
-                            <path d="M 50 50 L 85 30 L 15 30 Z" fill="#8257e5" />
+                            <path d="M 50 50 L 15 30 L 15 70 Z" fill="#8257e5"></path>
+                            <path d="M 50 50 L 15 70 L 85 70 Z" fill="#04d361"></path>
+                            <path d="M 50 50 L 85 70 L 85 30 Z" fill="#ff9900"></path>
+                            <path d="M 50 50 L 85 30 L 15 30 Z" fill="#8257e5"></path>
                         </svg>
                         <span class="font-display text-xl font-bold text-white tracking-tighter uppercase">KODEO</span>
                     </div>
-                    <p class="text-zinc-500 text-sm max-w-xs mx-auto md:mx-0 leading-relaxed font-light italic">"Consultoria de elite projetando o amanhã através de engenharia B2B de alta fidelidade."</p>
+                    <p class="text-zinc-500 text-sm max-w-sm leading-relaxed font-light italic">"Transformando tecnologia em faturamento real para empresas através de Software, Engenharia de Dados e Inteligência Artificial."</p>
                 </div>
-                <div>
-                    <h6 class="text-white font-bold mb-6 text-xs uppercase tracking-widest text-readable">Serviços</h6>
+
+                <!-- Coluna 2: Serviços (Distribuída no meio) -->
+                <div class="md:col-span-4 text-left">
+                    <h6 class="text-white font-bold mb-6 text-xs uppercase tracking-widest border-b border-brand-primary/20 pb-2 inline-block">Soluções Corporativas</h6>
                     <ul class="text-zinc-500 text-sm space-y-4 font-bold">
-                        <li><a href="softwarefactory.html" class="hover:text-brand-primary transition-colors">Software Factory</a></li>
-                        <li><a href="agente.html" class="hover:text-brand-primary transition-colors">Agentes GPT-4</a></li>
-                        <li><a href="growth.html" class="hover:text-brand-primary transition-colors">Growth & Ads</a></li>
+                        <li><a href="softwarefactory.html" class="hover:text-brand-primary transition-colors inline-flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[8px] opacity-50"></i> Software Factory</a></li>
+                        <li><a href="agente.html" class="hover:text-brand-primary transition-colors inline-flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[8px] opacity-50"></i> Agentes GPT-4</a></li>
+                        <li><a href="growth.html" class="hover:text-brand-primary transition-colors inline-flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[8px] opacity-50"></i> Growth &amp; Ads</a></li>
+                        <li><a href="pequenosnegocio.html" class="hover:text-brand-primary transition-colors inline-flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[8px] opacity-50"></i> Pequenos Negócios</a></li>
                     </ul>
                 </div>
-                <div>
-                    <h6 class="text-white font-bold mb-6 text-xs uppercase tracking-widest text-zinc-400">Social</h6>
-                    <div class="flex justify-center md:justify-start gap-4 text-white">
-                        <a href="https://linkedin.com/company/kodeo-consultoria-tech" target="_blank" class="w-10 h-10 rounded-full border border-zinc-800 flex items-center justify-center hover:border-brand-primary transition-all"><i class="fa-brands fa-linkedin-in text-sm"></i></a>
-                        <a href="https://github.com/jonnyzera" target="_blank" class="w-10 h-10 rounded-full border border-zinc-800 flex items-center justify-center hover:border-brand-primary transition-all"><i class="fa-brands fa-github text-sm"></i></a>
+
+                <!-- Coluna 3: Social e Contato (Fica na ponta direita) -->
+                <div class="md:col-span-3 text-left">
+                    <h6 class="text-white font-bold mb-6 text-xs uppercase tracking-widest border-b border-zinc-700 pb-2 inline-block">Conectar</h6>
+                    <div class="flex gap-4 text-white mb-8">
+                        <a href="https://linkedin.com/company/kodeo-consultoria-tech" target="_blank" class="w-11 h-11 rounded-xl border border-zinc-800 flex items-center justify-center hover:border-brand-primary hover:bg-brand-primary/10 transition-all shadow-lg"><i class="fa-brands fa-linkedin-in text-sm"></i></a>
+                        <a href="https://github.com/jonnyzera" target="_blank" class="w-11 h-11 rounded-xl border border-zinc-800 flex items-center justify-center hover:border-brand-primary hover:bg-brand-primary/10 transition-all shadow-lg"><i class="fa-brands fa-github text-sm"></i></a>
                     </div>
+                    <p class="text-[10px] text-zinc-600 font-black uppercase tracking-widest">Atendimento B2B</p>
+                    <p class="text-zinc-400 text-xs mt-1">jonny.tecnologia@gmail.com</p>
                 </div>
             </div>
+
+            <!-- Bottom Bar -->
             <div class="pt-8 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase font-bold tracking-[0.2em] text-zinc-600">
-                <p>&copy; 2025 Kodeo Consultoria. Todos os direitos reservados.</p>
+                <p>© 2025 Kodeo Consultoria. Todos os direitos reservados.</p>
                 <div class="flex gap-6">
-                    <a href="#" class="hover:text-white">Privacidade</a>
-                    <a href="#" class="hover:text-white">Termos</a>
+                    <a href="#" class="hover:text-white transition-colors">Privacidade</a>
+                    <a href="#" class="hover:text-white transition-colors">Termos de Uso</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Flutuantes -->
+    <!-- Botão de Topo e WhatsApp -->
     <div class="fixed bottom-6 right-6 flex flex-col gap-3 z-[100]">
         <button id="btn-top" class="w-11 h-11 bg-zinc-800 text-white rounded-full flex items-center justify-center shadow-2xl border border-zinc-700 hover:bg-zinc-700 transition-all">
             <i class="fa-solid fa-arrow-up text-sm"></i>
@@ -418,18 +511,33 @@
     </div>
 
     <script>
+        // Lógica do Menu Mobile (Drawer Style iFood)
         const menuToggle = document.getElementById('menu-toggle');
         const menuClose = document.getElementById('menu-close');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
+        const mobileOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileDrawer = document.getElementById('mobile-menu-drawer');
+        const mobileLinks = document.querySelectorAll('.mobile-link-item');
 
-        const openMenu = () => { mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; };
-        const closeMenu = () => { mobileMenu.classList.remove('open'); document.body.style.overflow = ''; };
+        const openMenu = () => { 
+            mobileOverlay.classList.add('open'); 
+            mobileDrawer.classList.add('open');
+            document.body.style.overflow = 'hidden'; 
+        };
+        
+        const closeMenu = () => { 
+            mobileDrawer.classList.remove('open');
+            mobileOverlay.classList.remove('open'); 
+            document.body.style.overflow = ''; 
+        };
 
         menuToggle.addEventListener('click', openMenu);
         menuClose.addEventListener('click', closeMenu);
+        mobileOverlay.addEventListener('click', (e) => {
+            if (e.target === mobileOverlay) closeMenu();
+        });
         mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
 
+        // Comportamento do Header no Scroll
         const btnTop = document.getElementById('btn-top');
         const header = document.querySelector('header');
 

@@ -8,8 +8,9 @@
     <title>Growth, Ads & Marketplace de Elite | Kodeo Consultoria</title>
     <meta name="description" content="Estratégias de Growth 360º. Gestão integrada de Google Ads, Meta Ads e escala em Marketplaces (Shopee e Mercado Livre) focada em ROI real." />
     <meta name="keywords" content="growth marketing, google ads, meta ads, shopee ads, mercado ads, mercado livre ads, tráfego pago marketplace, consultoria e-commerce" />
+    <meta name="author" content="Kodeo Consultoria" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://www.kodeo.site/growth" />
+    <link rel="canonical" href="https://www.kodeo.site/growth.html" />
 
     <!-- Open Graph -->
     <meta property="og:title" content="Growth & Ads Kodeo | Performance 360º" />
@@ -47,6 +48,12 @@
     </script>
 
     <style>
+        /* Correção de compatibilidade para background-clip */
+        .bg-clip-text {
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+
         .mesh-gradient {
             background-color: #09090b;
             background-image: 
@@ -87,105 +94,198 @@
             transform: translateY(0);
         }
 
-        #mobile-menu {
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        /* Botões flutuantes: controle de visibilidade */
+        .floating-controls {
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+        }
+        .floating-controls.hide-important {
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none;
+            transform: scale(0.8);
+        }
+
+        /* Estilo Drawer Mobile (Estilo iFood) */
+        #mobile-menu-overlay {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        #mobile-menu-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #mobile-menu-drawer {
+            transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
             transform: translateX(100%);
         }
-        #mobile-menu.open {
+        #mobile-menu-drawer.open {
             transform: translateX(0);
+        }
+
+        .mobile-link-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 18px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.2s ease;
+        }
+        .mobile-link-item:active {
+            background: rgba(255, 255, 255, 0.05);
+            padding-left: 8px;
+        }
+
+        /* Impede scroll horizontal */
+        body, html {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
         }
     </style>
 </head>
-<body class="mesh-gradient text-zinc-300 antialiased font-sans">
+<body class="mesh-gradient text-zinc-300 antialiased font-sans flex flex-col min-h-screen text-readable">
 
-    <!-- Header (Padronizado KODEO) -->
+    <!-- Header -->
     <header class="fixed top-0 w-full z-50 glass-nav transition-all duration-300">
-        <nav class="container mx-auto px-6 py-4 flex items-center justify-between relative">
-            <!-- Lado Esquerdo: Logo -->
-            <a href="home.html" class="flex items-center gap-2 group z-10">
+        <nav class="container mx-auto px-4 sm:px-6 py-4 flex items-center justify-between relative text-readable">
+            <!-- Logo -->
+            <a href="home.html" class="flex items-center gap-2 group z-10 text-white">
                 <svg width="32" height="32" viewBox="0 0 100 100" class="transition-transform group-hover:rotate-12">
                     <path d="M 50 50 L 15 30 L 15 70 Z" fill="#8257e5" />
                     <path d="M 50 50 L 15 70 L 85 70 Z" fill="#04d361" />
                     <path d="M 50 50 L 85 70 L 85 30 Z" fill="#ff9900" />
                     <path d="M 50 50 L 85 30 L 15 30 Z" fill="#8257e5" />
                 </svg>
-                <span class="font-display text-xl font-extrabold tracking-tighter text-white uppercase">KODEO</span>
+                <span class="font-display text-xl font-extrabold tracking-tighter uppercase">KODEO</span>
             </a>
 
-            <!-- Centro: Menu Principal -->
+            <!-- Menu Principal (Desktop) -->
             <div class="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-8 text-[16px] font-bold text-white/90">
-                <a href="home.html" class="hover:text-brand-primary transition-colors text-white whitespace-nowrap">Home</a>
-                <div class="relative group">
-                    <button class="hover:text-brand-accent transition-colors flex items-center gap-1 whitespace-nowrap">
+                <a href="home.html" class="hover:text-brand-primary transition-colors whitespace-nowrap text-white">Home</a>
+                <div class="relative group text-readable">
+                    <button class="hover:text-brand-accent transition-colors flex items-center gap-1 whitespace-nowrap text-brand-accent font-bold">
                         Soluções <i class="fa-solid fa-chevron-down text-[10px]"></i>
                     </button>
-                    <!-- Dropdown de Soluções -->
                     <div class="absolute top-full left-0 mt-3 w-64 bg-zinc-900 border border-zinc-800 rounded-2xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all shadow-2xl text-sm font-medium">
                         <a href="softwarefactory.html" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Software Factory</a>
                         <a href="agente.html" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Agentes de IA</a>
                         <a href="growth.html" class="block px-4 py-2 bg-zinc-800 rounded-xl text-brand-accent font-bold">Growth & Ads</a>
-                        <a href="home.html#servicos" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Pequenos Negócios</a>
+                        <a href="pequenosnegocio.html" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Pequenos Negócios</a>
                     </div>
                 </div>
-                <a href="case.html" class="hover:text-brand-primary transition-colors whitespace-nowrap">Cases</a>
-                <a href="metodologia.html" class="hover:text-brand-primary transition-colors whitespace-nowrap">Metodologia</a>
+                <a href="case.html" class="hover:text-brand-primary transition-colors whitespace-nowrap text-white text-readable">Cases</a>
+                <a href="metodologia.html" class="hover:text-brand-primary transition-colors whitespace-nowrap text-white text-readable">Metodologia</a>
             </div>
 
-            <!-- Lado Direito: Ações -->
-            <div class="flex items-center gap-6 z-10">
+            <!-- Lado Direito -->
+            <div class="flex items-center gap-4 sm:gap-6 z-10 text-readable">
                 <div class="hidden lg:flex items-center gap-6">
-                    <a href="login.html" class="text-[16px] font-bold hover:text-white transition-colors text-white/90 whitespace-nowrap">Login</a>
-                    <a href="https://api.whatsapp.com/send?phone=5511980960531" target="_blank" class="bg-white text-black px-6 py-2.5 rounded-full hover:bg-brand-primary hover:text-white transition-all shadow-lg active:scale-95 text-[16px] font-bold whitespace-nowrap">
+                    <a href="login.html" class="text-[16px] font-bold hover:text-white transition-colors text-white/90 whitespace-nowrap font-bold">Login</a>
+                    <a href="https://api.whatsapp.com/send?phone=5511980960531" class="bg-white text-black px-6 py-2.5 rounded-full hover:bg-brand-accent hover:text-white transition-all shadow-lg active:scale-95 text-[16px] font-bold whitespace-nowrap">
                         Falar com Especialista
                     </a>
                 </div>
-                <button id="menu-toggle" class="lg:hidden flex items-center justify-center w-10 h-10 rounded-full bg-zinc-800/50 border border-zinc-700 text-white transition-all active:scale-90">
-                    <i class="fa-solid fa-bars-staggered text-lg"></i>
+                <button id="menu-toggle" class="lg:hidden flex items-center justify-center w-11 h-11 rounded-xl bg-zinc-800/80 border border-zinc-700/50 text-white transition-all active:scale-90" aria-label="Menu">
+                    <i class="fa-solid fa-bars-staggered text-xl"></i>
                 </button>
             </div>
         </nav>
     </header>
 
-    <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="fixed inset-0 bg-brand-dark z-[60] flex flex-col p-10 lg:hidden">
-        <div class="flex justify-between items-center mb-16">
-            <span class="font-display text-2xl font-bold text-white uppercase tracking-tighter">KODEO</span>
-            <button id="menu-close" class="w-10 h-10 flex items-center justify-center rounded-full bg-zinc-800 text-white"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <div class="flex flex-col gap-8 text-3xl font-bold font-display text-white text-center">
-            <a href="home.html" class="mobile-link">Home</a>
-            <a href="growth.html" class="mobile-link text-brand-accent font-bold">Growth & Ads</a>
-            <a href="agente.html" class="mobile-link text-zinc-500">Agentes de IA</a>
-            <a href="case.html" class="mobile-link text-zinc-500">Cases</a>
-            <a href="metodologia.html" class="mobile-link text-zinc-500">Metodologia</a>
-        </div>
-        <div class="mt-auto">
-            <a href="https://api.whatsapp.com/send?phone=5511980960531" target="_blank" class="block w-full bg-brand-accent text-zinc-950 text-center py-5 rounded-2xl font-bold text-lg uppercase tracking-widest shadow-lg">Escalar Faturamento</a>
+    <!-- Menu Mobile iFood Style -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] lg:hidden">
+        <div id="mobile-menu-drawer" class="absolute right-0 top-0 h-full w-[85%] max-w-[360px] bg-brand-dark border-l border-zinc-800 p-6 flex flex-col shadow-2xl text-readable">
+            <div class="flex justify-between items-center mb-10 pt-2 text-readable">
+                <div class="flex items-center gap-3 text-left">
+                    <div class="w-10 h-10 rounded-full bg-brand-primary/20 flex items-center justify-center border border-brand-primary/30">
+                        <i class="fa-solid fa-user text-brand-primary text-sm"></i>
+                    </div>
+                    <div>
+                        <p class="text-[14px] font-bold text-white leading-none">Bem-vindo</p>
+                        <p class="text-[11px] text-zinc-500 font-medium uppercase tracking-wider mt-1">Menu Kodeo</p>
+                    </div>
+                </div>
+                <button id="menu-close" class="w-10 h-10 flex items-center justify-center rounded-full bg-zinc-800 text-white active:scale-90 transition-transform">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <div class="flex flex-col flex-grow overflow-y-auto pr-2 custom-scrollbar text-left text-readable">
+                <a href="home.html" class="mobile-link-item">
+                    <div class="w-8 flex justify-center text-zinc-400"><i class="fa-solid fa-house-chimney"></i></div>
+                    <span class="text-[17px] font-semibold text-white">Home</span>
+                </a>
+                
+                <div class="py-4">
+                    <p class="text-[11px] font-black text-zinc-600 uppercase tracking-[0.2em] mb-2 px-1">Soluções Corporativas</p>
+                    <a href="softwarefactory.html" class="mobile-link-item">
+                        <div class="w-8 flex justify-center text-zinc-400"><i class="fa-solid fa-layer-group"></i></div>
+                        <span class="text-[16px] font-medium text-zinc-300">Software Factory</span>
+                    </a>
+                    <a href="agente.html" class="mobile-link-item text-readable">
+                        <div class="w-8 flex justify-center text-zinc-400"><i class="fa-solid fa-robot"></i></div>
+                        <span class="text-[16px] font-medium text-zinc-300">Agentes de IA</span>
+                    </a>
+                    <a href="growth.html" class="mobile-link-item text-readable">
+                        <div class="w-8 flex justify-center text-brand-accent"><i class="fa-solid fa-bolt"></i></div>
+                        <span class="text-[17px] font-bold text-white">Growth & Ads</span>
+                    </a>
+                    <a href="pequenosnegocio.html" class="mobile-link-item border-none text-readable">
+                        <div class="w-8 flex justify-center text-zinc-400"><i class="fa-solid fa-shop"></i></div>
+                        <span class="text-[16px] font-medium text-zinc-300">Pequenos Negócios</span>
+                    </a>
+                </div>
+
+                <div class="py-4 border-t border-zinc-800/50 mt-2 text-readable">
+                    <p class="text-[11px] font-black text-zinc-600 uppercase tracking-[0.2em] mb-2 px-1">Institucional</p>
+                    <a href="case.html" class="mobile-link-item">
+                        <div class="w-8 flex justify-center text-zinc-400"><i class="fa-solid fa-briefcase"></i></div>
+                        <span class="text-[16px] font-medium text-zinc-300">Cases</span>
+                    </a>
+                    <a href="metodologia.html" class="mobile-link-item">
+                        <div class="w-8 flex justify-center text-zinc-400"><i class="fa-solid fa-diagram-project"></i></div>
+                        <span class="text-[16px] font-medium text-zinc-300">Metodologia</span>
+                    </a>
+                    <a href="login.html" class="mobile-link-item border-none">
+                        <div class="w-8 flex justify-center text-zinc-400"><i class="fa-solid fa-right-to-bracket"></i></div>
+                        <span class="text-[16px] font-medium text-zinc-300">Login</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="mt-auto pt-6 border-t border-zinc-800 text-readable">
+                <a href="https://api.whatsapp.com/send?phone=5511980960531" class="flex items-center justify-center gap-3 w-full bg-brand-primary text-white py-4 rounded-2xl font-bold text-[15px] shadow-lg shadow-brand-primary/20 active:scale-95 transition-all text-readable">
+                    <i class="fa-solid fa-headset"></i>
+                    Escalar Faturamento
+                </a>
+            </div>
         </div>
     </div>
 
     <main>
         <!-- Hero Section -->
-        <section class="relative pt-40 pb-20 md:pt-56 md:pb-32 px-6 overflow-hidden">
+        <section class="relative pt-32 pb-16 md:pt-56 md:pb-32 px-4 sm:px-6 overflow-hidden">
             <div class="container mx-auto">
-                <div class="grid lg:grid-cols-2 gap-16 items-center">
-                    <div>
-                        <span class="inline-block bg-brand-accent/10 border border-brand-accent/20 text-brand-accent px-4 py-1.5 rounded-full text-xs font-bold mb-6 uppercase tracking-widest">Growth 360º & Ecossistemas Digitais</span>
-                        <h1 class="font-display text-4xl md:text-7xl text-white font-extrabold leading-tight tracking-tighter mb-8 uppercase">
-                            ADS, SEO E <br> <span class="text-brand-accent uppercase">MARKETPLACE.</span>
+                <div class="grid lg:grid-cols-2 gap-12 sm:gap-16 items-center">
+                    <div class="text-left text-readable">
+                        <span class="inline-block bg-brand-accent/10 border border-brand-accent/20 text-brand-accent px-4 py-1.5 rounded-full text-[10px] font-black mb-6 uppercase tracking-[0.3em]">Growth 360º & Ecossistemas Digitais</span>
+                        <h1 class="font-display text-3xl sm:text-5xl md:text-7xl text-white font-extrabold leading-tight tracking-tighter mb-6 uppercase text-balance">
+                            ADS, SEO E <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-accent uppercase">MARKETPLACE.</span>
                         </h1>
-                        <p class="text-brand-muted text-lg md:text-xl leading-relaxed mb-10 font-light">
+                        <p class="text-brand-muted text-base sm:text-lg md:text-xl leading-relaxed mb-8 sm:mb-10 font-light">
                             Conectamos sua marca aos maiores canais de venda do mundo. Gerimos o tráfego pago no Google e Meta, e escalamos sua presença na Shopee e Mercado Livre com estratégias orientadas a lucro real.
                         </p>
                         <div class="flex flex-wrap gap-4 items-center">
-                            <a href="#performance" class="bg-brand-accent text-zinc-950 px-10 py-4 rounded-full font-bold hover:scale-105 transition-transform shadow-xl shadow-brand-accent/20 uppercase text-sm tracking-widest">Explorar Ecossistema</a>
+                            <a href="#performance" class="w-full sm:w-auto bg-brand-accent text-zinc-950 px-8 py-4 rounded-full font-bold hover:scale-105 transition-transform shadow-xl shadow-brand-accent/20 uppercase text-xs tracking-widest text-center">Explorar Ecossistema</a>
                         </div>
                     </div>
                     <div class="relative group img-container">
-                        <div class="absolute -inset-4 bg-brand-accent/20 blur-[100px] rounded-full"></div>
-                        <img src="https://i.pinimg.com/736x/a1/b3/4f/a1b34f382290229c79e6a36807797bb8.jpg" alt="Dashboard de Performance de Vendas" class="relative rounded-[3rem] border border-zinc-800 shadow-2xl img-zoom grayscale-[20%] hover:grayscale-0 transition-all duration-1000 h-[550px] w-full object-cover">
-                        <div class="absolute -bottom-6 -left-6 bg-brand-card border border-zinc-800 p-8 rounded-[2.5rem] shadow-2xl hidden md:block">
-                            <p class="text-brand-accent font-bold text-3xl leading-none">+450%</p>
+                        <div class="absolute -inset-6 sm:-inset-10 bg-brand-accent/20 blur-[80px] sm:blur-[100px] rounded-full"></div>
+                        <img src="https://i.pinimg.com/736x/a1/b3/4f/a1b34f382290229c79e6a36807797bb8.jpg" alt="Performance" class="relative rounded-[2rem] sm:rounded-[3rem] border border-zinc-800 shadow-2xl img-zoom grayscale-[20%] hover:grayscale-0 transition-all duration-1000 h-[300px] sm:h-[550px] w-full object-cover">
+                        <div class="absolute -bottom-6 -left-6 bg-brand-card border border-zinc-800 p-6 sm:p-8 rounded-[2rem] sm:rounded-[2.5rem] shadow-2xl hidden md:block">
+                            <p class="text-brand-accent font-bold text-2xl sm:text-3xl leading-none">+450%</p>
                             <p class="text-[10px] uppercase tracking-widest font-black mt-2 text-zinc-500">ROI Médio em Marketplaces</p>
                         </div>
                     </div>
@@ -193,98 +293,98 @@
             </div>
         </section>
 
-        <!-- Seção: Ads & Marketplaces Juntos -->
-        <section id="performance" class="py-24 bg-zinc-950/40 px-6">
+        <!-- Performance Section -->
+        <section id="performance" class="py-20 sm:py-24 bg-zinc-950/40 px-4 sm:px-6">
             <div class="container mx-auto">
-                <div class="text-center mb-20">
-                    <h2 class="text-brand-accent font-bold uppercase tracking-widest text-xs mb-4">Escala Multicanal</h2>
-                    <h3 class="text-3xl md:text-5xl font-display text-white font-bold tracking-tighter">Onde o seu cliente <span class="italic text-zinc-500">estiver, nós dominamos.</span></h3>
+                <div class="text-center mb-16 sm:mb-20 text-readable">
+                    <h2 class="text-brand-accent font-bold uppercase tracking-widest text-[10px] sm:text-[11px] mb-4 text-readable">Escala Multicanal</h2>
+                    <h3 class="text-3xl sm:text-5xl font-display text-white font-bold tracking-tighter text-readable">Onde o seu cliente <span class="italic text-zinc-500">estiver, nós dominamos.</span></h3>
                 </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
                     <!-- Google & Meta Ads -->
-                    <div class="group bg-brand-card border border-zinc-800 rounded-[2.5rem] overflow-hidden img-container">
-                        <div class="h-64 overflow-hidden relative">
-                            <img src="https://images.unsplash.com/photo-1533750516457-a7f992034fec?auto=format&fit=crop&q=80&w=2006" class="w-full h-full object-cover img-zoom opacity-50 group-hover:opacity-100 transition-opacity" alt="Google e Meta Ads Performance">
+                    <div class="group bg-brand-card border border-zinc-800 rounded-[2.5rem] overflow-hidden img-container text-left text-readable">
+                        <div class="h-56 sm:h-64 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1533750516457-a7f992034fec?auto=format&fit=crop&q=80&w=2006" class="w-full h-full object-cover img-zoom opacity-50 group-hover:opacity-100 transition-opacity" alt="Ads">
                             <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 to-transparent"></div>
                             <div class="absolute bottom-6 left-8 flex gap-3 text-white">
-                                <i class="fa-brands fa-google text-xl"></i>
-                                <i class="fa-brands fa-facebook text-xl"></i>
-                                <i class="fa-brands fa-instagram text-xl"></i>
+                                <i class="fa-brands fa-google text-xl text-readable"></i>
+                                <i class="fa-brands fa-facebook text-xl text-readable"></i>
+                                <i class="fa-brands fa-instagram text-xl text-readable"></i>
                             </div>
                         </div>
-                        <div class="p-10">
-                            <h4 class="text-2xl font-bold text-white mb-4 uppercase tracking-tight">Google & Meta Ads</h4>
-                            <p class="text-zinc-500 text-sm font-light leading-relaxed">Campanhas de pesquisa, display e social. Capturamos a intenção de compra no Google e geramos desejo no Instagram e Facebook.</p>
+                        <div class="p-8 sm:p-10 text-readable">
+                            <h4 class="text-xl sm:text-2xl font-bold text-white mb-4 uppercase tracking-tight text-readable">Google & Meta Ads</h4>
+                            <p class="text-zinc-500 text-sm font-light leading-relaxed text-readable">Campanhas de pesquisa, display e social. Capturamos a intenção de compra no Google e geramos desejo no Instagram.</p>
                         </div>
                     </div>
 
-                    <!-- Marketplace Scalability -->
-                    <div class="group bg-brand-card border border-zinc-800 rounded-[2.5rem] overflow-hidden img-container border-brand-accent/30">
-                        <div class="h-64 overflow-hidden relative">
-                            <img src="https://i.pinimg.com/736x/a7/d1/8a/a7d18a2b16cdee2719bc6e681fbace8b.jpg" class="w-full h-full object-cover img-zoom opacity-50 group-hover:opacity-100 transition-opacity" alt="E-commerce Marketplace Logistics">
+                    <!-- Marketplace Growth -->
+                    <div class="group bg-brand-card border border-zinc-800 rounded-[2.5rem] overflow-hidden img-container border-brand-accent/30 text-left text-readable text-readable">
+                        <div class="h-56 sm:h-64 overflow-hidden relative">
+                            <img src="https://i.pinimg.com/736x/a7/d1/8a/a7d18a2b16cdee2719bc6e681fbace8b.jpg" class="w-full h-full object-cover img-zoom opacity-50 group-hover:opacity-100 transition-opacity" alt="Marketplace">
                             <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 to-transparent"></div>
-                            <div class="absolute bottom-6 left-8 flex gap-3 text-brand-accent">
+                            <div class="absolute bottom-6 left-8 flex gap-3 text-brand-accent text-readable text-readable">
                                 <i class="fa-solid fa-cart-shopping text-xl"></i>
-                                <span class="text-xs font-black uppercase tracking-widest">Shopee & Mercado Livre</span>
+                                <span class="text-[10px] font-black uppercase tracking-widest text-readable">Shopee & Mercado Livre</span>
                             </div>
                         </div>
-                        <div class="p-10">
-                            <h4 class="text-2xl font-bold text-white mb-4 uppercase tracking-tight">Marketplace Growth</h4>
-                            <p class="text-zinc-500 text-sm font-light leading-relaxed">Dominamos os algoritmos da Shopee e Mercado Livre. Gestão de Ads interno e SEO para produtos que vendem sozinhos.</p>
+                        <div class="p-8 sm:p-10 text-readable">
+                            <h4 class="text-xl sm:text-2xl font-bold text-white mb-4 uppercase tracking-tight text-readable">Marketplace Growth</h4>
+                            <p class="text-zinc-500 text-sm font-light leading-relaxed text-readable">Dominamos os algoritmos da Shopee e Mercado Livre. Gestão de Ads interno e SEO para produtos que vendem sozinhos.</p>
                         </div>
                     </div>
 
                     <!-- Data Intelligence -->
-                    <div class="group bg-brand-card border border-zinc-800 rounded-[2.5rem] overflow-hidden img-container">
-                        <div class="h-64 overflow-hidden relative">
-                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=2426" class="w-full h-full object-cover img-zoom opacity-50 group-hover:opacity-100 transition-opacity" alt="Data Analytics Growth">
+                    <div class="group bg-brand-card border border-zinc-800 rounded-[2.5rem] overflow-hidden img-container text-left text-readable">
+                        <div class="h-56 sm:h-64 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=2426" class="w-full h-full object-cover img-zoom opacity-50 group-hover:opacity-100 transition-opacity" alt="Data">
                             <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 to-transparent"></div>
                             <div class="absolute bottom-6 left-8 flex gap-3 text-white">
                                 <i class="fa-solid fa-chart-line text-xl"></i>
-                                <span class="text-xs font-black uppercase tracking-widest">Análise 360º</span>
+                                <span class="text-[10px] font-black uppercase tracking-widest text-readable">Análise 360º</span>
                             </div>
                         </div>
-                        <div class="p-10">
-                            <h4 class="text-2xl font-bold text-white mb-4 uppercase tracking-tight">Data Intelligence</h4>
-                            <p class="text-zinc-500 text-sm font-light leading-relaxed">Não damos passos no escuro. Analisamos cada centavo investido para garantir que o seu custo de aquisição (CAC) seja sempre lucrativo.</p>
+                        <div class="p-8 sm:p-10 text-readable">
+                            <h4 class="text-xl sm:text-2xl font-bold text-white mb-4 uppercase tracking-tight text-readable">Data Intelligence</h4>
+                            <p class="text-zinc-500 text-sm font-light leading-relaxed text-readable">Não damos passos no escuro. Analisamos cada centavo investido para garantir que o seu CAC seja sempre lucrativo.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Seção: Nosso Diferencial -->
-        <section class="py-32 px-6 overflow-hidden">
+        <!-- Diferencial Section -->
+        <section class="py-20 sm:py-32 px-4 sm:px-6 overflow-hidden">
             <div class="container mx-auto">
-                <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div class="grid lg:grid-cols-2 gap-12 sm:gap-20 items-center">
                     <div class="relative group img-container">
-                        <div class="absolute -inset-10 bg-brand-accent/10 blur-[120px] rounded-full"></div>
-                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=2070" class="relative rounded-[3.5rem] border border-zinc-800 shadow-2xl h-[600px] w-full object-cover img-zoom" alt="Estrategista de Growth">
-                        <div class="absolute inset-0 bg-gradient-to-tr from-brand-accent/20 to-transparent rounded-[3.5rem] pointer-events-none"></div>
+                        <div class="absolute -inset-6 sm:-inset-10 bg-brand-accent/10 blur-[80px] sm:blur-[120px] rounded-full"></div>
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=2070" class="relative rounded-[2rem] sm:rounded-[3.5rem] border border-zinc-800 shadow-2xl h-[300px] sm:h-[600px] w-full object-cover img-zoom" alt="Estratégia">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-brand-accent/20 to-transparent rounded-[2rem] sm:rounded-[3.5rem] pointer-events-none"></div>
                     </div>
-                    <div>
-                        <h2 class="text-brand-accent font-bold uppercase tracking-[0.2em] text-[11px] mb-6">Nosso Diferencial</h2>
-                        <h3 class="text-4xl md:text-6xl font-display text-white font-extrabold leading-tight tracking-tighter mb-10 uppercase italic">
+                    <div class="text-left text-readable text-readable">
+                        <h2 class="text-brand-accent font-bold uppercase tracking-[0.2em] text-[10px] sm:text-[11px] mb-4 sm:mb-6">Nosso Diferencial</h2>
+                        <h3 class="text-3xl sm:text-4xl md:text-6xl font-display text-white font-extrabold leading-tight tracking-tighter mb-8 sm:mb-10 uppercase italic">
                             Onde o Tráfego <br> <span class="text-zinc-600">Encontra a Engenharia.</span>
                         </h3>
-                        <div class="space-y-12">
-                            <div class="flex items-start gap-6 group">
-                                <div class="w-14 h-14 shrink-0 bg-brand-accent/10 rounded-xl flex items-center justify-center border border-brand-accent/20 group-hover:bg-brand-accent transition-colors">
-                                    <i class="fa-solid fa-microchip text-brand-accent group-hover:text-zinc-950 transition-colors text-xl"></i>
+                        <div class="space-y-8 sm:space-y-12">
+                            <div class="flex items-start gap-4 sm:gap-6 group text-readable">
+                                <div class="w-12 h-12 sm:w-14 sm:h-14 shrink-0 bg-brand-accent/10 rounded-xl flex items-center justify-center border border-brand-accent/20 group-hover:bg-brand-accent transition-colors text-readable">
+                                    <i class="fa-solid fa-microchip text-brand-accent group-hover:text-zinc-950 transition-colors text-lg sm:text-xl"></i>
                                 </div>
                                 <div>
-                                    <h4 class="text-white font-bold uppercase text-sm mb-2 tracking-widest">Growth Baseado em Tecnologia</h4>
-                                    <p class="text-zinc-500 text-base font-light leading-relaxed">Não somos apenas uma agência. Usamos scripts, APIs e IA para otimizar seus anúncios em tempo real.</p>
+                                    <h4 class="text-white font-bold uppercase text-xs sm:text-sm mb-2 tracking-widest text-readable">Growth Baseado em Tecnologia</h4>
+                                    <p class="text-zinc-500 text-sm sm:text-base font-light leading-relaxed">Não somos apenas uma agência. Usamos scripts, APIs e IA para otimizar seus anúncios em tempo real.</p>
                                 </div>
                             </div>
-                            <div class="flex items-start gap-6 group">
-                                <div class="w-14 h-14 shrink-0 bg-brand-primary/10 rounded-xl flex items-center justify-center border border-brand-primary/20 group-hover:bg-brand-primary transition-colors">
-                                    <i class="fa-solid fa-truck-fast text-brand-primary group-hover:text-white transition-colors text-xl"></i>
+                            <div class="flex items-start gap-4 sm:gap-6 group text-readable">
+                                <div class="w-12 h-12 sm:w-14 sm:h-14 shrink-0 bg-brand-primary/10 rounded-xl flex items-center justify-center border border-brand-primary/20 group-hover:bg-brand-primary transition-colors text-readable">
+                                    <i class="fa-solid fa-truck-fast text-brand-primary group-hover:text-white transition-colors text-lg sm:text-xl text-readable"></i>
                                 </div>
                                 <div>
-                                    <h4 class="text-white font-bold uppercase text-sm mb-2 tracking-widest">Especialistas em E-commerce & ML</h4>
-                                    <p class="text-zinc-500 text-base font-light leading-relaxed">Conhecemos as regras do Mercado Livre e Shopee. Aumentamos sua relevância e colocamos seus produtos no topo.</p>
+                                    <h4 class="text-white font-bold uppercase text-xs sm:text-sm mb-2 tracking-widest text-readable">Especialistas em E-commerce & ML</h4>
+                                    <p class="text-zinc-500 text-sm sm:text-base font-light leading-relaxed text-readable">Conhecemos as regras do Mercado Livre e Shopee. Aumentamos sua relevância e colocamos seus produtos no topo.</p>
                                 </div>
                             </div>
                         </div>
@@ -294,19 +394,19 @@
         </section>
 
         <!-- CTA Final -->
-        <section class="py-32 px-6">
-            <div class="container mx-auto max-w-6xl text-center">
-                <div class="bg-gradient-to-br from-brand-accent/80 to-brand-dark rounded-[4rem] p-12 md:p-28 relative overflow-hidden border border-white/5 shadow-2xl">
+        <section class="py-20 sm:py-32 px-4 sm:px-6">
+            <div class="container mx-auto max-w-6xl text-center text-readable">
+                <div class="bg-gradient-to-br from-brand-accent/80 to-brand-dark rounded-[2.5rem] sm:rounded-[4rem] p-10 sm:p-28 relative overflow-hidden border border-white/5 shadow-2xl text-readable">
                     <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 50px 50px;"></div>
-                    <h2 class="text-4xl md:text-7xl font-display text-zinc-950 font-extrabold leading-tight tracking-tighter uppercase">
-                        Sua escala <br> <span class="italic font-light lowercase">começa aqui.</span>
+                    <h2 class="text-3xl sm:text-5xl md:text-7xl font-display text-zinc-950 font-extrabold leading-tight tracking-tighter uppercase text-balance text-readable">
+                        Sua escala <br> <span class="italic font-light lowercase text-3xl sm:text-5xl">começa aqui.</span>
                     </h2>
-                    <p class="text-zinc-900 text-lg md:text-2xl mb-14 max-w-2xl mx-auto font-medium mt-6">
+                    <p class="text-zinc-900 text-base sm:text-lg md:text-2xl mb-10 sm:mb-14 max-w-2xl mx-auto font-medium mt-6 text-readable">
                         Pronto para dominar o Google, Meta e os Marketplaces? Agende um diagnóstico gratuito.
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-6 justify-center">
-                        <a href="https://api.whatsapp.com/send?phone=5511980960531" target="_blank" class="bg-zinc-950 text-white px-12 py-5 rounded-full font-bold text-xl hover:scale-105 transition-all active:scale-95 uppercase tracking-widest shadow-2xl">
-                            <i class="fa-brands fa-whatsapp text-2xl mr-2"></i> Iniciar Plano Multicanal
+                    <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center text-readable text-readable">
+                        <a href="https://api.whatsapp.com/send?phone=5511980960531" target="_blank" class="bg-zinc-950 text-white px-8 sm:px-12 py-4 sm:py-5 rounded-full font-bold text-base sm:text-xl hover:scale-105 transition-all active:scale-95 uppercase tracking-widest shadow-2xl text-readable text-readable">
+                            <i class="fa-brands fa-whatsapp text-xl sm:text-2xl mr-2 text-readable text-readable"></i> Iniciar Plano Multicanal
                         </a>
                     </div>
                 </div>
@@ -314,50 +414,59 @@
         </section>
     </main>
 
-    <!-- Footer (Padronizado KODEO) -->
-    <footer class="py-24 bg-brand-dark border-t border-zinc-900 px-6">
-        <div class="container mx-auto text-center md:text-left">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
-                <div class="col-span-1 md:col-span-2">
-                    <div class="flex items-center justify-center md:justify-start gap-3 mb-8 text-readable">
+    <!-- Footer Reorganizado -->
+    <footer class="py-20 bg-brand-dark border-t border-zinc-900 px-4 sm:px-6 mt-auto text-readable">
+        <div class="container mx-auto text-readable">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16 items-start text-left text-readable text-readable">
+                <!-- Coluna 1 -->
+                <div class="md:col-span-5 text-readable">
+                    <div class="flex items-center gap-2 mb-6 text-readable">
                         <svg width="28" height="28" viewBox="0 0 100 100">
-                            <path d="M 50 50 L 15 30 L 15 70 Z" fill="#8257e5" />
-                            <path d="M 50 50 L 15 70 L 85 70 Z" fill="#04d361" />
-                            <path d="M 50 50 L 85 70 L 85 30 Z" fill="#ff9900" />
-                            <path d="M 50 50 L 85 30 L 15 30 Z" fill="#8257e5" />
+                            <path d="M 50 50 L 15 30 L 15 70 Z" fill="#8257e5"></path>
+                            <path d="M 50 50 L 15 70 L 85 70 Z" fill="#04d361"></path>
+                            <path d="M 50 50 L 85 70 L 85 30 Z" fill="#ff9900"></path>
+                            <path d="M 50 50 L 85 30 L 15 30 Z" fill="#8257e5"></path>
                         </svg>
-                        <span class="font-display text-xl font-bold text-white tracking-tighter uppercase">KODEO</span>
+                        <span class="font-display text-xl font-bold text-white tracking-tighter uppercase text-readable text-readable">KODEO</span>
                     </div>
-                    <p class="text-zinc-500 text-lg max-w-md leading-relaxed font-light mx-auto md:mx-0 italic">"Consultoria tecnológica de elite baseada em Guarulhos/SP."</p>
+                    <p class="text-zinc-500 text-sm max-w-sm leading-relaxed font-light italic text-readable text-readable">"Transformando tecnologia em faturamento real para empresas através de Software, Engenharia de Dados e Inteligência Artificial."</p>
                 </div>
-                <div>
-                    <h6 class="text-white font-bold mb-8 text-sm uppercase tracking-widest">Menu de Apoio</h6>
-                    <ul class="text-zinc-500 text-sm space-y-4 font-bold">
-                        <li><a href="home.html" class="hover:text-brand-primary transition-colors">Início</a></li>
-                        <li><a href="case.html" class="hover:text-brand-primary transition-colors">Casos de Sucesso</a></li>
-                        <li><a href="metodologia.html" class="hover:text-brand-primary transition-colors">Metodologia</a></li>
+
+                <!-- Coluna 2 -->
+                <div class="md:col-span-4 text-readable text-readable">
+                    <h6 class="text-white font-bold mb-6 text-xs uppercase tracking-widest border-b border-brand-primary/20 pb-2 inline-block text-readable text-readable">Soluções Corporativas</h6>
+                    <ul class="text-zinc-500 text-sm space-y-4 font-bold text-readable text-readable text-readable text-readable">
+                        <li><a href="softwarefactory.html" class="hover:text-brand-primary transition-colors inline-flex items-center gap-2 text-readable text-readable text-readable text-readable"><i class="fa-solid fa-chevron-right text-[8px] opacity-50 text-readable text-readable text-readable"></i> Software Factory</a></li>
+                        <li><a href="agente.html" class="hover:text-brand-primary transition-colors inline-flex items-center gap-2 text-readable text-readable text-readable text-readable text-readable text-readable"><i class="fa-solid fa-chevron-right text-[8px] opacity-50 text-readable text-readable"></i> Agentes GPT-4</a></li>
+                        <li><a href="growth.html" class="hover:text-brand-primary transition-colors inline-flex items-center gap-2 text-readable text-readable text-readable text-readable text-readable text-readable text-readable text-readable"><i class="fa-solid fa-chevron-right text-[8px] opacity-50 text-readable"></i> Growth & Ads</a></li>
+                        <li><a href="pequenosnegocio.html" class="hover:text-brand-primary transition-colors inline-flex items-center gap-2 text-readable text-readable text-readable text-readable text-readable text-readable text-readable text-readable text-readable text-readable"><i class="fa-solid fa-chevron-right text-[8px] opacity-50 text-readable"></i> Pequenos Negócios</a></li>
                     </ul>
                 </div>
-                <div>
-                    <h6 class="text-white font-bold mb-8 text-sm uppercase tracking-widest text-zinc-400">Siga-nos</h6>
-                    <div class="flex justify-center md:justify-start gap-5 text-white">
-                        <a href="https://linkedin.com/company/kodeo-consultoria-tech" target="_blank" class="w-10 h-10 rounded-full border border-zinc-800 flex items-center justify-center hover:border-brand-primary transition-all"><i class="fa-brands fa-linkedin-in text-sm"></i></a>
-                        <a href="https://github.com/jonnyzera" target="_blank" class="w-10 h-10 rounded-full border border-zinc-800 flex items-center justify-center hover:border-brand-primary transition-all"><i class="fa-brands fa-github text-sm"></i></a>
+
+                <!-- Coluna 3 -->
+                <div class="md:col-span-3 text-readable text-readable">
+                    <h6 class="text-white font-bold mb-6 text-xs uppercase tracking-widest border-b border-zinc-700 pb-2 inline-block text-readable text-readable">Conectar</h6>
+                    <div class="flex gap-4 text-white mb-8 text-readable text-readable text-readable text-readable">
+                        <a href="https://linkedin.com/company/kodeo-consultoria-tech" target="_blank" class="w-11 h-11 rounded-xl border border-zinc-800 flex items-center justify-center hover:border-brand-primary hover:bg-brand-primary/10 transition-all shadow-lg text-readable text-readable text-readable text-readable text-readable text-readable"><i class="fa-brands fa-linkedin-in text-sm text-readable"></i></a>
+                        <a href="https://github.com/jonnyzera" target="_blank" class="w-11 h-11 rounded-xl border border-zinc-800 flex items-center justify-center hover:border-brand-primary hover:bg-brand-primary/10 transition-all shadow-lg text-readable text-readable text-readable text-readable text-readable text-readable text-readable text-readable"><i class="fa-brands fa-github text-sm text-readable"></i></a>
                     </div>
+                    <p class="text-[10px] text-zinc-600 font-black uppercase tracking-widest text-readable text-readable text-readable text-readable">Atendimento B2B</p>
+                    <p class="text-zinc-400 text-xs mt-1 font-medium text-readable text-readable text-readable text-readable">jonny.tecnologia@gmail.com</p>
                 </div>
             </div>
-            <div class="pt-10 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] uppercase font-bold tracking-[0.2em] text-zinc-600">
-                <p>&copy; 2025 Kodeo Consultoria. Todos os direitos reservados.</p>
-                <div class="flex gap-10">
-                    <a href="#" class="hover:text-white transition-colors">Privacidade</a>
-                    <a href="#" class="hover:text-white transition-colors">Termos</a>
+
+            <div class="pt-8 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase font-bold tracking-[0.2em] text-zinc-600 text-readable text-readable">
+                <p>© 2025 Kodeo Consultoria. Todos os direitos reservados.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-white transition-colors text-readable">Privacidade</a>
+                    <a href="#" class="hover:text-white transition-colors text-readable">Termos de Uso</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Flutuantes -->
-    <div class="fixed bottom-8 right-8 flex flex-col gap-4 z-[100]">
+    <!-- Flutuantes (WhatsApp e Topo) -->
+    <div id="floating-buttons-container" class="floating-controls fixed bottom-6 right-6 flex flex-col gap-3 z-[100]">
         <button id="btn-top" class="w-11 h-11 bg-zinc-800 text-white rounded-full flex items-center justify-center shadow-2xl border border-zinc-700 hover:bg-zinc-700 transition-all">
             <i class="fa-solid fa-arrow-up text-sm"></i>
         </button>
@@ -367,6 +476,38 @@
     </div>
 
     <script>
+        // Seletores principais
+        const menuToggle = document.getElementById('menu-toggle');
+        const menuClose = document.getElementById('menu-close');
+        const mobileOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileDrawer = document.getElementById('mobile-menu-drawer');
+        const mobileLinks = document.querySelectorAll('.mobile-link-item');
+        const floatingContainer = document.getElementById('floating-buttons-container');
+
+        // Lógica de abrir/fechar menu com ocultação do WhatsApp
+        const openMenu = () => { 
+            mobileOverlay.classList.add('open'); 
+            mobileDrawer.classList.add('open');
+            floatingContainer.classList.add('hide-important'); // Oculta botões flutuantes
+            document.body.style.overflow = 'hidden'; 
+        };
+        
+        const closeMenu = () => { 
+            mobileDrawer.classList.remove('open');
+            mobileOverlay.classList.remove('open'); 
+            floatingContainer.classList.remove('hide-important'); // Exibe botões flutuantes
+            document.body.style.overflow = ''; 
+        };
+
+        // Event Listeners
+        menuToggle?.addEventListener('click', openMenu);
+        menuClose?.addEventListener('click', closeMenu);
+        mobileOverlay?.addEventListener('click', (e) => { 
+            if (e.target === mobileOverlay) closeMenu(); 
+        });
+        mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+        // Scroll Behaviors para Header e Botão de Topo
         const btnTop = document.getElementById('btn-top');
         const header = document.querySelector('header');
 
@@ -374,7 +515,7 @@
             if (window.scrollY > 400) btnTop.classList.add('show');
             else btnTop.classList.remove('show');
 
-            if (window.scrollY > 30) {
+            if (window.scrollY > 20) {
                 header.classList.add('py-2', 'bg-zinc-950/95');
                 header.classList.remove('py-4');
             } else {
@@ -384,13 +525,6 @@
         });
 
         btnTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuClose = document.getElementById('menu-close');
-
-        menuToggle?.addEventListener('click', () => { mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; });
-        menuClose?.addEventListener('click', () => { mobileMenu.classList.remove('open'); document.body.style.overflow = ''; });
     </script>
 </body>
 </html>

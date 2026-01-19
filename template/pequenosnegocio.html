@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO ESPECÍFICO PARA PEQUENOS NEGÓCIOS -->
+    <title>Sites de Elite para Pequenos Negócios | Kodeo Consultoria</title>
+    <meta name="description" content="Páginas estáticas de alta qualidade e impulsionamento no Google Meu Negócio. Transforme sua presença local em uma máquina de vendas com a Kodeo." />
+    <meta name="keywords" content="site para pequenos negocios, google meu negocio, seo local, pagina estática, landing page para empresas, kodeo consultoria" />
+    <meta name="author" content="Kodeo Consultoria" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.kodeo.site/pequenosnegocio.html" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Kodeo | Tecnologia de Elite para Pequenos Negócios" />
+    <meta property="og:description" content="Sua empresa no topo do Google com sites rápidos e perfil de negócios otimizado." />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&q=80&w=2070" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='3' fill='%23E1E1E6' /%3E%3Cpath d='M 50 50 L 15 30 L 15 70 Z' fill='%238257e5' /%3E%3Cpath d='M 50 50 L 15 70 L 85 70 Z' fill='%2304d361' /%3E%3Cpath d='M 50 50 L 85 70 L 85 30 Z' fill='%23ff9900' /%3E%3Cpath d='M 50 50 L 85 30 L 15 30 Z' fill='%238257e5' /%3E%3C/svg%3E">
+
+    <!-- Frameworks & Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#09090b',
+                            card: '#18181b',
+                            primary: '#8257e5',
+                            accent: '#04d361',
+                            warning: '#ff9900',
+                            muted: '#a1a1aa'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Correção de compatibilidade para background-clip */
+        .bg-clip-text {
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+
+        .mesh-gradient {
+            background-color: #09090b;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(130, 87, 229, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(255, 153, 0, 0.1) 0px, transparent 50%),
+                radial-gradient(at 50% 100%, rgba(4, 211, 97, 0.12) 0px, transparent 50%);
+        }
+
+        .glass-nav {
+            background: rgba(9, 9, 11, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .img-card {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .img-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 40px -10px rgba(130, 87, 229, 0.2);
+        }
+
+        /* Classe de Mix de Cores KODEO */
+        .text-mix {
+            background: linear-gradient(to right, #8257e5, #ff9900, #04d361);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        #btn-top {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(20px);
+        }
+        #btn-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* Botões flutuantes: controle de visibilidade */
+        .floating-controls {
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+        }
+        .floating-controls.hide-important {
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none;
+            transform: scale(0.8);
+        }
+
+        /* Estilo Drawer Mobile (Estilo iFood) */
+        #mobile-menu-overlay {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        #mobile-menu-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #mobile-menu-drawer {
+            transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+            transform: translateX(100%);
+        }
+        #mobile-menu-drawer.open {
+            transform: translateX(0);
+        }
+
+        .mobile-link-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 18px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.2s ease;
+        }
+        .mobile-link-item:active {
+            background: rgba(255, 255, 255, 0.05);
+            padding-left: 8px;
+        }
+
+        /* Impede scroll horizontal */
+        body, html {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+    </style>
+</head>
+<body class="mesh-gradient text-zinc-300 antialiased font-sans flex flex-col min-h-screen text-readable">
+
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 glass-nav transition-all duration-300">
+        <nav class="container mx-auto px-4 sm:px-6 py-4 flex items-center justify-between relative text-readable">
+            <!-- Logo -->
+            <a href="home.html" class="flex items-center gap-2 group z-10 text-white">
+                <svg width="32" height="32" viewBox="0 0 100 100" class="transition-transform group-hover:rotate-12">
+                    <path d="M 50 50 L 15 30 L 15 70 Z" fill="#8257e5" />
+                    <path d="M 50 50 L 15 70 L 85 70 Z" fill="#04d361" />
+                    <path d="M 50 50 L 85 70 L 85 30 Z" fill="#ff9900" />
+                    <path d="M 50 50 L 85 30 L 15 30 Z" fill="#8257e5" />
+                </svg>
+                <span class="font-display text-xl font-extrabold tracking-tighter uppercase">KODEO</span>
+            </a>
+
+            <!-- Menu Principal (Desktop) -->
+            <div class="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-8 text-[16px] font-bold text-white/90">
+                <a href="home.html" class="hover:text-brand-primary transition-colors whitespace-nowrap text-white">Home</a>
+                <div class="relative group">
+                    <button class="transition-colors flex items-center gap-1 whitespace-nowrap text-mix font-bold">
+                        Soluções <i class="fa-solid fa-chevron-down text-[10px] text-brand-accent"></i>
+                    </button>
+                    <div class="absolute top-full left-0 mt-3 w-64 bg-zinc-900 border border-zinc-800 rounded-2xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all shadow-2xl text-sm font-medium">
+                        <a href="softwarefactory.html" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Software Factory</a>
+                        <a href="agente.html" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Agentes de IA</a>
+                        <a href="growth.html" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Growth & Ads</a>
+                        <a href="pequenosnegocio.html" class="block px-4 py-2 bg-zinc-800 rounded-xl font-bold">
+                           <span class="text-mix">Pequenos Negócios</span>
+                        </a>
+                    </div>
+                </div>
+                <a href="case.html" class="hover:text-brand-primary transition-colors whitespace-nowrap text-white">Cases</a>
+                <a href="metodologia.html" class="hover:text-brand-primary transition-colors whitespace-nowrap text-white">Metodologia</a>
+            </div>
+
+            <!-- Lado Direito -->
+            <div class="flex items-center gap-4 sm:gap-6 z-10 text-readable">
+                <div class="hidden lg:flex items-center gap-6">
+                    <a href="login.html" class="text-[16px] font-bold hover:text-white transition-colors text-white/90 whitespace-nowrap font-bold">Login</a>
+                    <a href="https://api.whatsapp.com/send?phone=5511980960531" class="bg-white text-black px-6 py-2.5 rounded-full hover:bg-brand-accent hover:text-white transition-all shadow-lg active:scale-95 text-[16px] font-bold whitespace-nowrap">
+                        Falar com Especialista
+                    </a>
+                </div>
+                <button id="menu-toggle" class="lg:hidden flex items-center justify-center w-11 h-11 rounded-xl bg-zinc-800/80 border border-zinc-700/50 text-white transition-all active:scale-90" aria-label="Menu">
+                    <i class="fa-solid fa-bars-staggered text-xl"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Menu Mobile iFood Style -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] lg:hidden">
+        <div id="mobile-menu-drawer" class="absolute right-0 top-0 h-full w-[85%] max-w-[360px] bg-brand-dark border-l border-zinc-800 p-6 flex flex-col shadow-2xl text-readable">
+            <div class="flex justify-between items-center mb-10 pt-2 text-readable">
+                <div class="flex items-center gap-3 text-left text-readable">
+                    <div class="w-10 h-10 rounded-full bg-brand-primary/20 flex items-center justify-center border border-brand-primary/30">
+                        <i class="fa-solid fa-user text-brand-primary text-sm"></i>
+                    </div>
+                    <div>
+                        <p class="text-[14px] font-bold text-white leading-none">Bem-vindo</p>
+                        <p class="text-[11px] text-zinc-500 font-medium uppercase tracking-wider mt-1">Menu Kodeo</p>
+                    </div>
+                </div>
+                <button id="menu-close" class="w-10 h-10 flex items-center justify-center rounded-full bg-zinc-800 text-white active:scale-90 transition-transform">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <div class="flex flex-col flex-grow overflow-y-auto pr-2 custom-scrollbar text-left text-readable">
+                <a href="home.html" class="mobile-link-item">
+                    <div class="w-8 flex justify-center text-zinc-400"><i class="fa-solid fa-house-chimney"></i></div>
+                    <span class="text-[17px] font-semibold text-white">Home</span>
+                </a>
+                
+                <div class="py-4">
+                    <p class="text-[11px] font-black text-zinc-600 uppercase tracking-[0.2em] mb-2 px-1">Soluções Corporativas</p>
+                    <a href="softwarefactory.html" class="mobile-link-item">
+                        <div class="w-8 flex justify-center text-zinc-400"><i class="fa-solid fa-layer-group"></i></div>
+                        <span class="text-[16px] font-medium text-zinc-300">Software Factory</span>
+                    </a>
+                    <a href="agente.html" class="mobile-link-item">
+                        <div class="w-8 flex justify-center text-zinc-400"><i class="fa-solid fa-robot"></i></div>
+                        <span class="text-[16px] font-medium text-zinc-300">Agentes de IA</span>
+                    </a>
+                    <a href="growth.html" class="mobile-link-item">
+                        <div class="w-8 flex justify-center text-zinc-400"><i class="fa-solid fa-bolt"></i></div>
+                        <span class="text-[16px] font-medium text-zinc-300">Growth & Ads</span>
+                    </a>
+                    <a href="pequenosnegocio.html" class="mobile-link-item border-none">
+                        <div class="w-8 flex justify-center text-brand-accent"><i class="fa-solid fa-shop"></i></div>
+                        <span class="text-[17px] font-bold text-white">Pequenos Negócios</span>
+                    </a>
+                </div>
+
+                <div class="py-4 border-t border-zinc-800/50 mt-2 text-readable">
+                    <p class="text-[11px] font-black text-zinc-600 uppercase tracking-[0.2em] mb-2 px-1">Institucional</p>
+                    <a href="case.html" class="mobile-link-item">
+                        <div class="w-8 flex justify-center text-zinc-400"><i class="fa-solid fa-briefcase"></i></div>
+                        <span class="text-[16px] font-medium text-zinc-300">Cases</span>
+                    </a>
+                    <a href="metodologia.html" class="mobile-link-item">
+                        <div class="w-8 flex justify-center text-zinc-400"><i class="fa-solid fa-diagram-project"></i></div>
+                        <span class="text-[16px] font-medium text-zinc-300">Metodologia</span>
+                    </a>
+                    <a href="login.html" class="mobile-link-item border-none">
+                        <div class="w-8 flex justify-center text-zinc-400"><i class="fa-solid fa-right-to-bracket"></i></div>
+                        <span class="text-[16px] font-medium text-zinc-300">Login</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="mt-auto pt-6 border-t border-zinc-800 text-readable">
+                <a href="https://api.whatsapp.com/send?phone=5511980960531" class="flex items-center justify-center gap-3 w-full bg-brand-primary text-white py-4 rounded-2xl font-bold text-[15px] shadow-lg shadow-brand-primary/20 active:scale-95 transition-all">
+                    <i class="fa-solid fa-headset"></i>
+                    Falar com Especialista
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative pt-32 pb-16 md:pt-56 md:pb-32 px-4 sm:px-6 overflow-hidden">
+            <div class="container mx-auto">
+                <div class="grid lg:grid-cols-2 gap-12 sm:gap-16 items-center">
+                    <div class="text-left text-readable">
+                        <span class="inline-block bg-brand-accent/10 border border-brand-accent/20 text-brand-accent px-4 py-1.5 rounded-full text-[10px] font-black mb-6 uppercase tracking-[0.3em]">Presença Local & Performance</span>
+                        <h1 class="font-display text-3xl sm:text-5xl md:text-7xl text-white font-extrabold leading-tight tracking-tighter mb-6 uppercase text-balance">
+                            Sua empresa no <br> <span class="text-mix">Próximo Nível.</span>
+                        </h1>
+                        <p class="text-brand-muted text-base sm:text-lg md:text-xl leading-relaxed mb-8 sm:mb-10 font-light">
+                            Desenvolvemos páginas estáticas de alta fidelidade para empresários que buscam velocidade absoluta e design de elite. Integramos estratégias de <strong>Google Meu Negócio</strong> para que sua empresa seja a primeira escolha na sua região.
+                        </p>
+                        <div class="flex flex-wrap gap-4 items-center">
+                            <a href="https://api.whatsapp.com/send?phone=5511980960531" target="_blank" class="w-full sm:w-auto bg-brand-accent text-zinc-950 px-8 py-4 rounded-full font-bold hover:scale-105 transition-transform shadow-xl shadow-brand-accent/20 uppercase text-xs tracking-widest text-center">Quero Vender Mais Localmente</a>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <div class="absolute -inset-6 sm:-inset-10 bg-gradient-to-tr from-brand-primary/20 via-brand-warning/10 to-brand-accent/20 blur-[80px] sm:blur-[100px] rounded-full opacity-50 group-hover:opacity-100 transition-opacity duration-700"></div>
+                        <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&q=80&w=2070" alt="Sucesso Local" class="relative rounded-[2rem] sm:rounded-[3rem] border border-zinc-800 shadow-2xl img-card h-[300px] sm:h-[550px] w-full object-cover grayscale-[30%] hover:grayscale-0 transition-all duration-700">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Por que Sites Estáticos? -->
+        <section class="py-20 sm:py-24 bg-zinc-950/40 px-4 sm:px-6">
+            <div class="container mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-16 sm:mb-20 text-readable">
+                    <h2 class="text-brand-accent font-bold uppercase tracking-widest text-[10px] sm:text-[11px] mb-4">A Tecnologia Certa</h2>
+                    <h3 class="text-3xl sm:text-5xl font-display text-white font-extrabold tracking-tighter uppercase leading-tight">Por que sites <span class="text-mix">estáticos?</span></h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+                    <!-- 1. Velocidade -->
+                    <div class="p-8 sm:p-10 bg-brand-card border border-zinc-800 rounded-[2.5rem] img-card group text-left text-readable text-readable">
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 bg-brand-primary/10 rounded-2xl flex items-center justify-center mb-8 border border-brand-primary/20 group-hover:bg-brand-primary transition-all duration-500">
+                            <i class="fa-solid fa-bolt-lightning text-xl sm:text-2xl text-brand-primary group-hover:text-white text-readable"></i>
+                        </div>
+                        <h4 class="text-lg sm:text-xl font-bold text-white uppercase mb-4 font-display text-readable text-readable">Velocidade Extrema</h4>
+                        <p class="text-zinc-500 text-sm font-light leading-relaxed text-readable">Sites que carregam instantaneamente. O Google ama velocidade, e seus clientes não esperam.</p>
+                    </div>
+
+                    <!-- 2. Segurança -->
+                    <div class="p-8 sm:p-10 bg-brand-card border border-zinc-800 rounded-[2.5rem] img-card group text-left text-readable text-readable">
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 bg-brand-warning/10 rounded-2xl flex items-center justify-center mb-8 border border-brand-warning/20 group-hover:bg-brand-warning transition-all duration-500">
+                            <i class="fa-solid fa-shield-halved text-xl sm:text-2xl text-brand-warning group-hover:text-zinc-950"></i>
+                        </div>
+                        <h4 class="text-lg sm:text-xl font-bold text-white uppercase mb-4 font-display text-readable">Segurança Total</h4>
+                        <p class="text-zinc-500 text-sm font-light leading-relaxed">Sem bancos de dados vulneráveis. Seu site é virtualmente impossível de hackear.</p>
+                    </div>
+
+                    <!-- 3. Custo-Benefício -->
+                    <div class="p-8 sm:p-10 bg-brand-card border border-zinc-800 rounded-[2.5rem] img-card group text-left text-readable">
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 bg-brand-accent/10 rounded-2xl flex items-center justify-center mb-8 border border-brand-accent/20 group-hover:bg-brand-accent transition-all duration-500">
+                            <i class="fa-solid fa-coins text-xl sm:text-2xl text-brand-accent group-hover:text-zinc-950"></i>
+                        </div>
+                        <h4 class="text-lg sm:text-xl font-bold text-white uppercase mb-4 font-display">Custo-Benefício</h4>
+                        <p class="text-zinc-500 text-sm font-light leading-relaxed">Infraestrutura leve que reduz custos de hospedagem e manutenção ao mínimo absoluto.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Google Business Section -->
+        <section class="py-20 sm:py-32 px-4 sm:px-6">
+            <div class="container mx-auto">
+                <div class="grid lg:grid-cols-2 gap-12 sm:gap-20 items-center">
+                    <div class="relative group order-2 lg:order-1">
+                        <div class="absolute -inset-6 sm:-inset-10 bg-brand-accent/5 blur-[80px] sm:blur-[120px] rounded-full group-hover:bg-brand-accent/10 transition-all duration-700"></div>
+                        <div class="relative overflow-hidden rounded-[2rem] sm:rounded-[3.5rem] border border-zinc-800 shadow-2xl img-card">
+                            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=2070" alt="Estratégia Local" class="w-full h-[300px] sm:h-[550px] object-cover grayscale-[40%] group-hover:grayscale-0 transition-all duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-80"></div>
+                            <div class="absolute bottom-6 left-6 sm:bottom-10 sm:left-10 text-left">
+                                <div class="bg-brand-accent text-zinc-950 px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-[0.2em] mb-4 inline-block">Impulsionamento Local</div>
+                                <h4 class="text-2xl sm:text-3xl font-display font-bold text-white uppercase tracking-tighter leading-tight">Domine o seu <br> Bairro e Cidade.</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-8 sm:order-1 lg:order-2 text-left text-readable">
+                        <div class="max-w-xl">
+                            <h2 class="text-brand-accent font-bold uppercase tracking-widest text-[10px] sm:text-[11px] mb-4">Google Meu Negócio</h2>
+                            <h3 class="text-3xl sm:text-5xl font-display text-white font-extrabold tracking-tighter uppercase leading-tight">Apareça quando eles <br> <span class="text-zinc-500 italic font-light lowercase">procurarem pelo seu serviço.</span></h3>
+                        </div>
+
+                        <div class="space-y-6 sm:space-y-8">
+                            <div class="flex gap-4 sm:gap-6 group">
+                                <div class="w-10 h-10 sm:w-12 sm:h-12 shrink-0 bg-zinc-900 border border-zinc-800 rounded-xl flex items-center justify-center group-hover:border-brand-primary transition-colors">
+                                    <i class="fa-solid fa-map-location-dot text-brand-primary"></i>
+                                </div>
+                                <div>
+                                    <h5 class="text-white font-bold uppercase text-xs sm:text-sm mb-2 tracking-widest">Otimização de Perfil</h5>
+                                    <p class="text-zinc-500 text-sm font-light leading-relaxed">Configuramos cada detalhe para que seu negócio apareça no topo do Google Maps com fotos profissionais.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4 sm:gap-6 group text-readable">
+                                <div class="w-10 h-10 sm:w-12 sm:h-12 shrink-0 bg-zinc-900 border border-zinc-800 rounded-xl flex items-center justify-center group-hover:border-brand-warning transition-colors text-readable">
+                                    <i class="fa-solid fa-star text-brand-warning text-readable"></i>
+                                </div>
+                                <div class="text-readable">
+                                    <h5 class="text-white font-bold uppercase text-xs sm:text-sm mb-2 tracking-widest text-readable">Gestão de Avaliações</h5>
+                                    <p class="text-zinc-500 text-sm font-light leading-relaxed text-readable">Estratégias para captar as melhores notas dos seus clientes e construir uma autoridade inquestionável.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final -->
+        <section class="py-20 sm:py-32 px-4 sm:px-6">
+            <div class="container mx-auto max-w-6xl text-center text-readable">
+                <div class="bg-gradient-to-br from-indigo-900 to-brand-dark rounded-[2.5rem] sm:rounded-[4rem] p-10 sm:p-28 relative overflow-hidden border border-white/5 shadow-2xl text-readable">
+                    <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 50px 50px;"></div>
+                    <h2 class="text-3xl sm:text-5xl md:text-7xl font-display text-white font-extrabold leading-tight tracking-tighter uppercase text-balance text-readable">
+                        Sua vitrine merece <br> <span class="text-mix italic font-light lowercase text-3xl sm:text-5xl">ser de classe mundial.</span>
+                    </h2>
+                    <p class="text-white/70 text-base sm:text-lg md:text-2xl mb-10 sm:mb-14 max-w-xl mx-auto font-light mt-6 text-readable">
+                        Pequenos negócios com tecnologia de elite vendem muito mais. Vamos começar sua transformação?
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center text-readable">
+                        <a href="https://api.whatsapp.com/send?phone=5511980960531" target="_blank" class="bg-brand-accent text-zinc-950 px-8 sm:px-12 py-4 sm:py-5 rounded-full font-bold text-base sm:text-xl hover:scale-105 transition-all active:scale-95 uppercase tracking-widest shadow-2xl text-readable">
+                            <i class="fa-brands fa-whatsapp text-xl sm:text-2xl mr-2 text-readable"></i> Agendar Consultoria Grátis
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Reorganizado -->
+    <footer class="py-20 bg-brand-dark border-t border-zinc-900 px-4 sm:px-6 mt-auto text-readable">
+        <div class="container mx-auto text-readable">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16 items-start text-left text-readable">
+                <!-- Coluna 1 -->
+                <div class="md:col-span-5 text-readable">
+                    <div class="flex items-center gap-2 mb-6 text-readable">
+                        <svg width="28" height="28" viewBox="0 0 100 100">
+                            <path d="M 50 50 L 15 30 L 15 70 Z" fill="#8257e5"></path>
+                            <path d="M 50 50 L 15 70 L 85 70 Z" fill="#04d361"></path>
+                            <path d="M 50 50 L 85 70 L 85 30 Z" fill="#ff9900"></path>
+                            <path d="M 50 50 L 85 30 L 15 30 Z" fill="#8257e5"></path>
+                        </svg>
+                        <span class="font-display text-xl font-bold text-white tracking-tighter uppercase">KODEO</span>
+                    </div>
+                    <p class="text-zinc-500 text-sm max-w-sm leading-relaxed font-light italic text-readable">"Consultoria tecnológica de elite para quem busca o topo do mercado local através de sites rápidos e IA."</p>
+                </div>
+
+                <!-- Coluna 2 -->
+                <div class="md:col-span-4 text-readable">
+                    <h6 class="text-white font-bold mb-6 text-xs uppercase tracking-widest border-b border-brand-primary/20 pb-2 inline-block text-readable">Soluções Corporativas</h6>
+                    <ul class="text-zinc-500 text-sm space-y-4 font-bold text-readable">
+                        <li><a href="softwarefactory.html" class="hover:text-brand-primary transition-colors inline-flex items-center gap-2 text-readable"><i class="fa-solid fa-chevron-right text-[8px] opacity-50 text-readable"></i> Software Factory</a></li>
+                        <li><a href="agente.html" class="hover:text-brand-primary transition-colors inline-flex items-center gap-2 text-readable"><i class="fa-solid fa-chevron-right text-[8px] opacity-50 text-readable"></i> Agentes GPT-4</a></li>
+                        <li><a href="growth.html" class="hover:text-brand-primary transition-colors inline-flex items-center gap-2 text-readable"><i class="fa-solid fa-chevron-right text-[8px] opacity-50 text-readable"></i> Growth & Ads</a></li>
+                        <li><a href="pequenosnegocio.html" class="hover:text-brand-primary transition-colors inline-flex items-center gap-2 text-readable"><i class="fa-solid fa-chevron-right text-[8px] opacity-50 text-readable"></i> Pequenos Negócios</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 3 -->
+                <div class="md:col-span-3 text-readable">
+                    <h6 class="text-white font-bold mb-6 text-xs uppercase tracking-widest border-b border-zinc-700 pb-2 inline-block text-readable">Conectar</h6>
+                    <div class="flex gap-4 text-white mb-8 text-readable">
+                        <a href="https://linkedin.com/company/kodeo-consultoria-tech" target="_blank" class="w-11 h-11 rounded-xl border border-zinc-800 flex items-center justify-center hover:border-brand-primary hover:bg-brand-primary/10 transition-all shadow-lg text-readable"><i class="fa-brands fa-linkedin-in text-sm text-readable"></i></a>
+                        <a href="https://github.com/jonnyzera" target="_blank" class="w-11 h-11 rounded-xl border border-zinc-800 flex items-center justify-center hover:border-brand-primary hover:bg-brand-primary/10 transition-all shadow-lg text-readable"><i class="fa-brands fa-github text-sm text-readable"></i></a>
+                    </div>
+                    <p class="text-[10px] text-zinc-600 font-black uppercase tracking-widest text-readable">Atendimento B2B</p>
+                    <p class="text-zinc-400 text-xs mt-1 font-medium text-readable">jonny.tecnologia@gmail.com</p>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase font-bold tracking-[0.2em] text-zinc-600 text-readable">
+                <p>© 2025 Kodeo Consultoria. Todos os direitos reservados.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-white transition-colors text-readable">Privacidade</a>
+                    <a href="#" class="hover:text-white transition-colors text-readable">Termos de Uso</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Flutuantes (WhatsApp e Topo) -->
+    <div id="floating-buttons-container" class="floating-controls fixed bottom-6 right-6 flex flex-col gap-3 z-[100]">
+        <button id="btn-top" class="w-11 h-11 bg-zinc-800 text-white rounded-full flex items-center justify-center shadow-2xl border border-zinc-700 hover:bg-zinc-700 transition-all">
+            <i class="fa-solid fa-arrow-up text-sm"></i>
+        </button>
+        <a href="https://api.whatsapp.com/send?phone=5511980960531" target="_blank" class="w-14 h-14 bg-[#25d366] text-white rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 active:scale-95 transition-all shadow-green-500/20">
+            <i class="fa-brands fa-whatsapp text-white"></i>
+        </a>
+    </div>
+
+    <script>
+        // Seletores principais
+        const menuToggle = document.getElementById('menu-toggle');
+        const menuClose = document.getElementById('menu-close');
+        const mobileOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileDrawer = document.getElementById('mobile-menu-drawer');
+        const mobileLinks = document.querySelectorAll('.mobile-link-item');
+        const floatingContainer = document.getElementById('floating-buttons-container');
+
+        // Lógica de abrir/fechar menu com ocultação do WhatsApp
+        const openMenu = () => { 
+            mobileOverlay.classList.add('open'); 
+            mobileDrawer.classList.add('open');
+            floatingContainer.classList.add('hide-important'); // Oculta botões flutuantes
+            document.body.style.overflow = 'hidden'; 
+        };
+        
+        const closeMenu = () => { 
+            mobileDrawer.classList.remove('open');
+            mobileOverlay.classList.remove('open'); 
+            floatingContainer.classList.remove('hide-important'); // Exibe botões flutuantes
+            document.body.style.overflow = ''; 
+        };
+
+        // Event Listeners
+        menuToggle?.addEventListener('click', openMenu);
+        menuClose?.addEventListener('click', closeMenu);
+        mobileOverlay?.addEventListener('click', (e) => { 
+            if (e.target === mobileOverlay) closeMenu(); 
+        });
+        mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+        // Scroll Behaviors para Header e Botão de Topo
+        const btnTop = document.getElementById('btn-top');
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) btnTop.classList.add('show');
+            else btnTop.classList.remove('show');
+
+            if (window.scrollY > 20) {
+                header.classList.add('py-2', 'bg-zinc-950/95');
+                header.classList.remove('py-4');
+            } else {
+                header.classList.add('py-4');
+                header.classList.remove('py-2', 'bg-zinc-950/95');
+            }
+        });
+
+        btnTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    </script>
+</body>
+</html>
