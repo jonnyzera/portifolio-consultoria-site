@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-pt" class="scroll-smooth">
+<html lang="pt-br" class="scroll-smooth">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -96,63 +96,65 @@
 </head>
 <body class="mesh-gradient text-zinc-300 antialiased font-sans">
 
-    <!-- Header (Centralizado e Padronizado) -->
+    <!-- Header (Padronizado KODEO) -->
     <header class="fixed top-0 w-full z-50 glass-nav transition-all duration-300">
-        <nav class="container mx-auto px-6 py-4 flex items-center justify-between relative text-readable">
-            <a href="index.html" class="flex items-center gap-2 group z-10">
-                <svg width="32" height="32" viewBox="0 0 100 100">
+        <nav class="container mx-auto px-6 py-4 flex items-center justify-between relative">
+            <a href="home.html" class="flex items-center gap-2 group z-10">
+                <svg width="32" height="32" viewBox="0 0 100 100" class="transition-transform group-hover:rotate-12">
                     <path d="M 50 50 L 15 30 L 15 70 Z" fill="#8257e5" />
                     <path d="M 50 50 L 15 70 L 85 70 Z" fill="#04d361" />
                     <path d="M 50 50 L 85 70 L 85 30 Z" fill="#ff9900" />
                     <path d="M 50 50 L 85 30 L 15 30 Z" fill="#8257e5" />
                 </svg>
-                <span class="font-display text-xl font-extrabold tracking-tighter text-white">KODEO</span>
+                <span class="font-display text-xl font-extrabold tracking-tighter text-white uppercase">KODEO</span>
             </a>
 
-            <!-- Menu Principal Centralizado -->
-            <div class="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-10 text-[16px] font-bold text-white/90">
-                <a href="index.html" class="hover:text-brand-primary transition-colors whitespace-nowrap">Home</a>
+            <div class="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-8 text-[16px] font-bold text-white/90">
+                <a href="home.html" class="hover:text-brand-primary transition-colors text-white whitespace-nowrap">Home</a>
                 <div class="relative group">
-                    <button class="text-brand-warning flex items-center gap-1 uppercase tracking-tight whitespace-nowrap">
+                    <button class="text-brand-warning transition-colors flex items-center gap-1 whitespace-nowrap">
                         Soluções <i class="fa-solid fa-chevron-down text-[10px]"></i>
                     </button>
-                    <div class="absolute top-full left-0 mt-3 w-56 bg-zinc-900 border border-zinc-800 rounded-2xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all shadow-2xl text-sm font-medium">
-                        <a href="software-factory.html" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Software Factory</a>
-                        <a href="#" class="block px-4 py-2 bg-zinc-800 rounded-xl text-brand-warning font-bold">Agentes de IA</a>
-                        <a href="index.html#servicos" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Growth & Ads</a>
+                    <div class="absolute top-full left-0 mt-3 w-64 bg-zinc-900 border border-zinc-800 rounded-2xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all shadow-2xl text-sm font-medium">
+                        <a href="softwarefactory.html" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Software Factory</a>
+                        <a href="agente.html" class="block px-4 py-2 bg-zinc-800 rounded-xl text-brand-warning font-bold">Agentes de IA</a>
+                        <a href="growth.html" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Growth & Ads</a>
+                        <a href="home.html#servicos" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Pequenos Negócios</a>
                     </div>
                 </div>
-                <a href="index.html#cases" class="hover:text-brand-primary transition-colors whitespace-nowrap">Cases</a>
-                <a href="index.html#metodologia" class="hover:text-brand-primary transition-colors whitespace-nowrap">Metodologia</a>
+                <a href="case.html" class="hover:text-brand-primary transition-colors whitespace-nowrap">Cases</a>
+                <a href="metodologia.html" class="hover:text-brand-primary transition-colors whitespace-nowrap">Metodologia</a>
             </div>
 
-            <!-- Ações -->
             <div class="flex items-center gap-6 z-10">
-                <div class="hidden lg:flex items-center gap-8 text-[16px] font-bold">
-                    <a href="#" class="hover:text-white transition-colors text-white/90">Login</a>
-                    <a href="https://api.whatsapp.com/send?phone=5511980960531" class="bg-white text-black px-7 py-3 rounded-full hover:bg-brand-primary hover:text-white transition-all shadow-lg active:scale-95">
+                <div class="hidden lg:flex items-center gap-6">
+                    <a href="login.html" class="text-[16px] font-bold hover:text-white transition-colors text-white/90 whitespace-nowrap">Login</a>
+                    <a href="https://api.whatsapp.com/send?phone=5511980960531" target="_blank" class="bg-white text-black px-6 py-2.5 rounded-full hover:bg-brand-primary hover:text-white transition-all shadow-lg active:scale-95 text-[16px] font-bold whitespace-nowrap">
                         Falar com Especialista
                     </a>
                 </div>
-                <button id="menu-toggle" class="lg:hidden flex items-center justify-center w-10 h-10 rounded-full bg-zinc-800/50 border border-zinc-700 text-white"><i class="fa-solid fa-bars-staggered text-lg"></i></button>
+                <button id="menu-toggle" class="lg:hidden flex items-center justify-center w-10 h-10 rounded-full bg-zinc-800/50 border border-zinc-700 text-white transition-all active:scale-90">
+                    <i class="fa-solid fa-bars-staggered text-lg"></i>
+                </button>
             </div>
         </nav>
     </header>
 
-    <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="fixed inset-0 bg-brand-dark z-[60] flex flex-col p-10 lg:hidden">
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-brand-dark z-[60] flex flex-col p-10 lg:hidden text-readable">
         <div class="flex justify-between items-center mb-16">
             <span class="font-display text-2xl font-bold text-white uppercase tracking-tighter">KODEO</span>
             <button id="menu-close" class="w-10 h-10 flex items-center justify-center rounded-full bg-zinc-800 text-white"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <div class="flex flex-col gap-8 text-3xl font-bold font-display text-white text-center">
-            <a href="index.html" class="mobile-link">Home</a>
-            <a href="#" class="mobile-link text-brand-warning font-bold">Agentes de IA</a>
-            <a href="software-factory.html" class="mobile-link text-zinc-500">Software Factory</a>
-            <a href="index.html#cases" class="mobile-link text-zinc-500">Cases</a>
+            <a href="home.html" class="mobile-link">Home</a>
+            <a href="agente.html" class="mobile-link text-brand-warning font-bold">Agentes de IA</a>
+            <a href="softwarefactory.html" class="mobile-link text-zinc-500">Software Factory</a>
+            <a href="case.html" class="mobile-link text-zinc-500">Cases</a>
+            <a href="metodologia.html" class="mobile-link text-zinc-500">Metodologia</a>
         </div>
         <div class="mt-auto">
-            <a href="https://api.whatsapp.com/send?phone=5511980960531" class="block w-full bg-brand-warning text-zinc-950 text-center py-5 rounded-2xl font-bold text-lg">Agendar Demo IA</a>
+            <a href="https://api.whatsapp.com/send?phone=5511980960531" target="_blank" class="block w-full bg-brand-warning text-zinc-950 text-center py-5 rounded-2xl font-bold text-lg">Agendar Demo IA</a>
         </div>
     </div>
 
@@ -166,67 +168,31 @@
                         <h1 class="font-display text-4xl md:text-7xl text-white font-extrabold leading-tight tracking-tighter mb-8 uppercase">
                             Agentes de IA <br> <span class="text-brand-warning">Autônomos.</span>
                         </h1>
-                        <p class="text-brand-muted text-lg md:text-xl leading-relaxed mb-10 font-light text-readable">
+                        <p class="text-brand-muted text-lg md:text-xl leading-relaxed mb-10 font-light">
                             Não criamos apenas chatbots simples. Desenvolvemos agentes inteligentes que compreendem o seu negócio, tomam decisões baseadas em dados e executam fluxos de trabalho completos para reduzir os seus custos operacionais.
                         </p>
                         <div class="flex flex-wrap gap-4 items-center">
-                            <a href="https://api.whatsapp.com/send?phone=5511980960531" class="bg-brand-warning text-zinc-950 px-10 py-4 rounded-full font-bold hover:scale-105 transition-transform shadow-xl shadow-brand-warning/20 uppercase text-sm tracking-widest">Solicitar Demonstração</a>
+                            <a href="https://api.whatsapp.com/send?phone=5511980960531" target="_blank" class="bg-brand-warning text-zinc-950 px-10 py-4 rounded-full font-bold hover:scale-105 transition-transform shadow-xl shadow-brand-warning/20 uppercase text-sm tracking-widest">Solicitar Demonstração</a>
                         </div>
                     </div>
                     <div class="relative group">
                         <div class="absolute -inset-4 bg-brand-warning/20 blur-[100px] rounded-full"></div>
-                        <!-- Imagem: Inteligência Artificial e Dados -->
-                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=2070" alt="Inteligência Artificial Futurista" class="relative rounded-[3rem] border border-zinc-800 shadow-2xl img-card h-[550px] w-full object-cover grayscale-[50%] hover:grayscale-0 transition-all duration-700">
-                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-                            <div class="w-32 h-32 border-4 border-brand-warning/30 rounded-full animate-ping"></div>
-                        </div>
+                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=2070" alt="IA Futurista" class="relative rounded-[3rem] border border-zinc-800 shadow-2xl img-card h-[550px] w-full object-cover grayscale-[50%] hover:grayscale-0 transition-all duration-700">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Galeria de Visualização de IA -->
-        <section class="py-20 bg-zinc-950/40">
-            <div class="container mx-auto px-6">
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    <div class="aspect-[4/5] rounded-3xl overflow-hidden border border-zinc-800 img-card relative group">
-                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=2070" class="w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-opacity" alt="Cibersegurança e Redes">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
-                            <span class="text-[10px] font-bold uppercase tracking-widest text-brand-warning">Segurança de Dados</span>
-                        </div>
-                    </div>
-                    <div class="aspect-[4/5] rounded-3xl overflow-hidden border border-zinc-800 img-card mt-8 relative group">
-                        <img src="https://images.unsplash.com/photo-1507146426996-ef05306b995a?auto=format&fit=crop&q=80&w=2070" class="w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-opacity" alt="Análise Preditiva">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
-                            <span class="text-[10px] font-bold uppercase tracking-widest text-brand-warning">Análise Preditiva</span>
-                        </div>
-                    </div>
-                    <div class="aspect-[4/5] rounded-3xl overflow-hidden border border-zinc-800 img-card relative group">
-                        <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd05a?auto=format&fit=crop&q=80&w=2012" class="w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-opacity" alt="Interface de IA">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
-                            <span class="text-[10px] font-bold uppercase tracking-widest text-brand-warning">Interfaces NLP</span>
-                        </div>
-                    </div>
-                    <div class="aspect-[4/5] rounded-3xl overflow-hidden border border-zinc-800 img-card mt-8 relative group">
-                        <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=2070" class="w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-opacity" alt="Robótica e Automação">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
-                            <span class="text-[10px] font-bold uppercase tracking-widest text-brand-warning">Automação de Fluxos</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Funcionalidades dos Agentes -->
+        <!-- Funcionalidades com Imagem Enquadrada -->
         <section class="py-32 px-6">
             <div class="container mx-auto">
-                <div class="text-center max-w-3xl mx-auto mb-24 text-readable">
+                <div class="text-center max-w-3xl mx-auto mb-24">
                     <h2 class="text-brand-warning font-bold uppercase tracking-widest text-[11px] mb-4">Capacidades dos Agentes</h2>
                     <h3 class="text-3xl md:text-6xl font-display text-white font-extrabold tracking-tighter uppercase leading-tight">Inteligência que <br> <span class="italic text-zinc-500 font-light">gera resultados.</span></h3>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-20 items-center">
-                    <div class="space-y-12 text-readable">
+                    <div class="space-y-12">
                         <div class="group flex gap-8">
                             <div class="w-16 h-16 shrink-0 bg-brand-warning/10 rounded-2xl flex items-center justify-center border border-brand-warning/20 group-hover:bg-brand-warning transition-colors">
                                 <i class="fa-solid fa-comments text-2xl text-brand-warning group-hover:text-zinc-950 transition-colors"></i>
@@ -257,16 +223,60 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- IMAGEM ENQUADRADA MELHORADA AQUI -->
                     <div class="relative group">
-                        <!-- Imagem: Dashboard de IA -->
-                        <img src="https://images.unsplash.com/photo-1551288049-bbbda536339a?auto=format&fit=crop&q=80&w=2070" class="relative rounded-[3.5rem] border border-zinc-800 shadow-2xl h-[550px] w-full object-cover img-card" alt="Dashboard de Inteligência Artificial">
-                        <div class="absolute inset-0 bg-brand-warning/10 rounded-[3.5rem] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <!-- Brilho de fundo para dar profundidade -->
+                        <div class="absolute -inset-10 bg-brand-warning/5 blur-[120px] rounded-full group-hover:bg-brand-warning/10 transition-colors duration-700"></div>
+                        
+                        <div class="relative overflow-hidden rounded-[3.5rem] border border-zinc-800 shadow-2xl img-card">
+                            <img 
+                                src="https://i.pinimg.com/736x/57/6d/8d/576d8d9df9c20a78b31db6718aba4966.jpg" 
+                                alt="IA Dashboards" 
+                                class="w-full h-[500px] md:h-[600px] object-cover object-top grayscale-[20%] group-hover:grayscale-0 transition-all duration-700"
+                            >
+                            <!-- Overlay de gradiente sutil para integrar com o fundo escuro -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-60"></div>
+                            <div class="absolute inset-0 bg-brand-warning/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Modelos que Utilizamos -->
+        <!-- Galeria de Visualização de IA -->
+        <section class="py-20 bg-zinc-950/40">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="aspect-[4/5] rounded-3xl overflow-hidden border border-zinc-800 img-card relative group">
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=2070" class="w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-opacity" alt="Segurança">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-brand-warning">Segurança de Dados</span>
+                        </div>
+                    </div>
+                    <div class="aspect-[4/5] rounded-3xl overflow-hidden border border-zinc-800 img-card mt-8 relative group">
+                        <img src="https://images.unsplash.com/photo-1507146426996-ef05306b995a?auto=format&fit=crop&q=80&w=2070" class="w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-opacity" alt="Análise">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-brand-warning">Análise Preditiva</span>
+                        </div>
+                    </div>
+                    <div class="aspect-[4/5] rounded-3xl overflow-hidden border border-zinc-800 img-card relative group">
+                        <img src="https://i.pinimg.com/1200x/51/a9/a8/51a9a817dc37ac7d182b533da8496fa6.jpg" class="w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-opacity" alt="NLP">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-brand-warning">Interfaces NLP</span>
+                        </div>
+                    </div>
+                    <div class="aspect-[4/5] rounded-3xl overflow-hidden border border-zinc-800 img-card mt-8 relative group">
+                        <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=2070" class="w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-opacity" alt="Automação">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-brand-warning">Automação de Fluxos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modelos -->
         <section class="py-32 bg-zinc-950/40 px-6">
             <div class="container mx-auto">
                 <div class="text-center mb-24">
@@ -274,17 +284,15 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- OpenAI -->
                     <div class="p-10 bg-brand-card border border-zinc-800 rounded-[2.5rem] img-card text-center group">
                         <div class="mb-6 flex justify-center text-5xl text-white group-hover:scale-110 transition-transform">
                             <i class="fa-solid fa-bolt-lightning text-brand-warning"></i>
                         </div>
                         <h5 class="text-xl font-bold text-white uppercase mb-2">GPT-4 / o1</h5>
-                        <p class="text-zinc-500 text-sm font-light leading-relaxed text-readable">O estado da arte em raciocínio lógico e execução de tarefas complexas.</p>
+                        <p class="text-zinc-500 text-sm font-light leading-relaxed">O estado da arte em raciocínio lógico e execução de tarefas complexas.</p>
                     </div>
 
-                    <!-- Google -->
-                    <div class="p-10 bg-brand-card border border-zinc-800 rounded-[2.5rem] img-card text-center group text-readable">
+                    <div class="p-10 bg-brand-card border border-zinc-800 rounded-[2.5rem] img-card text-center group">
                         <div class="mb-6 flex justify-center text-5xl text-white group-hover:scale-110 transition-transform">
                             <i class="fa-solid fa-gem text-blue-400"></i>
                         </div>
@@ -292,7 +300,6 @@
                         <p class="text-zinc-500 text-sm font-light leading-relaxed">Janela de contexto massiva para análise de documentos extensos e base de dados.</p>
                     </div>
 
-                    <!-- Open Source -->
                     <div class="p-10 bg-brand-card border border-zinc-800 rounded-[2.5rem] img-card text-center group">
                         <div class="mb-6 flex justify-center text-5xl text-white group-hover:scale-110 transition-transform">
                             <i class="fa-solid fa-unlock-keyhole text-brand-accent"></i>
@@ -304,7 +311,7 @@
             </div>
         </section>
 
-        <!-- CTA Final IA -->
+        <!-- CTA Final -->
         <section class="py-32 px-6">
             <div class="container mx-auto max-w-6xl text-center">
                 <div class="bg-gradient-to-br from-brand-warning/80 to-brand-dark rounded-[4rem] p-12 md:p-28 relative overflow-hidden border border-white/5 shadow-2xl">
@@ -312,7 +319,7 @@
                     <h2 class="text-4xl md:text-7xl font-display text-zinc-950 font-extrabold leading-tight tracking-tighter uppercase">
                         Sua empresa, <br> <span class="italic font-light lowercase">muito mais inteligente.</span>
                     </h2>
-                    <p class="text-zinc-900 text-lg md:text-2xl mb-14 max-w-xl mx-auto font-medium mt-6 text-readable">
+                    <p class="text-zinc-900 text-lg md:text-2xl mb-14 max-w-xl mx-auto font-medium mt-6">
                         Reduza custos operacionais e aumente a produtividade com IA que realmente funciona.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-6 justify-center">
@@ -325,9 +332,9 @@
         </section>
     </main>
 
-    <!-- Footer Corporativo -->
+    <!-- Footer -->
     <footer class="py-24 bg-brand-dark border-t border-zinc-900 px-6">
-        <div class="container mx-auto text-center md:text-left text-readable">
+        <div class="container mx-auto text-center md:text-left">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
                 <div class="col-span-1 md:col-span-2">
                     <div class="flex items-center justify-center md:justify-start gap-3 mb-8">
@@ -339,25 +346,25 @@
                         </svg>
                         <span class="font-display text-xl font-bold text-white tracking-tighter uppercase">KODEO</span>
                     </div>
-                    <p class="text-zinc-500 text-lg max-w-md leading-relaxed font-light mx-auto md:mx-0 italic">"Projetando o amanhã através de engenharia B2B de alta fidelidade e Agentes de IA autônomos."</p>
+                    <p class="text-zinc-500 text-lg max-w-md leading-relaxed font-light mx-auto md:mx-0 italic">"Consultoria tecnológica de elite baseada em Guarulhos/SP."</p>
                 </div>
                 <div>
-                    <h6 class="text-white font-bold mb-8 text-xs uppercase tracking-widest">Navegação</h6>
-                    <ul class="text-zinc-500 text-sm space-y-4">
-                        <li><a href="index.html" class="hover:text-brand-primary transition-colors">Início</a></li>
-                        <li><a href="software-factory.html" class="hover:text-brand-primary transition-colors text-white">Software Factory</a></li>
-                        <li><a href="index.html#cases" class="hover:text-brand-primary transition-colors">Cases</a></li>
+                    <h6 class="text-white font-bold mb-8 text-sm uppercase tracking-widest">Menu de Apoio</h6>
+                    <ul class="text-zinc-500 text-sm space-y-4 font-bold">
+                        <li><a href="home.html" class="hover:text-brand-primary transition-colors">Início</a></li>
+                        <li><a href="case.html" class="hover:text-brand-primary transition-colors">Casos de Sucesso</a></li>
+                        <li><a href="metodologia.html" class="hover:text-brand-primary transition-colors">Metodologia</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h6 class="text-white font-bold mb-8 text-xs uppercase tracking-widest text-zinc-400">Redes Sociais</h6>
+                    <h6 class="text-white font-bold mb-8 text-sm uppercase tracking-widest text-zinc-400">Siga-nos</h6>
                     <div class="flex justify-center md:justify-start gap-5 text-white">
-                        <a href="https://linkedin.com/company/kodeo-consultoria-tech" target="_blank" class="w-10 h-10 rounded-full border border-zinc-800 flex items-center justify-center hover:border-brand-primary transition-all"><i class="fa-brands fa-linkedin-in text-sm"></i></a>
-                        <a href="https://github.com/jonnyzera" target="_blank" class="w-10 h-10 rounded-full border border-zinc-800 flex items-center justify-center hover:border-brand-primary transition-all"><i class="fa-brands fa-github text-sm"></i></a>
+                        <a href="https://linkedin.com/company/kodeo-consultoria-tech" target="_blank" class="w-10 h-10 rounded-full border border-zinc-800 flex items-center justify-center hover:border-brand-primary transition-all text-sm"><i class="fa-brands fa-linkedin-in text-sm"></i></a>
+                        <a href="https://github.com/jonnyzera" target="_blank" class="w-10 h-10 rounded-full border border-zinc-800 flex items-center justify-center hover:border-brand-primary transition-all text-sm"><i class="fa-brands fa-github text-sm"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="pt-8 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase font-bold tracking-[0.2em] text-zinc-600">
+            <div class="pt-10 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] uppercase font-bold tracking-[0.2em] text-zinc-600">
                 <p>&copy; 2025 Kodeo Consultoria. Todos os direitos reservados.</p>
                 <div class="flex gap-10">
                     <a href="#" class="hover:text-white transition-colors">Privacidade</a>
@@ -369,7 +376,7 @@
 
     <!-- Flutuantes -->
     <div class="fixed bottom-8 right-8 flex flex-col gap-4 z-[100]">
-        <button id="btn-top" class="w-11 h-11 bg-zinc-800 text-white rounded-full flex items-center justify-center shadow-2xl border border-zinc-700 hover:bg-zinc-700 transition-all" title="Voltar ao Topo">
+        <button id="btn-top" class="w-11 h-11 bg-zinc-800 text-white rounded-full flex items-center justify-center shadow-2xl border border-zinc-700 hover:bg-zinc-700 transition-all">
             <i class="fa-solid fa-arrow-up text-sm"></i>
         </button>
         <a href="https://api.whatsapp.com/send?phone=5511980960531" target="_blank" class="w-14 h-14 bg-[#25d366] text-white rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 active:scale-95 transition-all shadow-green-500/20">

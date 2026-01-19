@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-pt" class="scroll-smooth">
+<html lang="pt-br" class="scroll-smooth">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -96,43 +96,43 @@
 </head>
 <body class="mesh-gradient text-zinc-300 antialiased font-sans">
 
-    <!-- Header (Padronizado e Centralizado) -->
+    <!-- Header (Padronizado KODEO) -->
     <header class="fixed top-0 w-full z-50 glass-nav transition-all duration-300">
         <nav class="container mx-auto px-6 py-4 flex items-center justify-between relative">
             <!-- Logo -->
-            <a href="index.html" class="flex items-center gap-2 group z-10">
-                <svg width="32" height="32" viewBox="0 0 100 100">
+            <a href="home.html" class="flex items-center gap-2 group z-10 text-white">
+                <svg width="32" height="32" viewBox="0 0 100 100" class="transition-transform group-hover:rotate-12">
                     <path d="M 50 50 L 15 30 L 15 70 Z" fill="#8257e5" />
                     <path d="M 50 50 L 15 70 L 85 70 Z" fill="#04d361" />
                     <path d="M 50 50 L 85 70 L 85 30 Z" fill="#ff9900" />
                     <path d="M 50 50 L 85 30 L 15 30 Z" fill="#8257e5" />
                 </svg>
-                <span class="font-display text-xl font-extrabold tracking-tighter text-white uppercase">KODEO</span>
+                <span class="font-display text-xl font-extrabold tracking-tighter uppercase">KODEO</span>
             </a>
 
             <!-- Menu Principal Centralizado -->
-            <div class="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-10 text-[16px] font-bold text-white/90">
-                <a href="index.html" class="hover:text-brand-primary transition-colors whitespace-nowrap">Home</a>
+            <div class="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-8 text-[16px] font-bold text-white/90">
+                <a href="home.html" class="hover:text-brand-primary transition-colors whitespace-nowrap">Home</a>
                 <div class="relative group">
-                    <button class="hover:text-brand-primary transition-colors flex items-center gap-1 uppercase tracking-tight whitespace-nowrap">
+                    <button class="hover:text-brand-primary transition-colors flex items-center gap-1 whitespace-nowrap">
                         Soluções <i class="fa-solid fa-chevron-down text-[10px]"></i>
                     </button>
-                    <div class="absolute top-full left-0 mt-3 w-56 bg-zinc-900 border border-zinc-800 rounded-2xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all shadow-2xl text-sm font-medium">
-                        <a href="software-factory.html" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Software Factory</a>
-                        <a href="agente.html" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl text-white/80">Agentes de IA</a>
-                        <a href="growth.html" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl text-white/80">Growth & Ads</a>
-                        <a href="negocios.html" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Pequenos Negócios</a>
+                    <div class="absolute top-full left-0 mt-3 w-64 bg-zinc-900 border border-zinc-800 rounded-2xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all shadow-2xl text-sm font-medium">
+                        <a href="softwarefactory.html" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Software Factory</a>
+                        <a href="agente.html" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Agentes de IA</a>
+                        <a href="growth.html" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Growth & Ads</a>
+                        <a href="home.html#servicos" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Pequenos Negócios</a>
                     </div>
                 </div>
-                <a href="cases.html" class="hover:text-brand-primary transition-colors whitespace-nowrap">Cases</a>
-                <a href="#" class="text-brand-primary transition-colors whitespace-nowrap font-bold">Metodologia</a>
+                <a href="case.html" class="hover:text-brand-primary transition-colors whitespace-nowrap">Cases</a>
+                <a href="metodologia.html" class="text-brand-primary transition-colors whitespace-nowrap font-bold">Metodologia</a>
             </div>
 
-            <!-- Ações -->
+            <!-- Lado Direito: Ações -->
             <div class="flex items-center gap-6 z-10 text-readable">
                 <div class="hidden lg:flex items-center gap-8 text-[16px] font-bold">
-                    <a href="#" class="hover:text-white transition-colors text-white/90 font-bold whitespace-nowrap">Login</a>
-                    <a href="https://api.whatsapp.com/send?phone=5511980960531" class="bg-white text-black px-7 py-3 rounded-full hover:bg-brand-primary hover:text-white transition-all shadow-lg active:scale-95 whitespace-nowrap font-bold">
+                    <a href="login.html" class="hover:text-white transition-colors text-white/90 font-bold whitespace-nowrap">Login</a>
+                    <a href="https://api.whatsapp.com/send?phone=5511980960531" target="_blank" class="bg-white text-black px-7 py-3 rounded-full hover:bg-brand-primary hover:text-white transition-all shadow-lg active:scale-95 whitespace-nowrap">
                         Falar com Especialista
                     </a>
                 </div>
@@ -148,20 +148,20 @@
             <button id="menu-close" class="w-10 h-10 flex items-center justify-center rounded-full bg-zinc-800 text-white"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <div class="flex flex-col gap-8 text-3xl font-bold font-display text-white text-center">
-            <a href="index.html" class="mobile-link">Home</a>
-            <a href="cases.html" class="mobile-link text-zinc-500">Cases</a>
-            <a href="software-factory.html" class="mobile-link text-zinc-500">Software Factory</a>
-            <a href="#" class="mobile-link text-brand-primary font-bold">Metodologia</a>
+            <a href="home.html" class="mobile-link">Home</a>
+            <a href="case.html" class="mobile-link text-zinc-500">Cases</a>
+            <a href="softwarefactory.html" class="mobile-link text-zinc-500">Software Factory</a>
+            <a href="metodologia.html" class="mobile-link text-brand-primary font-bold">Metodologia</a>
         </div>
         <div class="mt-auto">
-            <a href="https://api.whatsapp.com/send?phone=5511980960531" class="block w-full bg-brand-primary text-white text-center py-5 rounded-2xl font-bold text-lg shadow-xl">Iniciar Diagnóstico</a>
+            <a href="https://api.whatsapp.com/send?phone=5511980960531" target="_blank" class="block w-full bg-brand-primary text-white text-center py-5 rounded-2xl font-bold text-lg shadow-xl">Iniciar Diagnóstico</a>
         </div>
     </div>
 
     <main>
         <!-- Hero Section -->
         <section class="relative pt-40 pb-20 md:pt-56 md:pb-32 px-6">
-            <div class="container mx-auto text-center relative z-10 text-readable">
+            <div class="container mx-auto text-center relative z-10">
                 <span class="inline-block bg-brand-primary/10 border border-brand-primary/20 text-brand-primary px-4 py-1.5 rounded-full text-[10px] font-black mb-6 uppercase tracking-[0.3em]">Cultura de Excelência</span>
                 <h1 class="font-display text-4xl md:text-8xl text-white font-extrabold leading-tight tracking-tighter mb-8 uppercase">
                     Como Nós <br> <span class="text-brand-primary uppercase">Trabalhamos.</span>
@@ -184,8 +184,7 @@
                     <!-- Passo 1: Imersão -->
                     <div class="step-card bg-brand-card border border-zinc-800 p-8 rounded-[3rem] group">
                         <div class="img-container h-56 mb-8">
-                            <!-- Image of Reunião Estratégica e Planeamento -->
-                            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=2070" class="w-full h-full object-cover img-zoom opacity-50 grayscale group-hover:grayscale-0 group-hover:opacity-100" alt="Fase de Imersão">
+                            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=2070" class="w-full h-full object-cover img-zoom opacity-50 grayscale group-hover:grayscale-0 group-hover:opacity-100" alt="Imersão e Discovery">
                         </div>
                         <div class="flex items-center gap-4 mb-6">
                             <span class="text-4xl font-display font-black text-brand-primary opacity-30">01</span>
@@ -196,11 +195,11 @@
                         </p>
                     </div>
 
-                    <!-- Passo 2: Arquitetura -->
+                    <!-- Passo 2: Arquitetura (IMAGEM CORRIGIDA) -->
                     <div class="step-card bg-brand-card border border-zinc-800 p-8 rounded-[3rem] group">
                         <div class="img-container h-56 mb-8">
-                            <!-- Image of Desenho de Arquitetura de Sistemas -->
-                            <img src="https://images.unsplash.com/photo-1551288049-bbbda536339a?auto=format&fit=crop&q=80&w=2070" class="w-full h-full object-cover img-zoom opacity-50 grayscale group-hover:grayscale-0 group-hover:opacity-100" alt="Fase de Arquitetura">
+                            <!-- Nova imagem de Arquitetura de Software e Fluxos Técnicos -->
+                            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=2070" class="w-full h-full object-cover img-zoom opacity-50 grayscale group-hover:grayscale-0 group-hover:opacity-100" alt="Arquitetura de Elite">
                         </div>
                         <div class="flex items-center gap-4 mb-6">
                             <span class="text-4xl font-display font-black text-brand-primary opacity-30">02</span>
@@ -214,60 +213,56 @@
                     <!-- Passo 3: Engenharia -->
                     <div class="step-card bg-brand-card border border-zinc-800 p-8 rounded-[3rem] group">
                         <div class="img-container h-56 mb-8">
-                            <!-- Image of Equipa de Engenharia de Software no Código -->
-                            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=2070" class="w-full h-full object-cover img-zoom opacity-50 grayscale group-hover:grayscale-0 group-hover:opacity-100" alt="Fase de Engenharia">
+                            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=2070" class="w-full h-full object-cover img-zoom opacity-50 grayscale group-hover:grayscale-0 group-hover:opacity-100" alt="Engenharia de Software">
                         </div>
                         <div class="flex items-center gap-4 mb-6">
                             <span class="text-4xl font-display font-black text-brand-primary opacity-30">03</span>
                             <h3 class="text-2xl font-bold text-white uppercase tracking-tighter">Engenharia Ágil</h3>
                         </div>
                         <p class="text-zinc-400 font-light leading-relaxed">
-                            Desenvolvimento Full Stack (Java, Python, Web) com entregas quinzenais (Sprints). Você vê o progresso do software em tempo real.
+                            Desenvolvimento Full Stack com entregas quinzenais (Sprints). Você acompanha o progresso do software em tempo real através do nosso portal.
                         </p>
                     </div>
 
                     <!-- Passo 4: QA e Testes -->
                     <div class="step-card bg-brand-card border border-zinc-800 p-8 rounded-[3rem] group">
                         <div class="img-container h-56 mb-8">
-                            <!-- Image of Testes Automatizados e Monitorização -->
-                            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=2070" class="w-full h-full object-cover img-zoom opacity-50 grayscale group-hover:grayscale-0 group-hover:opacity-100" alt="Fase de QA">
+                            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=2070" class="w-full h-full object-cover img-zoom opacity-50 grayscale group-hover:grayscale-0 group-hover:opacity-100" alt="Qualidade e Testes">
                         </div>
                         <div class="flex items-center gap-4 mb-6">
                             <span class="text-4xl font-display font-black text-brand-primary opacity-30">04</span>
                             <h3 class="text-2xl font-bold text-white uppercase tracking-tighter">QA & Stress Tests</h3>
                         </div>
                         <p class="text-zinc-400 font-light leading-relaxed">
-                            Submetemos o software a testes rigorosos de carga e segurança. Garantimos que o sistema aguente picos massivos de tráfego.
+                            Submetemos o software a testes rigorosos de carga e segurança. Garantimos que o sistema suporte picos massivos de tráfego sem oscilações.
                         </p>
                     </div>
 
                     <!-- Passo 5: Deploy Cloud -->
                     <div class="step-card bg-brand-card border border-zinc-800 p-8 rounded-[3rem] group">
                         <div class="img-container h-56 mb-8">
-                            <!-- Image of Infraestrutura Cloud AWS Azure -->
-                            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2072" class="w-full h-full object-cover img-zoom opacity-50 grayscale group-hover:grayscale-0 group-hover:opacity-100" alt="Fase de Deploy">
+                            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2072" class="w-full h-full object-cover img-zoom opacity-50 grayscale group-hover:grayscale-0 group-hover:opacity-100" alt="Cloud Master">
                         </div>
                         <div class="flex items-center gap-4 mb-6">
                             <span class="text-4xl font-display font-black text-brand-primary opacity-30">05</span>
                             <h3 class="text-2xl font-bold text-white uppercase tracking-tighter">Deploy & Cloud Master</h3>
                         </div>
                         <p class="text-zinc-400 font-light leading-relaxed">
-                            Colocamos o seu sistema no ar em infraestruturas robustas (AWS/Google/Azure) com monitorização 24/7 e redundância total.
+                            Colocamos o seu sistema no ar em infraestruturas robustas (AWS/Google/Azure) com monitorização 24/7 e redundância total de dados.
                         </p>
                     </div>
 
                     <!-- Passo 6: Growth & IA -->
                     <div class="step-card bg-brand-card border border-zinc-800 p-8 rounded-[3rem] group">
                         <div class="img-container h-56 mb-8">
-                            <!-- Image of Crescimento de Negócios e IA -->
-                            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=2070" class="w-full h-full object-cover img-zoom opacity-50 grayscale group-hover:grayscale-0 group-hover:opacity-100" alt="Fase de Escala">
+                            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=2070" class="w-full h-full object-cover img-zoom opacity-50 grayscale group-hover:grayscale-0 group-hover:opacity-100" alt="Escala com IA">
                         </div>
                         <div class="flex items-center gap-4 mb-6">
                             <span class="text-4xl font-display font-black text-brand-primary opacity-30">06</span>
                             <h3 class="text-2xl font-bold text-white uppercase tracking-tighter">Escala & Evolução</h3>
                         </div>
                         <p class="text-zinc-400 font-light leading-relaxed">
-                            Implementamos estratégias de Growth e Agentes de IA para escalar o seu faturamento continuamente. O software nunca para de evoluir.
+                            Implementamos estratégias de Growth e Agentes de IA para escalar o seu faturamento continuamente. O software é um ativo vivo.
                         </p>
                     </div>
 
@@ -281,12 +276,11 @@
                 <div class="grid lg:grid-cols-2 gap-20 items-center">
                     <div class="relative group">
                         <div class="absolute -inset-10 bg-brand-primary/10 blur-[120px] rounded-full"></div>
-                        <!-- Image of Programadores de Elite em Colaboração -->
-                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=2070" class="relative rounded-[3.5rem] border border-zinc-800 shadow-2xl h-[600px] w-full object-cover grayscale hover:grayscale-0 transition-all duration-700" alt="Equipa Técnica Kodeo">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=2070" class="relative rounded-[3.5rem] border border-zinc-800 shadow-2xl h-[600px] w-full object-cover grayscale hover:grayscale-0 transition-all duration-700" alt="Equipa de Engenharia">
                     </div>
                     <div class="text-readable">
                         <h2 class="text-brand-accent font-bold uppercase tracking-[0.2em] text-[11px] mb-6">Nosso Diferencial</h2>
-                        <h3 class="text-4xl md:text-6xl font-display text-white font-extrabold leading-tight tracking-tighter mb-10 uppercase italic text-readable">
+                        <h3 class="text-4xl md:text-6xl font-display text-white font-extrabold leading-tight tracking-tighter mb-10 uppercase italic">
                             O Rigor da <br> <span class="text-zinc-600">Engenharia B2B.</span>
                         </h3>
                         <div class="space-y-8">
@@ -296,7 +290,7 @@
                                 </div>
                                 <div>
                                     <h4 class="text-white font-bold uppercase text-sm mb-2 tracking-widest">Versionamento & CI/CD</h4>
-                                    <p class="text-zinc-500 text-base font-light leading-relaxed">Cada atualização é testada automaticamente e versionada, garantindo reversão instantânea se necessário.</p>
+                                    <p class="text-zinc-500 text-base font-light leading-relaxed">Cada atualização é testada automaticamente e versionada, garantindo segurança total em cada deploy.</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-6">
@@ -305,7 +299,7 @@
                                 </div>
                                 <div>
                                     <h4 class="text-white font-bold uppercase text-sm mb-2 tracking-widest">Clean Architecture</h4>
-                                    <p class="text-zinc-500 text-base font-light leading-relaxed">Código escrito para durar. Arquitetura modular que permite trocar componentes sem quebrar o sistema.</p>
+                                    <p class="text-zinc-500 text-base font-light leading-relaxed">Código escrito para durar. Arquitetura modular que facilita a manutenção e evolução do projeto.</p>
                                 </div>
                             </div>
                         </div>
@@ -319,9 +313,9 @@
             <div class="container mx-auto max-w-6xl text-center text-readable">
                 <div class="bg-gradient-to-br from-indigo-900 to-brand-dark rounded-[4rem] p-12 md:p-28 relative overflow-hidden border border-white/5 shadow-2xl">
                     <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 50px 50px;"></div>
-                    <h2 class="text-4xl md:text-7xl font-display text-white font-extrabold leading-tight tracking-tighter uppercase uppercase">Preparado para <br> <span class="text-brand-accent italic font-light lowercase">mudar de nível?</span></h2>
+                    <h2 class="text-4xl md:text-7xl font-display text-white font-extrabold leading-tight tracking-tighter uppercase">Preparado para <br> <span class="text-brand-accent italic font-light lowercase">mudar de nível?</span></h2>
                     <p class="text-white/70 text-lg md:text-2xl mb-14 max-w-2xl mx-auto font-light leading-relaxed">
-                        Agende uma reunião técnica e descubra como a nossa metodologia pode acelerar o seu produto.
+                        Agende uma reunião técnica e descubra como a nossa metodologia pode acelerar o seu produto digital.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-6 justify-center">
                         <a href="https://api.whatsapp.com/send?phone=5511980960531" target="_blank" class="bg-brand-accent text-zinc-950 px-12 py-5 rounded-full font-bold text-xl hover:scale-105 transition-all active:scale-95 uppercase tracking-widest shadow-2xl">
@@ -333,10 +327,10 @@
         </section>
     </main>
 
-    <!-- Footer -->
+    <!-- Footer (Padronizado KODEO) -->
     <footer class="py-24 bg-brand-dark border-t border-zinc-900 px-6">
-        <div class="container mx-auto text-center md:text-left text-readable">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
+        <div class="container mx-auto text-center md:text-left">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20 text-readable">
                 <div class="col-span-1 md:col-span-2">
                     <div class="flex items-center justify-center md:justify-start gap-3 mb-8">
                         <svg width="28" height="28" viewBox="0 0 100 100">
@@ -347,25 +341,25 @@
                         </svg>
                         <span class="font-display text-xl font-bold text-white tracking-tighter uppercase">KODEO</span>
                     </div>
-                    <p class="text-zinc-500 text-lg max-w-md leading-relaxed font-light mx-auto md:mx-0 italic">"Engenharia Full Stack e Metodologias Ágeis focadas em escalar negócios de elite."</p>
+                    <p class="text-zinc-500 text-lg max-w-md leading-relaxed font-light mx-auto md:mx-0 italic">"Consultoria tecnológica de elite baseada em Guarulhos/SP."</p>
                 </div>
                 <div>
-                    <h6 class="text-white font-bold mb-8 text-sm uppercase tracking-widest">Navegação</h6>
-                    <ul class="text-zinc-500 text-sm space-y-4">
-                        <li><a href="index.html" class="hover:text-brand-primary transition-colors">Página Inicial</a></li>
-                        <li><a href="software-factory.html" class="hover:text-brand-primary transition-colors">Software Factory</a></li>
-                        <li><a href="cases.html" class="hover:text-brand-primary transition-colors">Cases de Sucesso</a></li>
+                    <h6 class="text-white font-bold mb-8 text-sm uppercase tracking-widest">Menu de Apoio</h6>
+                    <ul class="text-zinc-500 text-sm space-y-4 font-bold">
+                        <li><a href="home.html" class="hover:text-brand-primary transition-colors">Início</a></li>
+                        <li><a href="case.html" class="hover:text-brand-primary transition-colors">Casos de Sucesso</a></li>
+                        <li><a href="metodologia.html" class="hover:text-brand-primary transition-colors">Metodologia</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h6 class="text-white font-bold mb-8 text-sm uppercase tracking-widest text-zinc-400">Social</h6>
+                    <h6 class="text-white font-bold mb-8 text-sm uppercase tracking-widest text-zinc-400">Siga-nos</h6>
                     <div class="flex justify-center md:justify-start gap-5 text-white">
                         <a href="https://linkedin.com/company/kodeo-consultoria-tech" target="_blank" class="w-10 h-10 rounded-full border border-zinc-800 flex items-center justify-center hover:border-brand-primary transition-all text-sm"><i class="fa-brands fa-linkedin-in text-sm"></i></a>
                         <a href="https://github.com/jonnyzera" target="_blank" class="w-10 h-10 rounded-full border border-zinc-800 flex items-center justify-center hover:border-brand-primary transition-all text-sm"><i class="fa-brands fa-github text-sm"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="pt-8 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase font-bold tracking-[0.2em] text-zinc-600">
+            <div class="pt-10 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] uppercase font-bold tracking-[0.2em] text-zinc-600">
                 <p>&copy; 2025 Kodeo Consultoria. Todos os direitos reservados.</p>
                 <div class="flex gap-10">
                     <a href="#" class="hover:text-white transition-colors">Privacidade</a>
@@ -377,7 +371,7 @@
 
     <!-- Flutuantes -->
     <div class="fixed bottom-8 right-8 flex flex-col gap-4 z-[100]">
-        <button id="btn-top" class="w-11 h-11 bg-zinc-800 text-white rounded-full flex items-center justify-center shadow-2xl border border-zinc-700 hover:bg-zinc-700 transition-all" title="Voltar ao Topo">
+        <button id="btn-top" class="w-11 h-11 bg-zinc-800 text-white rounded-full flex items-center justify-center shadow-2xl border border-zinc-700 hover:bg-zinc-700 transition-all">
             <i class="fa-solid fa-arrow-up text-sm"></i>
         </button>
         <a href="https://api.whatsapp.com/send?phone=5511980960531" target="_blank" class="w-14 h-14 bg-[#25d366] text-white rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 active:scale-95 transition-all shadow-green-500/20">
@@ -386,6 +380,18 @@
     </div>
 
     <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const menuClose = document.getElementById('menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        const openMenu = () => { mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; };
+        const closeMenu = () => { mobileMenu.classList.remove('open'); document.body.style.overflow = ''; };
+
+        menuToggle?.addEventListener('click', openMenu);
+        menuClose?.addEventListener('click', closeMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+
         const btnTop = document.getElementById('btn-top');
         const header = document.querySelector('header');
 
@@ -403,13 +409,6 @@
         });
 
         btnTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuClose = document.getElementById('menu-close');
-
-        menuToggle?.addEventListener('click', () => { mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; });
-        menuClose?.addEventListener('click', () => { mobileMenu.classList.remove('open'); document.body.style.overflow = ''; });
     </script>
 </body>
 </html>

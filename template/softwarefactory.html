@@ -87,10 +87,10 @@
 </head>
 <body class="mesh-gradient text-zinc-300 antialiased font-sans">
 
-    <!-- Header (Centralizado e Padronizado) -->
+    <!-- Header -->
     <header class="fixed top-0 w-full z-50 glass-nav transition-all duration-300">
         <nav class="container mx-auto px-6 py-4 flex items-center justify-between relative">
-            <a href="index.html" class="flex items-center gap-2 group z-10">
+            <a href="home.html" class="flex items-center gap-2 group z-10">
                 <svg width="32" height="32" viewBox="0 0 100 100">
                     <path d="M 50 50 L 15 30 L 15 70 Z" fill="#8257e5" />
                     <path d="M 50 50 L 15 70 L 85 70 Z" fill="#04d361" />
@@ -100,27 +100,29 @@
                 <span class="font-display text-xl font-extrabold tracking-tighter text-white">KODEO</span>
             </a>
 
-            <!-- Menu Principal Centralizado -->
+            <!-- Menu Principal -->
             <div class="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-10 text-[16px] font-bold text-white/90">
-                <a href="index.html" class="hover:text-brand-primary transition-colors whitespace-nowrap">Home</a>
+                <a href="home.html" class="hover:text-brand-primary transition-colors whitespace-nowrap">Home</a>
                 <div class="relative group">
-                    <button class="text-brand-primary flex items-center gap-1 uppercase tracking-tight whitespace-nowrap">
+                    <!-- Texto ajustado para Soluções (sem uppercase forçado) -->
+                    <button class="text-brand-primary flex items-center gap-1 tracking-tight whitespace-nowrap">
                         Soluções <i class="fa-solid fa-chevron-down text-[10px]"></i>
                     </button>
                     <div class="absolute top-full left-0 mt-3 w-56 bg-zinc-900 border border-zinc-800 rounded-2xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all shadow-2xl text-sm font-medium">
-                        <a href="#" class="block px-4 py-2 bg-zinc-800 rounded-xl text-brand-primary font-bold">Software Factory</a>
-                        <a href="index.html#servicos" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Agentes de IA</a>
-                        <a href="index.html#servicos" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Growth & Ads</a>
+                        <a href="softwarefactory.html" class="block px-4 py-2 bg-zinc-800 rounded-xl text-brand-primary font-bold">Software Factory</a>
+                        <a href="agente.html" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Agentes de IA</a>
+                        <a href="growth.html" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Growth & Ads</a>
+                        <a href="home.html#servicos" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Pequenos Negócios</a>
                     </div>
                 </div>
-                <a href="index.html#cases" class="hover:text-brand-primary transition-colors whitespace-nowrap">Cases</a>
-                <a href="index.html#metodologia" class="hover:text-brand-primary transition-colors whitespace-nowrap">Metodologia</a>
+                <a href="case.html" class="hover:text-brand-primary transition-colors whitespace-nowrap">Cases</a>
+                <a href="metodologia.html" class="hover:text-brand-primary transition-colors whitespace-nowrap">Metodologia</a>
             </div>
 
             <!-- Ações -->
             <div class="flex items-center gap-6 z-10">
                 <div class="hidden lg:flex items-center gap-8 text-[16px] font-bold">
-                    <a href="#" class="hover:text-white transition-colors text-white/90">Login</a>
+                    <a href="login.html" class="hover:text-white transition-colors text-white/90">Login</a>
                     <a href="https://api.whatsapp.com/send?phone=5511980960531" class="bg-white text-black px-7 py-3 rounded-full hover:bg-brand-primary hover:text-white transition-all shadow-lg active:scale-95">
                         Falar com Especialista
                     </a>
@@ -137,10 +139,11 @@
             <button id="menu-close" class="w-10 h-10 flex items-center justify-center rounded-full bg-zinc-800 text-white"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <div class="flex flex-col gap-8 text-3xl font-bold font-display text-white text-center">
-            <a href="index.html" class="mobile-link">Home</a>
-            <a href="#" class="mobile-link text-brand-primary font-bold">Software Factory</a>
-            <a href="index.html#servicos" class="mobile-link text-zinc-500">Agentes de IA</a>
-            <a href="index.html#cases" class="mobile-link text-zinc-500">Cases</a>
+            <a href="home.html" class="mobile-link">Home</a>
+            <a href="softwarefactory.html" class="mobile-link text-brand-primary font-bold">Software Factory</a>
+            <a href="agente.html" class="mobile-link text-zinc-500">Agentes de IA</a>
+            <a href="case.html" class="mobile-link text-zinc-500">Cases</a>
+            <a href="metodologia.html" class="mobile-link text-zinc-500">Metodologia</a>
         </div>
         <div class="mt-auto">
             <a href="https://api.whatsapp.com/send?phone=5511980960531" class="block w-full bg-brand-primary text-white text-center py-5 rounded-2xl font-bold text-lg">Iniciar Orçamento</a>
@@ -170,7 +173,6 @@
                     </div>
                     <div class="relative group">
                         <div class="absolute -inset-4 bg-brand-primary/20 blur-[100px] rounded-full"></div>
-                        <!-- Imagem: Engenharia de Software B2B -->
                         <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=2070" alt="Software Engineering Team" class="relative rounded-[3rem] border border-zinc-800 shadow-2xl img-card grayscale hover:grayscale-0 transition-all duration-700 h-[550px] w-full object-cover">
                     </div>
                 </div>
@@ -210,7 +212,7 @@
             </div>
         </section>
 
-        <!-- Nossa Estrutura (Sistemas que não falham) -->
+        <!-- Nossa Estrutura -->
         <section id="estrutura" class="py-32 px-6">
             <div class="container mx-auto">
                 <div class="text-center max-w-3xl mx-auto mb-24">
@@ -226,7 +228,7 @@
                             </div>
                             <div>
                                 <h4 class="text-2xl font-bold text-white mb-4 font-display uppercase tracking-tight">Arquitetura de Microserviços</h4>
-                                <p class="text-zinc-400 font-light leading-relaxed">Desmembramos processos complexos em serviços independentes e leves, facilitando a manutenção e garantindo que sua aplicação nunca fique fora do ar por completo.</p>
+                                <p class="text-zinc-400 font-light leading-relaxed">Desmembramos processos complexos em serviços independentes e leves, facilitando a manutenção e garantindo alta disponibilidade.</p>
                             </div>
                         </div>
 
@@ -236,7 +238,7 @@
                             </div>
                             <div>
                                 <h4 class="text-2xl font-bold text-white mb-4 font-display uppercase tracking-tight">Cloud Native & DevSecOps</h4>
-                                <p class="text-zinc-400 font-light leading-relaxed">Nativo na nuvem desde o dia zero. Implementamos pipelines de CI/CD automatizados com camadas rigorosas de segurança em cada linha de código.</p>
+                                <p class="text-zinc-400 font-light leading-relaxed">Pipelines de CI/CD automatizados com camadas rigorosas de segurança em cada linha de código.</p>
                             </div>
                         </div>
 
@@ -246,16 +248,16 @@
                             </div>
                             <div>
                                 <h4 class="text-2xl font-bold text-white mb-4 font-display uppercase tracking-tight">Modernização Legada</h4>
-                                <p class="text-zinc-400 font-light leading-relaxed">Transformamos seus sistemas antigos e pesados em aplicações modernas e ágeis sem interromper a operação atual da sua empresa.</p>
+                                <p class="text-zinc-400 font-light leading-relaxed">Transformamos seus sistemas antigos em aplicações modernas sem interromper a operação atual.</p>
                             </div>
                         </div>
                     </div>
+                    <!-- Imagem de Data Intelligence Atualizada -->
                     <div class="relative group">
                         <div class="absolute -inset-2 bg-gradient-to-tr from-brand-primary to-brand-accent rounded-[3rem] blur opacity-20 transition-opacity group-hover:opacity-40"></div>
-                        <!-- Imagem: Data Architecture (Arquitetura de Dados) -->
-                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&q=80&w=2232" class="relative rounded-[3rem] border border-zinc-800 shadow-2xl h-[550px] w-full object-cover img-card" alt="Imagem Real de Arquitetura de Dados e Redes Digitais">
+                        <img src="https://i.pinimg.com/736x/09/25/73/09257313adc27bb86de8d1c639be2f85.jpg" class="relative rounded-[3rem] border border-zinc-800 shadow-2xl h-[550px] w-full object-cover img-card" alt="Engenharia de Dados e Data Intelligence">
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent rounded-[3rem]"></div>
-                        <div class="absolute bottom-8 left-8 right-8 text-center md:text-left">
+                        <div class="absolute bottom-8 left-8 right-8">
                             <p class="text-brand-accent font-bold uppercase tracking-[0.3em] text-[10px] mb-2">Data Intelligence</p>
                             <h5 class="text-2xl font-display font-bold text-white uppercase tracking-tighter">Engenharia de Dados & Performance</h5>
                         </div>
@@ -272,32 +274,28 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Java / Spring -->
                     <div class="p-10 bg-brand-card border border-zinc-800 rounded-[2.5rem] img-card text-center">
                         <div class="mb-6 flex justify-center"><i class="fa-brands fa-java text-5xl text-orange-600"></i></div>
                         <h5 class="text-xl font-bold text-white uppercase mb-2">Java / Spring</h5>
-                        <p class="text-zinc-500 text-sm font-light leading-relaxed">Estabilidade Corporativa e segurança de dados.</p>
+                        <p class="text-zinc-500 text-sm font-light leading-relaxed">Estabilidade corporativa e segurança de dados.</p>
                     </div>
 
-                    <!-- PostgreSQL -->
-                    <div class="p-10 bg-brand-card border border-zinc-800 rounded-[2.5rem] img-card text-center text-readable">
+                    <div class="p-10 bg-brand-card border border-zinc-800 rounded-[2.5rem] img-card text-center">
                         <div class="mb-6 flex justify-center"><i class="fa-solid fa-database text-5xl text-brand-accent"></i></div>
                         <h5 class="text-xl font-bold text-white uppercase mb-2">PostgreSQL</h5>
-                        <p class="text-zinc-500 text-sm font-light leading-relaxed">Dados de Alta Performance e integridade garantida.</p>
+                        <p class="text-zinc-500 text-sm font-light leading-relaxed">Integridade e alta performance para grandes volumes.</p>
                     </div>
 
-                    <!-- Docker / K8s -->
                     <div class="p-10 bg-brand-card border border-zinc-800 rounded-[2.5rem] img-card text-center">
                         <div class="mb-6 flex justify-center"><i class="fa-brands fa-docker text-5xl text-blue-500"></i></div>
                         <h5 class="text-xl font-bold text-white uppercase mb-2">Docker / K8s</h5>
-                        <p class="text-zinc-500 text-sm font-light leading-relaxed">Escala Contenerizada para deploys instantâneos.</p>
+                        <p class="text-zinc-500 text-sm font-light leading-relaxed">Escala conteinerizada para deploys instantâneos.</p>
                     </div>
 
-                    <!-- Cloud Master -->
                     <div class="p-10 bg-brand-card border border-zinc-800 rounded-[2.5rem] img-card text-center">
                         <div class="mb-6 flex justify-center"><i class="fa-brands fa-aws text-5xl text-white"></i></div>
                         <h5 class="text-xl font-bold text-white uppercase mb-2">Cloud Master</h5>
-                        <p class="text-zinc-500 text-sm font-light leading-relaxed">Infraestrutura Infinita com alta disponibilidade.</p>
+                        <p class="text-zinc-500 text-sm font-light leading-relaxed">Infraestrutura em nuvem com alta disponibilidade.</p>
                     </div>
                 </div>
             </div>
@@ -309,7 +307,7 @@
                 <div class="bg-gradient-to-br from-indigo-900 to-brand-dark rounded-[4rem] p-12 md:p-28 text-center relative overflow-hidden border border-white/5 shadow-2xl">
                     <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 50px 50px;"></div>
                     <h2 class="text-4xl md:text-7xl font-display text-white mb-10 font-extrabold leading-tight tracking-tighter uppercase uppercase">Vamos digitalizar seu <br> <span class="text-brand-accent italic font-light lowercase">sucesso amanhã?</span></h2>
-                    <p class="text-white/70 text-lg md:text-2xl mb-14 max-w-xl mx-auto font-light leading-relaxed">Sua empresa merece um parceiro que entende de tecnologia e negócios com a mesma profundidade.</p>
+                    <p class="text-white/70 text-lg md:text-2xl mb-14 max-w-xl mx-auto font-light leading-relaxed">Sua empresa merece um parceiro que entende de tecnologia e negócios.</p>
                     <div class="flex flex-col sm:flex-row gap-6 justify-center">
                         <a href="https://api.whatsapp.com/send?phone=5511980960531" target="_blank" class="bg-brand-accent text-zinc-950 px-12 py-5 rounded-full font-bold text-xl hover:shadow-[0_0_40px_-5px_rgba(4,211,97,0.5)] transition-all flex items-center justify-center gap-3 active:scale-95">
                             <i class="fa-brands fa-whatsapp text-2xl text-zinc-950"></i> Iniciar Diagnóstico Grátis
@@ -320,7 +318,7 @@
         </section>
     </main>
 
-    <!-- Footer Corporativo -->
+    <!-- Footer -->
     <footer class="py-24 bg-brand-dark border-t border-zinc-900 px-6">
         <div class="container mx-auto text-center md:text-left">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
@@ -334,14 +332,14 @@
                         </svg>
                         <span class="font-display text-xl font-bold text-white tracking-tighter uppercase">KODEO</span>
                     </div>
-                    <p class="text-zinc-500 text-lg max-w-md leading-relaxed font-light mx-auto md:mx-0 italic">"Consultoria tecnológica de elite baseada em Guarulhos/SP, projetando o amanhã através de engenharia B2B de alta fidelidade."</p>
+                    <p class="text-zinc-500 text-lg max-w-md leading-relaxed font-light mx-auto md:mx-0 italic">"Consultoria tecnológica de elite baseada em Guarulhos/SP."</p>
                 </div>
                 <div>
                     <h6 class="text-white font-bold mb-8 text-sm uppercase tracking-widest">Menu de Apoio</h6>
-                    <ul class="text-zinc-500 text-sm space-y-4">
-                        <li><a href="index.html" class="hover:text-brand-primary transition-colors">Início</a></li>
-                        <li><a href="index.html#cases" class="hover:text-brand-primary transition-colors">Casos de Sucesso</a></li>
-                        <li><a href="index.html#metodologia" class="hover:text-brand-primary transition-colors text-white">Metodologia</a></li>
+                    <ul class="text-zinc-500 text-sm space-y-4 font-bold">
+                        <li><a href="home.html" class="hover:text-brand-primary transition-colors">Início</a></li>
+                        <li><a href="case.html" class="hover:text-brand-primary transition-colors">Casos de Sucesso</a></li>
+                        <li><a href="metodologia.html" class="hover:text-brand-primary transition-colors">Metodologia</a></li>
                     </ul>
                 </div>
                 <div>

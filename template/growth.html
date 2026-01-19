@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-pt" class="scroll-smooth">
+<html lang="pt-br" class="scroll-smooth">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -79,10 +79,12 @@
             opacity: 0;
             visibility: hidden;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(20px);
         }
         #btn-top.show {
             opacity: 1;
             visibility: visible;
+            transform: translateY(0);
         }
 
         #mobile-menu {
@@ -96,11 +98,12 @@
 </head>
 <body class="mesh-gradient text-zinc-300 antialiased font-sans">
 
-    <!-- Header (Centralizado e Padronizado) -->
+    <!-- Header (Padronizado KODEO) -->
     <header class="fixed top-0 w-full z-50 glass-nav transition-all duration-300">
         <nav class="container mx-auto px-6 py-4 flex items-center justify-between relative">
-            <a href="index.html" class="flex items-center gap-2 group z-10">
-                <svg width="32" height="32" viewBox="0 0 100 100">
+            <!-- Lado Esquerdo: Logo -->
+            <a href="home.html" class="flex items-center gap-2 group z-10">
+                <svg width="32" height="32" viewBox="0 0 100 100" class="transition-transform group-hover:rotate-12">
                     <path d="M 50 50 L 15 30 L 15 70 Z" fill="#8257e5" />
                     <path d="M 50 50 L 15 70 L 85 70 Z" fill="#04d361" />
                     <path d="M 50 50 L 85 70 L 85 30 Z" fill="#ff9900" />
@@ -109,32 +112,36 @@
                 <span class="font-display text-xl font-extrabold tracking-tighter text-white uppercase">KODEO</span>
             </a>
 
-            <!-- Menu Principal Centralizado (16px, bold, padronizado) -->
-            <div class="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-10 text-[16px] font-bold text-white/90">
-                <a href="index.html" class="hover:text-brand-primary transition-colors whitespace-nowrap">Home</a>
+            <!-- Centro: Menu Principal -->
+            <div class="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-8 text-[16px] font-bold text-white/90">
+                <a href="home.html" class="hover:text-brand-primary transition-colors text-white whitespace-nowrap">Home</a>
                 <div class="relative group">
-                    <button class="text-brand-accent flex items-center gap-1 uppercase tracking-tight whitespace-nowrap">
+                    <button class="hover:text-brand-accent transition-colors flex items-center gap-1 whitespace-nowrap">
                         Soluções <i class="fa-solid fa-chevron-down text-[10px]"></i>
                     </button>
-                    <div class="absolute top-full left-0 mt-3 w-56 bg-zinc-900 border border-zinc-800 rounded-2xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all shadow-2xl text-sm font-medium">
-                        <a href="software-factory.html" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Software Factory</a>
+                    <!-- Dropdown de Soluções -->
+                    <div class="absolute top-full left-0 mt-3 w-64 bg-zinc-900 border border-zinc-800 rounded-2xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all shadow-2xl text-sm font-medium">
+                        <a href="softwarefactory.html" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Software Factory</a>
                         <a href="agente.html" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Agentes de IA</a>
-                        <a href="#" class="block px-4 py-2 bg-zinc-800 rounded-xl text-brand-accent font-bold">Growth & Ads</a>
+                        <a href="growth.html" class="block px-4 py-2 bg-zinc-800 rounded-xl text-brand-accent font-bold">Growth & Ads</a>
+                        <a href="home.html#servicos" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Pequenos Negócios</a>
                     </div>
                 </div>
-                <a href="index.html#cases" class="hover:text-brand-primary transition-colors whitespace-nowrap">Cases</a>
-                <a href="index.html#metodologia" class="hover:text-brand-primary transition-colors whitespace-nowrap">Metodologia</a>
+                <a href="case.html" class="hover:text-brand-primary transition-colors whitespace-nowrap">Cases</a>
+                <a href="metodologia.html" class="hover:text-brand-primary transition-colors whitespace-nowrap">Metodologia</a>
             </div>
 
-            <!-- Ações -->
+            <!-- Lado Direito: Ações -->
             <div class="flex items-center gap-6 z-10">
-                <div class="hidden lg:flex items-center gap-8 text-[16px] font-bold">
-                    <a href="#" class="hover:text-white transition-colors text-white/90">Login</a>
-                    <a href="https://api.whatsapp.com/send?phone=5511980960531" class="bg-white text-black px-7 py-3 rounded-full hover:bg-brand-primary hover:text-white transition-all shadow-lg active:scale-95">
+                <div class="hidden lg:flex items-center gap-6">
+                    <a href="login.html" class="text-[16px] font-bold hover:text-white transition-colors text-white/90 whitespace-nowrap">Login</a>
+                    <a href="https://api.whatsapp.com/send?phone=5511980960531" target="_blank" class="bg-white text-black px-6 py-2.5 rounded-full hover:bg-brand-primary hover:text-white transition-all shadow-lg active:scale-95 text-[16px] font-bold whitespace-nowrap">
                         Falar com Especialista
                     </a>
                 </div>
-                <button id="menu-toggle" class="lg:hidden flex items-center justify-center w-10 h-10 rounded-full bg-zinc-800/50 border border-zinc-700 text-white"><i class="fa-solid fa-bars-staggered text-lg"></i></button>
+                <button id="menu-toggle" class="lg:hidden flex items-center justify-center w-10 h-10 rounded-full bg-zinc-800/50 border border-zinc-700 text-white transition-all active:scale-90">
+                    <i class="fa-solid fa-bars-staggered text-lg"></i>
+                </button>
             </div>
         </nav>
     </header>
@@ -146,18 +153,19 @@
             <button id="menu-close" class="w-10 h-10 flex items-center justify-center rounded-full bg-zinc-800 text-white"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <div class="flex flex-col gap-8 text-3xl font-bold font-display text-white text-center">
-            <a href="index.html" class="mobile-link">Home</a>
-            <a href="#" class="mobile-link text-brand-accent font-bold">Growth & Ads</a>
+            <a href="home.html" class="mobile-link">Home</a>
+            <a href="growth.html" class="mobile-link text-brand-accent font-bold">Growth & Ads</a>
             <a href="agente.html" class="mobile-link text-zinc-500">Agentes de IA</a>
-            <a href="index.html#cases" class="mobile-link text-zinc-500">Cases</a>
+            <a href="case.html" class="mobile-link text-zinc-500">Cases</a>
+            <a href="metodologia.html" class="mobile-link text-zinc-500">Metodologia</a>
         </div>
         <div class="mt-auto">
-            <a href="https://api.whatsapp.com/send?phone=5511980960531" class="block w-full bg-brand-accent text-zinc-950 text-center py-5 rounded-2xl font-bold text-lg">Escalar Faturamento</a>
+            <a href="https://api.whatsapp.com/send?phone=5511980960531" target="_blank" class="block w-full bg-brand-accent text-zinc-950 text-center py-5 rounded-2xl font-bold text-lg uppercase tracking-widest shadow-lg">Escalar Faturamento</a>
         </div>
     </div>
 
     <main>
-        <!-- Hero Section Integrado -->
+        <!-- Hero Section -->
         <section class="relative pt-40 pb-20 md:pt-56 md:pb-32 px-6 overflow-hidden">
             <div class="container mx-auto">
                 <div class="grid lg:grid-cols-2 gap-16 items-center">
@@ -167,7 +175,7 @@
                             ADS, SEO E <br> <span class="text-brand-accent uppercase">MARKETPLACE.</span>
                         </h1>
                         <p class="text-brand-muted text-lg md:text-xl leading-relaxed mb-10 font-light">
-                            Conectamos sua marca aos maiores canais de venda do mundo. Gerimos o tráfego pago no **Google** e **Meta**, e escalamos sua presença na **Shopee** e **Mercado Livre** com estratégias orientadas a lucro real.
+                            Conectamos sua marca aos maiores canais de venda do mundo. Gerimos o tráfego pago no Google e Meta, e escalamos sua presença na Shopee e Mercado Livre com estratégias orientadas a lucro real.
                         </p>
                         <div class="flex flex-wrap gap-4 items-center">
                             <a href="#performance" class="bg-brand-accent text-zinc-950 px-10 py-4 rounded-full font-bold hover:scale-105 transition-transform shadow-xl shadow-brand-accent/20 uppercase text-sm tracking-widest">Explorar Ecossistema</a>
@@ -175,8 +183,7 @@
                     </div>
                     <div class="relative group img-container">
                         <div class="absolute -inset-4 bg-brand-accent/20 blur-[100px] rounded-full"></div>
-                        <!-- Imagem: Dashboard Global de Performance -->
-                        <img src="https://images.unsplash.com/photo-1551288049-bbbda536339a?auto=format&fit=crop&q=80&w=2070" alt="Dashboard de Performance de Vendas" class="relative rounded-[3rem] border border-zinc-800 shadow-2xl img-zoom grayscale-[20%] hover:grayscale-0 transition-all duration-1000 h-[550px] w-full object-cover">
+                        <img src="https://i.pinimg.com/736x/a1/b3/4f/a1b34f382290229c79e6a36807797bb8.jpg" alt="Dashboard de Performance de Vendas" class="relative rounded-[3rem] border border-zinc-800 shadow-2xl img-zoom grayscale-[20%] hover:grayscale-0 transition-all duration-1000 h-[550px] w-full object-cover">
                         <div class="absolute -bottom-6 -left-6 bg-brand-card border border-zinc-800 p-8 rounded-[2.5rem] shadow-2xl hidden md:block">
                             <p class="text-brand-accent font-bold text-3xl leading-none">+450%</p>
                             <p class="text-[10px] uppercase tracking-widest font-black mt-2 text-zinc-500">ROI Médio em Marketplaces</p>
@@ -186,7 +193,7 @@
             </div>
         </section>
 
-        <!-- Seção: Ads & Marketplaces Juntos (Visual) -->
+        <!-- Seção: Ads & Marketplaces Juntos -->
         <section id="performance" class="py-24 bg-zinc-950/40 px-6">
             <div class="container mx-auto">
                 <div class="text-center mb-20">
@@ -215,8 +222,7 @@
                     <!-- Marketplace Scalability -->
                     <div class="group bg-brand-card border border-zinc-800 rounded-[2.5rem] overflow-hidden img-container border-brand-accent/30">
                         <div class="h-64 overflow-hidden relative">
-                            <!-- Imagem: Logística de Marketplace -->
-                            <img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaad5b?auto=format&fit=crop&q=80&w=2070" class="w-full h-full object-cover img-zoom opacity-50 group-hover:opacity-100 transition-opacity" alt="E-commerce Marketplace Logistics">
+                            <img src="https://i.pinimg.com/736x/a7/d1/8a/a7d18a2b16cdee2719bc6e681fbace8b.jpg" class="w-full h-full object-cover img-zoom opacity-50 group-hover:opacity-100 transition-opacity" alt="E-commerce Marketplace Logistics">
                             <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 to-transparent"></div>
                             <div class="absolute bottom-6 left-8 flex gap-3 text-brand-accent">
                                 <i class="fa-solid fa-cart-shopping text-xl"></i>
@@ -225,7 +231,7 @@
                         </div>
                         <div class="p-10">
                             <h4 class="text-2xl font-bold text-white mb-4 uppercase tracking-tight">Marketplace Growth</h4>
-                            <p class="text-zinc-500 text-sm font-light leading-relaxed">Dominamos os algoritmos da **Shopee** e **Mercado Livre**. Gestão de Ads interno e SEO para produtos que vendem sozinhos.</p>
+                            <p class="text-zinc-500 text-sm font-light leading-relaxed">Dominamos os algoritmos da Shopee e Mercado Livre. Gestão de Ads interno e SEO para produtos que vendem sozinhos.</p>
                         </div>
                     </div>
 
@@ -248,14 +254,13 @@
             </div>
         </section>
 
-        <!-- Seção: Por que o Multicanal da Kodeo? -->
+        <!-- Seção: Nosso Diferencial -->
         <section class="py-32 px-6 overflow-hidden">
             <div class="container mx-auto">
                 <div class="grid lg:grid-cols-2 gap-20 items-center">
                     <div class="relative group img-container">
                         <div class="absolute -inset-10 bg-brand-accent/10 blur-[120px] rounded-full"></div>
-                        <!-- Imagem: Profissional de Growth e Dashboards -->
-                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=2070" class="relative rounded-[3.5rem] border border-zinc-800 shadow-2xl h-[600px] w-full object-cover img-zoom" alt="Estrategista de Growth em ação">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=2070" class="relative rounded-[3.5rem] border border-zinc-800 shadow-2xl h-[600px] w-full object-cover img-zoom" alt="Estrategista de Growth">
                         <div class="absolute inset-0 bg-gradient-to-tr from-brand-accent/20 to-transparent rounded-[3.5rem] pointer-events-none"></div>
                     </div>
                     <div>
@@ -270,7 +275,7 @@
                                 </div>
                                 <div>
                                     <h4 class="text-white font-bold uppercase text-sm mb-2 tracking-widest">Growth Baseado em Tecnologia</h4>
-                                    <p class="text-zinc-500 text-base font-light leading-relaxed">Não somos apenas uma agência. Somos uma empresa de tecnologia que usa scripts, APIs e IA para otimizar seus anúncios de forma que nenhum humano conseguiria.</p>
+                                    <p class="text-zinc-500 text-base font-light leading-relaxed">Não somos apenas uma agência. Usamos scripts, APIs e IA para otimizar seus anúncios em tempo real.</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-6 group">
@@ -279,7 +284,7 @@
                                 </div>
                                 <div>
                                     <h4 class="text-white font-bold uppercase text-sm mb-2 tracking-widest">Especialistas em E-commerce & ML</h4>
-                                    <p class="text-zinc-500 text-base font-light leading-relaxed">Conhecemos as regras do **Mercado Livre** e **Shopee**. Evitamos suspensões, aumentamos sua relevância e colocamos seus produtos na primeira página.</p>
+                                    <p class="text-zinc-500 text-base font-light leading-relaxed">Conhecemos as regras do Mercado Livre e Shopee. Aumentamos sua relevância e colocamos seus produtos no topo.</p>
                                 </div>
                             </div>
                         </div>
@@ -288,16 +293,16 @@
             </div>
         </section>
 
-        <!-- CTA Final Unificado -->
+        <!-- CTA Final -->
         <section class="py-32 px-6">
             <div class="container mx-auto max-w-6xl text-center">
-                <div class="bg-gradient-to-br from-brand-accent/80 to-brand-dark rounded-[4rem] p-12 md:p-28 relative overflow-hidden border border-white/5 shadow-2xl shadow-brand-accent/10">
+                <div class="bg-gradient-to-br from-brand-accent/80 to-brand-dark rounded-[4rem] p-12 md:p-28 relative overflow-hidden border border-white/5 shadow-2xl">
                     <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 50px 50px;"></div>
                     <h2 class="text-4xl md:text-7xl font-display text-zinc-950 font-extrabold leading-tight tracking-tighter uppercase">
                         Sua escala <br> <span class="italic font-light lowercase">começa aqui.</span>
                     </h2>
                     <p class="text-zinc-900 text-lg md:text-2xl mb-14 max-w-2xl mx-auto font-medium mt-6">
-                        Pronto para dominar o Google, Meta e os maiores Marketplaces do mundo? Agende um diagnóstico gratuito.
+                        Pronto para dominar o Google, Meta e os Marketplaces? Agende um diagnóstico gratuito.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-6 justify-center">
                         <a href="https://api.whatsapp.com/send?phone=5511980960531" target="_blank" class="bg-zinc-950 text-white px-12 py-5 rounded-full font-bold text-xl hover:scale-105 transition-all active:scale-95 uppercase tracking-widest shadow-2xl">
@@ -309,12 +314,12 @@
         </section>
     </main>
 
-    <!-- Footer Corporativo -->
+    <!-- Footer (Padronizado KODEO) -->
     <footer class="py-24 bg-brand-dark border-t border-zinc-900 px-6">
         <div class="container mx-auto text-center md:text-left">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
                 <div class="col-span-1 md:col-span-2">
-                    <div class="flex items-center justify-center md:justify-start gap-3 mb-8">
+                    <div class="flex items-center justify-center md:justify-start gap-3 mb-8 text-readable">
                         <svg width="28" height="28" viewBox="0 0 100 100">
                             <path d="M 50 50 L 15 30 L 15 70 Z" fill="#8257e5" />
                             <path d="M 50 50 L 15 70 L 85 70 Z" fill="#04d361" />
@@ -323,25 +328,25 @@
                         </svg>
                         <span class="font-display text-xl font-bold text-white tracking-tighter uppercase">KODEO</span>
                     </div>
-                    <p class="text-zinc-500 text-lg max-w-md leading-relaxed font-light mx-auto md:mx-0 italic">"Projetando o amanhã através de estratégias de Growth Multicanal e Engenharia de Software B2B."</p>
+                    <p class="text-zinc-500 text-lg max-w-md leading-relaxed font-light mx-auto md:mx-0 italic">"Consultoria tecnológica de elite baseada em Guarulhos/SP."</p>
                 </div>
                 <div>
-                    <h6 class="text-white font-bold mb-8 text-sm uppercase tracking-widest">Navegação</h6>
-                    <ul class="text-zinc-500 text-sm space-y-4">
-                        <li><a href="index.html" class="hover:text-brand-primary transition-colors">Página Inicial</a></li>
-                        <li><a href="software-factory.html" class="hover:text-brand-primary transition-colors">Software Factory</a></li>
-                        <li><a href="agente.html" class="hover:text-brand-primary transition-colors">Agentes de IA</a></li>
+                    <h6 class="text-white font-bold mb-8 text-sm uppercase tracking-widest">Menu de Apoio</h6>
+                    <ul class="text-zinc-500 text-sm space-y-4 font-bold">
+                        <li><a href="home.html" class="hover:text-brand-primary transition-colors">Início</a></li>
+                        <li><a href="case.html" class="hover:text-brand-primary transition-colors">Casos de Sucesso</a></li>
+                        <li><a href="metodologia.html" class="hover:text-brand-primary transition-colors">Metodologia</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h6 class="text-white font-bold mb-8 text-sm uppercase tracking-widest text-zinc-400">Social</h6>
+                    <h6 class="text-white font-bold mb-8 text-sm uppercase tracking-widest text-zinc-400">Siga-nos</h6>
                     <div class="flex justify-center md:justify-start gap-5 text-white">
-                        <a href="https://linkedin.com/company/kodeo-consultoria-tech" target="_blank" class="w-10 h-10 rounded-full border border-zinc-800 flex items-center justify-center hover:border-brand-primary transition-all text-sm"><i class="fa-brands fa-linkedin-in"></i></a>
-                        <a href="https://github.com/jonnyzera" target="_blank" class="w-10 h-10 rounded-full border border-zinc-800 flex items-center justify-center hover:border-brand-primary transition-all text-sm"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://linkedin.com/company/kodeo-consultoria-tech" target="_blank" class="w-10 h-10 rounded-full border border-zinc-800 flex items-center justify-center hover:border-brand-primary transition-all"><i class="fa-brands fa-linkedin-in text-sm"></i></a>
+                        <a href="https://github.com/jonnyzera" target="_blank" class="w-10 h-10 rounded-full border border-zinc-800 flex items-center justify-center hover:border-brand-primary transition-all"><i class="fa-brands fa-github text-sm"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="pt-8 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase font-bold tracking-[0.2em] text-zinc-600">
+            <div class="pt-10 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] uppercase font-bold tracking-[0.2em] text-zinc-600">
                 <p>&copy; 2025 Kodeo Consultoria. Todos os direitos reservados.</p>
                 <div class="flex gap-10">
                     <a href="#" class="hover:text-white transition-colors">Privacidade</a>
@@ -351,7 +356,7 @@
         </div>
     </footer>
 
-    <!-- Botões Flutuantes -->
+    <!-- Flutuantes -->
     <div class="fixed bottom-8 right-8 flex flex-col gap-4 z-[100]">
         <button id="btn-top" class="w-11 h-11 bg-zinc-800 text-white rounded-full flex items-center justify-center shadow-2xl border border-zinc-700 hover:bg-zinc-700 transition-all">
             <i class="fa-solid fa-arrow-up text-sm"></i>
