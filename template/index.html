@@ -66,7 +66,6 @@
     </script>
 
     <style>
-        /* Correção de compatibilidade para background-clip */
         .bg-clip-text {
             -webkit-background-clip: text;
             background-clip: text;
@@ -107,7 +106,17 @@
             transform: translateY(0);
         }
 
-        /* Estilo iFood para o Menu Mobile */
+        /* Botões flutuantes: controle de visibilidade (Copiado do login.html) */
+        .floating-controls {
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+        }
+        .floating-controls.hide-important {
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+            transform: scale(0.8);
+        }
+
         #mobile-menu-overlay {
             opacity: 0;
             visibility: hidden;
@@ -149,7 +158,6 @@
     <!-- Header -->
     <header class="fixed top-0 w-full z-50 glass-nav transition-all duration-300">
         <nav class="container mx-auto px-6 py-4 flex items-center justify-between relative">
-            <!-- Lado Esquerdo: Logo -->
             <a href="index.html" class="flex items-center gap-2 group z-10">
                 <svg width="32" height="32" viewBox="0 0 100 100" class="transition-transform group-hover:rotate-12">
                     <path d="M 50 50 L 15 30 L 15 70 Z" fill="#8257e5" />
@@ -160,14 +168,12 @@
                 <span class="font-display text-xl font-extrabold tracking-tighter text-white">KODEO</span>
             </a>
 
-            <!-- Centro: Menu Principal (Desktop) -->
             <div class="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-8 text-[16px] font-bold text-white/90">
                 <a href="index.html" class="hover:text-brand-primary transition-colors text-white whitespace-nowrap">Home</a>
                 <div class="relative group">
                     <button class="hover:text-brand-primary transition-colors flex items-center gap-1 whitespace-nowrap">
                         Soluções <i class="fa-solid fa-chevron-down text-[10px]"></i>
                     </button>
-                    <!-- Dropdown de Soluções -->
                     <div class="absolute top-full left-0 mt-3 w-64 bg-zinc-900 border border-zinc-800 rounded-2xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all shadow-2xl text-sm font-medium">
                         <a href="softwarefactory.html" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Software Factory</a>
                         <a href="agente.html" class="block px-4 py-2 hover:bg-zinc-800 rounded-xl">Agentes de IA</a>
@@ -179,7 +185,6 @@
                 <a href="metodologia.html" class="hover:text-brand-primary transition-colors whitespace-nowrap">Metodologia</a>
             </div>
 
-            <!-- Lado Direito: Ações -->
             <div class="flex items-center gap-6 z-10">
                 <div class="hidden lg:flex items-center gap-6">
                     <a href="login.html" class="text-[16px] font-bold hover:text-white transition-colors text-white/90 whitespace-nowrap">Login</a>
@@ -187,8 +192,6 @@
                         Falar com Especialista
                     </a>
                 </div>
-                
-                <!-- Botão Mobile Ajustado -->
                 <button id="menu-toggle" class="lg:hidden flex items-center justify-center w-11 h-11 rounded-xl bg-zinc-800/80 border border-zinc-700/50 text-white transition-all active:scale-90" aria-label="Menu">
                     <i class="fa-solid fa-bars-staggered text-xl"></i>
                 </button>
@@ -196,11 +199,9 @@
         </nav>
     </header>
 
-    <!-- Menu Mobile Estilo iFood (Overlay + Drawer) -->
-    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] lg:hidden">
+    <!-- Menu Mobile (Z-index 110) -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[110] lg:hidden">
         <div id="mobile-menu-drawer" class="absolute right-0 top-0 h-full w-[85%] max-w-[400px] bg-brand-dark border-l border-zinc-800 p-6 flex flex-col shadow-2xl">
-            
-            <!-- Topo do Menu Mobile -->
             <div class="flex justify-between items-center mb-10 pt-2">
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 rounded-full bg-brand-primary/20 flex items-center justify-center border border-brand-primary/30">
@@ -216,7 +217,6 @@
                 </button>
             </div>
 
-            <!-- Lista de Links Estilo App -->
             <div class="flex flex-col flex-grow overflow-y-auto pr-2 custom-scrollbar">
                 <a href="index.html" class="mobile-link-item">
                     <div class="w-8 flex justify-center text-brand-primary"><i class="fa-solid fa-house-chimney"></i></div>
@@ -260,7 +260,6 @@
                 </div>
             </div>
 
-            <!-- Footer do Menu Mobile (CTA fixo no fim) -->
             <div class="mt-auto pt-6 border-t border-zinc-800">
                 <a href="https://api.whatsapp.com/send?phone=5511980960531" class="flex items-center justify-center gap-3 w-full bg-brand-primary text-white py-4 rounded-2xl font-bold text-[15px] shadow-lg shadow-brand-primary/20 active:scale-95 transition-all">
                     <i class="fa-solid fa-headset"></i>
@@ -291,7 +290,6 @@
                     <a href="case.html" class="w-full sm:w-auto border border-zinc-700 text-white px-8 py-3.5 rounded-full font-bold text-sm hover:bg-zinc-800 transition-colors shadow-lg">Cases de Sucesso</a>
                 </div>
 
-                <!-- Banner Central -->
                 <div class="relative max-w-5xl mx-auto group">
                     <div class="absolute -inset-4 bg-brand-primary/10 blur-[80px] rounded-full"></div>
                     <div class="relative bg-zinc-900 border border-zinc-800 rounded-[2rem] overflow-hidden aspect-video shadow-2xl flex items-center justify-center">
@@ -312,7 +310,7 @@
             </div>
         </section>
 
-        <!-- Trust Bar (Ticker) -->
+        <!-- Trust Bar -->
         <section class="py-12 border-y border-zinc-900 bg-zinc-950/40 overflow-hidden">
             <div class="container mx-auto px-6 relative">
                 <div class="flex animate-infinite-scroll gap-12 md:gap-24 items-center whitespace-nowrap text-zinc-700 hover:text-white transition-colors">
@@ -395,7 +393,7 @@
                 <div class="grid lg:grid-cols-3 gap-8">
                     <div class="group relative bg-brand-card border border-zinc-800 rounded-[2.5rem] overflow-hidden flex flex-col shadow-xl">
                         <div class="h-56 overflow-hidden">
-                            <img src="./img/ecommerce_1.webp" alt="Brilho Shop">
+                            <img src="./img/ecommerce_1.webp" alt="Brilho Shop" class="w-full h-full object-cover">
                         </div>
                         <div class="p-8 flex flex-col flex-grow">
                             <span class="text-[9px] font-black text-brand-primary uppercase tracking-widest bg-brand-primary/10 px-3 py-1 rounded-full self-start">E-commerce Digital</span>
@@ -407,7 +405,7 @@
 
                     <div class="group relative bg-brand-card border border-zinc-800 rounded-[2.5rem] overflow-hidden flex flex-col shadow-xl">
                         <div class="h-56 overflow-hidden">
-                            <img src="./img/jda_tela_Site_img.png" alt="JDA Usinagem">
+                            <img src="./img/jda_tela_Site_img.png" alt="JDA Usinagem" class="w-full h-full object-cover">
                         </div>
                         <div class="p-8 flex flex-col flex-grow">
                             <span class="text-[9px] font-black text-brand-accent uppercase tracking-widest bg-brand-accent/10 px-3 py-1 rounded-full self-start">Indústria & Metalurgia</span>
@@ -419,7 +417,7 @@
 
                     <div class="group relative bg-brand-card border border-zinc-800 rounded-[2.5rem] overflow-hidden flex flex-col shadow-xl">
                         <div class="h-56 overflow-hidden">
-                            <img src="./img/iFoodovers_img.jpg" alt="iFood Lovers">
+                            <img src="./img/iFoodovers_img.jpg" alt="iFood Lovers" class="w-full h-full object-cover">
                         </div>
                         <div class="p-8 flex flex-col flex-grow">
                             <span class="text-[9px] font-black text-orange-500 uppercase tracking-widest bg-orange-500/10 px-3 py-1 rounded-full self-start">Inteligência Artificial</span>
@@ -433,7 +431,7 @@
         </section>
 
         <!-- CTA Final -->
-        <section id="metodologia" class="py-24 px-6 text-readable">
+        <section id="metodologia" class="py-24 px-6">
             <div class="container mx-auto max-w-5xl">
                 <div class="bg-gradient-to-br from-brand-primary to-indigo-900 rounded-[3.5rem] p-12 md:p-24 text-center relative overflow-hidden shadow-2xl">
                     <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
@@ -448,13 +446,12 @@
         </section>
     </main>
 
-    <!-- Footer Reorganizado -->
+    <!-- Footer -->
     <footer class="py-20 bg-brand-dark border-t border-zinc-900 px-6">
         <div class="container mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16 items-start">
-                <!-- Coluna 1: Logo e Descrição (Fica mais a esquerda) -->
                 <div class="md:col-span-5 text-left">
-                    <div class="flex items-center gap-2 mb-6 text-readable">
+                    <div class="flex items-center gap-2 mb-6">
                         <svg width="28" height="28" viewBox="0 0 100 100">
                             <path d="M 50 50 L 15 30 L 15 70 Z" fill="#8257e5"></path>
                             <path d="M 50 50 L 15 70 L 85 70 Z" fill="#04d361"></path>
@@ -466,7 +463,6 @@
                     <p class="text-zinc-500 text-sm max-w-sm leading-relaxed font-light italic">"Transformando tecnologia em faturamento real para empresas através de Software, Engenharia de Dados e Inteligência Artificial."</p>
                 </div>
 
-                <!-- Coluna 2: Serviços (Distribuída no meio) -->
                 <div class="md:col-span-4 text-left">
                     <h6 class="text-white font-bold mb-6 text-xs uppercase tracking-widest border-b border-brand-primary/20 pb-2 inline-block">Soluções Corporativas</h6>
                     <ul class="text-zinc-500 text-sm space-y-4 font-bold">
@@ -477,7 +473,6 @@
                     </ul>
                 </div>
 
-                <!-- Coluna 3: Social e Contato (Fica na ponta direita) -->
                 <div class="md:col-span-3 text-left">
                     <h6 class="text-white font-bold mb-6 text-xs uppercase tracking-widest border-b border-zinc-700 pb-2 inline-block">Conectar</h6>
                     <div class="flex gap-4 text-white mb-8">
@@ -489,7 +484,6 @@
                 </div>
             </div>
 
-            <!-- Bottom Bar -->
             <div class="pt-8 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase font-bold tracking-[0.2em] text-zinc-600">
                 <p>© 2025 Kodeo Consultoria. Todos os direitos reservados.</p>
                 <div class="flex gap-6">
@@ -500,8 +494,8 @@
         </div>
     </footer>
 
-    <!-- Botão de Topo e WhatsApp -->
-    <div class="fixed bottom-6 right-6 flex flex-col gap-3 z-[100]">
+    <!-- Botões de Ação Flutuantes (Sincronizado com login.html) -->
+    <div id="floating-buttons-container" class="floating-controls fixed bottom-6 right-6 flex flex-col gap-3 z-[100]">
         <button id="btn-top" class="w-11 h-11 bg-zinc-800 text-white rounded-full flex items-center justify-center shadow-2xl border border-zinc-700 hover:bg-zinc-700 transition-all">
             <i class="fa-solid fa-arrow-up text-sm"></i>
         </button>
@@ -511,28 +505,37 @@
     </div>
 
     <script>
-        // Lógica do Menu Mobile (Drawer Style iFood)
+        // Lógica do Menu Mobile (Sincronizada com login.html)
         const menuToggle = document.getElementById('menu-toggle');
         const menuClose = document.getElementById('menu-close');
         const mobileOverlay = document.getElementById('mobile-menu-overlay');
         const mobileDrawer = document.getElementById('mobile-menu-drawer');
         const mobileLinks = document.querySelectorAll('.mobile-link-item');
+        
+        // Elemento dos CTAs flutuantes
+        const floatingContainer = document.getElementById('floating-buttons-container');
 
         const openMenu = () => { 
             mobileOverlay.classList.add('open'); 
             mobileDrawer.classList.add('open');
             document.body.style.overflow = 'hidden'; 
+            
+            // Ocultar botões flutuantes usando a classe hide-important (efeito suave do login.html)
+            if (floatingContainer) floatingContainer.classList.add('hide-important');
         };
         
         const closeMenu = () => { 
             mobileDrawer.classList.remove('open');
             mobileOverlay.classList.remove('open'); 
             document.body.style.overflow = ''; 
+            
+            // Mostrar botões flutuantes novamente
+            if (floatingContainer) floatingContainer.classList.remove('hide-important');
         };
 
-        menuToggle.addEventListener('click', openMenu);
-        menuClose.addEventListener('click', closeMenu);
-        mobileOverlay.addEventListener('click', (e) => {
+        menuToggle?.addEventListener('click', openMenu);
+        menuClose?.addEventListener('click', closeMenu);
+        mobileOverlay?.addEventListener('click', (e) => {
             if (e.target === mobileOverlay) closeMenu();
         });
         mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
